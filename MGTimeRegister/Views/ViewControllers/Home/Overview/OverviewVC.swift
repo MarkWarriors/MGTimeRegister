@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class OverviewVC: MGTBaseVC {
-
+    
+    public var viewModel : OverviewViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

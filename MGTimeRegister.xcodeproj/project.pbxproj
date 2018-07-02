@@ -21,20 +21,16 @@
 		90358C2120E98DB500AC726B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90358BFF20E98DB400AC726B /* Login.storyboard */; };
 		90358C2420E98DB500AC726B /* MGTBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0720E98DB400AC726B /* MGTBaseVC.swift */; };
 		90358C2520E98DB500AC726B /* MGTNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0820E98DB400AC726B /* MGTNavigationController.swift */; };
-		90358C2B20E98DB500AC726B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90358C0F20E98DB400AC726B /* Info.plist */; };
 		90358C3020E9900100AC726B /* MGTimeRegister.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90358C2E20E9900100AC726B /* MGTimeRegister.xcdatamodeld */; };
 		90358C3120E9903100AC726B /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0A20E98DB400AC726B /* OverlayView.swift */; };
-		90358C3220E9903100AC726B /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90358C0B20E98DB400AC726B /* AlertView.xib */; };
 		90358C3320E9903100AC726B /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0C20E98DB400AC726B /* AlertView.swift */; };
 		90358C3420E9903100AC726B /* WaitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90358C0D20E98DB400AC726B /* WaitView.xib */; };
 		90358C3520E9903100AC726B /* WaitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0E20E98DB400AC726B /* WaitView.swift */; };
-		90358C3820E9910500AC726B /* MGTButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C3720E9910500AC726B /* MGTButton.swift */; };
 		90358C3B20E9951500AC726B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90358C3920E9951500AC726B /* Home.storyboard */; };
 		90358C3D20E9ABB800AC726B /* SharedInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C3C20E9ABB800AC726B /* SharedInstance.swift */; };
 		90358C4020E9ACA900AC726B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C3F20E9ACA900AC726B /* LoginVC.swift */; };
 		90358C4320E9ACD700AC726B /* OverviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C4220E9ACD700AC726B /* OverviewVC.swift */; };
 		90358C4720E9AD1200AC726B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C4620E9AD1200AC726B /* LoginViewModel.swift */; };
-		90358C4920E9AD2100AC726B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C4820E9AD2100AC726B /* HomeViewModel.swift */; };
 		90358C4B20E9AF0900AC726B /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C4A20E9AF0900AC726B /* ModelController.swift */; };
 		90358C6A20E9B4B100AC726B /* Project+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6020E9B4B100AC726B /* Project+CoreDataClass.swift */; };
 		90358C6B20E9B4B100AC726B /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6120E9B4B100AC726B /* Project+CoreDataProperties.swift */; };
@@ -51,6 +47,10 @@
 		90358C8120EA2A2400AC726B /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C7C20EA2A2300AC726B /* ReportViewModel.swift */; };
 		90358C8220EA2A2400AC726B /* AddTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C7E20EA2A2300AC726B /* AddTimeViewModel.swift */; };
 		90358C8320EA2A2400AC726B /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8020EA2A2400AC726B /* OverviewViewModel.swift */; };
+		90358C8520EA36D700AC726B /* MGTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8420EA36D700AC726B /* MGTError.swift */; };
+		90358C8720EA37C900AC726B /* MGTViewModelSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8620EA37C900AC726B /* MGTViewModelSegue.swift */; };
+		90358C8920EA383400AC726B /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8820EA383400AC726B /* Segues.swift */; };
+		90AF20B920EA4E860026481F /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AF20B820EA4E860026481F /* AlertView.xib */; };
 		EB9843785E5F32005E329E53 /* Pods_MGTimeRegister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B90F95725FA9E8ABCD699D1 /* Pods_MGTimeRegister.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,19 +87,16 @@
 		90358C0720E98DB400AC726B /* MGTBaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTBaseVC.swift; sourceTree = "<group>"; };
 		90358C0820E98DB400AC726B /* MGTNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTNavigationController.swift; sourceTree = "<group>"; };
 		90358C0A20E98DB400AC726B /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
-		90358C0B20E98DB400AC726B /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		90358C0C20E98DB400AC726B /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		90358C0D20E98DB400AC726B /* WaitView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitView.xib; sourceTree = "<group>"; };
 		90358C0E20E98DB400AC726B /* WaitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitView.swift; sourceTree = "<group>"; };
 		90358C0F20E98DB400AC726B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90358C2F20E9900100AC726B /* MGTimeRegister.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MGTimeRegister.xcdatamodel; sourceTree = "<group>"; };
-		90358C3720E9910500AC726B /* MGTButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTButton.swift; sourceTree = "<group>"; };
 		90358C3A20E9951500AC726B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Home.storyboard; sourceTree = "<group>"; };
 		90358C3C20E9ABB800AC726B /* SharedInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedInstance.swift; sourceTree = "<group>"; };
 		90358C3F20E9ACA900AC726B /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		90358C4220E9ACD700AC726B /* OverviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewVC.swift; sourceTree = "<group>"; };
 		90358C4620E9AD1200AC726B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		90358C4820E9AD2100AC726B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		90358C4A20E9AF0900AC726B /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		90358C6020E9B4B100AC726B /* Project+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataClass.swift"; sourceTree = "<group>"; };
 		90358C6120E9B4B100AC726B /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -116,6 +113,10 @@
 		90358C7C20EA2A2300AC726B /* ReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
 		90358C7E20EA2A2300AC726B /* AddTimeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTimeViewModel.swift; sourceTree = "<group>"; };
 		90358C8020EA2A2400AC726B /* OverviewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
+		90358C8420EA36D700AC726B /* MGTError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTError.swift; sourceTree = "<group>"; };
+		90358C8620EA37C900AC726B /* MGTViewModelSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTViewModelSegue.swift; sourceTree = "<group>"; };
+		90358C8820EA383400AC726B /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
+		90AF20B820EA4E860026481F /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		D0917ECA5CFCC0E7A4261922 /* Pods-MGTimeRegister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGTimeRegister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGTimeRegister/Pods-MGTimeRegister.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -268,6 +269,8 @@
 			children = (
 				90358BFB20E98DB400AC726B /* AppDelegate.swift */,
 				90358C3C20E9ABB800AC726B /* SharedInstance.swift */,
+				90358C8420EA36D700AC726B /* MGTError.swift */,
+				90358C8620EA37C900AC726B /* MGTViewModelSegue.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -285,7 +288,6 @@
 		90358C0120E98DB400AC726B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				90358C3620E990ED00AC726B /* CustomViews */,
 				90358C0220E98DB400AC726B /* CollectionCells */,
 				90358C0420E98DB400AC726B /* TableCells */,
 				90358C0620E98DB400AC726B /* ViewControllers */,
@@ -323,7 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				90358C0A20E98DB400AC726B /* OverlayView.swift */,
-				90358C0B20E98DB400AC726B /* AlertView.xib */,
+				90AF20B820EA4E860026481F /* AlertView.xib */,
 				90358C0C20E98DB400AC726B /* AlertView.swift */,
 				90358C0D20E98DB400AC726B /* WaitView.xib */,
 				90358C0E20E98DB400AC726B /* WaitView.swift */,
@@ -339,6 +341,7 @@
 				90358BF820E98DB400AC726B /* Extensions.swift */,
 				90358BF920E98DB400AC726B /* Globals.swift */,
 				90358BFA20E98DB400AC726B /* Utils.swift */,
+				90358C8820EA383400AC726B /* Segues.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -351,14 +354,6 @@
 			name = UserInterface;
 			path = MGTimeRegister/UserInterface;
 			sourceTree = SOURCE_ROOT;
-		};
-		90358C3620E990ED00AC726B /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-				90358C3720E9910500AC726B /* MGTButton.swift */,
-			);
-			path = CustomViews;
-			sourceTree = "<group>";
 		};
 		90358C3E20E9AC9800AC726B /* Login */ = {
 			isa = PBXGroup;
@@ -381,10 +376,9 @@
 		90358C4420E9ACEA00AC726B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				90358C7D20EA2A2300AC726B /* AddTime */,
 				90358C7F20EA2A2400AC726B /* Overview */,
 				90358C7B20EA2A2300AC726B /* Reports */,
-				90358C4820E9AD2100AC726B /* HomeViewModel.swift */,
+				90358C7D20EA2A2300AC726B /* AddTime */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -528,11 +522,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90AF20B920EA4E860026481F /* AlertView.xib in Resources */,
 				90358C2020E98DB500AC726B /* LaunchScreen.storyboard in Resources */,
 				90358C2120E98DB500AC726B /* Login.storyboard in Resources */,
 				90358C3420E9903100AC726B /* WaitView.xib in Resources */,
-				90358C3220E9903100AC726B /* AlertView.xib in Resources */,
-				90358C2B20E98DB500AC726B /* Info.plist in Resources */,
 				90358C1620E98DB500AC726B /* Assets.xcassets in Resources */,
 				90358C1120E98DB500AC726B /* .gitkeep in Resources */,
 				90358C3B20E9951500AC726B /* Home.storyboard in Resources */,
@@ -596,17 +589,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90358C8720EA37C900AC726B /* MGTViewModelSegue.swift in Sources */,
 				90358C1F20E98DB500AC726B /* AppDelegate.swift in Sources */,
 				90358C6C20E9B4B100AC726B /* Company+CoreDataClass.swift in Sources */,
-				90358C3820E9910500AC726B /* MGTButton.swift in Sources */,
 				90358C2420E98DB500AC726B /* MGTBaseVC.swift in Sources */,
-				90358C4920E9AD2100AC726B /* HomeViewModel.swift in Sources */,
 				90358C4320E9ACD700AC726B /* OverviewVC.swift in Sources */,
+				90358C8920EA383400AC726B /* Segues.swift in Sources */,
 				90358C1C20E98DB500AC726B /* Extensions.swift in Sources */,
 				90358C7120E9B4B100AC726B /* Time+CoreDataProperties.swift in Sources */,
 				90358C4020E9ACA900AC726B /* LoginVC.swift in Sources */,
 				90358C6D20E9B4B100AC726B /* Company+CoreDataProperties.swift in Sources */,
 				90358C1720E98DB500AC726B /* MGTBaseViewModel.swift in Sources */,
+				90358C8520EA36D700AC726B /* MGTError.swift in Sources */,
 				90358C7020E9B4B100AC726B /* Time+CoreDataClass.swift in Sources */,
 				90358C1D20E98DB500AC726B /* Globals.swift in Sources */,
 				90358C6A20E9B4B100AC726B /* Project+CoreDataClass.swift in Sources */,

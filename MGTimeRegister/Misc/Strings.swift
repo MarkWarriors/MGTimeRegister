@@ -11,15 +11,18 @@ import Foundation
 class Strings {
     
 	public static let empty = ""
-
+    
 	static func notNullOrEmpty(_ string: String?) -> Bool{
         return string != nil && string != empty
     }
     
-    /*
-        struct Errors {
-            public static let noInternetConnection = "No internet connection available".localized
-            public static let genericError = "An error occurred".localized
-        }
-    */
+    struct Commons {
+        public static let ok = "Ok".localized
+    }
+    
+    struct Errors {
+        public static let error = "Error".localized
+        public static let invalidCredentials = "Invalid credentials".localized
+        public static let genericErrorOccurred = "An error occurred".localized
+    }
 }

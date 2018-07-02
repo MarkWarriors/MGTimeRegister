@@ -48,20 +48,20 @@ public class MGTNavigationController : UINavigationController {
         
     }
     
-    func showWaitView(onShowCompleted: @escaping()->()){
+    func showWaitView(onShowCompleted: (()->())? = nil){
         waitView?.showWait(onShowCompleted: onShowCompleted)
     }
     
-    func dismissWaitView(onDismissCompleted: @escaping()->()){
+    func dismissWaitView(onDismissCompleted: (()->())? = nil){
         waitView?.dismissWait(onDismissCompleted: onDismissCompleted)
     }
     
-    func showConfirmView(title: String, text:String, buttonOkText: String, buttonCancelText: String, image: UIImage?, callback: @escaping(_ confirmed: Bool?)->(), onShowCompleted: @escaping()->()){
-        alertView?.showAlert(title: title, text: text, buttonOkText: buttonOkText, buttonCancelText: buttonCancelText, image: image, callback: callback, onShowCompleted: onShowCompleted)
+    func showConfirmView(title: String, text:String, buttonOkText: String, buttonCancelText: String, callback: @escaping(_ confirmed: Bool?)->(), onShowCompleted: (()->())? = nil){
+        alertView?.showAlert(title: title, text: text, buttonOkText: buttonOkText, buttonCancelText: buttonCancelText, callback: callback, onShowCompleted: onShowCompleted)
     }
     
-    func showAlertView(title: String, text:String, buttonText: String, image: UIImage?, callback: @escaping(_ confirmed: Bool?)->(), onShowCompleted: @escaping()->()){
-        alertView?.showAlert(title: title, text: text, buttonText: buttonText, image: image, callback: callback, onShowCompleted: onShowCompleted)
+    func showAlertView(title: String, text:String, buttonText: String, callback: ((_ confirmed: Bool?)->())? = nil, onShowCompleted: (()->())? = nil){
+        alertView?.showAlert(title: title, text: text, buttonText: buttonText, callback: callback, onShowCompleted: onShowCompleted)
     }
     
     func openAppSettings(){

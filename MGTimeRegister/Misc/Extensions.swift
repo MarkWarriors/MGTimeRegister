@@ -128,6 +128,31 @@ class MGRoundImageView: UIImageView {
 }
 
 @IBDesignable
+class MGButton: UIButton {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
+    override open func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+    }
+    
+}
+
+@IBDesignable
 class MGRoundButton: UIButton {
     
     override init(frame: CGRect) {
@@ -230,6 +255,7 @@ class MGCheckbox: UIButton {
     private var floatLabel : UILabel = UILabel()
     @IBInspectable var focussedBorderColor: UIColor? = UIColor.clear
     var unfocussedBorderColor: UIColor? = UIColor.clear
+    var isOnTop = false
     @IBInspectable var validBorderColor: UIColor? = UIColor.clear
     @IBInspectable var errorBorderColor: UIColor? = UIColor.clear
     @IBInspectable var floatingPlaceholder : Bool = false {
@@ -265,7 +291,9 @@ class MGCheckbox: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.toggleFloatingPlaceholder(moveTop: text != "")
+        if text != "" && !isOnTop {
+            self.toggleFloatingPlaceholder(moveTop: true)
+        }
     }
     
     func createFloatingPlaceholder(){
@@ -352,9 +380,11 @@ class MGCheckbox: UIButton {
                 if moveTop {
                     newY = self.frame.size.height/2-self.floatLabel.frame.size.height-8
                     self.floatLabel.textColor = self.floatLabel.textColor.withAlphaComponent(1)
+                    self.isOnTop = true
                 }
                 else{
                     self.floatLabel.textColor = self.floatLabel.textColor.withAlphaComponent(0.5)
+                    self.isOnTop = false
                 }
                 
                 self.floatLabel.frame = CGRect.init(
@@ -369,7 +399,7 @@ class MGCheckbox: UIButton {
     }
     
     open override func becomeFirstResponder() -> Bool {
-        if floatingPlaceholder {
+        if floatingPlaceholder && !self.isOnTop{
             toggleFloatingPlaceholder(moveTop: true)
         }
         

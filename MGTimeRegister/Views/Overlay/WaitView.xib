@@ -22,7 +22,7 @@
                             <color key="color" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </activityIndicatorView>
                     </subviews>
-                    <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="0.50009024339933994" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="5j7-jX-cx9" firstAttribute="centerX" secondItem="MRB-FN-J9V" secondAttribute="centerX" id="2Nk-CI-aVY"/>
                         <constraint firstItem="5j7-jX-cx9" firstAttribute="centerY" secondItem="MRB-FN-J9V" secondAttribute="centerY" id="97I-69-pDc"/>

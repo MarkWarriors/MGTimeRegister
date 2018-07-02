@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-public class MGTBaseViewModel : NSObject {
+public class MGTBaseViewModel {
     
     internal var disposeBag = DisposeBag()
     

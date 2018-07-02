@@ -10,17 +10,13 @@ import UIKit
 
 public class AlertView : OverlayView {
     
-    @IBOutlet weak var alertImageView: UIImageView!
     @IBOutlet weak var alertTitle: UILabel!
     @IBOutlet weak var alertText: UILabel!
-    @IBOutlet weak var alertBtnOk: UIButton!
-    @IBOutlet weak var alertBtnCancel: UIButton!
+    @IBOutlet weak var alertBtnOk: MGButton!
+    @IBOutlet weak var alertBtnCancel: MGButton!
 
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-    }
     
-    private func createAlert(title: String, text:String, buttonOkText: String?, buttonCancelText: String?, image: UIImage?, callback: @escaping(_ confirmed: Bool?)->(), onShowCompleted: @escaping()->()){
+    private func createAlert(title: String, text:String, buttonOkText: String?, buttonCancelText: String?, callback: ((_ confirmed: Bool?)->())? = nil, onShowCompleted: (()->())? = nil){
         alertTitle?.text = title.uppercased()
         alertText?.text = text
         alertBtnOk?.setTitle(buttonOkText?.uppercased(), for: UIControlState.normal)
@@ -32,28 +28,26 @@ public class AlertView : OverlayView {
         }
         self.callback = callback
         self.completion = onShowCompleted
-
-        self.alertImageView.image = image
         
         makeViewAppear()
     }
     
-    func showAlert(title: String, text:String, buttonOkText: String, buttonCancelText: String, image: UIImage?, callback: @escaping(_ confirmed: Bool?)->(), onShowCompleted: @escaping()->()){
-        createAlert(title: title, text: text, buttonOkText: buttonOkText, buttonCancelText: buttonCancelText, image: image, callback: callback, onShowCompleted: onShowCompleted)
+    func showAlert(title: String, text:String, buttonOkText: String, buttonCancelText: String, callback: ((_ confirmed: Bool?)->())? = nil, onShowCompleted: (()->())? = nil){
+        createAlert(title: title, text: text, buttonOkText: buttonOkText, buttonCancelText: buttonCancelText, callback: callback, onShowCompleted: onShowCompleted)
     }
     
-    func showAlert(title: String, text:String, buttonText: String, image: UIImage?, callback: @escaping(_ confirmed: Bool?)->(), onShowCompleted: @escaping()->()){
-        createAlert(title: title, text: text, buttonOkText: buttonText, buttonCancelText: nil, image: image, callback: callback, onShowCompleted: onShowCompleted)
+    func showAlert(title: String, text:String, buttonText: String, callback: ((_ confirmed: Bool?)->())? = nil, onShowCompleted: (()->())? = nil){
+        createAlert(title: title, text: text, buttonOkText: buttonText, buttonCancelText: nil, callback: callback, onShowCompleted: onShowCompleted)
     }
     
     
     @IBAction func buttonOkPressed(_ sender: Any) {
-        self.callback!(true)
+        self.callback?(true)
         makeViewDisappear()
     }
     
     @IBAction func buttonCancelPressed(_ sender: Any) {
-        self.callback!(false)
+        self.callback?(false)
         makeViewDisappear()
     }
     

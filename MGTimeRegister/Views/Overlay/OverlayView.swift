@@ -13,9 +13,18 @@ public class OverlayView : UIView {
     var completion : (()->())?
     var callback : ((_ confirmed: Bool?)->())?
     
-    required public init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
+
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    override public func awakeFromNib() {
+        super.awakeFromNib()
+    }
+
     
     public override func layoutSubviews() {
         self.frame = UIScreen.main.bounds
@@ -28,7 +37,7 @@ public class OverlayView : UIView {
         UIView.animate(withDuration: Globals.Timing.OverlayAnimation, animations: {
             self.alpha = 1
         }) { (completed) in
-            self.completion!()
+            self.completion?()
         }
     }
     

@@ -10,13 +10,13 @@ import UIKit
 
 public class WaitView : OverlayView {
     
-    func showWait(onShowCompleted: @escaping()->()){
+    func showWait(onShowCompleted: (()->())? = nil){
         self.completion = onShowCompleted
         self.makeViewAppear()
     }
     
-    func dismissWait(onDismissCompleted: @escaping()->()){
+    func dismissWait(onDismissCompleted: (()->())? = nil){
         self.makeViewDisappear()
-        onDismissCompleted()
+        onDismissCompleted?()
     }
 }
