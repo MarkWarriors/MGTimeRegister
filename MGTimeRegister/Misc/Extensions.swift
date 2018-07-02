@@ -307,7 +307,7 @@ class MGCheckbox: UIButton {
         
         let selection = selectedTextRange
         let maxCharIndex = prospectiveText.index(prospectiveText.startIndex, offsetBy: maxLength)
-        text = prospectiveText.substring(to: maxCharIndex)
+        text = String(prospectiveText[..<maxCharIndex])
         selectedTextRange = selection
     }
     

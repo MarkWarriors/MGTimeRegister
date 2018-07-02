@@ -7,36 +7,14 @@
 //
 
 import Foundation
-
+import RxSwift
 
 public class MGTBaseViewModel : NSObject {
     
-    internal var requiredTextFields : [MGTextField] = []
+    internal var disposeBag = DisposeBag()
     
-    internal func initRequiredTextFields(textFields : [MGTextField]) {
-        self.requiredTextFields = textFields
-    }
-    
-    internal func checkRequiredTextFields() -> Bool {
-        var allValid = true
-        for tf in self.requiredTextFields {
-            if tf.text == nil || tf.text == ""{
-                tf.contentError()
-                allValid = false
-                continue
-            }
-            
-            if tf.keyboardType == .emailAddress {
-                if !Utils.isValidEmail(testStr: tf.text!){
-                    tf.contentError()
-                    allValid = false
-                    continue
-                }
-            }
-            
-            tf.contentValid()
-        }
-        return allValid
+    deinit {
+        self.disposeBag = DisposeBag()
     }
     
 }

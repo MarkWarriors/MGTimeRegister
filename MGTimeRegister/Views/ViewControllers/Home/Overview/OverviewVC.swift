@@ -1,5 +1,5 @@
 //
-//  HomeVC.swift
+//  OverviewVC.swift
 //  MGTimeRegister
 //
 //  Created by Marco Guerrieri on 02/07/18.
@@ -8,16 +8,11 @@
 
 import UIKit
 
-class HomeVC: MGTBaseVC {
+class OverviewVC: MGTBaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
 
 }
