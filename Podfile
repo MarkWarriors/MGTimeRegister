@@ -1,15 +1,12 @@
-platform :ios, '9.0'
+platform :ios, '11.0'
 
 use_frameworks!
 
 target 'MGTimeRegister' do
 
-    pod 'Reachability', '3.1.0'
-            
-    pod 'IQKeyboardManagerSwift'
-    pod 'Alamofire'
-    pod 'AlamofireImage'
-    pod 'ILGHttpConstants'
+    pod 'IQKeyboardManagerSwift', '~> 6.0.4'
+    pod 'RxSwift', '~> 4.2.0'
+    pod 'RxCocoa', '~> 4.2.0'
 
 end
             

@@ -8,15 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		90358BD520E98D0800AC726B /* MGTimeRegisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BD420E98D0800AC726B /* MGTimeRegisterTests.swift */; };
-		90358C1020E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358BE320E98DB400AC726B /* .gitkeep */; };
 		90358C1120E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358BE520E98DB400AC726B /* .gitkeep */; };
-		90358C1220E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358BE720E98DB400AC726B /* .gitkeep */; };
-		90358C1320E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358BE920E98DB400AC726B /* .gitkeep */; };
-		90358C1420E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358BEB20E98DB400AC726B /* .gitkeep */; };
-		90358C1520E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358BED20E98DB400AC726B /* .gitkeep */; };
 		90358C1620E98DB500AC726B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90358BEE20E98DB400AC726B /* Assets.xcassets */; };
 		90358C1720E98DB500AC726B /* MGTBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF020E98DB400AC726B /* MGTBaseViewModel.swift */; };
-		90358C1920E98DB500AC726B /* ApiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF420E98DB400AC726B /* ApiHandler.swift */; };
 		90358C1A20E98DB500AC726B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF620E98DB400AC726B /* Strings.swift */; };
 		90358C1B20E98DB500AC726B /* Timing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF720E98DB400AC726B /* Timing.swift */; };
 		90358C1C20E98DB500AC726B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF820E98DB400AC726B /* Extensions.swift */; };
@@ -25,8 +19,6 @@
 		90358C1F20E98DB500AC726B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BFB20E98DB400AC726B /* AppDelegate.swift */; };
 		90358C2020E98DB500AC726B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90358BFD20E98DB400AC726B /* LaunchScreen.storyboard */; };
 		90358C2120E98DB500AC726B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90358BFF20E98DB400AC726B /* Login.storyboard */; };
-		90358C2220E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358C0320E98DB400AC726B /* .gitkeep */; };
-		90358C2320E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358C0520E98DB400AC726B /* .gitkeep */; };
 		90358C2420E98DB500AC726B /* MGTBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0720E98DB400AC726B /* MGTBaseVC.swift */; };
 		90358C2520E98DB500AC726B /* MGTNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0820E98DB400AC726B /* MGTNavigationController.swift */; };
 		90358C2B20E98DB500AC726B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90358C0F20E98DB400AC726B /* Info.plist */; };
@@ -54,6 +46,7 @@
 		90358C7120E9B4B100AC726B /* Time+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6720E9B4B100AC726B /* Time+CoreDataProperties.swift */; };
 		90358C7220E9B4B100AC726B /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6820E9B4B100AC726B /* Task+CoreDataClass.swift */; };
 		90358C7320E9B4B100AC726B /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6920E9B4B100AC726B /* Task+CoreDataProperties.swift */; };
+		EB9843785E5F32005E329E53 /* Pods_MGTimeRegister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B90F95725FA9E8ABCD699D1 /* Pods_MGTimeRegister.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,21 +60,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25AEE441ACA4E9FBA7608358 /* Pods-MGTimeRegister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGTimeRegister.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGTimeRegister/Pods-MGTimeRegister.release.xcconfig"; sourceTree = "<group>"; };
+		6B90F95725FA9E8ABCD699D1 /* Pods_MGTimeRegister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MGTimeRegister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90358B8420E98D0700AC726B /* MGTimeRegister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGTimeRegister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90358BC720E98D0700AC726B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		90358BC820E98D0700AC726B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
 		90358BD020E98D0800AC726B /* MGTimeRegisterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGTimeRegisterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90358BD420E98D0800AC726B /* MGTimeRegisterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTimeRegisterTests.swift; sourceTree = "<group>"; };
 		90358BD620E98D0800AC726B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		90358BE320E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		90358BE520E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		90358BE720E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		90358BE920E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		90358BEB20E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		90358BED20E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		90358BEE20E98DB400AC726B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90358BF020E98DB400AC726B /* MGTBaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTBaseViewModel.swift; sourceTree = "<group>"; };
-		90358BF420E98DB400AC726B /* ApiHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiHandler.swift; sourceTree = "<group>"; };
 		90358BF620E98DB400AC726B /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		90358BF720E98DB400AC726B /* Timing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timing.swift; sourceTree = "<group>"; };
 		90358BF820E98DB400AC726B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -90,8 +79,6 @@
 		90358BFB20E98DB400AC726B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90358BFE20E98DB400AC726B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90358C0020E98DB400AC726B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Login.storyboard; sourceTree = "<group>"; };
-		90358C0320E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		90358C0520E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		90358C0720E98DB400AC726B /* MGTBaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTBaseVC.swift; sourceTree = "<group>"; };
 		90358C0820E98DB400AC726B /* MGTNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTNavigationController.swift; sourceTree = "<group>"; };
 		90358C0A20E98DB400AC726B /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
@@ -119,6 +106,7 @@
 		90358C6720E9B4B100AC726B /* Time+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Time+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		90358C6820E9B4B100AC726B /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		90358C6920E9B4B100AC726B /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D0917ECA5CFCC0E7A4261922 /* Pods-MGTimeRegister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGTimeRegister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGTimeRegister/Pods-MGTimeRegister.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9843785E5F32005E329E53 /* Pods_MGTimeRegister.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,12 +128,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		557595E5DBB21E98E0D23FF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B90F95725FA9E8ABCD699D1 /* Pods_MGTimeRegister.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7FACE1722651E87809870DE2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0917ECA5CFCC0E7A4261922 /* Pods-MGTimeRegister.debug.xcconfig */,
+				25AEE441ACA4E9FBA7608358 /* Pods-MGTimeRegister.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		90358B7B20E98D0700AC726B = {
 			isa = PBXGroup;
 			children = (
 				90358B8620E98D0700AC726B /* MGTimeRegister */,
 				90358BD320E98D0800AC726B /* MGTimeRegisterTests */,
 				90358B8520E98D0700AC726B /* Products */,
+				7FACE1722651E87809870DE2 /* Pods */,
+				557595E5DBB21E98E0D23FF9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,9 +171,7 @@
 				90358C0F20E98DB400AC726B /* Info.plist */,
 				90358C2C20E98DC500AC726B /* Misc */,
 				90358BF520E98DB400AC726B /* Application */,
-				90358BEC20E98DB400AC726B /* Frameworks */,
 				90358BF120E98DB400AC726B /* Models */,
-				90358BF320E98DB400AC726B /* Network */,
 				90358BE120E98DB400AC726B /* Resources */,
 				90358C2D20E98E8500AC726B /* UserInterface */,
 				90358BEF20E98DB400AC726B /* ViewModels */,
@@ -204,21 +210,9 @@
 		90358BE120E98DB400AC726B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				90358BE220E98DB400AC726B /* Video */,
 				90358BE420E98DB400AC726B /* Images */,
-				90358BE620E98DB400AC726B /* Others */,
-				90358BE820E98DB400AC726B /* Html */,
-				90358BEA20E98DB400AC726B /* Fonts */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		90358BE220E98DB400AC726B /* Video */ = {
-			isa = PBXGroup;
-			children = (
-				90358BE320E98DB400AC726B /* .gitkeep */,
-			);
-			path = Video;
 			sourceTree = "<group>";
 		};
 		90358BE420E98DB400AC726B /* Images */ = {
@@ -228,38 +222,6 @@
 				90358BE520E98DB400AC726B /* .gitkeep */,
 			);
 			path = Images;
-			sourceTree = "<group>";
-		};
-		90358BE620E98DB400AC726B /* Others */ = {
-			isa = PBXGroup;
-			children = (
-				90358BE720E98DB400AC726B /* .gitkeep */,
-			);
-			path = Others;
-			sourceTree = "<group>";
-		};
-		90358BE820E98DB400AC726B /* Html */ = {
-			isa = PBXGroup;
-			children = (
-				90358BE920E98DB400AC726B /* .gitkeep */,
-			);
-			path = Html;
-			sourceTree = "<group>";
-		};
-		90358BEA20E98DB400AC726B /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				90358BEB20E98DB400AC726B /* .gitkeep */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
-		90358BEC20E98DB400AC726B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				90358BED20E98DB400AC726B /* .gitkeep */,
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		90358BEF20E98DB400AC726B /* ViewModels */ = {
@@ -289,14 +251,6 @@
 				90358C6920E9B4B100AC726B /* Task+CoreDataProperties.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		90358BF320E98DB400AC726B /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				90358BF420E98DB400AC726B /* ApiHandler.swift */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		90358BF520E98DB400AC726B /* Application */ = {
@@ -333,7 +287,6 @@
 		90358C0220E98DB400AC726B /* CollectionCells */ = {
 			isa = PBXGroup;
 			children = (
-				90358C0320E98DB400AC726B /* .gitkeep */,
 			);
 			path = CollectionCells;
 			sourceTree = "<group>";
@@ -341,7 +294,6 @@
 		90358C0420E98DB400AC726B /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
-				90358C0520E98DB400AC726B /* .gitkeep */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -437,9 +389,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90358BD920E98D0800AC726B /* Build configuration list for PBXNativeTarget "MGTimeRegister" */;
 			buildPhases = (
+				11C00869DA18695046307397 /* [CP] Check Pods Manifest.lock */,
 				90358B8020E98D0700AC726B /* Sources */,
 				90358B8120E98D0700AC726B /* Frameworks */,
 				90358B8220E98D0700AC726B /* Resources */,
+				BEA1D15D128853F1EE6B4BCC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -513,18 +467,11 @@
 			files = (
 				90358C2020E98DB500AC726B /* LaunchScreen.storyboard in Resources */,
 				90358C2120E98DB500AC726B /* Login.storyboard in Resources */,
-				90358C2220E98DB500AC726B /* .gitkeep in Resources */,
-				90358C2320E98DB500AC726B /* .gitkeep in Resources */,
 				90358C3420E9903100AC726B /* WaitView.xib in Resources */,
-				90358C1220E98DB500AC726B /* .gitkeep in Resources */,
-				90358C1020E98DB500AC726B /* .gitkeep in Resources */,
-				90358C1420E98DB500AC726B /* .gitkeep in Resources */,
 				90358C3220E9903100AC726B /* AlertView.xib in Resources */,
 				90358C2B20E98DB500AC726B /* Info.plist in Resources */,
-				90358C1520E98DB500AC726B /* .gitkeep in Resources */,
 				90358C1620E98DB500AC726B /* Assets.xcassets in Resources */,
 				90358C1120E98DB500AC726B /* .gitkeep in Resources */,
-				90358C1320E98DB500AC726B /* .gitkeep in Resources */,
 				90358C3B20E9951500AC726B /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,6 +484,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11C00869DA18695046307397 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MGTimeRegister-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BEA1D15D128853F1EE6B4BCC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MGTimeRegister/Pods-MGTimeRegister-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MGTimeRegister/Pods-MGTimeRegister-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		90358B8020E98D0700AC726B /* Sources */ = {
@@ -562,7 +552,6 @@
 				90358C1A20E98DB500AC726B /* Strings.swift in Sources */,
 				90358C7220E9B4B100AC726B /* Task+CoreDataClass.swift in Sources */,
 				90358C6B20E9B4B100AC726B /* Project+CoreDataProperties.swift in Sources */,
-				90358C1920E98DB500AC726B /* ApiHandler.swift in Sources */,
 				90358C6E20E9B4B100AC726B /* User+CoreDataClass.swift in Sources */,
 				90358C6F20E9B4B100AC726B /* User+CoreDataProperties.swift in Sources */,
 				90358C4B20E9AF0900AC726B /* ModelController.swift in Sources */,
@@ -739,6 +728,7 @@
 		};
 		90358BDA20E98D0800AC726B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0917ECA5CFCC0E7A4261922 /* Pods-MGTimeRegister.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -758,6 +748,7 @@
 		};
 		90358BDB20E98D0800AC726B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25AEE441ACA4E9FBA7608358 /* Pods-MGTimeRegister.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
