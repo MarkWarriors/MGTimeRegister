@@ -1,0 +1,822 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		90358BD520E98D0800AC726B /* MGTimeRegisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BD420E98D0800AC726B /* MGTimeRegisterTests.swift */; };
+		90358C1020E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358BE320E98DB400AC726B /* .gitkeep */; };
+		90358C1120E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358BE520E98DB400AC726B /* .gitkeep */; };
+		90358C1220E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358BE720E98DB400AC726B /* .gitkeep */; };
+		90358C1320E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358BE920E98DB400AC726B /* .gitkeep */; };
+		90358C1420E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358BEB20E98DB400AC726B /* .gitkeep */; };
+		90358C1520E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358BED20E98DB400AC726B /* .gitkeep */; };
+		90358C1620E98DB500AC726B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90358BEE20E98DB400AC726B /* Assets.xcassets */; };
+		90358C1720E98DB500AC726B /* MGTBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF020E98DB400AC726B /* MGTBaseViewModel.swift */; };
+		90358C1920E98DB500AC726B /* ApiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF420E98DB400AC726B /* ApiHandler.swift */; };
+		90358C1A20E98DB500AC726B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF620E98DB400AC726B /* Strings.swift */; };
+		90358C1B20E98DB500AC726B /* Timing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF720E98DB400AC726B /* Timing.swift */; };
+		90358C1C20E98DB500AC726B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF820E98DB400AC726B /* Extensions.swift */; };
+		90358C1D20E98DB500AC726B /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF920E98DB400AC726B /* Globals.swift */; };
+		90358C1E20E98DB500AC726B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BFA20E98DB400AC726B /* Utils.swift */; };
+		90358C1F20E98DB500AC726B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BFB20E98DB400AC726B /* AppDelegate.swift */; };
+		90358C2020E98DB500AC726B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90358BFD20E98DB400AC726B /* LaunchScreen.storyboard */; };
+		90358C2120E98DB500AC726B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90358BFF20E98DB400AC726B /* Login.storyboard */; };
+		90358C2220E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358C0320E98DB400AC726B /* .gitkeep */; };
+		90358C2320E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358C0520E98DB400AC726B /* .gitkeep */; };
+		90358C2420E98DB500AC726B /* MGTBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0720E98DB400AC726B /* MGTBaseVC.swift */; };
+		90358C2520E98DB500AC726B /* MGTNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0820E98DB400AC726B /* MGTNavigationController.swift */; };
+		90358C2B20E98DB500AC726B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90358C0F20E98DB400AC726B /* Info.plist */; };
+		90358C3020E9900100AC726B /* MGTimeRegister.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90358C2E20E9900100AC726B /* MGTimeRegister.xcdatamodeld */; };
+		90358C3120E9903100AC726B /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0A20E98DB400AC726B /* OverlayView.swift */; };
+		90358C3220E9903100AC726B /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90358C0B20E98DB400AC726B /* AlertView.xib */; };
+		90358C3320E9903100AC726B /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0C20E98DB400AC726B /* AlertView.swift */; };
+		90358C3420E9903100AC726B /* WaitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90358C0D20E98DB400AC726B /* WaitView.xib */; };
+		90358C3520E9903100AC726B /* WaitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0E20E98DB400AC726B /* WaitView.swift */; };
+		90358C3820E9910500AC726B /* MGTButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C3720E9910500AC726B /* MGTButton.swift */; };
+		90358C3B20E9951500AC726B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90358C3920E9951500AC726B /* Home.storyboard */; };
+		90358C3D20E9ABB800AC726B /* SharedInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C3C20E9ABB800AC726B /* SharedInstance.swift */; };
+		90358C4020E9ACA900AC726B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C3F20E9ACA900AC726B /* LoginVC.swift */; };
+		90358C4320E9ACD700AC726B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C4220E9ACD700AC726B /* HomeVC.swift */; };
+		90358C4720E9AD1200AC726B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C4620E9AD1200AC726B /* LoginViewModel.swift */; };
+		90358C4920E9AD2100AC726B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C4820E9AD2100AC726B /* HomeViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		90358BD120E98D0800AC726B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90358B7C20E98D0700AC726B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90358B8320E98D0700AC726B;
+			remoteInfo = MGTimeRegister;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		90358B8420E98D0700AC726B /* MGTimeRegister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGTimeRegister.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		90358BC720E98D0700AC726B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		90358BC820E98D0700AC726B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
+		90358BD020E98D0800AC726B /* MGTimeRegisterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGTimeRegisterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90358BD420E98D0800AC726B /* MGTimeRegisterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTimeRegisterTests.swift; sourceTree = "<group>"; };
+		90358BD620E98D0800AC726B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90358BE320E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		90358BE520E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		90358BE720E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		90358BE920E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		90358BEB20E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		90358BED20E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		90358BEE20E98DB400AC726B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		90358BF020E98DB400AC726B /* MGTBaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTBaseViewModel.swift; sourceTree = "<group>"; };
+		90358BF420E98DB400AC726B /* ApiHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiHandler.swift; sourceTree = "<group>"; };
+		90358BF620E98DB400AC726B /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		90358BF720E98DB400AC726B /* Timing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timing.swift; sourceTree = "<group>"; };
+		90358BF820E98DB400AC726B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		90358BF920E98DB400AC726B /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		90358BFA20E98DB400AC726B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		90358BFB20E98DB400AC726B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		90358BFE20E98DB400AC726B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		90358C0020E98DB400AC726B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Login.storyboard; sourceTree = "<group>"; };
+		90358C0320E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		90358C0520E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		90358C0720E98DB400AC726B /* MGTBaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTBaseVC.swift; sourceTree = "<group>"; };
+		90358C0820E98DB400AC726B /* MGTNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTNavigationController.swift; sourceTree = "<group>"; };
+		90358C0A20E98DB400AC726B /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		90358C0B20E98DB400AC726B /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
+		90358C0C20E98DB400AC726B /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		90358C0D20E98DB400AC726B /* WaitView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitView.xib; sourceTree = "<group>"; };
+		90358C0E20E98DB400AC726B /* WaitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitView.swift; sourceTree = "<group>"; };
+		90358C0F20E98DB400AC726B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90358C2F20E9900100AC726B /* MGTimeRegister.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MGTimeRegister.xcdatamodel; sourceTree = "<group>"; };
+		90358C3720E9910500AC726B /* MGTButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTButton.swift; sourceTree = "<group>"; };
+		90358C3A20E9951500AC726B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Home.storyboard; sourceTree = "<group>"; };
+		90358C3C20E9ABB800AC726B /* SharedInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedInstance.swift; sourceTree = "<group>"; };
+		90358C3F20E9ACA900AC726B /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		90358C4220E9ACD700AC726B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		90358C4620E9AD1200AC726B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		90358C4820E9AD2100AC726B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		90358B8120E98D0700AC726B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90358BCD20E98D0800AC726B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		90358B7B20E98D0700AC726B = {
+			isa = PBXGroup;
+			children = (
+				90358B8620E98D0700AC726B /* MGTimeRegister */,
+				90358BD320E98D0800AC726B /* MGTimeRegisterTests */,
+				90358B8520E98D0700AC726B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		90358B8520E98D0700AC726B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				90358B8420E98D0700AC726B /* MGTimeRegister.app */,
+				90358BD020E98D0800AC726B /* MGTimeRegisterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		90358B8620E98D0700AC726B /* MGTimeRegister */ = {
+			isa = PBXGroup;
+			children = (
+				90358C0F20E98DB400AC726B /* Info.plist */,
+				90358C2C20E98DC500AC726B /* Misc */,
+				90358BF520E98DB400AC726B /* Application */,
+				90358BEC20E98DB400AC726B /* Frameworks */,
+				90358BF120E98DB400AC726B /* Models */,
+				90358BF320E98DB400AC726B /* Network */,
+				90358BE120E98DB400AC726B /* Resources */,
+				90358C2D20E98E8500AC726B /* UserInterface */,
+				90358BEF20E98DB400AC726B /* ViewModels */,
+				90358C0120E98DB400AC726B /* Views */,
+				90358B9120E98D0700AC726B /* Supporting Files */,
+			);
+			path = MGTimeRegister;
+			sourceTree = "<group>";
+		};
+		90358B9120E98D0700AC726B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				90358BC820E98D0700AC726B /* Podfile */,
+				90358BC620E98D0700AC726B /* Documentation */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		90358BC620E98D0700AC726B /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				90358BC720E98D0700AC726B /* README.md */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+		90358BD320E98D0800AC726B /* MGTimeRegisterTests */ = {
+			isa = PBXGroup;
+			children = (
+				90358BD420E98D0800AC726B /* MGTimeRegisterTests.swift */,
+				90358BD620E98D0800AC726B /* Info.plist */,
+			);
+			path = MGTimeRegisterTests;
+			sourceTree = "<group>";
+		};
+		90358BE120E98DB400AC726B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				90358BE220E98DB400AC726B /* Video */,
+				90358BE420E98DB400AC726B /* Images */,
+				90358BE620E98DB400AC726B /* Others */,
+				90358BE820E98DB400AC726B /* Html */,
+				90358BEA20E98DB400AC726B /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		90358BE220E98DB400AC726B /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				90358BE320E98DB400AC726B /* .gitkeep */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		90358BE420E98DB400AC726B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				90358BEE20E98DB400AC726B /* Assets.xcassets */,
+				90358BE520E98DB400AC726B /* .gitkeep */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		90358BE620E98DB400AC726B /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				90358BE720E98DB400AC726B /* .gitkeep */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		90358BE820E98DB400AC726B /* Html */ = {
+			isa = PBXGroup;
+			children = (
+				90358BE920E98DB400AC726B /* .gitkeep */,
+			);
+			path = Html;
+			sourceTree = "<group>";
+		};
+		90358BEA20E98DB400AC726B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				90358BEB20E98DB400AC726B /* .gitkeep */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		90358BEC20E98DB400AC726B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				90358BED20E98DB400AC726B /* .gitkeep */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		90358BEF20E98DB400AC726B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				90358C4520E9ACF100AC726B /* Login */,
+				90358C4420E9ACEA00AC726B /* Home */,
+				90358BF020E98DB400AC726B /* MGTBaseViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		90358BF120E98DB400AC726B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				90358C2E20E9900100AC726B /* MGTimeRegister.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		90358BF320E98DB400AC726B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				90358BF420E98DB400AC726B /* ApiHandler.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		90358BF520E98DB400AC726B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				90358BFB20E98DB400AC726B /* AppDelegate.swift */,
+				90358C3C20E9ABB800AC726B /* SharedInstance.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		90358BFC20E98DB400AC726B /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				90358BFD20E98DB400AC726B /* LaunchScreen.storyboard */,
+				90358BFF20E98DB400AC726B /* Login.storyboard */,
+				90358C3920E9951500AC726B /* Home.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		90358C0120E98DB400AC726B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				90358C3620E990ED00AC726B /* CustomViews */,
+				90358C0220E98DB400AC726B /* CollectionCells */,
+				90358C0420E98DB400AC726B /* TableCells */,
+				90358C0620E98DB400AC726B /* ViewControllers */,
+				90358C0920E98DB400AC726B /* Overlay */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		90358C0220E98DB400AC726B /* CollectionCells */ = {
+			isa = PBXGroup;
+			children = (
+				90358C0320E98DB400AC726B /* .gitkeep */,
+			);
+			path = CollectionCells;
+			sourceTree = "<group>";
+		};
+		90358C0420E98DB400AC726B /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				90358C0520E98DB400AC726B /* .gitkeep */,
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
+		90358C0620E98DB400AC726B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				90358C3E20E9AC9800AC726B /* Login */,
+				90358C4120E9ACB600AC726B /* Home */,
+				90358C0720E98DB400AC726B /* MGTBaseVC.swift */,
+				90358C0820E98DB400AC726B /* MGTNavigationController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		90358C0920E98DB400AC726B /* Overlay */ = {
+			isa = PBXGroup;
+			children = (
+				90358C0A20E98DB400AC726B /* OverlayView.swift */,
+				90358C0B20E98DB400AC726B /* AlertView.xib */,
+				90358C0C20E98DB400AC726B /* AlertView.swift */,
+				90358C0D20E98DB400AC726B /* WaitView.xib */,
+				90358C0E20E98DB400AC726B /* WaitView.swift */,
+			);
+			path = Overlay;
+			sourceTree = "<group>";
+		};
+		90358C2C20E98DC500AC726B /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				90358BF620E98DB400AC726B /* Strings.swift */,
+				90358BF720E98DB400AC726B /* Timing.swift */,
+				90358BF820E98DB400AC726B /* Extensions.swift */,
+				90358BF920E98DB400AC726B /* Globals.swift */,
+				90358BFA20E98DB400AC726B /* Utils.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		90358C2D20E98E8500AC726B /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				90358BFC20E98DB400AC726B /* Base.lproj */,
+			);
+			name = UserInterface;
+			path = MGTimeRegister/UserInterface;
+			sourceTree = SOURCE_ROOT;
+		};
+		90358C3620E990ED00AC726B /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				90358C3720E9910500AC726B /* MGTButton.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		90358C3E20E9AC9800AC726B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				90358C3F20E9ACA900AC726B /* LoginVC.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		90358C4120E9ACB600AC726B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				90358C4220E9ACD700AC726B /* HomeVC.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		90358C4420E9ACEA00AC726B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				90358C4820E9AD2100AC726B /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		90358C4520E9ACF100AC726B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				90358C4620E9AD1200AC726B /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		90358B8320E98D0700AC726B /* MGTimeRegister */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90358BD920E98D0800AC726B /* Build configuration list for PBXNativeTarget "MGTimeRegister" */;
+			buildPhases = (
+				90358B8020E98D0700AC726B /* Sources */,
+				90358B8120E98D0700AC726B /* Frameworks */,
+				90358B8220E98D0700AC726B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MGTimeRegister;
+			productName = MGTimeRegister;
+			productReference = 90358B8420E98D0700AC726B /* MGTimeRegister.app */;
+			productType = "com.apple.product-type.application";
+		};
+		90358BCF20E98D0800AC726B /* MGTimeRegisterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90358BDC20E98D0800AC726B /* Build configuration list for PBXNativeTarget "MGTimeRegisterTests" */;
+			buildPhases = (
+				90358BCC20E98D0800AC726B /* Sources */,
+				90358BCD20E98D0800AC726B /* Frameworks */,
+				90358BCE20E98D0800AC726B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90358BD220E98D0800AC726B /* PBXTargetDependency */,
+			);
+			name = MGTimeRegisterTests;
+			productName = MGTimeRegisterTests;
+			productReference = 90358BD020E98D0800AC726B /* MGTimeRegisterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		90358B7C20E98D0700AC726B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Marco Guerrieri";
+				TargetAttributes = {
+					90358B8320E98D0700AC726B = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					90358BCF20E98D0800AC726B = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 90358B8320E98D0700AC726B;
+					};
+				};
+			};
+			buildConfigurationList = 90358B7F20E98D0700AC726B /* Build configuration list for PBXProject "MGTimeRegister" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 90358B7B20E98D0700AC726B;
+			productRefGroup = 90358B8520E98D0700AC726B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				90358B8320E98D0700AC726B /* MGTimeRegister */,
+				90358BCF20E98D0800AC726B /* MGTimeRegisterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		90358B8220E98D0700AC726B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90358C2020E98DB500AC726B /* LaunchScreen.storyboard in Resources */,
+				90358C2120E98DB500AC726B /* Login.storyboard in Resources */,
+				90358C2220E98DB500AC726B /* .gitkeep in Resources */,
+				90358C2320E98DB500AC726B /* .gitkeep in Resources */,
+				90358C3420E9903100AC726B /* WaitView.xib in Resources */,
+				90358C1220E98DB500AC726B /* .gitkeep in Resources */,
+				90358C1020E98DB500AC726B /* .gitkeep in Resources */,
+				90358C1420E98DB500AC726B /* .gitkeep in Resources */,
+				90358C3220E9903100AC726B /* AlertView.xib in Resources */,
+				90358C2B20E98DB500AC726B /* Info.plist in Resources */,
+				90358C1520E98DB500AC726B /* .gitkeep in Resources */,
+				90358C1620E98DB500AC726B /* Assets.xcassets in Resources */,
+				90358C1120E98DB500AC726B /* .gitkeep in Resources */,
+				90358C1320E98DB500AC726B /* .gitkeep in Resources */,
+				90358C3B20E9951500AC726B /* Home.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90358BCE20E98D0800AC726B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		90358B8020E98D0700AC726B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90358C1F20E98DB500AC726B /* AppDelegate.swift in Sources */,
+				90358C3820E9910500AC726B /* MGTButton.swift in Sources */,
+				90358C2420E98DB500AC726B /* MGTBaseVC.swift in Sources */,
+				90358C4920E9AD2100AC726B /* HomeViewModel.swift in Sources */,
+				90358C4320E9ACD700AC726B /* HomeVC.swift in Sources */,
+				90358C1C20E98DB500AC726B /* Extensions.swift in Sources */,
+				90358C4020E9ACA900AC726B /* LoginVC.swift in Sources */,
+				90358C1720E98DB500AC726B /* MGTBaseViewModel.swift in Sources */,
+				90358C1D20E98DB500AC726B /* Globals.swift in Sources */,
+				90358C1E20E98DB500AC726B /* Utils.swift in Sources */,
+				90358C1A20E98DB500AC726B /* Strings.swift in Sources */,
+				90358C1920E98DB500AC726B /* ApiHandler.swift in Sources */,
+				90358C3320E9903100AC726B /* AlertView.swift in Sources */,
+				90358C2520E98DB500AC726B /* MGTNavigationController.swift in Sources */,
+				90358C3D20E9ABB800AC726B /* SharedInstance.swift in Sources */,
+				90358C3120E9903100AC726B /* OverlayView.swift in Sources */,
+				90358C3520E9903100AC726B /* WaitView.swift in Sources */,
+				90358C1B20E98DB500AC726B /* Timing.swift in Sources */,
+				90358C4720E9AD1200AC726B /* LoginViewModel.swift in Sources */,
+				90358C3020E9900100AC726B /* MGTimeRegister.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90358BCC20E98D0800AC726B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90358BD520E98D0800AC726B /* MGTimeRegisterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		90358BD220E98D0800AC726B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90358B8320E98D0700AC726B /* MGTimeRegister */;
+			targetProxy = 90358BD120E98D0800AC726B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		90358BFD20E98DB400AC726B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				90358BFE20E98DB400AC726B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		90358BFF20E98DB400AC726B /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				90358C0020E98DB400AC726B /* Base */,
+			);
+			name = Login.storyboard;
+			sourceTree = "<group>";
+		};
+		90358C3920E9951500AC726B /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				90358C3A20E9951500AC726B /* Base */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		90358BD720E98D0800AC726B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		90358BD820E98D0800AC726B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		90358BDA20E98D0800AC726B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 29R6UT4TC7;
+				INFOPLIST_FILE = MGTimeRegister/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.mg.MGTimeRegister;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		90358BDB20E98D0800AC726B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 29R6UT4TC7;
+				INFOPLIST_FILE = MGTimeRegister/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.mg.MGTimeRegister;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		90358BDD20E98D0800AC726B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 29R6UT4TC7;
+				INFOPLIST_FILE = MGTimeRegisterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.mg.MGTimeRegisterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MGTimeRegister.app/MGTimeRegister";
+			};
+			name = Debug;
+		};
+		90358BDE20E98D0800AC726B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 29R6UT4TC7;
+				INFOPLIST_FILE = MGTimeRegisterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.mg.MGTimeRegisterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MGTimeRegister.app/MGTimeRegister";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		90358B7F20E98D0700AC726B /* Build configuration list for PBXProject "MGTimeRegister" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90358BD720E98D0800AC726B /* Debug */,
+				90358BD820E98D0800AC726B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90358BD920E98D0800AC726B /* Build configuration list for PBXNativeTarget "MGTimeRegister" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90358BDA20E98D0800AC726B /* Debug */,
+				90358BDB20E98D0800AC726B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90358BDC20E98D0800AC726B /* Build configuration list for PBXNativeTarget "MGTimeRegisterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90358BDD20E98D0800AC726B /* Debug */,
+				90358BDE20E98D0800AC726B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		90358C2E20E9900100AC726B /* MGTimeRegister.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				90358C2F20E9900100AC726B /* MGTimeRegister.xcdatamodel */,
+			);
+			currentVersion = 90358C2F20E9900100AC726B /* MGTimeRegister.xcdatamodel */;
+			path = MGTimeRegister.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 90358B7C20E98D0700AC726B /* Project object */;
+}

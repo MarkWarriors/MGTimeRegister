@@ -1,2 +1,2 @@
-# MGTimeRegister
-Simple Time Tracking App
+## README
+

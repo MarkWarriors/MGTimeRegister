@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Sf-de-G4L">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="hbd-JA-3uu">
+            <objects>
+                <navigationController id="4Sf-de-G4L" customClass="MGTNavigationController" customModule="MGTimeRegister" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wxc-zv-CON">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="VUR-YJ-dOH" kind="relationship" relationship="rootViewController" id="fiE-XB-bw5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HHu-Q9-0aH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-724" y="159"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="my0-OY-65h">
+            <objects>
+                <viewController id="VUR-YJ-dOH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xhD-OU-YlF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdT-wD-S5X" customClass="MGTButton" customModule="MGTimeRegister" customModuleProvider="target">
+                                <rect key="frame" x="24" y="278" width="327" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="pPB-wq-Htg"/>
+                                </constraints>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="fZd-lo-LVs" kind="show" id="swV-Gw-1sD"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gkR-SF-fPq" customClass="MGTextField" customModule="MGTimeRegister" customModuleProvider="target">
+                                <rect key="frame" x="24" y="142" width="327" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Gkl-xK-b96"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="focussedBorderColor">
+                                        <color key="value" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="floatingPlaceholder" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                        <color key="value" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ASw-7J-RYl" customClass="MGTextField" customModule="MGTimeRegister" customModuleProvider="target">
+                                <rect key="frame" x="24" y="210" width="327" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="bxJ-W2-oTV"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="focussedBorderColor">
+                                        <color key="value" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="floatingPlaceholder" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                        <color key="value" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MGTimeRegister" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2N-ao-mc2">
+                                <rect key="frame" x="92.5" y="88" width="190.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="G19-M6-PbX" firstAttribute="trailing" secondItem="hdT-wD-S5X" secondAttribute="trailing" constant="24" id="8Dz-gm-PmK"/>
+                            <constraint firstItem="ASw-7J-RYl" firstAttribute="leading" secondItem="gkR-SF-fPq" secondAttribute="leading" id="K9Q-fI-Dxd"/>
+                            <constraint firstItem="hdT-wD-S5X" firstAttribute="leading" secondItem="G19-M6-PbX" secondAttribute="leading" constant="24" id="NRw-Dk-jUd"/>
+                            <constraint firstItem="G19-M6-PbX" firstAttribute="trailing" secondItem="ASw-7J-RYl" secondAttribute="trailing" constant="24" id="Naz-uM-vWV"/>
+                            <constraint firstItem="ASw-7J-RYl" firstAttribute="top" secondItem="gkR-SF-fPq" secondAttribute="bottom" constant="24" id="RnN-aW-HXF"/>
+                            <constraint firstItem="G19-M6-PbX" firstAttribute="trailing" secondItem="gkR-SF-fPq" secondAttribute="trailing" constant="24" id="add-ey-nI6"/>
+                            <constraint firstItem="R2N-ao-mc2" firstAttribute="centerX" secondItem="G19-M6-PbX" secondAttribute="centerX" id="cMQ-h1-KQS"/>
+                            <constraint firstItem="gkR-SF-fPq" firstAttribute="top" secondItem="R2N-ao-mc2" secondAttribute="bottom" constant="24" id="gxa-eQ-eGl"/>
+                            <constraint firstItem="hdT-wD-S5X" firstAttribute="top" secondItem="ASw-7J-RYl" secondAttribute="bottom" constant="24" id="mUL-Se-Fnj"/>
+                            <constraint firstItem="gkR-SF-fPq" firstAttribute="leading" secondItem="G19-M6-PbX" secondAttribute="leading" constant="24" id="yae-ga-ocN"/>
+                            <constraint firstItem="R2N-ao-mc2" firstAttribute="top" secondItem="G19-M6-PbX" secondAttribute="top" constant="24" id="zix-OI-QKG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="G19-M6-PbX"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2JY-Uu-NmO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YOg-zQ-azc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="37.600000000000001" y="158.77061469265368"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="Ute-y3-EYD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="fZd-lo-LVs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V3V-3k-HKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="701" y="158"/>
+        </scene>
+    </scenes>
+</document>
