@@ -10,8 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-
-
 class LoginViewModel: MGTBaseViewModel {
     
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
@@ -82,14 +80,14 @@ class LoginViewModel: MGTBaseViewModel {
             user!.username = privateUsername.value
             ModelController.shared.save()
         }
-        
+
         SharedInstance.shared.loginUser(user!)
         if privateSaveCredentials.value {
             SharedInstance.shared.storeCredentials(username: privateUsername.value, password: privatePassword.value)
         }
         
         self.privatePerformSegue.onNext(
-            MGTViewModelSegue.init(identifier: Segues.Login.loginToHome)
+            MGTViewModelSegue.init(identifier: Segues.Login.toHome)
         )
         
 // Usefull if with Apicall

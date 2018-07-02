@@ -56,3 +56,13 @@ extension Company {
     @NSManaged public func removeFromProjects(_ values: NSSet)
 
 }
+
+extension Company {
+    public func projectsCount() -> Int {
+        return self.projects?.count ?? 0
+    }
+    
+    public func tasksCount() -> Int {
+        return self.projects?.reduce(0, { $0 + (($1 as! Project).tasksCount()) }) ?? 0
+    }
+}

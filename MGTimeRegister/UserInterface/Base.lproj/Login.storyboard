@@ -158,7 +158,7 @@
                         <outlet property="passwordTF" destination="ASw-7J-RYl" id="sHs-ik-TCN"/>
                         <outlet property="saveCredentialsSwitch" destination="g7p-1i-CFE" id="yeY-Vx-bEr"/>
                         <outlet property="usernameTF" destination="gkR-SF-fPq" id="u3i-5c-1DU"/>
-                        <segue destination="fZd-lo-LVs" kind="show" identifier="LoginToHome" id="H3g-6b-ihe"/>
+                        <segue destination="fZd-lo-LVs" kind="show" identifier="toHome" id="H3g-6b-ihe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOg-zQ-azc" userLabel="First Responder" sceneMemberID="firstResponder"/>

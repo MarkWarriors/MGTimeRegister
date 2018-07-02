@@ -444,3 +444,42 @@ class MGCheckbox: UIButton {
         }
     }
 }
+
+
+extension Date{
+    public func changeOfMinutes(_ minutes: Int) -> Date{
+        return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
+    }
+    
+    public func changeOfHours(_ hours: Int) -> Date{
+        return Calendar.current.date(byAdding: .hour, value: hours, to: self)!
+    }
+    
+    public func changeOfDays(_ days: Int) -> Date{
+        return Calendar.current.date(byAdding: .day, value: days, to: self)!
+    }
+    
+    public func changeOfWeeks(_ weeks: Int) -> Date{
+        return Calendar.current.date(byAdding: .day, value: weeks * 7, to: self)!
+    }
+    
+    public func changeOfMonths(_ months: Int) -> Date{
+        return Calendar.current.date(byAdding: .month, value: months, to: self)!
+    }
+    
+    public func changeOfYears(_ years: Int) -> Date{
+        return Calendar.current.date(byAdding: .year, value: years, to: self)!
+    }
+    
+    public func startOfDay() -> Date{
+        return Calendar.current.startOfDay(for: self)
+    }
+    
+    public func endOfDay() -> Date{
+        let dateStart = Calendar.current.startOfDay(for: self)
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+        return Calendar.current.date(byAdding: components, to: dateStart)!
+    }
+}

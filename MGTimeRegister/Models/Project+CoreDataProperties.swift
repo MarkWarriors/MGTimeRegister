@@ -39,3 +39,9 @@ extension Project {
     @NSManaged public func removeFromTasks(_ values: NSSet)
 
 }
+
+extension Project {
+    public func tasksCount() -> Int {
+        return self.tasks?.count ?? 0
+    }
+}
