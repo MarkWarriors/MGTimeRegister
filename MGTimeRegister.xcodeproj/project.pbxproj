@@ -52,8 +52,6 @@
 		90AF20BF20EA7A9B0026481F /* CompanyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AF20BD20EA7A9B0026481F /* CompanyTableViewCell.xib */; };
 		90AF20C220EA7AAC0026481F /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF20C020EA7AAC0026481F /* ProjectTableViewCell.swift */; };
 		90AF20C320EA7AAC0026481F /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AF20C120EA7AAC0026481F /* ProjectTableViewCell.xib */; };
-		90AF20C620EA7AB90026481F /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF20C420EA7AB90026481F /* TaskTableViewCell.swift */; };
-		90AF20C720EA7AB90026481F /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AF20C520EA7AB90026481F /* TaskTableViewCell.xib */; };
 		90CD389A20EAD47A00157DC7 /* SelectProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD389920EAD47A00157DC7 /* SelectProjectVC.swift */; };
 		90CD389C20EAD48F00157DC7 /* AddTimeEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD389B20EAD48F00157DC7 /* AddTimeEntryVC.swift */; };
 		90CD389E20EAD4C000157DC7 /* SelectProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD389D20EAD4C000157DC7 /* SelectProjectViewModel.swift */; };
@@ -125,8 +123,6 @@
 		90AF20BD20EA7A9B0026481F /* CompanyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyTableViewCell.xib; sourceTree = "<group>"; };
 		90AF20C020EA7AAC0026481F /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
 		90AF20C120EA7AAC0026481F /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
-		90AF20C420EA7AB90026481F /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
-		90AF20C520EA7AB90026481F /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 		90CD389920EAD47A00157DC7 /* SelectProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProjectVC.swift; sourceTree = "<group>"; };
 		90CD389B20EAD48F00157DC7 /* AddTimeEntryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeEntryVC.swift; sourceTree = "<group>"; };
 		90CD389D20EAD4C000157DC7 /* SelectProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProjectViewModel.swift; sourceTree = "<group>"; };
@@ -315,8 +311,6 @@
 				90AF20BD20EA7A9B0026481F /* CompanyTableViewCell.xib */,
 				90AF20C020EA7AAC0026481F /* ProjectTableViewCell.swift */,
 				90AF20C120EA7AAC0026481F /* ProjectTableViewCell.xib */,
-				90AF20C420EA7AB90026481F /* TaskTableViewCell.swift */,
-				90AF20C520EA7AB90026481F /* TaskTableViewCell.xib */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -547,7 +541,6 @@
 				90358C2020E98DB500AC726B /* LaunchScreen.storyboard in Resources */,
 				90358C2120E98DB500AC726B /* Login.storyboard in Resources */,
 				90AF20BF20EA7A9B0026481F /* CompanyTableViewCell.xib in Resources */,
-				90AF20C720EA7AB90026481F /* TaskTableViewCell.xib in Resources */,
 				90AF20C320EA7AAC0026481F /* ProjectTableViewCell.xib in Resources */,
 				90358C3420E9903100AC726B /* WaitView.xib in Resources */,
 				90358C1620E98DB500AC726B /* Assets.xcassets in Resources */,
@@ -630,7 +623,6 @@
 				90AF20C220EA7AAC0026481F /* ProjectTableViewCell.swift in Sources */,
 				90358C8520EA36D700AC726B /* MGTError.swift in Sources */,
 				90358C7020E9B4B100AC726B /* Time+CoreDataClass.swift in Sources */,
-				90AF20C620EA7AB90026481F /* TaskTableViewCell.swift in Sources */,
 				90358C1D20E98DB500AC726B /* Globals.swift in Sources */,
 				90358C6A20E9B4B100AC726B /* Project+CoreDataClass.swift in Sources */,
 				90CD38A020EAD4CB00157DC7 /* AddTimeEntryViewModel.swift in Sources */,

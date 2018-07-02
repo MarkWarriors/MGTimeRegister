@@ -47,9 +47,7 @@ class SelectCompanyVC: MGTBaseVC {
                 .rx
                 .items(cellIdentifier: CompanyTableViewCell.identifier,
                        cellType: CompanyTableViewCell.self)) { _, company, cell in
-                        cell.nameLbl.text = company.name
-                        cell.projectLbl.text = "\(company.projects?.count ?? 0)"
-                        cell.taskLbl.text = "\(company.tasksCount())"
+                        cell.setModel(company)
             }
             .disposed(by: self.disposeBag)
     }

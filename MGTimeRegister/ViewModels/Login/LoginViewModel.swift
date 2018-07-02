@@ -55,7 +55,7 @@ class LoginViewModel: MGTBaseViewModel {
         
         loginBtnPressed
             .drive(onNext: { [unowned self] in
-                self.loginUser()
+                self.loginUser(autologin: false)
             })
             .disposed(by: self.disposeBag)
     }
@@ -64,11 +64,11 @@ class LoginViewModel: MGTBaseViewModel {
         if let credentials = SharedInstance.shared.getStoredCredentials() {
             self.privateUsername.accept(credentials.username)
             self.privatePassword.accept(credentials.password)
-            loginUser()
+            loginUser(autologin: true)
         }
     }
     
-    private func loginUser(){
+    private func loginUser(autologin: Bool){
         privateIsLoading.value = true
         var user : User?
         

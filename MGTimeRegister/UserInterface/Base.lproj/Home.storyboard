@@ -42,27 +42,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3k-IE-qLX">
-                                <rect key="frame" x="16" y="133" width="109" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ei6-ZG-8GY">
-                                <rect key="frame" x="16" y="178" width="90" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AIS-47-0d3" firstAttribute="leading" secondItem="NeT-KJ-RlP" secondAttribute="leading" constant="16" id="N9G-ky-pfx"/>
-                            <constraint firstItem="ei6-ZG-8GY" firstAttribute="top" secondItem="b3k-IE-qLX" secondAttribute="bottom" constant="24" id="UlD-z0-9Eu"/>
-                            <constraint firstItem="b3k-IE-qLX" firstAttribute="top" secondItem="AIS-47-0d3" secondAttribute="bottom" constant="24" id="WOW-7F-4FT"/>
-                            <constraint firstItem="b3k-IE-qLX" firstAttribute="leading" secondItem="AIS-47-0d3" secondAttribute="leading" id="fmF-M6-3vo"/>
                             <constraint firstItem="AIS-47-0d3" firstAttribute="top" secondItem="NeT-KJ-RlP" secondAttribute="top" constant="24" id="keM-6C-DrU"/>
-                            <constraint firstItem="ei6-ZG-8GY" firstAttribute="leading" secondItem="AIS-47-0d3" secondAttribute="leading" id="zhw-kL-fvR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NeT-KJ-RlP"/>
                     </view>

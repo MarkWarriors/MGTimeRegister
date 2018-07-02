@@ -25,7 +25,7 @@ class SelectProjectVC: MGTBaseVC {
     
     private func configureTableView(){
         projectsTableView.tableFooterView = UIView()
-        projectsTableView.register(UINib.init(nibName: CompanyTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: CompanyTableViewCell.identifier)
+        projectsTableView.register(UINib.init(nibName: ProjectTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ProjectTableViewCell.identifier)
     }
     
     private func bindViewModel(){
@@ -45,11 +45,8 @@ class SelectProjectVC: MGTBaseVC {
         viewModel.dataSource
             .bind(to: self.projectsTableView
                 .rx
-                .items(cellIdentifier: CompanyTableViewCell.identifier,
-                       cellType: CompanyTableViewCell.self)) { _, company, cell in
-                        cell.nameLbl.text = company.name
-                        cell.projectLbl.text = "\(company.projects?.count ?? 0)"
-                        cell.taskLbl.text = "\(company.tasksCount())"
+                .items(cellIdentifier: ProjectTableViewCell.identifier,
+                       cellType: ProjectTableViewCell.self)) { _, project, cell in
             }
             .disposed(by: self.disposeBag)
     }

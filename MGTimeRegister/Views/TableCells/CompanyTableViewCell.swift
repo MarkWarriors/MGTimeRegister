@@ -12,7 +12,6 @@ class CompanyTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var projectLbl: UILabel!
-    @IBOutlet weak var taskLbl: UILabel!
     
     public static let identifier = "CompanyTableViewCell"
     
@@ -22,6 +21,11 @@ class CompanyTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    public func setModel(_ company: Company){
+        nameLbl.text = company.name
+        projectLbl.text = "\(company.projects?.count ?? 0)"
     }
     
 }

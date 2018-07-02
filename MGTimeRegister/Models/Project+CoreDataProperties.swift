@@ -19,29 +19,25 @@ extension Project {
 
     @NSManaged public var name: String?
     @NSManaged public var company: Company?
-    @NSManaged public var tasks: NSSet?
+    @NSManaged public var times: NSSet?
 
 }
 
 // MARK: Generated accessors for tasks
 extension Project {
 
-    @objc(addTasksObject:)
+    @objc(addTimesObject:)
     @NSManaged public func addToTimes(_ value: Time)
 
-    @objc(removeTasksObject:)
+    @objc(removeTimesObject:)
     @NSManaged public func removeFromTimes(_ value: Time)
 
-    @objc(addTasks:)
-    @NSManaged public func addToTasks(_ values: NSSet)
+    @objc(addTimes:)
+    @NSManaged public func addToTimes(_ values: NSSet)
 
-    @objc(removeTasks:)
-    @NSManaged public func removeFromTasks(_ values: NSSet)
+    @objc(removeTimes:)
+    @NSManaged public func removeFromTimes(_ values: NSSet)
 
 }
 
-extension Project {
-    public func tasksCount() -> Int {
-        return self.tasks?.count ?? 0
-    }
-}
+
