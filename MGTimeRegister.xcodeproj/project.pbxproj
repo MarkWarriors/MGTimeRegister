@@ -12,7 +12,6 @@
 		90358C1620E98DB500AC726B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90358BEE20E98DB400AC726B /* Assets.xcassets */; };
 		90358C1720E98DB500AC726B /* MGTBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF020E98DB400AC726B /* MGTBaseViewModel.swift */; };
 		90358C1A20E98DB500AC726B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF620E98DB400AC726B /* Strings.swift */; };
-		90358C1B20E98DB500AC726B /* Timing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF720E98DB400AC726B /* Timing.swift */; };
 		90358C1C20E98DB500AC726B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF820E98DB400AC726B /* Extensions.swift */; };
 		90358C1D20E98DB500AC726B /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF920E98DB400AC726B /* Globals.swift */; };
 		90358C1E20E98DB500AC726B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BFA20E98DB400AC726B /* Utils.swift */; };
@@ -51,6 +50,7 @@
 		90358C8720EA37C900AC726B /* MGTViewModelSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8620EA37C900AC726B /* MGTViewModelSegue.swift */; };
 		90358C8920EA383400AC726B /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8820EA383400AC726B /* Segues.swift */; };
 		90AF20B920EA4E860026481F /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AF20B820EA4E860026481F /* AlertView.xib */; };
+		90AF20BB20EA6D290026481F /* MGTTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF20BA20EA6D290026481F /* MGTTabBarVC.swift */; };
 		EB9843785E5F32005E329E53 /* Pods_MGTimeRegister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B90F95725FA9E8ABCD699D1 /* Pods_MGTimeRegister.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,7 +77,6 @@
 		90358BEE20E98DB400AC726B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90358BF020E98DB400AC726B /* MGTBaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTBaseViewModel.swift; sourceTree = "<group>"; };
 		90358BF620E98DB400AC726B /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
-		90358BF720E98DB400AC726B /* Timing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timing.swift; sourceTree = "<group>"; };
 		90358BF820E98DB400AC726B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		90358BF920E98DB400AC726B /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		90358BFA20E98DB400AC726B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -117,6 +116,7 @@
 		90358C8620EA37C900AC726B /* MGTViewModelSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTViewModelSegue.swift; sourceTree = "<group>"; };
 		90358C8820EA383400AC726B /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		90AF20B820EA4E860026481F /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
+		90AF20BA20EA6D290026481F /* MGTTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTTabBarVC.swift; sourceTree = "<group>"; };
 		D0917ECA5CFCC0E7A4261922 /* Pods-MGTimeRegister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGTimeRegister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGTimeRegister/Pods-MGTimeRegister.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -337,7 +337,6 @@
 			isa = PBXGroup;
 			children = (
 				90358BF620E98DB400AC726B /* Strings.swift */,
-				90358BF720E98DB400AC726B /* Timing.swift */,
 				90358BF820E98DB400AC726B /* Extensions.swift */,
 				90358BF920E98DB400AC726B /* Globals.swift */,
 				90358BFA20E98DB400AC726B /* Utils.swift */,
@@ -379,6 +378,7 @@
 				90358C7F20EA2A2400AC726B /* Overview */,
 				90358C7B20EA2A2300AC726B /* Reports */,
 				90358C7D20EA2A2300AC726B /* AddTime */,
+				90AF20BA20EA6D290026481F /* MGTTabBarVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -610,6 +610,7 @@
 				90358C7520EA28AB00AC726B /* ReportVC.swift in Sources */,
 				90358C8320EA2A2400AC726B /* OverviewViewModel.swift in Sources */,
 				90358C8120EA2A2400AC726B /* ReportViewModel.swift in Sources */,
+				90AF20BB20EA6D290026481F /* MGTTabBarVC.swift in Sources */,
 				90358C7220E9B4B100AC726B /* Task+CoreDataClass.swift in Sources */,
 				90358C6B20E9B4B100AC726B /* Project+CoreDataProperties.swift in Sources */,
 				90358C6E20E9B4B100AC726B /* User+CoreDataClass.swift in Sources */,
@@ -622,7 +623,6 @@
 				90358C3120E9903100AC726B /* OverlayView.swift in Sources */,
 				90358C7720EA28C800AC726B /* AddTimeVC.swift in Sources */,
 				90358C3520E9903100AC726B /* WaitView.swift in Sources */,
-				90358C1B20E98DB500AC726B /* Timing.swift in Sources */,
 				90358C4720E9AD1200AC726B /* LoginViewModel.swift in Sources */,
 				90358C3020E9900100AC726B /* MGTimeRegister.xcdatamodeld in Sources */,
 			);

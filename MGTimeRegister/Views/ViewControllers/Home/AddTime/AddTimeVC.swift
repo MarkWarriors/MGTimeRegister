@@ -7,16 +7,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class AddTimeVC: MGTBaseVC {
-
+    
+    public var viewModel = AddTimeViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-
-    
-
-
 
 }

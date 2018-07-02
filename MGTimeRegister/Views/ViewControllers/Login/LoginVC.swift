@@ -15,6 +15,7 @@ class LoginVC: MGTBaseVC {
     @IBOutlet weak var loginBtn: MGButton!
     @IBOutlet weak var usernameTF: MGTextField!
     @IBOutlet weak var passwordTF: MGTextField!
+    @IBOutlet weak var saveCredentialsSwitch: UISwitch!
     
     public var viewModel = LoginViewModel()
     
@@ -24,29 +25,42 @@ class LoginVC: MGTBaseVC {
     }
 
     private func bindViewModel(){
-        viewModel.initBindings(loginBtnPressed: loginBtn.rx.tap.asDriver(),
+        let viewWillAppear =  self.rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
+            .map({ _ -> Void in return () })
+            .asDriver(onErrorJustReturn: ())
+        
+        viewModel.initBindings(viewWillAppear: viewWillAppear,
+                               loginBtnPressed: loginBtn.rx.tap.asDriver(),
                                usernameTF: usernameTF.rx.text.orEmpty.asObservable(),
-                               passwordTF: passwordTF.rx.text.orEmpty.asObservable())
+                               passwordTF: passwordTF.rx.text.orEmpty.asObservable(),
+                               saveCredentialsSwitch: saveCredentialsSwitch.rx.isOn.asObservable())
         
-        viewModel.isLoading.bind { (isLoading) in
-            if isLoading {
-                self.showWaitView()
+        viewModel.isLoading
+            .bind { (isLoading) in
+                if isLoading {
+                    self.showWaitView()
+                }
+                else{
+                    self.dismissWaitView()
+                }
             }
-            else{
-                self.dismissWaitView()
+            .disposed(by: self.disposeBag)
+        
+        viewModel.buttonEnabled
+            .bind(to: self.loginBtn.rx.isEnabled)
+            .disposed(by: self.disposeBag)
+        
+        viewModel.performSegue
+            .bind(onNext: { (segue) in
+                self.performSegue(withIdentifier: segue.identifier, sender: segue.viewModel)
+            })
+            .disposed(by: self.disposeBag)
+        
+        viewModel.error
+            .bind { (error) in
+                self.showAlert(title: error.title, message: error.description)
             }
-        }
-        .disposed(by: self.disposeBag)
-        
-        viewModel.performSegue.bind(onNext: { (segue) in
-            self.performSegue(withIdentifier: segue.identifier, sender: segue.viewModel)
-        })
-        .disposed(by: self.disposeBag)
-        
-        viewModel.error.bind { (error) in
-            self.showAlert(title: error.title, message: error.description)
-        }
-        .disposed(by: self.disposeBag)
+            .disposed(by: self.disposeBag)
     }
     
     

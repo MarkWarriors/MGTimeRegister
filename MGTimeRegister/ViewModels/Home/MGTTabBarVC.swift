@@ -1,5 +1,5 @@
 //
-//  OverviewVC.swift
+//  MGTTabBarVC.swift
 //  MGTimeRegister
 //
 //  Created by Marco Guerrieri on 02/07/18.
@@ -7,15 +7,13 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
-class OverviewVC: MGTBaseVC {
-    
-    public var viewModel = OverviewViewModel()
-    
+class MGTTabBarVC: UITabBarController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
     }
+
 
 }

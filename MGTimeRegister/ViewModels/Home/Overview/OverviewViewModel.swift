@@ -12,5 +12,4 @@ import RxCocoa
 
 class OverviewViewModel: MGTBaseViewModel {
 
-
 }

@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ReportVC: MGTBaseVC {
 
+    public var viewModel = ReportViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-    
 
 }

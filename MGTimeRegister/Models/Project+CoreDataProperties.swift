@@ -17,7 +17,6 @@ extension Project {
         return NSFetchRequest<Project>(entityName: "Project")
     }
 
-    @NSManaged public var id: Int16
     @NSManaged public var name: String?
     @NSManaged public var company: Company?
     @NSManaged public var tasks: NSSet?

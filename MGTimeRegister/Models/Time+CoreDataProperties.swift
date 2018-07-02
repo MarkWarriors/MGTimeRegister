@@ -17,7 +17,6 @@ extension Time {
         return NSFetchRequest<Time>(entityName: "Time")
     }
 
-    @NSManaged public var id: Int16
     @NSManaged public var notes: String?
     @NSManaged public var date: NSDate?
     @NSManaged public var time: Int16

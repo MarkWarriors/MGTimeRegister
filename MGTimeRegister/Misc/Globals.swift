@@ -11,7 +11,9 @@ import UIKit
 
 struct Globals {
 
-    struct Prefs {
+    struct PrefsKeys {
+        static let loggedUsername : String = "loggedUsername"
+        static let loggedPassword : String = "loggedPassword"
     }
     
     struct Unity {
