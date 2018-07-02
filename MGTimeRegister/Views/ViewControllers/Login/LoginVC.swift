@@ -37,12 +37,12 @@ class LoginVC: MGTBaseVC {
         
         viewModel.isLoading
             .bind { (isLoading) in
-                if isLoading {
-                    self.showWaitView()
-                }
-                else{
-                    self.dismissWaitView()
-                }
+//                if isLoading {
+//                    self.showWaitView()
+//                }
+//                else{
+//                    self.dismissWaitView()
+//                }
             }
             .disposed(by: self.disposeBag)
         

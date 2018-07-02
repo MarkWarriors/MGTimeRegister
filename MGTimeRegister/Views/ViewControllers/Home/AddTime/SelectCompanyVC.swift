@@ -1,5 +1,5 @@
 //
-//  AddTimeVC.swift
+//  SelectCompanyVC.swift
 //  MGTimeRegister
 //
 //  Created by Marco Guerrieri on 02/07/18.
@@ -10,12 +10,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class AddTimeVC: MGTBaseVC {
+class SelectCompanyVC: MGTBaseVC {
     
     @IBOutlet weak var companyTableView: UITableView!
     @IBOutlet weak var addCompanyBtn: UIButton!
     
-    public var viewModel = AddTimeViewModel()
+    public var viewModel = SelectCompanyViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,7 @@ class AddTimeVC: MGTBaseVC {
     }
     
     private func configureTableView(){
+        companyTableView.tableFooterView = UIView()
         companyTableView.register(UINib.init(nibName: CompanyTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: CompanyTableViewCell.identifier)
     }
     

@@ -16,6 +16,7 @@ class OverviewVC: MGTBaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.title = self.title
     }
 
 }

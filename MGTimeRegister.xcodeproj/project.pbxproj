@@ -39,24 +39,25 @@
 		90358C6F20E9B4B100AC726B /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6520E9B4B100AC726B /* User+CoreDataProperties.swift */; };
 		90358C7020E9B4B100AC726B /* Time+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6620E9B4B100AC726B /* Time+CoreDataClass.swift */; };
 		90358C7120E9B4B100AC726B /* Time+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6720E9B4B100AC726B /* Time+CoreDataProperties.swift */; };
-		90358C7220E9B4B100AC726B /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6820E9B4B100AC726B /* Task+CoreDataClass.swift */; };
-		90358C7320E9B4B100AC726B /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6920E9B4B100AC726B /* Task+CoreDataProperties.swift */; };
 		90358C7520EA28AB00AC726B /* ReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C7420EA28AB00AC726B /* ReportVC.swift */; };
-		90358C7720EA28C800AC726B /* AddTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C7620EA28C800AC726B /* AddTimeVC.swift */; };
+		90358C7720EA28C800AC726B /* SelectCompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C7620EA28C800AC726B /* SelectCompanyVC.swift */; };
 		90358C8120EA2A2400AC726B /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C7C20EA2A2300AC726B /* ReportViewModel.swift */; };
-		90358C8220EA2A2400AC726B /* AddTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C7E20EA2A2300AC726B /* AddTimeViewModel.swift */; };
+		90358C8220EA2A2400AC726B /* SelectCompanyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C7E20EA2A2300AC726B /* SelectCompanyViewModel.swift */; };
 		90358C8320EA2A2400AC726B /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8020EA2A2400AC726B /* OverviewViewModel.swift */; };
 		90358C8520EA36D700AC726B /* MGTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8420EA36D700AC726B /* MGTError.swift */; };
 		90358C8720EA37C900AC726B /* MGTViewModelSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8620EA37C900AC726B /* MGTViewModelSegue.swift */; };
 		90358C8920EA383400AC726B /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8820EA383400AC726B /* Segues.swift */; };
 		90AF20B920EA4E860026481F /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AF20B820EA4E860026481F /* AlertView.xib */; };
-		90AF20BB20EA6D290026481F /* MGTTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF20BA20EA6D290026481F /* MGTTabBarVC.swift */; };
 		90AF20BE20EA7A9B0026481F /* CompanyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF20BC20EA7A9B0026481F /* CompanyTableViewCell.swift */; };
 		90AF20BF20EA7A9B0026481F /* CompanyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AF20BD20EA7A9B0026481F /* CompanyTableViewCell.xib */; };
 		90AF20C220EA7AAC0026481F /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF20C020EA7AAC0026481F /* ProjectTableViewCell.swift */; };
 		90AF20C320EA7AAC0026481F /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AF20C120EA7AAC0026481F /* ProjectTableViewCell.xib */; };
 		90AF20C620EA7AB90026481F /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF20C420EA7AB90026481F /* TaskTableViewCell.swift */; };
 		90AF20C720EA7AB90026481F /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AF20C520EA7AB90026481F /* TaskTableViewCell.xib */; };
+		90CD389A20EAD47A00157DC7 /* SelectProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD389920EAD47A00157DC7 /* SelectProjectVC.swift */; };
+		90CD389C20EAD48F00157DC7 /* AddTimeEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD389B20EAD48F00157DC7 /* AddTimeEntryVC.swift */; };
+		90CD389E20EAD4C000157DC7 /* SelectProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD389D20EAD4C000157DC7 /* SelectProjectViewModel.swift */; };
+		90CD38A020EAD4CB00157DC7 /* AddTimeEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD389F20EAD4CB00157DC7 /* AddTimeEntryViewModel.swift */; };
 		EB9843785E5F32005E329E53 /* Pods_MGTimeRegister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B90F95725FA9E8ABCD699D1 /* Pods_MGTimeRegister.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,24 +112,25 @@
 		90358C6520E9B4B100AC726B /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		90358C6620E9B4B100AC726B /* Time+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Time+CoreDataClass.swift"; sourceTree = "<group>"; };
 		90358C6720E9B4B100AC726B /* Time+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Time+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		90358C6820E9B4B100AC726B /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
-		90358C6920E9B4B100AC726B /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		90358C7420EA28AB00AC726B /* ReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportVC.swift; sourceTree = "<group>"; };
-		90358C7620EA28C800AC726B /* AddTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeVC.swift; sourceTree = "<group>"; };
+		90358C7620EA28C800AC726B /* SelectCompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCompanyVC.swift; sourceTree = "<group>"; };
 		90358C7C20EA2A2300AC726B /* ReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
-		90358C7E20EA2A2300AC726B /* AddTimeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTimeViewModel.swift; sourceTree = "<group>"; };
+		90358C7E20EA2A2300AC726B /* SelectCompanyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCompanyViewModel.swift; sourceTree = "<group>"; };
 		90358C8020EA2A2400AC726B /* OverviewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
 		90358C8420EA36D700AC726B /* MGTError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTError.swift; sourceTree = "<group>"; };
 		90358C8620EA37C900AC726B /* MGTViewModelSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTViewModelSegue.swift; sourceTree = "<group>"; };
 		90358C8820EA383400AC726B /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		90AF20B820EA4E860026481F /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
-		90AF20BA20EA6D290026481F /* MGTTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTTabBarVC.swift; sourceTree = "<group>"; };
 		90AF20BC20EA7A9B0026481F /* CompanyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableViewCell.swift; sourceTree = "<group>"; };
 		90AF20BD20EA7A9B0026481F /* CompanyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyTableViewCell.xib; sourceTree = "<group>"; };
 		90AF20C020EA7AAC0026481F /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
 		90AF20C120EA7AAC0026481F /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
 		90AF20C420EA7AB90026481F /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		90AF20C520EA7AB90026481F /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
+		90CD389920EAD47A00157DC7 /* SelectProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProjectVC.swift; sourceTree = "<group>"; };
+		90CD389B20EAD48F00157DC7 /* AddTimeEntryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeEntryVC.swift; sourceTree = "<group>"; };
+		90CD389D20EAD4C000157DC7 /* SelectProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProjectViewModel.swift; sourceTree = "<group>"; };
+		90CD389F20EAD4CB00157DC7 /* AddTimeEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeEntryViewModel.swift; sourceTree = "<group>"; };
 		D0917ECA5CFCC0E7A4261922 /* Pods-MGTimeRegister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGTimeRegister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGTimeRegister/Pods-MGTimeRegister.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -263,16 +265,14 @@
 			children = (
 				90358C4A20E9AF0900AC726B /* ModelController.swift */,
 				90358C2E20E9900100AC726B /* MGTimeRegister.xcdatamodeld */,
-				90358C6020E9B4B100AC726B /* Project+CoreDataClass.swift */,
-				90358C6120E9B4B100AC726B /* Project+CoreDataProperties.swift */,
-				90358C6220E9B4B100AC726B /* Company+CoreDataClass.swift */,
-				90358C6320E9B4B100AC726B /* Company+CoreDataProperties.swift */,
 				90358C6420E9B4B100AC726B /* User+CoreDataClass.swift */,
 				90358C6520E9B4B100AC726B /* User+CoreDataProperties.swift */,
+				90358C6220E9B4B100AC726B /* Company+CoreDataClass.swift */,
+				90358C6320E9B4B100AC726B /* Company+CoreDataProperties.swift */,
+				90358C6020E9B4B100AC726B /* Project+CoreDataClass.swift */,
+				90358C6120E9B4B100AC726B /* Project+CoreDataProperties.swift */,
 				90358C6620E9B4B100AC726B /* Time+CoreDataClass.swift */,
 				90358C6720E9B4B100AC726B /* Time+CoreDataProperties.swift */,
-				90358C6820E9B4B100AC726B /* Task+CoreDataClass.swift */,
-				90358C6920E9B4B100AC726B /* Task+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -301,19 +301,11 @@
 		90358C0120E98DB400AC726B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				90358C0220E98DB400AC726B /* CollectionCells */,
 				90358C0420E98DB400AC726B /* TableCells */,
 				90358C0620E98DB400AC726B /* ViewControllers */,
 				90358C0920E98DB400AC726B /* Overlay */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		90358C0220E98DB400AC726B /* CollectionCells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CollectionCells;
 			sourceTree = "<group>";
 		};
 		90358C0420E98DB400AC726B /* TableCells */ = {
@@ -397,7 +389,6 @@
 				90358C7F20EA2A2400AC726B /* Overview */,
 				90358C7B20EA2A2300AC726B /* Reports */,
 				90358C7D20EA2A2300AC726B /* AddTime */,
-				90AF20BA20EA6D290026481F /* MGTTabBarVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -429,7 +420,9 @@
 		90358C7A20EA298800AC726B /* AddTime */ = {
 			isa = PBXGroup;
 			children = (
-				90358C7620EA28C800AC726B /* AddTimeVC.swift */,
+				90358C7620EA28C800AC726B /* SelectCompanyVC.swift */,
+				90CD389920EAD47A00157DC7 /* SelectProjectVC.swift */,
+				90CD389B20EAD48F00157DC7 /* AddTimeEntryVC.swift */,
 			);
 			path = AddTime;
 			sourceTree = "<group>";
@@ -445,7 +438,9 @@
 		90358C7D20EA2A2300AC726B /* AddTime */ = {
 			isa = PBXGroup;
 			children = (
-				90358C7E20EA2A2300AC726B /* AddTimeViewModel.swift */,
+				90358C7E20EA2A2300AC726B /* SelectCompanyViewModel.swift */,
+				90CD389D20EAD4C000157DC7 /* SelectProjectViewModel.swift */,
+				90CD389F20EAD4CB00157DC7 /* AddTimeEntryViewModel.swift */,
 			);
 			path = AddTime;
 			sourceTree = "<group>";
@@ -618,13 +613,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90CD389E20EAD4C000157DC7 /* SelectProjectViewModel.swift in Sources */,
 				90358C8720EA37C900AC726B /* MGTViewModelSegue.swift in Sources */,
 				90358C1F20E98DB500AC726B /* AppDelegate.swift in Sources */,
+				90CD389A20EAD47A00157DC7 /* SelectProjectVC.swift in Sources */,
 				90358C6C20E9B4B100AC726B /* Company+CoreDataClass.swift in Sources */,
 				90358C2420E98DB500AC726B /* MGTBaseVC.swift in Sources */,
 				90358C4320E9ACD700AC726B /* OverviewVC.swift in Sources */,
 				90358C8920EA383400AC726B /* Segues.swift in Sources */,
 				90358C1C20E98DB500AC726B /* Extensions.swift in Sources */,
+				90CD389C20EAD48F00157DC7 /* AddTimeEntryVC.swift in Sources */,
 				90358C7120E9B4B100AC726B /* Time+CoreDataProperties.swift in Sources */,
 				90358C4020E9ACA900AC726B /* LoginVC.swift in Sources */,
 				90358C6D20E9B4B100AC726B /* Company+CoreDataProperties.swift in Sources */,
@@ -635,14 +633,12 @@
 				90AF20C620EA7AB90026481F /* TaskTableViewCell.swift in Sources */,
 				90358C1D20E98DB500AC726B /* Globals.swift in Sources */,
 				90358C6A20E9B4B100AC726B /* Project+CoreDataClass.swift in Sources */,
+				90CD38A020EAD4CB00157DC7 /* AddTimeEntryViewModel.swift in Sources */,
 				90358C1E20E98DB500AC726B /* Utils.swift in Sources */,
-				90358C7320E9B4B100AC726B /* Task+CoreDataProperties.swift in Sources */,
 				90358C1A20E98DB500AC726B /* Strings.swift in Sources */,
 				90358C7520EA28AB00AC726B /* ReportVC.swift in Sources */,
 				90358C8320EA2A2400AC726B /* OverviewViewModel.swift in Sources */,
 				90358C8120EA2A2400AC726B /* ReportViewModel.swift in Sources */,
-				90AF20BB20EA6D290026481F /* MGTTabBarVC.swift in Sources */,
-				90358C7220E9B4B100AC726B /* Task+CoreDataClass.swift in Sources */,
 				90358C6B20E9B4B100AC726B /* Project+CoreDataProperties.swift in Sources */,
 				90358C6E20E9B4B100AC726B /* User+CoreDataClass.swift in Sources */,
 				90358C6F20E9B4B100AC726B /* User+CoreDataProperties.swift in Sources */,
@@ -650,10 +646,10 @@
 				90358C3320E9903100AC726B /* AlertView.swift in Sources */,
 				90358C2520E98DB500AC726B /* MGTNavigationController.swift in Sources */,
 				90358C3D20E9ABB800AC726B /* SharedInstance.swift in Sources */,
-				90358C8220EA2A2400AC726B /* AddTimeViewModel.swift in Sources */,
+				90358C8220EA2A2400AC726B /* SelectCompanyViewModel.swift in Sources */,
 				90AF20BE20EA7A9B0026481F /* CompanyTableViewCell.swift in Sources */,
 				90358C3120E9903100AC726B /* OverlayView.swift in Sources */,
-				90358C7720EA28C800AC726B /* AddTimeVC.swift in Sources */,
+				90358C7720EA28C800AC726B /* SelectCompanyVC.swift in Sources */,
 				90358C3520E9903100AC726B /* WaitView.swift in Sources */,
 				90358C4720E9AD1200AC726B /* LoginViewModel.swift in Sources */,
 				90358C3020E9900100AC726B /* MGTimeRegister.xcdatamodeld in Sources */,

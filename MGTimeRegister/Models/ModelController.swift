@@ -119,13 +119,12 @@ extension NSManagedObject {
     // Entities enumerator
 extension ModelController {
     enum Entity: String {
-        case user = "User" // Abstract
+        case user = "User"
         case company = "Company"
         case project = "Project"
-        case task = "Task"
         case time = "Time"
         
-        static var all: [Entity] = [.user, .company, .project, .task, .time]
+        static var all: [Entity] = [.user, .company, .project, .time]
 
         
         var entityClass: NSManagedObject.Type {
@@ -136,8 +135,6 @@ extension ModelController {
                 return Company.self
             case .project:
                 return Project.self
-            case .task:
-                return Task.self
             case .time:
                 return Time.self
             }

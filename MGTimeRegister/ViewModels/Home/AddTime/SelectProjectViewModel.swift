@@ -1,5 +1,5 @@
 //
-//  AddTimeViewModel.swift
+//  SelectProjectViewModel.swift
 //  MGTimeRegister
 //
 //  Created by Marco Guerrieri on 02/07/18.
@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class AddTimeViewModel: MGTBaseViewModel {
+class SelectProjectViewModel: MGTBaseViewModel {
     
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
     private let privateDataSource = BehaviorRelay<[Company]>(value: [])
@@ -25,43 +25,41 @@ class AddTimeViewModel: MGTBaseViewModel {
     
     public func initBindings(viewWillAppear: Driver<Void>,
                              selectedRow: Driver<IndexPath>,
-                             newCompanyBtnPressed: Driver<Void>){
+                             newProjectBtnPressed: Driver<Void>){
         self.disposeBag = DisposeBag()
         
         viewWillAppear.drive(onNext: { (_) in
-                self.reloadDataSource()
-            })
+            self.reloadDataSource()
+        })
             .disposed(by: self.disposeBag)
         
         selectedRow.drive(onNext: { (row) in
-                self.privatePerformSegue.onNext(
-                    MGTViewModelSegue.init(identifier: Segues.Home.AddTime.pickCompany)
-                )
-            })
+            self.privatePerformSegue.onNext(
+                MGTViewModelSegue.init(identifier: Segues.Home.AddTime.pickProject)
+            )
+        })
             .disposed(by: self.disposeBag)
         
-        newCompanyBtnPressed
+        newProjectBtnPressed
             .drive(onNext: { [unowned self] in
-                self.newCompany()
+                self.newProject()
             })
             .disposed(by: self.disposeBag)
     }
     
     private func reloadDataSource(){
-        ModelController.shared.save()
-        privateDataSource.accept(SharedInstance.shared.currentUser?.companies?.allObjects as! [Company])
+        
     }
     
-    private func newCompany(){
+    private func newProject(){
         self.privatePerformSegue.onNext(
-            MGTViewModelSegue.init(identifier: Segues.Home.AddTime.newCompany)
+            MGTViewModelSegue.init(identifier: Segues.Home.AddTime.newProject)
         )
     }
     
     public func prepareVCForSegue(_ vc: UIViewController) {
-//        if vc is OverviewVC {
-//            (vc as! OverviewVC).viewModel = OverviewViewModel()
-//        }
+        //        if vc is OverviewVC {
+        //            (vc as! OverviewVC).viewModel = OverviewViewModel()
+        //        }
     }
-    
 }

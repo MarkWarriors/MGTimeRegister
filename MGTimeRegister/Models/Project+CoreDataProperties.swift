@@ -27,10 +27,10 @@ extension Project {
 extension Project {
 
     @objc(addTasksObject:)
-    @NSManaged public func addToTasks(_ value: Task)
+    @NSManaged public func addToTimes(_ value: Time)
 
     @objc(removeTasksObject:)
-    @NSManaged public func removeFromTasks(_ value: Task)
+    @NSManaged public func removeFromTimes(_ value: Time)
 
     @objc(addTasks:)
     @NSManaged public func addToTasks(_ values: NSSet)
