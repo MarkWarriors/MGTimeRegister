@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-724" y="159"/>
         </scene>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="my0-OY-65h">
             <objects>
-                <viewController id="VUR-YJ-dOH" sceneMemberID="viewController">
+                <viewController id="VUR-YJ-dOH" customClass="LoginVC" customModule="MGTimeRegister" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xhD-OU-YlF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,6 +126,11 @@
                         <viewLayoutGuide key="safeArea" id="G19-M6-PbX"/>
                     </view>
                     <navigationItem key="navigationItem" id="2JY-Uu-NmO"/>
+                    <connections>
+                        <outlet property="loginBtn" destination="hdT-wD-S5X" id="2IN-Ye-sc8"/>
+                        <outlet property="passwordTF" destination="ASw-7J-RYl" id="sHs-ik-TCN"/>
+                        <outlet property="usernameTF" destination="gkR-SF-fPq" id="u3i-5c-1DU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOg-zQ-azc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -134,8 +139,8 @@
         <!--Home-->
         <scene sceneID="Ute-y3-EYD">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="fZd-lo-LVs" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3V-3k-HKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Home" id="fZd-lo-LVs" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="701" y="158"/>
         </scene>

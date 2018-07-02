@@ -9,7 +9,11 @@
 import UIKit
 
 class LoginVC: MGTBaseVC {
-
+    
+    @IBOutlet weak var loginBtn: MGTButton!
+    @IBOutlet weak var usernameTF: MGTextField!
+    @IBOutlet weak var passwordTF: MGTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
