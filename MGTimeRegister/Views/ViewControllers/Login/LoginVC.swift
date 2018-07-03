@@ -25,11 +25,11 @@ class LoginVC: MGTBaseVC {
     }
 
     private func bindViewModel(){
-        let viewWillAppear =  self.rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
+        let viewDidAppear =  self.rx.sentMessage(#selector(UIViewController.viewDidAppear(_:)))
             .map({ _ -> Void in return () })
             .asDriver(onErrorJustReturn: ())
         
-        viewModel.initBindings(viewWillAppear: viewWillAppear,
+        viewModel.initBindings(viewWillAppear: viewDidAppear,
                                loginBtnPressed: loginBtn.rx.tap.asDriver(),
                                usernameTF: usernameTF.rx.text.orEmpty.asObservable(),
                                passwordTF: passwordTF.rx.text.orEmpty.asObservable(),

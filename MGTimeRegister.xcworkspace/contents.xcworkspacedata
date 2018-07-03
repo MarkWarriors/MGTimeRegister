@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/ViewModels/Home/AddTime/NewProjectViewModel.swift">
+   </FileRef>
+   <FileRef
       location = "group:MGTimeRegister.xcodeproj">
    </FileRef>
    <FileRef

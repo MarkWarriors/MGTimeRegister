@@ -56,6 +56,10 @@
 		90CD389C20EAD48F00157DC7 /* AddTimeEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD389B20EAD48F00157DC7 /* AddTimeEntryVC.swift */; };
 		90CD389E20EAD4C000157DC7 /* SelectProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD389D20EAD4C000157DC7 /* SelectProjectViewModel.swift */; };
 		90CD38A020EAD4CB00157DC7 /* AddTimeEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD389F20EAD4CB00157DC7 /* AddTimeEntryViewModel.swift */; };
+		90CD38A220EB4FDA00157DC7 /* NewCompanyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD38A120EB4FDA00157DC7 /* NewCompanyViewModel.swift */; };
+		90CD38A420EB4FFA00157DC7 /* NewProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD38A320EB4FFA00157DC7 /* NewProjectViewModel.swift */; };
+		90CD38A620EB502600157DC7 /* NewCompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD38A520EB502600157DC7 /* NewCompanyVC.swift */; };
+		90CD38A820EB503200157DC7 /* NewProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD38A720EB503200157DC7 /* NewProjectVC.swift */; };
 		EB9843785E5F32005E329E53 /* Pods_MGTimeRegister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B90F95725FA9E8ABCD699D1 /* Pods_MGTimeRegister.framework */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +131,10 @@
 		90CD389B20EAD48F00157DC7 /* AddTimeEntryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeEntryVC.swift; sourceTree = "<group>"; };
 		90CD389D20EAD4C000157DC7 /* SelectProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProjectViewModel.swift; sourceTree = "<group>"; };
 		90CD389F20EAD4CB00157DC7 /* AddTimeEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeEntryViewModel.swift; sourceTree = "<group>"; };
+		90CD38A120EB4FDA00157DC7 /* NewCompanyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCompanyViewModel.swift; sourceTree = "<group>"; };
+		90CD38A320EB4FFA00157DC7 /* NewProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewProjectViewModel.swift; path = /Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/ViewModels/Home/AddTime/NewProjectViewModel.swift; sourceTree = "<absolute>"; };
+		90CD38A520EB502600157DC7 /* NewCompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCompanyVC.swift; sourceTree = "<group>"; };
+		90CD38A720EB503200157DC7 /* NewProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectVC.swift; sourceTree = "<group>"; };
 		D0917ECA5CFCC0E7A4261922 /* Pods-MGTimeRegister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGTimeRegister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGTimeRegister/Pods-MGTimeRegister.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -417,6 +425,8 @@
 				90358C7620EA28C800AC726B /* SelectCompanyVC.swift */,
 				90CD389920EAD47A00157DC7 /* SelectProjectVC.swift */,
 				90CD389B20EAD48F00157DC7 /* AddTimeEntryVC.swift */,
+				90CD38A520EB502600157DC7 /* NewCompanyVC.swift */,
+				90CD38A720EB503200157DC7 /* NewProjectVC.swift */,
 			);
 			path = AddTime;
 			sourceTree = "<group>";
@@ -435,6 +445,8 @@
 				90358C7E20EA2A2300AC726B /* SelectCompanyViewModel.swift */,
 				90CD389D20EAD4C000157DC7 /* SelectProjectViewModel.swift */,
 				90CD389F20EAD4CB00157DC7 /* AddTimeEntryViewModel.swift */,
+				90CD38A320EB4FFA00157DC7 /* NewProjectViewModel.swift */,
+				90CD38A120EB4FDA00157DC7 /* NewCompanyViewModel.swift */,
 			);
 			path = AddTime;
 			sourceTree = "<group>";
@@ -619,6 +631,7 @@
 				90358C7120E9B4B100AC726B /* Time+CoreDataProperties.swift in Sources */,
 				90358C4020E9ACA900AC726B /* LoginVC.swift in Sources */,
 				90358C6D20E9B4B100AC726B /* Company+CoreDataProperties.swift in Sources */,
+				90CD38A420EB4FFA00157DC7 /* NewProjectViewModel.swift in Sources */,
 				90358C1720E98DB500AC726B /* MGTBaseViewModel.swift in Sources */,
 				90AF20C220EA7AAC0026481F /* ProjectTableViewCell.swift in Sources */,
 				90358C8520EA36D700AC726B /* MGTError.swift in Sources */,
@@ -631,9 +644,12 @@
 				90358C7520EA28AB00AC726B /* ReportVC.swift in Sources */,
 				90358C8320EA2A2400AC726B /* OverviewViewModel.swift in Sources */,
 				90358C8120EA2A2400AC726B /* ReportViewModel.swift in Sources */,
+				90CD38A220EB4FDA00157DC7 /* NewCompanyViewModel.swift in Sources */,
+				90CD38A620EB502600157DC7 /* NewCompanyVC.swift in Sources */,
 				90358C6B20E9B4B100AC726B /* Project+CoreDataProperties.swift in Sources */,
 				90358C6E20E9B4B100AC726B /* User+CoreDataClass.swift in Sources */,
 				90358C6F20E9B4B100AC726B /* User+CoreDataProperties.swift in Sources */,
+				90CD38A820EB503200157DC7 /* NewProjectVC.swift in Sources */,
 				90358C4B20E9AF0900AC726B /* ModelController.swift in Sources */,
 				90358C3320E9903100AC726B /* AlertView.swift in Sources */,
 				90358C2520E98DB500AC726B /* MGTNavigationController.swift in Sources */,

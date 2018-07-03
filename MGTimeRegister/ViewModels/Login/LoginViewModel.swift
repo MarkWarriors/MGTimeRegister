@@ -82,7 +82,7 @@ class LoginViewModel: MGTBaseViewModel {
         }
 
         SharedInstance.shared.loginUser(user!)
-        if privateSaveCredentials.value {
+        if privateSaveCredentials.value && !autologin {
             SharedInstance.shared.storeCredentials(username: privateUsername.value, password: privatePassword.value)
         }
         
