@@ -19,7 +19,7 @@ extension Time {
 
     @NSManaged public var notes: String?
     @NSManaged public var date: NSDate?
-    @NSManaged public var time: Int16
+    @NSManaged public var hours: Int16
     @NSManaged public var project: Project?
 
 }

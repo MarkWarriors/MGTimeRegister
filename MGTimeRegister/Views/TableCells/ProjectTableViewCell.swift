@@ -10,6 +10,9 @@ import UIKit
 
 class ProjectTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var hoursLbl: UILabel!
+    
     public static let identifier = "ProjectTableViewCell"
     
     override func awakeFromNib() {
@@ -17,10 +20,9 @@ class ProjectTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    public func setModel(_ project: Project){
+        nameLbl.text = project.name
+        hoursLbl.text = "\(project.totalHoursCount())"
     }
     
 }

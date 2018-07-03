@@ -36,16 +36,16 @@ class LoginVC: MGTBaseVC, ViewModelBased {
                                passwordTF: passwordTF.rx.text.orEmpty.asObservable(),
                                saveCredentialsSwitch: saveCredentialsSwitch.rx.isOn.asObservable())
         
-        viewModel!.isLoading
-            .bind { [weak self] (isLoading) in
+//        viewModel!.isLoading
+//            .bind { [weak self] (isLoading) in
 //                if isLoading {
 //                    self?.showWaitView()
 //                }
 //                else{
 //                    self?.dismissWaitView()
 //                }
-            }
-            .disposed(by: self.disposeBag)
+//            }
+//            .disposed(by: self.disposeBag)
         
         viewModel!.buttonEnabled
             .bind(to: self.loginBtn.rx.isEnabled)

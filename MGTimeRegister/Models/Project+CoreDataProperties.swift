@@ -40,4 +40,11 @@ extension Project {
 
 }
 
+extension Project {
+    public func totalHoursCount() -> Int {
+        // TODO
+//        return self.times?.reduce(0, { $0 + Int(($1 as! Time).hours) }) ?? 0
+        return 0
+    }
+}
 

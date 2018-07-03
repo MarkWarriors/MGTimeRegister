@@ -39,7 +39,7 @@ class SelectCompanyViewModel: MGTBaseViewModel {
         
         fetchDataSource
             .drive(onNext: { [weak self] (_) in
-                self?.fetchDataSource()
+                self?.privateDataSource.accept(SharedInstance.shared.currentUser?.companies?.allObjects as! [Company])
             })
             .disposed(by: self.disposeBag)
         

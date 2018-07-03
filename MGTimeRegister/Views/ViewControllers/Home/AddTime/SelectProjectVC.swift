@@ -47,7 +47,7 @@ class SelectProjectVC: MGTBaseVC, ViewModelBased {
             .bind(to: self.projectsTableView.rx
                 .items(cellIdentifier: ProjectTableViewCell.identifier,
                        cellType: ProjectTableViewCell.self)) { _, project, cell in
-                        
+                        cell.setModel(project)
             }
             .disposed(by: self.disposeBag)
         
