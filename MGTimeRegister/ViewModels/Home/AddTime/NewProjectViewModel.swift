@@ -14,11 +14,12 @@ class NewProjectViewModel: MGTBaseViewModel {
     
     private let privateCloseVC = PublishSubject<(Void)>()
     private let privateProjectName = BehaviorRelay<String>(value: "")
-    private let privateProjectSelected = PublishSubject<Project>()
-    private let currentCompany : Company
+    private let privateProjectSelected = PublishRelay<Project>()
+    private let privateCurrentCompany = BehaviorRelay<Company?>(value: nil)
     
-    init(company: Company) {
-        self.currentCompany = company
+    init(company: Company, projectSelected: PublishRelay<Project>) {
+        self.privateCurrentCompany.accept(company)
+        privateProjectSelected.bind(to: projectSelected)
     }
     
     var projectSelected : Observable<Project> {
@@ -26,7 +27,7 @@ class NewProjectViewModel: MGTBaseViewModel {
     }
     
     var companyNameText : Observable<(String)> {
-        return Observable.just(self.currentCompany.name!)
+        return Observable.just(self.privateCurrentCompany.value!.name!)
     }
     
     var closeVC : Observable<(Void)> {
@@ -60,9 +61,9 @@ class NewProjectViewModel: MGTBaseViewModel {
     private func createProject(){
         let project = ModelController.shared.new(forEntity: ModelController.Entity.project) as! Project
         project.name = privateProjectName.value
-        self.currentCompany.addToProjects(project)
+        self.privateCurrentCompany.value!.addToProjects(project)
         ModelController.shared.save()
-        self.privateProjectSelected.onNext(project)
+        self.privateProjectSelected.accept(project)
     }
 
 }

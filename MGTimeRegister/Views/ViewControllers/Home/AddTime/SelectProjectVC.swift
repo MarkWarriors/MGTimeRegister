@@ -49,6 +49,12 @@ class SelectProjectVC: MGTBaseVC, ViewModelBased {
                        cellType: ProjectTableViewCell.self)) { _, project, cell in
             }
             .disposed(by: self.disposeBag)
+        
+        viewModel!.performSegue
+            .bind { (segue) in
+                self.performSegue(withIdentifier: segue.identifier, sender: nil)
+            }
+            .disposed(by: disposeBag)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

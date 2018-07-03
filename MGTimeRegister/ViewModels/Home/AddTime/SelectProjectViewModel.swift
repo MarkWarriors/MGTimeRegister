@@ -15,8 +15,10 @@ class SelectProjectViewModel: MGTBaseViewModel {
     
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
     private let privateDataSource = BehaviorRelay<[Project]>(value: [])
+    
+    private var privateSelectedProject = PublishRelay<Project>()
     private let privateCurrentCompany : Company
-    private var privateSelectedProject : Project?
+    private var privateProject : Project?
     
     init(company: Company) {
         self.privateCurrentCompany = company
@@ -33,6 +35,11 @@ class SelectProjectViewModel: MGTBaseViewModel {
     public func initBindings(viewWillAppear: Driver<Void>,
                              selectedRow: Driver<IndexPath>,
                              newProjectBtnPressed: Driver<Void>){
+        privateSelectedProject.bind(onNext: { [weak self] (project) in
+            self?.privateProject = project
+            self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.AddTime.newTimeEntry))
+        })
+        .disposed(by: disposeBag)
         
         viewWillAppear
             .drive(onNext: { [weak self] (_) in
@@ -42,10 +49,7 @@ class SelectProjectViewModel: MGTBaseViewModel {
         
         selectedRow
             .drive(onNext: { [weak self] (indexPath) in
-                self?.privateSelectedProject = self?.privateDataSource.value[indexPath.row]
-                self?.privatePerformSegue.onNext(
-                    MGTViewModelSegue.init(identifier: Segues.Home.AddTime.newTimeEntry)
-                )
+                self?.privateSelectedProject.accept((self?.privateDataSource.value[indexPath.row])!)
             })
             .disposed(by: self.disposeBag)
         
@@ -68,10 +72,10 @@ class SelectProjectViewModel: MGTBaseViewModel {
     
     public func viewModelFor(_ vc: inout UIViewController) {
         if let vc = vc as? NewTimeEntryVC {
-            vc.viewModel = NewTimeEntryViewModel(project: privateSelectedProject!)
+            vc.viewModel = NewTimeEntryViewModel(project: privateProject!)
         }
         else if let vc = vc as? NewProjectVC {
-            vc.viewModel = NewProjectViewModel(company: privateCurrentCompany)
+            vc.viewModel = NewProjectViewModel(company: privateCurrentCompany, projectSelected: privateSelectedProject)
         }
     }
 }
