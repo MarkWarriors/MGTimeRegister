@@ -86,9 +86,6 @@
                                         <real key="value" value="-1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="93K-Nd-J2e" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="rx9-9P-7Wz"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -111,6 +108,8 @@
                     <connections>
                         <outlet property="addCompanyBtn" destination="48Y-NV-I29" id="whi-vC-IKm"/>
                         <outlet property="companyTableView" destination="HIV-re-tEL" id="AGf-gp-Hrd"/>
+                        <segue destination="93K-Nd-J2e" kind="presentation" identifier="toNewCompany" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="Qpv-5f-GMe"/>
+                        <segue destination="KBc-4N-Hc1" kind="show" identifier="toPickProject" id="E4M-9Q-A9b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kK-OO-T2d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -306,6 +305,7 @@
                     <connections>
                         <outlet property="addProjectBtn" destination="VMx-5W-2Gp" id="5pQ-C8-asp"/>
                         <outlet property="projectsTableView" destination="PUj-HG-yCA" id="wEn-4G-hgw"/>
+                        <segue destination="cVr-MB-ekr" kind="show" identifier="toNewTimeEntry" id="w5g-IN-xjK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSi-pw-gdl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -315,7 +315,7 @@
         <!--Insert Time-->
         <scene sceneID="dhg-1I-f8I">
             <objects>
-                <viewController title="Insert Time" id="cVr-MB-ekr" customClass="AddTimeEntryVC" customModule="MGTimeRegister" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Insert Time" id="cVr-MB-ekr" customClass="NewTimeEntryVC" customModule="MGTimeRegister" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3tG-qb-QVT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

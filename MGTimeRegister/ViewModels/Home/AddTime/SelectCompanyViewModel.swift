@@ -36,7 +36,7 @@ class SelectCompanyViewModel: MGTBaseViewModel {
         selectedRow
             .drive(onNext: { [weak self] (row) in
                 self?.privatePerformSegue.onNext(
-                    MGTViewModelSegue.init(identifier: Segues.Home.AddTime.pickCompany)
+                    MGTViewModelSegue.init(identifier: Segues.Home.AddTime.pickProject)
                 )
             })
             .disposed(by: self.disposeBag)

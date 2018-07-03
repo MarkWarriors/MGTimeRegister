@@ -18,6 +18,7 @@ public class Segues {
         struct AddTime {
             public static let newCompany = "toNewCompany"
             public static let newProject = "toNewProject"
+            public static let newTimeEntry = "toNewTimeEntry"
             
             public static let pickCompany = "toPickCompany"
             public static let pickProject = "toPickProject"

@@ -1,5 +1,5 @@
 //
-//  AddTimeEntryViewModel.swift
+//  NewTimeEntryViewModel.swift
 //  MGTimeRegister
 //
 //  Created by Marco Guerrieri on 02/07/18.
@@ -10,6 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class AddTimeEntryViewModel: MGTBaseViewModel {
+class NewTimeEntryViewModel: MGTBaseViewModel {
 
 }

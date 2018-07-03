@@ -1,5 +1,5 @@
 //
-//  AddTimeEntryVC.swift
+//  NewTimeEntryVC.swift
 //  MGTimeRegister
 //
 //  Created by Marco Guerrieri on 02/07/18.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class AddTimeEntryVC: MGTBaseVC {
+class NewTimeEntryVC: MGTBaseVC {
 
-    public var viewModel = AddTimeEntryViewModel()
+    public var viewModel = NewTimeEntryViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
