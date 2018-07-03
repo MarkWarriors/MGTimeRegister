@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 class LoginViewModel: MGTBaseViewModel {
+    var disposeBag: DisposeBag = DisposeBag()
     
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
     private let privateIsLoading = BehaviorRelay<Bool>(value: false)
@@ -87,7 +88,7 @@ class LoginViewModel: MGTBaseViewModel {
         }
         
         self.privatePerformSegue.onNext(
-            MGTViewModelSegue.init(identifier: Segues.Login.toHome)
+            MGTViewModelSegue.init(identifier: Segues.Login.toHome, viewModel: OverviewViewModel())
         )
         
 // Usefull if with Apicall

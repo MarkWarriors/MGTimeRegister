@@ -10,13 +10,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class NewCompanyVC: MGTBaseVC {
-
+class NewCompanyVC: MGTBaseVC, ViewModelBased {
+    typealias ViewModel = NewCompanyViewModel
+    var viewModel: NewCompanyViewModel?
+    
     @IBOutlet weak var saveBtn: MGButton!
     @IBOutlet weak var closeBtn: UIButton!
     @IBOutlet weak var companyNameTF: MGTextField!
-    
-    public var viewModel = NewCompanyViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +25,14 @@ class NewCompanyVC: MGTBaseVC {
     
     
     private func bindViewModel() {
-        viewModel.initBindings(
+        viewModel!.initBindings(
             newCompanyName: companyNameTF.rx.text.orEmpty.asObservable(),
             saveBtnPressed: saveBtn.rx.tap.asDriver(),
             closeBtnPressed: closeBtn.rx.tap.asDriver())
         
-        viewModel.buttonEnabled.bind(to: saveBtn.rx.isEnabled).disposed(by: disposeBag)
+        viewModel!.buttonEnabled.bind(to: saveBtn.rx.isEnabled).disposed(by: disposeBag)
         
-        viewModel.closeVC
+        viewModel!.closeVC
             .bind { [weak self] (_) in
                 self?.dismiss(animated: true, completion: nil)
             }

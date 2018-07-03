@@ -10,14 +10,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class NewProjectVC: MGTBaseVC {
+class NewProjectVC: MGTBaseVC, ViewModelBased {
+    typealias ViewModel = NewProjectViewModel
+    var viewModel: NewProjectViewModel?
     
     @IBOutlet weak var saveBtn: MGButton!
     @IBOutlet weak var closeBtn: UIButton!
     @IBOutlet weak var companyNameLbl: UILabel!
     @IBOutlet weak var projectNameTF: MGTextField!
-    
-    public var viewModel = NewProjectViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

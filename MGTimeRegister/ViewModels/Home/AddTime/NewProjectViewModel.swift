@@ -10,5 +10,7 @@ import RxSwift
 import RxCocoa
 
 class NewProjectViewModel: MGTBaseViewModel {
+    var disposeBag: DisposeBag = DisposeBag()
+    
 
 }

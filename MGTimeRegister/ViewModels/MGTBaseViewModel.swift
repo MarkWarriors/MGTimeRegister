@@ -9,8 +9,8 @@
 import Foundation
 import RxSwift
 
-public class MGTBaseViewModel {
+public protocol MGTBaseViewModel {
     
-    internal let disposeBag = DisposeBag()
+    var disposeBag : DisposeBag { get set }
     
 }

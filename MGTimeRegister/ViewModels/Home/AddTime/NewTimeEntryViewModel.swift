@@ -11,5 +11,7 @@ import RxSwift
 import RxCocoa
 
 class NewTimeEntryViewModel: MGTBaseViewModel {
+    var disposeBag: DisposeBag = DisposeBag()
+    
 
 }

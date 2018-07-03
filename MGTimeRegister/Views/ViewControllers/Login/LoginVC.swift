@@ -10,14 +10,15 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class LoginVC: MGTBaseVC {
+class LoginVC: MGTBaseVC, ViewModelBased {
+    typealias ViewModel = LoginViewModel
+    var viewModel: LoginViewModel? = LoginViewModel()
+    
     
     @IBOutlet weak var loginBtn: MGButton!
     @IBOutlet weak var usernameTF: MGTextField!
     @IBOutlet weak var passwordTF: MGTextField!
     @IBOutlet weak var saveCredentialsSwitch: UISwitch!
-    
-    public var viewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +30,13 @@ class LoginVC: MGTBaseVC {
             .map({ _ -> Void in return () })
             .asDriver(onErrorJustReturn: ())
         
-        viewModel.initBindings(viewWillAppear: viewDidAppear,
+        viewModel!.initBindings(viewWillAppear: viewDidAppear,
                                loginBtnPressed: loginBtn.rx.tap.asDriver(),
                                usernameTF: usernameTF.rx.text.orEmpty.asObservable(),
                                passwordTF: passwordTF.rx.text.orEmpty.asObservable(),
                                saveCredentialsSwitch: saveCredentialsSwitch.rx.isOn.asObservable())
         
-        viewModel.isLoading
+        viewModel!.isLoading
             .bind { [weak self] (isLoading) in
 //                if isLoading {
 //                    self?.showWaitView()
@@ -46,17 +47,17 @@ class LoginVC: MGTBaseVC {
             }
             .disposed(by: self.disposeBag)
         
-        viewModel.buttonEnabled
+        viewModel!.buttonEnabled
             .bind(to: self.loginBtn.rx.isEnabled)
             .disposed(by: self.disposeBag)
         
-        viewModel.performSegue
+        viewModel!.performSegue
             .bind(onNext: { [weak self] (segue) in
                 self?.performSegue(withIdentifier: segue.identifier, sender: segue.viewModel)
             })
             .disposed(by: self.disposeBag)
         
-        viewModel.error
+        viewModel!.error
             .bind { [weak self] (error) in
                 self?.showAlert(title: error.title, message: error.description)
             }

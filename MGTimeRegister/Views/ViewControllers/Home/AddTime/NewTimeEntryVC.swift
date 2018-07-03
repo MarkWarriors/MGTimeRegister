@@ -8,9 +8,9 @@
 
 import UIKit
 
-class NewTimeEntryVC: MGTBaseVC {
-
-    public var viewModel = NewTimeEntryViewModel()
+class NewTimeEntryVC: MGTBaseVC, ViewModelBased {
+    typealias ViewModel = NewTimeEntryViewModel
+    var viewModel: NewTimeEntryViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()

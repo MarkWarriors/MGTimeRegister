@@ -10,12 +10,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SelectCompanyVC: MGTBaseVC {
+class SelectCompanyVC: MGTBaseVC, ViewModelBased {
+    typealias ViewModel = SelectCompanyViewModel
+    var viewModel: SelectCompanyViewModel? = SelectCompanyViewModel()
     
     @IBOutlet weak var companyTableView: UITableView!
     @IBOutlet weak var addCompanyBtn: UIButton!
     
-    public var viewModel = SelectCompanyViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class SelectCompanyVC: MGTBaseVC {
             .map({ _ -> Void in return () })
             .asDriver(onErrorJustReturn: ())
         
-        viewModel.initBindings(viewWillAppear: viewWillAppear,
+        viewModel!.initBindings(viewWillAppear: viewWillAppear,
                                selectedRow: companyTableView.rx.itemSelected.asDriver(),
                                newCompanyBtnPressed: addCompanyBtn.rx.tap.asDriver())
         
@@ -43,13 +44,24 @@ class SelectCompanyVC: MGTBaseVC {
             })
             .disposed(by: self.disposeBag)
         
-        viewModel.dataSource
+        viewModel!.dataSource
             .bind(to: self.companyTableView.rx
                 .items(cellIdentifier: CompanyTableViewCell.identifier,
                        cellType: CompanyTableViewCell.self)) { _, company, cell in
                         cell.setModel(company)
             }
             .disposed(by: self.disposeBag)
+        
+        viewModel!.performSegue
+            .bind { [weak self] (segue) in
+                self?.performSegue(withIdentifier: segue.identifier, sender: segue.viewModel)
+            }
+            .disposed(by: self.disposeBag)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SelectProjectVC
+        vc.viewModel = sender as? SelectProjectViewModel
     }
 
 }

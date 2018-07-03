@@ -10,12 +10,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SelectProjectVC: MGTBaseVC {
-
+class SelectProjectVC: MGTBaseVC, ViewModelBased {
+    typealias ViewModel = SelectProjectViewModel
+    var viewModel: SelectProjectViewModel?
+    
     @IBOutlet weak var projectsTableView: UITableView!
     @IBOutlet weak var addProjectBtn: UIButton!
-    
-    public var viewModel = SelectProjectViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class SelectProjectVC: MGTBaseVC {
             .map({ _ -> Void in return () })
             .asDriver(onErrorJustReturn: ())
         
-        viewModel.initBindings(viewWillAppear: viewWillAppear,
+        viewModel!.initBindings(viewWillAppear: viewWillAppear,
                                selectedRow: projectsTableView.rx.itemSelected.asDriver(),
                                newProjectBtnPressed: addProjectBtn.rx.tap.asDriver())
         
@@ -43,7 +43,7 @@ class SelectProjectVC: MGTBaseVC {
             })
             .disposed(by: self.disposeBag)
         
-        viewModel.dataSource
+        viewModel!.dataSource
             .bind(to: self.projectsTableView.rx
                 .items(cellIdentifier: ProjectTableViewCell.identifier,
                        cellType: ProjectTableViewCell.self)) { _, project, cell in

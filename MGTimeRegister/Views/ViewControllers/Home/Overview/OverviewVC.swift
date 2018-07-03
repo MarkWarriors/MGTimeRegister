@@ -10,9 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class OverviewVC: MGTBaseVC {
-    
-    public var viewModel = OverviewViewModel()
+class OverviewVC: MGTBaseVC, ViewModelBased {
+    typealias ViewModel = OverviewViewModel
+    var viewModel: OverviewViewModel? = OverviewViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

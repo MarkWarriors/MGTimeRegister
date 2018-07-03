@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 class NewCompanyViewModel: MGTBaseViewModel {
+    var disposeBag: DisposeBag = DisposeBag()
     
     private let privateCloseVC = PublishSubject<(Void)>()
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
@@ -50,4 +51,5 @@ class NewCompanyViewModel: MGTBaseViewModel {
         SharedInstance.shared.currentUser?.addToCompanies(company)
         ModelController.shared.save()
     }
+    
 }

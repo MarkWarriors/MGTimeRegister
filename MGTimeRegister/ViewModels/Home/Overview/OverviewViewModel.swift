@@ -11,5 +11,7 @@ import RxSwift
 import RxCocoa
 
 class OverviewViewModel: MGTBaseViewModel {
+    var disposeBag: DisposeBag = DisposeBag()
+    
 
 }
