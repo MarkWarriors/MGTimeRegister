@@ -33,7 +33,7 @@ class SelectProjectVC: MGTBaseVC, ViewModelBased {
             .map({ _ -> Void in return () })
             .asDriver(onErrorJustReturn: ())
         
-        viewModel!.initBindings(viewWillAppear: viewWillAppear,
+        viewModel!.initBindings(fetchDataSource: viewWillAppear,
                                selectedRow: projectsTableView.rx.itemSelected.asDriver(),
                                newProjectBtnPressed: addProjectBtn.rx.tap.asDriver())
         
@@ -47,12 +47,13 @@ class SelectProjectVC: MGTBaseVC, ViewModelBased {
             .bind(to: self.projectsTableView.rx
                 .items(cellIdentifier: ProjectTableViewCell.identifier,
                        cellType: ProjectTableViewCell.self)) { _, project, cell in
+                        
             }
             .disposed(by: self.disposeBag)
         
         viewModel!.performSegue
-            .bind { (segue) in
-                self.performSegue(withIdentifier: segue.identifier, sender: nil)
+            .bind { [weak self] (segue) in
+                self?.performSegue(withIdentifier: segue.identifier, sender: nil)
             }
             .disposed(by: disposeBag)
     }

@@ -34,7 +34,7 @@ class SelectCompanyVC: MGTBaseVC, ViewModelBased {
             .map({ _ -> Void in return () })
             .asDriver(onErrorJustReturn: ())
         
-        viewModel!.initBindings(viewWillAppear: viewWillAppear,
+        viewModel!.initBindings(fetchDataSource: viewWillAppear,
                                selectedRow: companyTableView.rx.itemSelected.asDriver(),
                                newCompanyBtnPressed: addCompanyBtn.rx.tap.asDriver())
         

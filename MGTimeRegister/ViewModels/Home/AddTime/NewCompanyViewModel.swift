@@ -13,20 +13,24 @@ import RxCocoa
 class NewCompanyViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
-    private let privateCloseVC = PublishSubject<(Void)>()
+    private let privateDismissModal = PublishSubject<(Void)>()
     private let privateCompanyName = BehaviorRelay<String>(value: "")
-    private let privateCompanySelected = PublishSubject<Company>()
+    private let privateCompanySelected = PublishRelay<Company>()
     
     var companySelected : Observable<Company> {
         return self.privateCompanySelected.asObservable()
     }
     
-    var closeVC : Observable<Void> {
-        return self.privateCloseVC.asObservable()
+    var dismissModal : Observable<Void> {
+        return self.privateDismissModal.asObservable()
     }
 
     var buttonEnabled : Observable<Bool> {
         return privateCompanyName.map { $0 != "" }.asObservable()
+    }
+    
+    init(onCompanySelected: BehaviorRelay<Company?>) {
+        privateCompanySelected.bind(to: onCompanySelected).disposed(by: disposeBag)
     }
     
     public func initBindings(newCompanyName: Observable<String>,
@@ -37,24 +41,25 @@ class NewCompanyViewModel: MGTBaseViewModel {
         
         closeBtnPressed
             .drive(onNext: { [weak self] in
-                self?.privateCloseVC.onNext(Void())
+                self?.privateDismissModal.onNext(Void())
             })
             .disposed(by: self.disposeBag)
         
         saveBtnPressed
             .drive(onNext: { [weak self] in
+                self?.privateDismissModal.onNext(Void())
                 self?.createCompany()
-                self?.privateCloseVC.onNext(Void())
             })
             .disposed(by: self.disposeBag)
     }
     
-    private func createCompany(){
+    private func createCompany() {
         let company = ModelController.shared.new(forEntity: ModelController.Entity.company) as! Company
         company.name = privateCompanyName.value
         SharedInstance.shared.currentUser?.addToCompanies(company)
         ModelController.shared.save()
-        self.privateCompanySelected.onNext(company)
+        self.privateDismissModal.onNext(Void())
+        self.privateCompanySelected.accept(company)
     }
     
 }

@@ -32,7 +32,7 @@ class NewCompanyVC: MGTBaseVC, ViewModelBased {
         
         viewModel!.buttonEnabled.bind(to: saveBtn.rx.isEnabled).disposed(by: disposeBag)
         
-        viewModel!.closeVC
+        viewModel!.dismissModal
             .bind { [weak self] (_) in
                 self?.dismiss(animated: true, completion: nil)
             }

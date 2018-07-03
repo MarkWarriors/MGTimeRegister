@@ -12,14 +12,16 @@ import RxCocoa
 class NewProjectViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
-    private let privateCloseVC = PublishSubject<(Void)>()
-    private let privateProjectName = BehaviorRelay<String>(value: "")
-    private let privateProjectSelected = PublishRelay<Project>()
+    private let privateDismissModal = PublishSubject<(Void)>()
     private let privateCurrentCompany = BehaviorRelay<Company?>(value: nil)
     
-    init(company: Company, projectSelected: PublishRelay<Project>) {
+    private let privateProjectName = BehaviorRelay<String>(value: "")
+    private let privateProjectSelected = PublishRelay<Project>()
+    
+    
+    init(company: Company, onProjectSelected: BehaviorRelay<Project?>) {
         self.privateCurrentCompany.accept(company)
-        privateProjectSelected.bind(to: projectSelected)
+        privateProjectSelected.bind(to: onProjectSelected).disposed(by: disposeBag)
     }
     
     var projectSelected : Observable<Project> {
@@ -30,8 +32,8 @@ class NewProjectViewModel: MGTBaseViewModel {
         return Observable.just(self.privateCurrentCompany.value!.name!)
     }
     
-    var closeVC : Observable<(Void)> {
-        return self.privateCloseVC.asObservable()
+    var dismissModal : Observable<(Void)> {
+        return self.privateDismissModal.asObservable()
     }
     
     var buttonEnabled : Observable<Bool> {
@@ -46,14 +48,14 @@ class NewProjectViewModel: MGTBaseViewModel {
         
         closeBtnPressed
             .drive(onNext: { [weak self] in
-                self?.privateCloseVC.onNext(Void())
+                self?.privateDismissModal.onNext(Void())
             })
             .disposed(by: self.disposeBag)
         
         saveBtnPressed
             .drive(onNext: { [weak self] in
+                self?.privateDismissModal.onNext(Void())
                 self?.createProject()
-                self?.privateCloseVC.onNext(Void())
             })
             .disposed(by: self.disposeBag)
     }

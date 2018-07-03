@@ -39,7 +39,7 @@ class LoginViewModel: MGTBaseViewModel {
         }
     }
     
-    public func initBindings(viewWillAppear: Driver<Void>,
+    public func initBindings(fetchDataSource: Driver<Void>,
                              loginBtnPressed: Driver<Void>,
                              usernameTF: Observable<String>,
                              passwordTF: Observable<String>,
@@ -49,7 +49,7 @@ class LoginViewModel: MGTBaseViewModel {
         passwordTF.bind(to: privatePassword).disposed(by: disposeBag)
         saveCredentialsSwitch.bind(to: privateSaveCredentials).disposed(by: disposeBag)
         
-        viewWillAppear.drive(onNext: { [weak self] (_) in
+        fetchDataSource.drive(onNext: { [weak self] (_) in
                 self?.checkAutologin()
             })
             .disposed(by: self.disposeBag)

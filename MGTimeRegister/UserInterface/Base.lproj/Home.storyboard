@@ -281,7 +281,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="cXA-wf-GNt" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="4a8-vE-YEO"/>
+                                    <segue destination="cXA-wf-GNt" kind="presentation" identifier="toNewProject" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="4a8-vE-YEO"/>
                                 </connections>
                             </button>
                         </subviews>

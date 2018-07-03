@@ -30,7 +30,7 @@ class LoginVC: MGTBaseVC, ViewModelBased {
             .map({ _ -> Void in return () })
             .asDriver(onErrorJustReturn: ())
         
-        viewModel!.initBindings(viewWillAppear: viewDidAppear,
+        viewModel!.initBindings(fetchDataSource: viewDidAppear,
                                loginBtnPressed: loginBtn.rx.tap.asDriver(),
                                usernameTF: usernameTF.rx.text.orEmpty.asObservable(),
                                passwordTF: passwordTF.rx.text.orEmpty.asObservable(),

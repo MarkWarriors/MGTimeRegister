@@ -15,7 +15,8 @@ class SelectCompanyViewModel: MGTBaseViewModel {
     
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
     private let privateDataSource = BehaviorRelay<[Company]>(value: [])
-    private var privateSelectedCompany : Company?
+    private var privateSelectedCompany = BehaviorRelay<Company?>(value: nil)
+
     
     var dataSource : Observable<[Company]> {
         return self.privateDataSource.asObservable()
@@ -25,46 +26,42 @@ class SelectCompanyViewModel: MGTBaseViewModel {
         return self.privatePerformSegue.asObservable()
     }
     
-    public func initBindings(viewWillAppear: Driver<Void>,
+    public func initBindings(fetchDataSource: Driver<Void>,
                              selectedRow: Driver<IndexPath>,
                              newCompanyBtnPressed: Driver<Void>){
         
-        viewWillAppear
+        privateSelectedCompany
+            .filter{ $0 != nil }
+            .bind(onNext: { [weak self] (project) in
+                self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.AddTime.pickProject))
+            })
+            .disposed(by: disposeBag)
+        
+        fetchDataSource
             .drive(onNext: { [weak self] (_) in
-                self?.reloadDataSource()
+                self?.fetchDataSource()
             })
             .disposed(by: self.disposeBag)
         
         selectedRow
             .drive(onNext: { [weak self] (indexPath) in
-                self?.privateSelectedCompany = self?.privateDataSource.value[indexPath.row]
-                self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.AddTime.pickProject))
+                self?.privateSelectedCompany.accept((self?.privateDataSource.value[indexPath.row])!)
             })
             .disposed(by: self.disposeBag)
         
         newCompanyBtnPressed
             .drive(onNext: { [weak self] in
-                self?.newCompany()
+                self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.AddTime.newCompany))
             })
             .disposed(by: self.disposeBag)
     }
     
-    private func reloadDataSource(){
-        privateDataSource.accept(SharedInstance.shared.currentUser?.companies?.allObjects as! [Company])
-    }
-    
-    private func newCompany(){
-        self.privatePerformSegue.onNext(
-            MGTViewModelSegue.init(identifier: Segues.Home.AddTime.newCompany)
-        )
-    }
-    
     public func viewModelFor(_ vc: inout UIViewController) {
         if let vc = vc as? SelectProjectVC {
-            vc.viewModel = SelectProjectViewModel(company: privateSelectedCompany!)
+            vc.viewModel = SelectProjectViewModel(company: privateSelectedCompany.value!)
         }
         else if let vc = vc as? NewCompanyVC {
-            vc.viewModel = NewCompanyViewModel()
+            vc.viewModel = NewCompanyViewModel(onCompanySelected: privateSelectedCompany)
         }
     }
     
