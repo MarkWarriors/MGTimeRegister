@@ -28,7 +28,7 @@ class SelectProjectVC: MGTBaseVC, ViewModelBased {
         projectsTableView.register(UINib.init(nibName: ProjectTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ProjectTableViewCell.identifier)
     }
     
-    private func bindViewModel(){
+    func bindViewModel(){
         let viewWillAppear =  self.rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
             .map({ _ -> Void in return () })
             .asDriver(onErrorJustReturn: ())
@@ -51,4 +51,8 @@ class SelectProjectVC: MGTBaseVC, ViewModelBased {
             .disposed(by: self.disposeBag)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var vc = segue.destination
+        viewModel!.viewModelFor(&vc)
+    }
 }

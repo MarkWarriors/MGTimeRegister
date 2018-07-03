@@ -88,7 +88,7 @@ class LoginViewModel: MGTBaseViewModel {
         }
         
         self.privatePerformSegue.onNext(
-            MGTViewModelSegue.init(identifier: Segues.Login.toHome, viewModel: OverviewViewModel())
+            MGTViewModelSegue.init(identifier: Segues.Login.toHome)
         )
         
 // Usefull if with Apicall
@@ -99,9 +99,9 @@ class LoginViewModel: MGTBaseViewModel {
         privateIsLoading.accept(false)
     }
     
-    public func prepareVCForSegue(_ vc: UIViewController) {
-        if vc is OverviewVC {
-            (vc as! OverviewVC).viewModel = OverviewViewModel()
+    public func viewModelFor(_ vc: inout UIViewController) {
+        if let vc = vc as? OverviewVC {
+            vc.viewModel = OverviewViewModel()
         }
     }
 }

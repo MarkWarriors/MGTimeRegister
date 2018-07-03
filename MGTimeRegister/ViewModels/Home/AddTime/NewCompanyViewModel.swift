@@ -14,10 +14,14 @@ class NewCompanyViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
     private let privateCloseVC = PublishSubject<(Void)>()
-    private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
     private let privateCompanyName = BehaviorRelay<String>(value: "")
+    private let privateCompanySelected = PublishSubject<Company>()
     
-    var closeVC : Observable<(Void)> {
+    var companySelected : Observable<Company> {
+        return self.privateCompanySelected.asObservable()
+    }
+    
+    var closeVC : Observable<Void> {
         return self.privateCloseVC.asObservable()
     }
 
@@ -50,6 +54,7 @@ class NewCompanyViewModel: MGTBaseViewModel {
         company.name = privateCompanyName.value
         SharedInstance.shared.currentUser?.addToCompanies(company)
         ModelController.shared.save()
+        self.privateCompanySelected.onNext(company)
     }
     
 }

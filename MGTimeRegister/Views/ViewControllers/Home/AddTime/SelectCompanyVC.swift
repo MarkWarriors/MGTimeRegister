@@ -29,7 +29,7 @@ class SelectCompanyVC: MGTBaseVC, ViewModelBased {
         companyTableView.register(UINib.init(nibName: CompanyTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: CompanyTableViewCell.identifier)
     }
     
-    private func bindViewModel(){
+    func bindViewModel(){
         let viewWillAppear =  self.rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
             .map({ _ -> Void in return () })
             .asDriver(onErrorJustReturn: ())
@@ -54,14 +54,14 @@ class SelectCompanyVC: MGTBaseVC, ViewModelBased {
         
         viewModel!.performSegue
             .bind { [weak self] (segue) in
-                self?.performSegue(withIdentifier: segue.identifier, sender: segue.viewModel)
+                self?.performSegue(withIdentifier: segue.identifier, sender: nil)
             }
             .disposed(by: self.disposeBag)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! SelectProjectVC
-        vc.viewModel = sender as? SelectProjectViewModel
+        var vc = segue.destination
+        viewModel!.viewModelFor(&vc)
     }
 
 }

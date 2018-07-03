@@ -18,7 +18,7 @@ class NewTimeEntryVC: MGTBaseVC, ViewModelBased {
     }
     
     
-    private func bindViewModel(){
+    func bindViewModel(){
         
     }
     

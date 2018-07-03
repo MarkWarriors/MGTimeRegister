@@ -15,6 +15,7 @@ class SelectCompanyViewModel: MGTBaseViewModel {
     
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
     private let privateDataSource = BehaviorRelay<[Company]>(value: [])
+    private var privateSelectedCompany : Company?
     
     var dataSource : Observable<[Company]> {
         return self.privateDataSource.asObservable()
@@ -35,9 +36,10 @@ class SelectCompanyViewModel: MGTBaseViewModel {
             .disposed(by: self.disposeBag)
         
         selectedRow
-            .drive(onNext: { [weak self] (row) in
-                self?.privatePerformSegue.onNext(
-                    MGTViewModelSegue.init(identifier: Segues.Home.AddTime.pickProject, viewModel: SelectProjectViewModel())
+            .drive(onNext: { [weak self] (indexPath) in
+                self?.privateSelectedCompany = self?.privateDataSource.value[indexPath.row]
+                self?.privatePerformSegue.onNext (
+                    MGTViewModelSegue.init(identifier: Segues.Home.AddTime.pickProject)
                 )
             })
             .disposed(by: self.disposeBag)
@@ -55,13 +57,16 @@ class SelectCompanyViewModel: MGTBaseViewModel {
     
     private func newCompany(){
         self.privatePerformSegue.onNext(
-            MGTViewModelSegue.init(identifier: Segues.Home.AddTime.newCompany, viewModel: NewCompanyViewModel())
+            MGTViewModelSegue.init(identifier: Segues.Home.AddTime.newCompany)
         )
     }
     
-    public func prepareVCForSegue(_ vc: UIViewController) {
-        if vc is OverviewVC {
-            (vc as! OverviewVC).viewModel = OverviewViewModel()
+    public func viewModelFor(_ vc: inout UIViewController) {
+        if let vc = vc as? SelectProjectVC {
+            vc.viewModel = SelectProjectViewModel(company: privateSelectedCompany!)
+        }
+        else if let vc = vc as? NewCompanyVC {
+            vc.viewModel = NewCompanyViewModel()
         }
     }
     

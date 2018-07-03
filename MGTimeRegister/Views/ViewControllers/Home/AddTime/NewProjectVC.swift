@@ -25,8 +25,20 @@ class NewProjectVC: MGTBaseVC, ViewModelBased {
     }
     
     
-    private func bindViewModel() {
+    func bindViewModel() {
+        viewModel!.initBindings(newProjectName: projectNameTF.rx.text.orEmpty.asObservable(),
+                                saveBtnPressed: saveBtn.rx.tap.asDriver(),
+                                closeBtnPressed: closeBtn.rx.tap.asDriver())
         
+        viewModel!.companyNameText.bind(to: companyNameLbl.rx.text).disposed(by: disposeBag)
+        
+        viewModel!.buttonEnabled.bind(to: saveBtn.rx.isEnabled).disposed(by: disposeBag)
+        
+        viewModel!.closeVC
+            .bind { [weak self] (_) in
+                self?.dismiss(animated: true, completion: nil)
+            }
+            .disposed(by: self.disposeBag)
     }
 
 }

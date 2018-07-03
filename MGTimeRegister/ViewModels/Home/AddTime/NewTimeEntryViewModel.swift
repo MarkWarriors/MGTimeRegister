@@ -12,6 +12,10 @@ import RxCocoa
 
 class NewTimeEntryViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
+    private let privateCurrentProject : Project
     
+    init(project: Project) {
+        self.privateCurrentProject = project
+    }
 
 }

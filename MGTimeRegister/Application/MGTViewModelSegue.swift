@@ -10,10 +10,8 @@ import Foundation
 
 public class MGTViewModelSegue {
     var identifier : String
-    var viewModel : MGTBaseViewModel?
     
-    init(identifier: String, viewModel: MGTBaseViewModel) {
+    init(identifier: String) {
         self.identifier = identifier
-        self.viewModel = viewModel
     }
 }

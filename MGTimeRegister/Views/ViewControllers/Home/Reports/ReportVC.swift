@@ -18,5 +18,9 @@ class ReportVC: MGTBaseVC, ViewModelBased {
         super.viewDidLoad()
         self.tabBarController?.title = self.title
     }
+    
+    func bindViewModel() {
+        
+    }
 
 }

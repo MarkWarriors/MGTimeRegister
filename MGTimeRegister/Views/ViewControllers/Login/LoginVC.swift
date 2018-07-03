@@ -25,7 +25,7 @@ class LoginVC: MGTBaseVC, ViewModelBased {
         self.bindViewModel()
     }
 
-    private func bindViewModel(){
+    func bindViewModel(){
         let viewDidAppear =  self.rx.sentMessage(#selector(UIViewController.viewDidAppear(_:)))
             .map({ _ -> Void in return () })
             .asDriver(onErrorJustReturn: ())
@@ -53,7 +53,7 @@ class LoginVC: MGTBaseVC, ViewModelBased {
         
         viewModel!.performSegue
             .bind(onNext: { [weak self] (segue) in
-                self?.performSegue(withIdentifier: segue.identifier, sender: segue.viewModel)
+                self?.performSegue(withIdentifier: segue.identifier, sender: nil)
             })
             .disposed(by: self.disposeBag)
         
@@ -64,5 +64,9 @@ class LoginVC: MGTBaseVC, ViewModelBased {
             .disposed(by: self.disposeBag)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var vc = segue.destination
+        viewModel?.viewModelFor(&vc)
+    }
     
 }

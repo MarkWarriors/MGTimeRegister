@@ -24,7 +24,7 @@ class NewCompanyVC: MGTBaseVC, ViewModelBased {
     }
     
     
-    private func bindViewModel() {
+    func bindViewModel() {
         viewModel!.initBindings(
             newCompanyName: companyNameTF.rx.text.orEmpty.asObservable(),
             saveBtnPressed: saveBtn.rx.tap.asDriver(),

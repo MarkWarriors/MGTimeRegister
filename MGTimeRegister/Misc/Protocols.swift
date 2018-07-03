@@ -11,6 +11,8 @@ import UIKit
 public protocol ViewModelBased where Self: UIViewController {
     associatedtype ViewModel
     var viewModel : ViewModel? { get set }
+    
+    func bindViewModel()
 }
 
 public protocol ViewModel {

@@ -19,4 +19,8 @@ class OverviewVC: MGTBaseVC, ViewModelBased {
         self.tabBarController?.title = self.title
     }
 
+    
+    func bindViewModel() {
+        
+    }
 }
