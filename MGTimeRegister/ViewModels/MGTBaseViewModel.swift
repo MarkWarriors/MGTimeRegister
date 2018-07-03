@@ -11,10 +11,6 @@ import RxSwift
 
 public class MGTBaseViewModel {
     
-    internal var disposeBag = DisposeBag()
-    
-    deinit {
-        self.disposeBag = DisposeBag()
-    }
+    internal let disposeBag = DisposeBag()
     
 }

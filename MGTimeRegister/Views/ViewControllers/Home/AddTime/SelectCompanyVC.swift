@@ -37,14 +37,14 @@ class SelectCompanyVC: MGTBaseVC {
                                selectedRow: companyTableView.rx.itemSelected.asDriver(),
                                newCompanyBtnPressed: addCompanyBtn.rx.tap.asDriver())
         
-        companyTableView.rx.itemSelected.subscribe(onNext: { indexPath  in
-            self.companyTableView.deselectRow(at: indexPath, animated: true)
-        })
-        .disposed(by: self.disposeBag)
+        companyTableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath  in
+                self?.companyTableView.deselectRow(at: indexPath, animated: true)
+            })
+            .disposed(by: self.disposeBag)
         
         viewModel.dataSource
-            .bind(to: self.companyTableView
-                .rx
+            .bind(to: self.companyTableView.rx
                 .items(cellIdentifier: CompanyTableViewCell.identifier,
                        cellType: CompanyTableViewCell.self)) { _, company, cell in
                         cell.setModel(company)

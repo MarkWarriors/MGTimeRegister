@@ -26,23 +26,24 @@ class SelectProjectViewModel: MGTBaseViewModel {
     public func initBindings(viewWillAppear: Driver<Void>,
                              selectedRow: Driver<IndexPath>,
                              newProjectBtnPressed: Driver<Void>){
-        self.disposeBag = DisposeBag()
         
-        viewWillAppear.drive(onNext: { (_) in
-            self.reloadDataSource()
-        })
+        viewWillAppear
+            .drive(onNext: { [weak self] (_) in
+                self?.reloadDataSource()
+            })
             .disposed(by: self.disposeBag)
         
-        selectedRow.drive(onNext: { (row) in
-            self.privatePerformSegue.onNext(
-                MGTViewModelSegue.init(identifier: Segues.Home.AddTime.pickProject)
-            )
-        })
+        selectedRow
+            .drive(onNext: { [weak self] (row) in
+                self?.privatePerformSegue.onNext(
+                    MGTViewModelSegue.init(identifier: Segues.Home.AddTime.pickProject)
+                )
+            })
             .disposed(by: self.disposeBag)
         
         newProjectBtnPressed
-            .drive(onNext: { [unowned self] in
-                self.newProject()
+            .drive(onNext: { [weak self] in
+                self?.newProject()
             })
             .disposed(by: self.disposeBag)
     }

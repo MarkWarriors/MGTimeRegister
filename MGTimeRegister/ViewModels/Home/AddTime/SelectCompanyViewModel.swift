@@ -26,23 +26,24 @@ class SelectCompanyViewModel: MGTBaseViewModel {
     public func initBindings(viewWillAppear: Driver<Void>,
                              selectedRow: Driver<IndexPath>,
                              newCompanyBtnPressed: Driver<Void>){
-        self.disposeBag = DisposeBag()
         
-        viewWillAppear.drive(onNext: { (_) in
-                self.reloadDataSource()
+        viewWillAppear
+            .drive(onNext: { [weak self] (_) in
+                self?.reloadDataSource()
             })
             .disposed(by: self.disposeBag)
         
-        selectedRow.drive(onNext: { (row) in
-                self.privatePerformSegue.onNext(
+        selectedRow
+            .drive(onNext: { [weak self] (row) in
+                self?.privatePerformSegue.onNext(
                     MGTViewModelSegue.init(identifier: Segues.Home.AddTime.pickCompany)
                 )
             })
             .disposed(by: self.disposeBag)
         
         newCompanyBtnPressed
-            .drive(onNext: { [unowned self] in
-                self.newCompany()
+            .drive(onNext: { [weak self] in
+                self?.newCompany()
             })
             .disposed(by: self.disposeBag)
     }
@@ -58,9 +59,9 @@ class SelectCompanyViewModel: MGTBaseViewModel {
     }
     
     public func prepareVCForSegue(_ vc: UIViewController) {
-//        if vc is OverviewVC {
-//            (vc as! OverviewVC).viewModel = OverviewViewModel()
-//        }
+        if vc is OverviewVC {
+            (vc as! OverviewVC).viewModel = OverviewViewModel()
+        }
     }
     
 }

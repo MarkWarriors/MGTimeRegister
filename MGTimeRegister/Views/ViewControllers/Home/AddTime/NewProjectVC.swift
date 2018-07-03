@@ -11,9 +11,22 @@ import RxSwift
 import RxCocoa
 
 class NewProjectVC: MGTBaseVC {
-
+    
+    @IBOutlet weak var saveBtn: MGButton!
+    @IBOutlet weak var closeBtn: UIButton!
+    @IBOutlet weak var companyNameLbl: UILabel!
+    @IBOutlet weak var projectNameTF: MGTextField!
+    
+    public var viewModel = NewProjectViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.bindViewModel()
+    }
+    
+    
+    private func bindViewModel() {
+        
     }
 
 }

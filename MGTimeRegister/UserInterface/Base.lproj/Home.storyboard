@@ -60,7 +60,6 @@
         <!--Select Company-->
         <scene sceneID="WFg-gr-PYB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7kK-OO-T2d" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Select Company" id="aLb-PL-k7d" customClass="SelectCompanyVC" customModule="MGTimeRegister" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x2R-e5-Kox">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -88,7 +87,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="93K-Nd-J2e" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="rx9-9P-7Wz"/>
+                                    <segue destination="93K-Nd-J2e" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="rx9-9P-7Wz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -114,6 +113,7 @@
                         <outlet property="companyTableView" destination="HIV-re-tEL" id="AGf-gp-Hrd"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7kK-OO-T2d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1484.057971014493" y="833.96739130434787"/>
         </scene>
@@ -242,6 +242,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2ZA-3V-DJ4"/>
                     </view>
+                    <connections>
+                        <outlet property="closeBtn" destination="2pX-TS-zOg" id="RXY-1n-JeT"/>
+                        <outlet property="companyNameTF" destination="OqZ-AG-Ihu" id="8Lh-6k-gRd"/>
+                        <outlet property="saveBtn" destination="61N-3d-RJa" id="PEM-WQ-z9e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IkM-Ds-rGm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -277,7 +282,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="cXA-wf-GNt" kind="presentation" modalPresentationStyle="overCurrentContext" id="4a8-vE-YEO"/>
+                                    <segue destination="cXA-wf-GNt" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="4a8-vE-YEO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -508,6 +513,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jhs-Gt-94t">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -685,6 +691,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="07n-Qh-bRp"/>
                     </view>
+                    <connections>
+                        <outlet property="closeBtn" destination="eXz-Jg-M7H" id="P7f-3r-zRt"/>
+                        <outlet property="companyNameLbl" destination="Br1-If-qJF" id="Fut-fB-ynu"/>
+                        <outlet property="projectNameTF" destination="kTw-bi-sXq" id="Leu-S7-qFR"/>
+                        <outlet property="saveBtn" destination="em4-ic-u0Q" id="5NS-kS-7kP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQi-y7-EU8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

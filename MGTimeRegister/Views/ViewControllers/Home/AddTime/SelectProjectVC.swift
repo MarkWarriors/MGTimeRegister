@@ -37,19 +37,18 @@ class SelectProjectVC: MGTBaseVC {
                                selectedRow: projectsTableView.rx.itemSelected.asDriver(),
                                newProjectBtnPressed: addProjectBtn.rx.tap.asDriver())
         
-        projectsTableView.rx.itemSelected.subscribe(onNext: { indexPath  in
-            self.projectsTableView.deselectRow(at: indexPath, animated: true)
-        })
+        projectsTableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.projectsTableView.deselectRow(at: indexPath, animated: true)
+            })
             .disposed(by: self.disposeBag)
         
         viewModel.dataSource
-            .bind(to: self.projectsTableView
-                .rx
+            .bind(to: self.projectsTableView.rx
                 .items(cellIdentifier: ProjectTableViewCell.identifier,
                        cellType: ProjectTableViewCell.self)) { _, project, cell in
             }
             .disposed(by: self.disposeBag)
     }
-
 
 }

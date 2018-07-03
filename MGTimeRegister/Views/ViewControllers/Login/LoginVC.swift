@@ -36,12 +36,12 @@ class LoginVC: MGTBaseVC {
                                saveCredentialsSwitch: saveCredentialsSwitch.rx.isOn.asObservable())
         
         viewModel.isLoading
-            .bind { (isLoading) in
+            .bind { [weak self] (isLoading) in
 //                if isLoading {
-//                    self.showWaitView()
+//                    self?.showWaitView()
 //                }
 //                else{
-//                    self.dismissWaitView()
+//                    self?.dismissWaitView()
 //                }
             }
             .disposed(by: self.disposeBag)
@@ -51,14 +51,14 @@ class LoginVC: MGTBaseVC {
             .disposed(by: self.disposeBag)
         
         viewModel.performSegue
-            .bind(onNext: { (segue) in
-                self.performSegue(withIdentifier: segue.identifier, sender: segue.viewModel)
+            .bind(onNext: { [weak self] (segue) in
+                self?.performSegue(withIdentifier: segue.identifier, sender: segue.viewModel)
             })
             .disposed(by: self.disposeBag)
         
         viewModel.error
-            .bind { (error) in
-                self.showAlert(title: error.title, message: error.description)
+            .bind { [weak self] (error) in
+                self?.showAlert(title: error.title, message: error.description)
             }
             .disposed(by: self.disposeBag)
     }

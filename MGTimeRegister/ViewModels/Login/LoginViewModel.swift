@@ -13,7 +13,7 @@ import RxCocoa
 class LoginViewModel: MGTBaseViewModel {
     
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
-    private let privateIsLoading = Variable(false)
+    private let privateIsLoading = BehaviorRelay<Bool>(value: false)
     private let privateError = PublishSubject<MGTError>()
     private let privateUsername = BehaviorRelay<String>(value: "")
     private let privatePassword = BehaviorRelay<String>(value: "")
@@ -43,19 +43,19 @@ class LoginViewModel: MGTBaseViewModel {
                              usernameTF: Observable<String>,
                              passwordTF: Observable<String>,
                              saveCredentialsSwitch: Observable<Bool>){
-        self.disposeBag = DisposeBag()
+        
         usernameTF.bind(to: privateUsername).disposed(by: disposeBag)
         passwordTF.bind(to: privatePassword).disposed(by: disposeBag)
         saveCredentialsSwitch.bind(to: privateSaveCredentials).disposed(by: disposeBag)
         
-        viewWillAppear.drive(onNext: { (_) in
-                self.checkAutologin()
+        viewWillAppear.drive(onNext: { [weak self] (_) in
+                self?.checkAutologin()
             })
             .disposed(by: self.disposeBag)
         
         loginBtnPressed
-            .drive(onNext: { [unowned self] in
-                self.loginUser(autologin: false)
+            .drive(onNext: { [weak self] in
+                self?.loginUser(autologin: false)
             })
             .disposed(by: self.disposeBag)
     }
@@ -69,7 +69,7 @@ class LoginViewModel: MGTBaseViewModel {
     }
     
     private func loginUser(autologin: Bool){
-        privateIsLoading.value = true
+        privateIsLoading.accept(true)
         var user : User?
         
         if let storedUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue, whereCondition: NSPredicate.init(format: "username = %@", privateUsername.value)).first as? User {
@@ -95,7 +95,7 @@ class LoginViewModel: MGTBaseViewModel {
 //            MGTError.init(title: Strings.Errors.error,
 //                          description: Strings.Errors.invalidCredentials)
 //        )
-        privateIsLoading.value = false
+        privateIsLoading.accept(false)
     }
     
     public func prepareVCForSegue(_ vc: UIViewController) {
