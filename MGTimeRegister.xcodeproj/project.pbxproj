@@ -58,6 +58,8 @@
 		90CD38A420EB4FFA00157DC7 /* NewProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD38A320EB4FFA00157DC7 /* NewProjectViewModel.swift */; };
 		90CD38A620EB502600157DC7 /* NewCompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD38A520EB502600157DC7 /* NewCompanyVC.swift */; };
 		90CD38A820EB503200157DC7 /* NewProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD38A720EB503200157DC7 /* NewProjectVC.swift */; };
+		90D7519520ED23A300D316C5 /* ProjectHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7519320ED23A300D316C5 /* ProjectHeaderCell.swift */; };
+		90D7519620ED23A300D316C5 /* ProjectHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90D7519420ED23A300D316C5 /* ProjectHeaderCell.xib */; };
 		90FF6FBA20EC160A00006143 /* Time+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FB820EC160A00006143 /* Time+CoreDataClass.swift */; };
 		90FF6FBB20EC160A00006143 /* Time+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FB920EC160A00006143 /* Time+CoreDataProperties.swift */; };
 		90FF6FBE20EC168E00006143 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FBC20EC168D00006143 /* Project+CoreDataProperties.swift */; };
@@ -135,6 +137,8 @@
 		90CD38A320EB4FFA00157DC7 /* NewProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewProjectViewModel.swift; path = /Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/ViewModels/Home/AddTime/NewProjectViewModel.swift; sourceTree = "<absolute>"; };
 		90CD38A520EB502600157DC7 /* NewCompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCompanyVC.swift; sourceTree = "<group>"; };
 		90CD38A720EB503200157DC7 /* NewProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectVC.swift; sourceTree = "<group>"; };
+		90D7519320ED23A300D316C5 /* ProjectHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderCell.swift; sourceTree = "<group>"; };
+		90D7519420ED23A300D316C5 /* ProjectHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectHeaderCell.xib; sourceTree = "<group>"; };
 		90FF6FB820EC160A00006143 /* Time+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Time+CoreDataClass.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Time+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		90FF6FB920EC160A00006143 /* Time+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Time+CoreDataProperties.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Time+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		90FF6FBC20EC168D00006143 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Project+CoreDataProperties.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Project+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
@@ -323,6 +327,8 @@
 				90AF20BD20EA7A9B0026481F /* CompanyTableViewCell.xib */,
 				90AF20C020EA7AAC0026481F /* ProjectTableViewCell.swift */,
 				90AF20C120EA7AAC0026481F /* ProjectTableViewCell.xib */,
+				90D7519320ED23A300D316C5 /* ProjectHeaderCell.swift */,
+				90D7519420ED23A300D316C5 /* ProjectHeaderCell.xib */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -559,6 +565,7 @@
 				90358C2020E98DB500AC726B /* LaunchScreen.storyboard in Resources */,
 				90358C2120E98DB500AC726B /* Login.storyboard in Resources */,
 				90AF20BF20EA7A9B0026481F /* CompanyTableViewCell.xib in Resources */,
+				90D7519620ED23A300D316C5 /* ProjectHeaderCell.xib in Resources */,
 				90AF20C320EA7AAC0026481F /* ProjectTableViewCell.xib in Resources */,
 				90358C3420E9903100AC726B /* WaitView.xib in Resources */,
 				90358C1620E98DB500AC726B /* Assets.xcassets in Resources */,
@@ -674,6 +681,7 @@
 				90358C3520E9903100AC726B /* WaitView.swift in Sources */,
 				90358C4720E9AD1200AC726B /* LoginViewModel.swift in Sources */,
 				90358C3020E9900100AC726B /* MGTimeRegister.xcdatamodeld in Sources */,
+				90D7519520ED23A300D316C5 /* ProjectHeaderCell.swift in Sources */,
 				90FF6FBA20EC160A00006143 /* Time+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -847,7 +855,10 @@
 				DEVELOPMENT_TEAM = 29R6UT4TC7;
 				INFOPLIST_FILE = MGTimeRegister/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.mg.MGTimeRegister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -864,7 +875,10 @@
 				DEVELOPMENT_TEAM = 29R6UT4TC7;
 				INFOPLIST_FILE = MGTimeRegister/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.mg.MGTimeRegister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -880,7 +894,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 29R6UT4TC7;
 				INFOPLIST_FILE = MGTimeRegisterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.mg.MGTimeRegisterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -897,7 +915,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 29R6UT4TC7;
 				INFOPLIST_FILE = MGTimeRegisterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.mg.MGTimeRegisterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

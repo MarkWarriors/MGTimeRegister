@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProjectHeaderCell" rowHeight="42" id="KGk-i7-Jjw" customClass="ProjectHeaderCell" customModule="MGTimeRegister" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="453" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="453" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmE-Pc-pZF">
+                        <rect key="frame" x="0.0" y="0.0" width="453" height="43.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="400" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" text="Project name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Efd-Dj-Wfe">
+                                <rect key="frame" x="8" y="9.5" width="124" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="100" text="0 hours" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxe-WR-GOb">
+                                <rect key="frame" x="386.5" y="11" width="58.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Dxe-WR-GOb" secondAttribute="trailing" constant="8" id="1eq-dY-vVZ"/>
+                            <constraint firstItem="Dxe-WR-GOb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Efd-Dj-Wfe" secondAttribute="trailing" constant="16" id="81D-Uz-UI9"/>
+                            <constraint firstItem="Efd-Dj-Wfe" firstAttribute="leading" secondItem="cmE-Pc-pZF" secondAttribute="leading" constant="8" id="hFk-1e-6Wv"/>
+                            <constraint firstItem="Efd-Dj-Wfe" firstAttribute="centerY" secondItem="cmE-Pc-pZF" secondAttribute="centerY" id="lgI-9D-8jA"/>
+                            <constraint firstItem="Dxe-WR-GOb" firstAttribute="centerY" secondItem="cmE-Pc-pZF" secondAttribute="centerY" id="vWR-3T-DOI"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="cmE-Pc-pZF" secondAttribute="bottom" id="YGp-Ha-1Lr"/>
+                    <constraint firstItem="cmE-Pc-pZF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Yzd-M9-k4g"/>
+                    <constraint firstAttribute="trailing" secondItem="cmE-Pc-pZF" secondAttribute="trailing" id="ae5-gI-4go"/>
+                    <constraint firstItem="cmE-Pc-pZF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="siK-9c-Vc3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="hoursLbl" destination="Dxe-WR-GOb" id="7YK-1G-eXc"/>
+                <outlet property="projectLbl" destination="Efd-Dj-Wfe" id="jZP-nO-SS6"/>
+            </connections>
+            <point key="canvasLocation" x="177.5" y="81"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -45,8 +45,12 @@ class ReportViewModel: MGTBaseViewModel {
         return self.privateTableItems.asObservable()
     }
     
-    func sectionCountText(section: Int) -> String {
+    func projectHeaderTextFor(section: Int) -> String {
         return self.privateTableItems.value[section].header.company
+    }
+    
+    func projectHeaderHoursFor(section: Int) -> String {
+        return "total: \(self.privateTableItems.value[section].header.hours) h"
     }
     
     let dataSource = RxTableViewSectionedReloadDataSource<SectionOfTiming>(
@@ -55,9 +59,6 @@ class ReportViewModel: MGTBaseViewModel {
             cell.nameLbl.text = element.project
             cell.hoursLbl.text = "\(element.hours)"
             return cell
-    },
-        titleForHeaderInSection: { dataSource, sectionIndex in
-            return dataSource[sectionIndex].header.company
     })
 
     
@@ -75,20 +76,26 @@ class ReportViewModel: MGTBaseViewModel {
                     whereCondition: predicate) as! [Company]
                 
                 let timeArr : [SectionOfTiming] = companies
-                    .map({ (company) -> SectionOfTiming in
+                    .map({ (company) -> SectionOfTiming? in
                         let projects = company.projects?.allObjects as! [Project]
                         var totalHours : Int32 = 0
-                        let items = projects.map({ (project) -> SectionOfTiming.Item in
-                            let times = project.times!
-                            let hours = times.reduce(0, { $0 + ($1 as! Time).hours })
-                            totalHours += Int32(hours)
-                            return SectionOfTiming.Item.init(project: project.name!, hours: Int32(hours))
-                        })
+                        let items = projects.map({ (project) -> SectionOfTiming.Item? in
+                            let times = project.times?.filtered(using: NSPredicate.init(format: "date <= %@", endDate))
+                            let hours = times?.reduce(0, { $0 + ($1 as! Time).hours }) ?? 0
+                            if hours > 0 {
+                                totalHours += Int32(hours)
+                                return SectionOfTiming.Item.init(project: project.name!, hours: Int32(hours))
+                            }
+                            return nil
+                        }).compactMap{ $0 }
                         
-                        let header = CompanyHours.init(company: company.name!, hours: totalHours)
-                        
-                        return SectionOfTiming.init(header: header, items: items)
-                    })
+                        if totalHours > 0 {
+                            let header = CompanyHours.init(company: company.name!, hours: totalHours)
+                            
+                            return SectionOfTiming.init(header: header, items: items)
+                        }
+                        return nil
+                    }).compactMap{ $0 }
         
                 self?.privateTableItems.accept(timeArr)
             })

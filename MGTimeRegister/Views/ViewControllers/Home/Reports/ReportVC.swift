@@ -27,6 +27,7 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
     func configureTableView(){
         projectsTableView.tableFooterView = UIView()
         projectsTableView.register(UINib.init(nibName: ProjectTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ProjectTableViewCell.identifier)
+        projectsTableView.register(UINib.init(nibName: ProjectHeaderCell.identifier, bundle: nil), forCellReuseIdentifier: ProjectHeaderCell.identifier)
     }
     
     func bindViewModel() {
@@ -55,10 +56,11 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
         return 40
     }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = Globals.Colors.red
-        
-        let header:UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = UIColor.white
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = tableView.dequeueReusableCell(withIdentifier: ProjectHeaderCell.identifier) as! ProjectHeaderCell
+        headerCell.projectLbl.text = viewModel?.projectHeaderTextFor(section: section)
+        headerCell.hoursLbl.text = viewModel?.projectHeaderHoursFor(section: section)
+        return headerCell
     }
+    
 }
