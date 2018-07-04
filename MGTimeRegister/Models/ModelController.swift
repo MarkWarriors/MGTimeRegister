@@ -100,6 +100,34 @@ public class ModelController : NSObject {
         return elements as? [T] ?? [T]()
     }
 
+    func countElements(forEntityName entityName: String) -> Int{
+        let count = try? self.managedObjectContext.count(for:  NSFetchRequest(entityName: entityName))
+        return count ?? 0
+    }
+    
+    func sum(forEntityName entityName: String, column: String, predicate: NSPredicate? = nil) -> Int {
+        let keypathExp = NSExpression(forKeyPath: column)
+        let expression = NSExpression(forFunction: "sum:", arguments: [keypathExp])
+        let sumDesc = NSExpressionDescription()
+        sumDesc.expression = expression
+        sumDesc.name = "sum"
+        sumDesc.expressionResultType = .integer64AttributeType
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        request.returnsObjectsAsFaults = false
+        request.propertiesToFetch = [sumDesc]
+        request.resultType = .dictionaryResultType
+        if predicate != nil{
+            request.predicate = predicate
+        }
+        if let results = try? managedObjectContext.fetch(request) as? [[String:Int]], let sum = results![0]["sum"] {
+            return sum
+        }
+        
+        return 0
+    }
+    
+    
     func deleteAll() {
         for entityName in Entity.all {
             let entities = self.listAllElements(forEntityName: entityName.rawValue)
