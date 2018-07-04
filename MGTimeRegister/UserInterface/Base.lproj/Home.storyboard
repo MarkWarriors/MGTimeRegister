@@ -16,13 +16,41 @@
                     <view key="view" contentMode="scaleToFill" id="Oxj-2y-nwA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hNd-Q9-4P5">
+                                <rect key="frame" x="0.0" y="154" width="414" height="533"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHu-fA-FV2" customClass="MGView" customModule="MGTimeRegister" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="414" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="jhI-VE-PwF"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="bottomShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hNd-Q9-4P5" firstAttribute="trailing" secondItem="FCm-Nr-lTM" secondAttribute="trailing" id="Amk-8o-mcB"/>
+                            <constraint firstItem="hNd-Q9-4P5" firstAttribute="top" secondItem="OHu-fA-FV2" secondAttribute="bottom" id="LWg-Hz-hfj"/>
+                            <constraint firstItem="hNd-Q9-4P5" firstAttribute="bottom" secondItem="FCm-Nr-lTM" secondAttribute="bottom" id="aTA-sq-kGj"/>
+                            <constraint firstItem="OHu-fA-FV2" firstAttribute="top" secondItem="FCm-Nr-lTM" secondAttribute="top" id="ctR-AK-gW2"/>
+                            <constraint firstItem="OHu-fA-FV2" firstAttribute="trailing" secondItem="FCm-Nr-lTM" secondAttribute="trailing" id="g3f-qd-Zii"/>
+                            <constraint firstItem="OHu-fA-FV2" firstAttribute="leading" secondItem="FCm-Nr-lTM" secondAttribute="leading" id="hV5-pQ-105"/>
+                            <constraint firstItem="hNd-Q9-4P5" firstAttribute="leading" secondItem="FCm-Nr-lTM" secondAttribute="leading" id="xNj-ra-xve"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="FCm-Nr-lTM"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Reports" id="P2l-0O-sNU">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="projectsTableView" destination="hNd-Q9-4P5" id="2IO-Bm-oyF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YP7-Em-e1s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -252,7 +280,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pX-TS-zOg">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="HOQ-Ad-arG"/>
+                                                    <constraint firstAttribute="width" priority="500" constant="60" id="HOQ-Ad-arG"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Close">
@@ -410,7 +438,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="BCI-G5-OSG">
-                                        <rect key="frame" x="16" y="14" width="87" height="23"/>
+                                        <rect key="frame" x="16" y="14" width="382" height="23"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -420,6 +448,7 @@
                                 <constraints>
                                     <constraint firstItem="BCI-G5-OSG" firstAttribute="centerY" secondItem="hVG-oI-bb7" secondAttribute="centerY" id="DM0-kG-5iQ"/>
                                     <constraint firstItem="BCI-G5-OSG" firstAttribute="leading" secondItem="hVG-oI-bb7" secondAttribute="leading" constant="16" id="JEV-dc-Ee8"/>
+                                    <constraint firstAttribute="trailing" secondItem="BCI-G5-OSG" secondAttribute="trailing" constant="16" id="be2-cy-wNZ"/>
                                     <constraint firstAttribute="height" constant="50" id="dYC-If-5xF"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -683,7 +712,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Gxs-Nj-xK9" customClass="MGTTabBarController" customModule="MGTimeRegister" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="bfv-C1-Ydb">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="EBM-wr-RYw">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="EBM-wr-RYw">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="6ak-5P-SWc">
                                 <rect key="frame" x="372" y="11" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -749,7 +778,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXz-Jg-M7H">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="dsB-z6-Z2q"/>
+                                                    <constraint firstAttribute="width" priority="500" constant="60" id="dsB-z6-Z2q"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Close">

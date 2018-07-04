@@ -17,3 +17,4 @@ public protocol ViewModelBased where Self: UIViewController {
 
 public protocol ViewModel {
 }
+

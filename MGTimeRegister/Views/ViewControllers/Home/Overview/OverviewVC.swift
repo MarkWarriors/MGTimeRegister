@@ -18,16 +18,23 @@ class OverviewVC: MGTBaseVC, ViewModelBased {
     @IBOutlet weak var projectsLbl: UILabel!
     @IBOutlet weak var effortLbl: UILabel!
     
+    private var currentCalendar: Calendar?
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.title = self.title
+        
         bindViewModel()
     }
 
+ 
     
     func bindViewModel() {
         viewModel?.companiesText.bind(to: companiesLbl.rx.text).disposed(by: disposeBag)
         viewModel?.projectsText.bind(to: projectsLbl.rx.text).disposed(by: disposeBag)
         viewModel?.effortText.bind(to: effortLbl.rx.text).disposed(by: disposeBag)
     }
+    
+    
 }
