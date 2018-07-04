@@ -54,12 +54,14 @@ class NewCompanyViewModel: MGTBaseViewModel {
     }
     
     private func createCompany() {
-        let company = ModelController.shared.new(forEntity: ModelController.Entity.company) as! Company
-        company.name = privateCompanyName.value
-        SharedInstance.shared.currentUser?.addToCompanies(company)
-        ModelController.shared.save()
-        self.privateDismissModal.onNext(Void())
-        self.privateCompanySelected.accept(company)
+        ModelController.shared.managedObjectContext.performAndWait {
+            let company = ModelController.shared.new(forEntity: ModelController.Entity.company) as! Company
+            company.name = privateCompanyName.value
+            SharedInstance.shared.currentUser?.addToCompanies(company)
+            ModelController.shared.save()
+            self.privateDismissModal.onNext(Void())
+            self.privateCompanySelected.accept(company)
+        }
     }
     
 }

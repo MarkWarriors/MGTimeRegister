@@ -530,26 +530,13 @@ class MGTextView : UITextView {
     
     override open func awakeFromNib() {
         super.awakeFromNib()
-        self.addTarget(self, action: #selector(checkMaxLength(textField:)), for: .editingChanged)
     }
     
     override open func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
     }
     
-    func shouldChangeText(in range: UITextRange, replacementText text: String) -> Bool {
-        checkMaxLength(textView: self)
-    }
-    
-    @objc func checkMaxLength(textView: UITextView) {
-        guard let prospectiveText = self.text, prospectiveText.count > maxLength
-            else {
-                return
-        }
-        
-        let selection = selectedTextRange
-        let maxCharIndex = prospectiveText.index(prospectiveText.startIndex, offsetBy: maxLength)
-        text = String(prospectiveText[..<maxCharIndex])
-        selectedTextRange = selection
+    override func shouldChangeText(in range: UITextRange, replacementText text: String) -> Bool {
+        return super.shouldChangeText(in: range, replacementText: text)
     }
 }

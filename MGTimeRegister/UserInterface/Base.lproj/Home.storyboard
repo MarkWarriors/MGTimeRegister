@@ -341,7 +341,7 @@
                                 <rect key="frame" x="0.0" y="114" width="414" height="1010"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMQ-9F-VG3">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="631"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="551"/>
                                         <subviews>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BCk-Xa-lU6">
                                                 <rect key="frame" x="16" y="45" width="382" height="160"/>
@@ -369,16 +369,17 @@
                                                 <color key="textColor" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOURS OF WORK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKn-cx-xhx">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EFFORT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKn-cx-xhx">
                                                 <rect key="frame" x="16" y="221" width="382" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                                 <color key="textColor" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0An-DM-ALz">
-                                                <rect key="frame" x="16" y="250" width="382" height="160"/>
+                                                <rect key="frame" x="132" y="250" width="150" height="80"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="160" id="2Bc-qn-ZbE"/>
+                                                    <constraint firstAttribute="height" constant="80" id="2Bc-qn-ZbE"/>
+                                                    <constraint firstAttribute="width" constant="150" id="Y2l-29-yX0"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -393,13 +394,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </pickerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOTES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqS-Ez-f3W">
-                                                <rect key="frame" x="16" y="426" width="382" height="21"/>
+                                                <rect key="frame" x="16" y="346" width="382" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                                 <color key="textColor" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Note" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n68-x6-DBb">
-                                                <rect key="frame" x="16" y="455" width="382" height="160"/>
+                                                <rect key="frame" x="16" y="375" width="382" height="160"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="160" id="0qd-wS-fnO"/>
@@ -418,6 +419,12 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTn-BM-W9p">
+                                                <rect key="frame" x="290" y="280" width="51.333333333333314" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -425,9 +432,7 @@
                                             <constraint firstItem="QqS-Ez-f3W" firstAttribute="top" secondItem="0An-DM-ALz" secondAttribute="bottom" constant="16" id="6kx-ev-hvQ"/>
                                             <constraint firstItem="hKn-cx-xhx" firstAttribute="top" secondItem="BCk-Xa-lU6" secondAttribute="bottom" constant="16" id="7SO-5d-Tku"/>
                                             <constraint firstItem="BCk-Xa-lU6" firstAttribute="leading" secondItem="TMQ-9F-VG3" secondAttribute="leading" constant="16" id="AA6-hK-5v5"/>
-                                            <constraint firstItem="0An-DM-ALz" firstAttribute="leading" secondItem="TMQ-9F-VG3" secondAttribute="leading" constant="16" id="CAq-nj-g2o"/>
                                             <constraint firstItem="0An-DM-ALz" firstAttribute="top" secondItem="hKn-cx-xhx" secondAttribute="bottom" constant="8" id="ENp-vq-iSZ"/>
-                                            <constraint firstAttribute="trailing" secondItem="0An-DM-ALz" secondAttribute="trailing" constant="16" id="EyF-Xk-3Ob"/>
                                             <constraint firstAttribute="bottom" secondItem="n68-x6-DBb" secondAttribute="bottom" constant="16" id="GdX-VJ-krJ"/>
                                             <constraint firstItem="BCk-Xa-lU6" firstAttribute="top" secondItem="ecS-Y4-3By" secondAttribute="bottom" constant="8" id="Idu-R8-134"/>
                                             <constraint firstAttribute="trailing" secondItem="QqS-Ez-f3W" secondAttribute="trailing" constant="16" id="LEs-sn-64X"/>
@@ -435,11 +440,14 @@
                                             <constraint firstItem="ecS-Y4-3By" firstAttribute="top" secondItem="TMQ-9F-VG3" secondAttribute="top" constant="16" id="NNc-vm-V96"/>
                                             <constraint firstAttribute="trailing" secondItem="hKn-cx-xhx" secondAttribute="trailing" constant="16" id="OA1-eT-NDm"/>
                                             <constraint firstAttribute="trailing" secondItem="ecS-Y4-3By" secondAttribute="trailing" constant="16" id="Ozm-M1-6Ez"/>
+                                            <constraint firstItem="dTn-BM-W9p" firstAttribute="leading" secondItem="0An-DM-ALz" secondAttribute="trailing" constant="8" id="Vp5-Hz-Q7m"/>
                                             <constraint firstAttribute="trailing" secondItem="BCk-Xa-lU6" secondAttribute="trailing" constant="16" id="X5X-W5-hkB"/>
                                             <constraint firstItem="n68-x6-DBb" firstAttribute="top" secondItem="QqS-Ez-f3W" secondAttribute="bottom" constant="8" id="ab8-Mu-Wsm"/>
                                             <constraint firstItem="n68-x6-DBb" firstAttribute="leading" secondItem="TMQ-9F-VG3" secondAttribute="leading" constant="16" id="an9-x1-Coc"/>
+                                            <constraint firstItem="0An-DM-ALz" firstAttribute="centerX" secondItem="TMQ-9F-VG3" secondAttribute="centerX" id="ek5-1k-Weh"/>
                                             <constraint firstItem="QqS-Ez-f3W" firstAttribute="leading" secondItem="TMQ-9F-VG3" secondAttribute="leading" constant="16" id="kV6-Qk-IOQ"/>
                                             <constraint firstItem="hKn-cx-xhx" firstAttribute="leading" secondItem="TMQ-9F-VG3" secondAttribute="leading" constant="16" id="lh8-Rh-0Vz"/>
+                                            <constraint firstItem="dTn-BM-W9p" firstAttribute="centerY" secondItem="0An-DM-ALz" secondAttribute="centerY" id="mDi-NJ-t2u"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -490,10 +498,18 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="414" height="1200"/>
+                    <connections>
+                        <outlet property="companyProjectLbl" destination="JXu-Ob-Gt7" id="VR8-it-o1a"/>
+                        <outlet property="datePicker" destination="BCk-Xa-lU6" id="VBr-kI-J0G"/>
+                        <outlet property="hoursPicker" destination="0An-DM-ALz" id="cSP-kl-6vu"/>
+                        <outlet property="notesTV" destination="n68-x6-DBb" id="UUF-kY-jHW"/>
+                        <outlet property="saveBtn" destination="cdG-7o-ZtQ" id="HKO-5Z-sEB"/>
+                        <outlet property="scrollView" destination="5dm-PL-TsW" id="P7K-to-lgj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lwp-n7-R2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2951" y="1756"/>
+            <point key="canvasLocation" x="2950.7246376811595" y="1755.9782608695652"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="q5b-NB-Bja">

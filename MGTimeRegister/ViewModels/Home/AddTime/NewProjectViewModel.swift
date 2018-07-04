@@ -61,11 +61,13 @@ class NewProjectViewModel: MGTBaseViewModel {
     }
     
     private func createProject(){
-        let project = ModelController.shared.new(forEntity: ModelController.Entity.project) as! Project
-        project.name = privateProjectName.value
-        self.privateCurrentCompany.value!.addToProjects(project)
-        ModelController.shared.save()
-        self.privateProjectSelected.accept(project)
+        ModelController.shared.managedObjectContext.performAndWait {
+            let project = ModelController.shared.new(forEntity: ModelController.Entity.project) as! Project
+            project.name = privateProjectName.value
+            self.privateCurrentCompany.value!.addToProjects(project)
+            ModelController.shared.save()
+            self.privateProjectSelected.accept(project)
+        }
     }
 
 }
