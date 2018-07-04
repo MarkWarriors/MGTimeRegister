@@ -72,7 +72,7 @@ class NewTimeEntryViewModel: MGTBaseViewModel {
             timeEntry.date = self.privateDate.value!.startOfDay() as NSDate
             timeEntry.hours = self.privateHours.value
             timeEntry.notes = self.privateNotes.value
-            self.privateCurrentProject.addToTime(timeEntry)
+            self.privateCurrentProject.addToTimes(timeEntry)
             ModelController.shared.save()
         }
     }

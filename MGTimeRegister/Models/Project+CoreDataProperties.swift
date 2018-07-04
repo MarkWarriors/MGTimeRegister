@@ -25,17 +25,17 @@ extension Project {
 // MARK: Generated accessors for time
 extension Project {
 
-    @objc(addTimeObject:)
-    @NSManaged public func addToTime(_ value: Time)
+    @objc(addTimesObject:)
+    @NSManaged public func addToTimes(_ value: Time)
 
-    @objc(removeTimeObject:)
-    @NSManaged public func removeFromTime(_ value: Time)
+    @objc(removeTimesObject:)
+    @NSManaged public func removeFromTimes(_ value: Time)
 
-    @objc(addTime:)
-    @NSManaged public func addToTime(_ values: NSSet)
+    @objc(addTimes:)
+    @NSManaged public func addToTimes(_ values: NSSet)
 
-    @objc(removeTime:)
-    @NSManaged public func removeFromTime(_ values: NSSet)
+    @objc(removeTimes:)
+    @NSManaged public func removeFromTimes(_ values: NSSet)
 
 }
 
