@@ -20,6 +20,7 @@ class NewTimeEntryViewModel: MGTBaseViewModel {
     private let privateHours = BehaviorRelay<Int16>(value: 0)
     private let privateNotes = BehaviorRelay<String>(value: "")
     private let privateCurrentProject : Project
+    private let privateCurrentTime : Time?
     
     var saveEnabled : Observable<Bool> {
         return Observable
@@ -46,8 +47,9 @@ class NewTimeEntryViewModel: MGTBaseViewModel {
         return Observable.just(String(format: "%@", privateCurrentProject.name!))
     }
     
-    init(project: Project) {
+    init(project: Project, time: Time? = nil) {
         self.privateCurrentProject = project
+        self.privateCurrentTime = time
         self.privateHoursDataSource.accept(Array(1...24))
     }
 
@@ -75,7 +77,7 @@ class NewTimeEntryViewModel: MGTBaseViewModel {
     
     private func saveTimeEntry(){
         ModelController.shared.managedObjectContext.performAndWait {
-            let timeEntry = ModelController.shared.new(forEntity: ModelController.Entity.time) as! Time
+            let timeEntry = privateCurrentTime ?? ModelController.shared.new(forEntity: ModelController.Entity.time) as! Time
             timeEntry.date = self.privateDate.value!.startOfDay() as NSDate
             timeEntry.hours = self.privateHours.value
             timeEntry.notes = self.privateNotes.value
