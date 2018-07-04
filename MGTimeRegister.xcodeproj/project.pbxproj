@@ -31,14 +31,10 @@
 		90358C4320E9ACD700AC726B /* OverviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C4220E9ACD700AC726B /* OverviewVC.swift */; };
 		90358C4720E9AD1200AC726B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C4620E9AD1200AC726B /* LoginViewModel.swift */; };
 		90358C4B20E9AF0900AC726B /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C4A20E9AF0900AC726B /* ModelController.swift */; };
-		90358C6A20E9B4B100AC726B /* Project+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6020E9B4B100AC726B /* Project+CoreDataClass.swift */; };
-		90358C6B20E9B4B100AC726B /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6120E9B4B100AC726B /* Project+CoreDataProperties.swift */; };
 		90358C6C20E9B4B100AC726B /* Company+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6220E9B4B100AC726B /* Company+CoreDataClass.swift */; };
 		90358C6D20E9B4B100AC726B /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6320E9B4B100AC726B /* Company+CoreDataProperties.swift */; };
 		90358C6E20E9B4B100AC726B /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6420E9B4B100AC726B /* User+CoreDataClass.swift */; };
 		90358C6F20E9B4B100AC726B /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6520E9B4B100AC726B /* User+CoreDataProperties.swift */; };
-		90358C7020E9B4B100AC726B /* Time+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6620E9B4B100AC726B /* Time+CoreDataClass.swift */; };
-		90358C7120E9B4B100AC726B /* Time+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6720E9B4B100AC726B /* Time+CoreDataProperties.swift */; };
 		90358C7520EA28AB00AC726B /* ReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C7420EA28AB00AC726B /* ReportVC.swift */; };
 		90358C7720EA28C800AC726B /* SelectCompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C7620EA28C800AC726B /* SelectCompanyVC.swift */; };
 		90358C8120EA2A2400AC726B /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C7C20EA2A2300AC726B /* ReportViewModel.swift */; };
@@ -61,6 +57,10 @@
 		90CD38A420EB4FFA00157DC7 /* NewProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD38A320EB4FFA00157DC7 /* NewProjectViewModel.swift */; };
 		90CD38A620EB502600157DC7 /* NewCompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD38A520EB502600157DC7 /* NewCompanyVC.swift */; };
 		90CD38A820EB503200157DC7 /* NewProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD38A720EB503200157DC7 /* NewProjectVC.swift */; };
+		90FF6FBA20EC160A00006143 /* Time+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FB820EC160A00006143 /* Time+CoreDataClass.swift */; };
+		90FF6FBB20EC160A00006143 /* Time+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FB920EC160A00006143 /* Time+CoreDataProperties.swift */; };
+		90FF6FBE20EC168E00006143 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FBC20EC168D00006143 /* Project+CoreDataProperties.swift */; };
+		90FF6FBF20EC168E00006143 /* Project+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FBD20EC168E00006143 /* Project+CoreDataClass.swift */; };
 		EB9843785E5F32005E329E53 /* Pods_MGTimeRegister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B90F95725FA9E8ABCD699D1 /* Pods_MGTimeRegister.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,14 +107,10 @@
 		90358C4220E9ACD700AC726B /* OverviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewVC.swift; sourceTree = "<group>"; };
 		90358C4620E9AD1200AC726B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		90358C4A20E9AF0900AC726B /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
-		90358C6020E9B4B100AC726B /* Project+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataClass.swift"; sourceTree = "<group>"; };
-		90358C6120E9B4B100AC726B /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		90358C6220E9B4B100AC726B /* Company+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataClass.swift"; sourceTree = "<group>"; };
 		90358C6320E9B4B100AC726B /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		90358C6420E9B4B100AC726B /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		90358C6520E9B4B100AC726B /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		90358C6620E9B4B100AC726B /* Time+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Time+CoreDataClass.swift"; sourceTree = "<group>"; };
-		90358C6720E9B4B100AC726B /* Time+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Time+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		90358C7420EA28AB00AC726B /* ReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportVC.swift; sourceTree = "<group>"; };
 		90358C7620EA28C800AC726B /* SelectCompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCompanyVC.swift; sourceTree = "<group>"; };
 		90358C7C20EA2A2300AC726B /* ReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
@@ -137,6 +133,10 @@
 		90CD38A320EB4FFA00157DC7 /* NewProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewProjectViewModel.swift; path = /Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/ViewModels/Home/AddTime/NewProjectViewModel.swift; sourceTree = "<absolute>"; };
 		90CD38A520EB502600157DC7 /* NewCompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCompanyVC.swift; sourceTree = "<group>"; };
 		90CD38A720EB503200157DC7 /* NewProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectVC.swift; sourceTree = "<group>"; };
+		90FF6FB820EC160A00006143 /* Time+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Time+CoreDataClass.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Time+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		90FF6FB920EC160A00006143 /* Time+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Time+CoreDataProperties.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Time+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		90FF6FBC20EC168D00006143 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Project+CoreDataProperties.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Project+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		90FF6FBD20EC168E00006143 /* Project+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Project+CoreDataClass.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Project+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		D0917ECA5CFCC0E7A4261922 /* Pods-MGTimeRegister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGTimeRegister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGTimeRegister/Pods-MGTimeRegister.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -275,10 +275,10 @@
 				90358C6520E9B4B100AC726B /* User+CoreDataProperties.swift */,
 				90358C6220E9B4B100AC726B /* Company+CoreDataClass.swift */,
 				90358C6320E9B4B100AC726B /* Company+CoreDataProperties.swift */,
-				90358C6020E9B4B100AC726B /* Project+CoreDataClass.swift */,
-				90358C6120E9B4B100AC726B /* Project+CoreDataProperties.swift */,
-				90358C6620E9B4B100AC726B /* Time+CoreDataClass.swift */,
-				90358C6720E9B4B100AC726B /* Time+CoreDataProperties.swift */,
+				90FF6FBD20EC168E00006143 /* Project+CoreDataClass.swift */,
+				90FF6FBC20EC168D00006143 /* Project+CoreDataProperties.swift */,
+				90FF6FB820EC160A00006143 /* Time+CoreDataClass.swift */,
+				90FF6FB920EC160A00006143 /* Time+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -628,20 +628,19 @@
 				90CD389A20EAD47A00157DC7 /* SelectProjectVC.swift in Sources */,
 				90358C6C20E9B4B100AC726B /* Company+CoreDataClass.swift in Sources */,
 				90358C2420E98DB500AC726B /* MGTBaseVC.swift in Sources */,
+				90FF6FBE20EC168E00006143 /* Project+CoreDataProperties.swift in Sources */,
 				90358C4320E9ACD700AC726B /* OverviewVC.swift in Sources */,
+				90FF6FBF20EC168E00006143 /* Project+CoreDataClass.swift in Sources */,
 				90358C8920EA383400AC726B /* Segues.swift in Sources */,
 				90358C1C20E98DB500AC726B /* Extensions.swift in Sources */,
 				90CD389C20EAD48F00157DC7 /* NewTimeEntryVC.swift in Sources */,
-				90358C7120E9B4B100AC726B /* Time+CoreDataProperties.swift in Sources */,
 				90358C4020E9ACA900AC726B /* LoginVC.swift in Sources */,
 				90358C6D20E9B4B100AC726B /* Company+CoreDataProperties.swift in Sources */,
 				90CD38A420EB4FFA00157DC7 /* NewProjectViewModel.swift in Sources */,
 				90358C1720E98DB500AC726B /* MGTBaseViewModel.swift in Sources */,
 				90AF20C220EA7AAC0026481F /* ProjectTableViewCell.swift in Sources */,
 				90358C8520EA36D700AC726B /* MGTError.swift in Sources */,
-				90358C7020E9B4B100AC726B /* Time+CoreDataClass.swift in Sources */,
 				90358C1D20E98DB500AC726B /* Globals.swift in Sources */,
-				90358C6A20E9B4B100AC726B /* Project+CoreDataClass.swift in Sources */,
 				90CD38A020EAD4CB00157DC7 /* NewTimeEntryViewModel.swift in Sources */,
 				90358C1E20E98DB500AC726B /* Utils.swift in Sources */,
 				90358C1A20E98DB500AC726B /* Strings.swift in Sources */,
@@ -650,13 +649,13 @@
 				90358C8120EA2A2400AC726B /* ReportViewModel.swift in Sources */,
 				90CD38A220EB4FDA00157DC7 /* NewCompanyViewModel.swift in Sources */,
 				90CD38A620EB502600157DC7 /* NewCompanyVC.swift in Sources */,
-				90358C6B20E9B4B100AC726B /* Project+CoreDataProperties.swift in Sources */,
 				90358C6E20E9B4B100AC726B /* User+CoreDataClass.swift in Sources */,
 				90358C6F20E9B4B100AC726B /* User+CoreDataProperties.swift in Sources */,
 				90CD38A820EB503200157DC7 /* NewProjectVC.swift in Sources */,
 				90358C4B20E9AF0900AC726B /* ModelController.swift in Sources */,
 				90358C3320E9903100AC726B /* AlertView.swift in Sources */,
 				90358C2520E98DB500AC726B /* MGTNavigationController.swift in Sources */,
+				90FF6FBB20EC160A00006143 /* Time+CoreDataProperties.swift in Sources */,
 				90358C3D20E9ABB800AC726B /* SharedInstance.swift in Sources */,
 				90358C8220EA2A2400AC726B /* SelectCompanyViewModel.swift in Sources */,
 				90AF20BE20EA7A9B0026481F /* CompanyTableViewCell.swift in Sources */,
@@ -665,6 +664,7 @@
 				90358C3520E9903100AC726B /* WaitView.swift in Sources */,
 				90358C4720E9AD1200AC726B /* LoginViewModel.swift in Sources */,
 				90358C3020E9900100AC726B /* MGTimeRegister.xcdatamodeld in Sources */,
+				90FF6FBA20EC160A00006143 /* Time+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

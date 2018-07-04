@@ -1,9 +1,8 @@
 //
 //  Project+CoreDataProperties.swift
-//  MGTimeRegister
+//  
 //
-//  Created by Marco Guerrieri on 02/07/18.
-//  Copyright © 2018 Marco Guerrieri. All rights reserved.
+//  Created by Marco Guerrieri on 03/07/18.
 //
 //
 
@@ -23,28 +22,25 @@ extension Project {
 
 }
 
-// MARK: Generated accessors for tasks
+// MARK: Generated accessors for time
 extension Project {
 
-    @objc(addTimesObject:)
-    @NSManaged public func addToTimes(_ value: Time)
+    @objc(addTimeObject:)
+    @NSManaged public func addToTime(_ value: Time)
 
-    @objc(removeTimesObject:)
-    @NSManaged public func removeFromTimes(_ value: Time)
+    @objc(removeTimeObject:)
+    @NSManaged public func removeFromTime(_ value: Time)
 
-    @objc(addTimes:)
-    @NSManaged public func addToTimes(_ values: NSSet)
+    @objc(addTime:)
+    @NSManaged public func addToTime(_ values: NSSet)
 
-    @objc(removeTimes:)
-    @NSManaged public func removeFromTimes(_ values: NSSet)
+    @objc(removeTime:)
+    @NSManaged public func removeFromTime(_ values: NSSet)
 
 }
 
 extension Project {
     public func totalHoursCount() -> Int {
-        // TODO
-//        return self.times?.reduce(0, { $0 + Int(($1 as! Time).hours) }) ?? 0
-        return 0
+        return self.times != nil ? self.times!.reduce(0, { $0 + Int(($1 as! Time).hours) }) : 0
     }
 }
-

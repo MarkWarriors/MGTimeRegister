@@ -1,9 +1,8 @@
 //
 //  Time+CoreDataProperties.swift
-//  MGTimeRegister
+//  
 //
-//  Created by Marco Guerrieri on 02/07/18.
-//  Copyright © 2018 Marco Guerrieri. All rights reserved.
+//  Created by Marco Guerrieri on 03/07/18.
 //
 //
 
@@ -17,9 +16,9 @@ extension Time {
         return NSFetchRequest<Time>(entityName: "Time")
     }
 
-    @NSManaged public var notes: String?
     @NSManaged public var date: NSDate?
     @NSManaged public var hours: Int16
+    @NSManaged public var notes: String?
     @NSManaged public var project: Project?
 
 }

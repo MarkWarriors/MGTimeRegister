@@ -276,16 +276,13 @@ class MGCheckbox: UIButton {
 @IBDesignable class MGTextField: UITextField {
     private var kAssociationKeyMaxLength: Int = 0
     private var floatLabel : UILabel = UILabel()
-    @IBInspectable var focussedBorderColor: UIColor? = UIColor.clear
     var unfocussedBorderColor: UIColor? = UIColor.clear
     var isOnTop = false
+    
+    @IBInspectable var focussedBorderColor: UIColor? = UIColor.clear
     @IBInspectable var validBorderColor: UIColor? = UIColor.clear
     @IBInspectable var errorBorderColor: UIColor? = UIColor.clear
-    @IBInspectable var floatingPlaceholder : Bool = false {
-        didSet{
-            
-        }
-    }
+    @IBInspectable var floatingPlaceholder : Bool = false
     
     override var text: String?{
         didSet{
@@ -504,5 +501,55 @@ extension Date{
         components.day = 1
         components.second = -1
         return Calendar.current.date(byAdding: components, to: dateStart)!
+    }
+}
+
+@IBDesignable
+class MGTextView : UITextView {
+    private var kAssociationKeyMaxLength: Int = 0
+    @IBInspectable var maxLength: Int {
+        get {
+            if let length = objc_getAssociatedObject(self, &kAssociationKeyMaxLength) as? Int {
+                return length
+            } else {
+                return Int.max
+            }
+        }
+        set {
+            objc_setAssociatedObject(self, &kAssociationKeyMaxLength, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+    
+    override init(frame: CGRect, textContainer: NSTextContainer?) {
+        super.init(frame: frame, textContainer: textContainer)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        self.addTarget(self, action: #selector(checkMaxLength(textField:)), for: .editingChanged)
+    }
+    
+    override open func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+    }
+    
+    func shouldChangeText(in range: UITextRange, replacementText text: String) -> Bool {
+        checkMaxLength(textView: self)
+    }
+    
+    @objc func checkMaxLength(textView: UITextView) {
+        guard let prospectiveText = self.text, prospectiveText.count > maxLength
+            else {
+                return
+        }
+        
+        let selection = selectedTextRange
+        let maxCharIndex = prospectiveText.index(prospectiveText.startIndex, offsetBy: maxLength)
+        text = String(prospectiveText[..<maxCharIndex])
+        selectedTextRange = selection
     }
 }
