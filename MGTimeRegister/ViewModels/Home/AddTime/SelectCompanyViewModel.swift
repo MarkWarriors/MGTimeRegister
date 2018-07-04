@@ -33,7 +33,7 @@ class SelectCompanyViewModel: MGTBaseViewModel {
         privateSelectedCompany
             .filter{ $0 != nil }
             .bind(onNext: { [weak self] (project) in
-                self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.AddTime.pickProject))
+                self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.AddTimeEntry.selectProject))
             })
             .disposed(by: disposeBag)
         
@@ -51,7 +51,7 @@ class SelectCompanyViewModel: MGTBaseViewModel {
         
         newCompanyBtnPressed
             .drive(onNext: { [weak self] in
-                self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.AddTime.newCompany))
+                self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.AddTimeEntry.newCompany))
             })
             .disposed(by: self.disposeBag)
     }

@@ -43,6 +43,7 @@
 		90358C8520EA36D700AC726B /* MGTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8420EA36D700AC726B /* MGTError.swift */; };
 		90358C8720EA37C900AC726B /* MGTViewModelSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8620EA37C900AC726B /* MGTViewModelSegue.swift */; };
 		90358C8920EA383400AC726B /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8820EA383400AC726B /* Segues.swift */; };
+		90453E3F20ECC722006B6AA2 /* MGTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90453E3E20ECC722006B6AA2 /* MGTTabBarController.swift */; };
 		906A8DE720EB82E900821BD4 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A8DE620EB82E900821BD4 /* Protocols.swift */; };
 		90AF20B920EA4E860026481F /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AF20B820EA4E860026481F /* AlertView.xib */; };
 		90AF20BE20EA7A9B0026481F /* CompanyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF20BC20EA7A9B0026481F /* CompanyTableViewCell.swift */; };
@@ -119,6 +120,7 @@
 		90358C8420EA36D700AC726B /* MGTError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTError.swift; sourceTree = "<group>"; };
 		90358C8620EA37C900AC726B /* MGTViewModelSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTViewModelSegue.swift; sourceTree = "<group>"; };
 		90358C8820EA383400AC726B /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
+		90453E3E20ECC722006B6AA2 /* MGTTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTTabBarController.swift; sourceTree = "<group>"; };
 		906A8DE620EB82E900821BD4 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		90AF20B820EA4E860026481F /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		90AF20BC20EA7A9B0026481F /* CompanyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableViewCell.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				90358C4120E9ACB600AC726B /* Home */,
 				90358C0720E98DB400AC726B /* MGTBaseVC.swift */,
 				90358C0820E98DB400AC726B /* MGTNavigationController.swift */,
+				90453E3E20ECC722006B6AA2 /* MGTTabBarController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				90AF20BE20EA7A9B0026481F /* CompanyTableViewCell.swift in Sources */,
 				90358C3120E9903100AC726B /* OverlayView.swift in Sources */,
 				90358C7720EA28C800AC726B /* SelectCompanyVC.swift in Sources */,
+				90453E3F20ECC722006B6AA2 /* MGTTabBarController.swift in Sources */,
 				90358C3520E9903100AC726B /* WaitView.swift in Sources */,
 				90358C4720E9AD1200AC726B /* LoginViewModel.swift in Sources */,
 				90358C3020E9900100AC726B /* MGTimeRegister.xcdatamodeld in Sources */,

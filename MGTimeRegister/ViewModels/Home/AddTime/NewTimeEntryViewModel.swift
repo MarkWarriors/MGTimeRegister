@@ -38,7 +38,13 @@ class NewTimeEntryViewModel: MGTBaseViewModel {
         return self.privatePerformSegue.asObservable()
     }
     
+    var companyText : Observable<String> {
+        return Observable.just(String(format: "%@ >", privateCurrentProject.company!.name!))
+    }
     
+    var projectText : Observable<String> {
+        return Observable.just(String(format: "%@", privateCurrentProject.name!))
+    }
     
     init(project: Project) {
         self.privateCurrentProject = project
@@ -61,6 +67,7 @@ class NewTimeEntryViewModel: MGTBaseViewModel {
         
         saveTimeEntry.drive(onNext: { [weak self] in
             self?.saveTimeEntry()
+            self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.AddTimeEntry.unwindToTabBar))
         })
         .disposed(by: disposeBag)
         

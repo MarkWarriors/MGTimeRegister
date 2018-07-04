@@ -15,13 +15,15 @@ public class Segues {
     }
     
     struct Home {
-        struct AddTime {
+        struct AddTimeEntry {
             public static let newCompany = "toNewCompany"
             public static let newProject = "toNewProject"
             public static let newTimeEntry = "toNewTimeEntry"
             
-            public static let pickCompany = "toPickCompany"
-            public static let pickProject = "toPickProject"
+            public static let selectCompany = "toPickCompany"
+            public static let selectProject = "toPickProject"
+            
+            public static let unwindToTabBar = "unwindToTabBar"
         }
     }
     
