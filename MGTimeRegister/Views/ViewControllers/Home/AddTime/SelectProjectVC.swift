@@ -14,6 +14,7 @@ class SelectProjectVC: MGTBaseVC, ViewModelBased {
     typealias ViewModel = SelectProjectViewModel
     var viewModel: SelectProjectViewModel?
     
+    @IBOutlet weak var companyLbl: UILabel!
     @IBOutlet weak var projectsTableView: UITableView!
     @IBOutlet weak var addProjectBtn: UIButton!
     
@@ -24,7 +25,7 @@ class SelectProjectVC: MGTBaseVC, ViewModelBased {
     }
     
     private func configureTableView(){
-        projectsTableView.tableFooterView = UIView()
+        projectsTableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: projectsTableView.frame.width, height: 76))
         projectsTableView.register(UINib.init(nibName: ProjectTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ProjectTableViewCell.identifier)
     }
     
@@ -36,6 +37,8 @@ class SelectProjectVC: MGTBaseVC, ViewModelBased {
         viewModel!.initBindings(fetchDataSource: viewWillAppear,
                                selectedRow: projectsTableView.rx.itemSelected.asDriver(),
                                newProjectBtnPressed: addProjectBtn.rx.tap.asDriver())
+        
+        viewModel!.companyText.bind(to: companyLbl.rx.text).disposed(by: disposeBag)
         
         projectsTableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in

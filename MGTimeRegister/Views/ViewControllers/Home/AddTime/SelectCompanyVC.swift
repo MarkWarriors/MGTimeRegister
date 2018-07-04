@@ -25,7 +25,7 @@ class SelectCompanyVC: MGTBaseVC, ViewModelBased {
     }
     
     private func configureTableView(){
-        companyTableView.tableFooterView = UIView()
+        companyTableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: companyTableView.frame.width, height: 76))
         companyTableView.register(UINib.init(nibName: CompanyTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: CompanyTableViewCell.identifier)
     }
     

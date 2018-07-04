@@ -48,6 +48,19 @@ extension UIView {
             layer.borderColor = newValue?.cgColor
         }
     }
+    
+    @IBInspectable var bottomShadow: Bool {
+        get {
+            return self.bottomShadow
+        }
+        set {
+            layer.shadowOffset = CGSize(width: 0, height: 3)
+            layer.shadowOpacity = 0.4
+            layer.shadowRadius = 3.0
+            layer.shadowColor = UIColor.gray.cgColor
+        }
+    }
+
 }
 
 @IBDesignable

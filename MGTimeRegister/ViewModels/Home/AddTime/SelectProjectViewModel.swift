@@ -24,6 +24,10 @@ class SelectProjectViewModel: MGTBaseViewModel {
         self.privateCurrentCompany = company
     }
     
+    var companyText : Observable<String> {
+        return Observable.just(privateCurrentCompany.name!)
+    }
+    
     var dataSource : Observable<[Project]> {
         return self.privateDataSource.asObservable()
     }
