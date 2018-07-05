@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		90358BD520E98D0800AC726B /* MGTimeRegisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BD420E98D0800AC726B /* MGTimeRegisterTests.swift */; };
-		90358C1120E98DB500AC726B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 90358BE520E98DB400AC726B /* .gitkeep */; };
 		90358C1620E98DB500AC726B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90358BEE20E98DB400AC726B /* Assets.xcassets */; };
 		90358C1720E98DB500AC726B /* MGTBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF020E98DB400AC726B /* MGTBaseViewModel.swift */; };
 		90358C1A20E98DB500AC726B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF620E98DB400AC726B /* Strings.swift */; };
@@ -87,7 +86,6 @@
 		90358BD020E98D0800AC726B /* MGTimeRegisterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGTimeRegisterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90358BD420E98D0800AC726B /* MGTimeRegisterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTimeRegisterTests.swift; sourceTree = "<group>"; };
 		90358BD620E98D0800AC726B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		90358BE520E98DB400AC726B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		90358BEE20E98DB400AC726B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90358BF020E98DB400AC726B /* MGTBaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTBaseViewModel.swift; sourceTree = "<group>"; };
 		90358BF620E98DB400AC726B /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -249,18 +247,9 @@
 		90358BE120E98DB400AC726B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				90358BE420E98DB400AC726B /* Images */,
+				90358BEE20E98DB400AC726B /* Assets.xcassets */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		90358BE420E98DB400AC726B /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				90358BEE20E98DB400AC726B /* Assets.xcassets */,
-				90358BE520E98DB400AC726B /* .gitkeep */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		90358BEF20E98DB400AC726B /* ViewModels */ = {
@@ -572,7 +561,6 @@
 				90AF20C320EA7AAC0026481F /* ProjectTableViewCell.xib in Resources */,
 				90358C3420E9903100AC726B /* WaitView.xib in Resources */,
 				90358C1620E98DB500AC726B /* Assets.xcassets in Resources */,
-				90358C1120E98DB500AC726B /* .gitkeep in Resources */,
 				90358C3B20E9951500AC726B /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

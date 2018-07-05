@@ -15,7 +15,7 @@ class DatePickerViewModel: MGTBaseViewModel {
     
     private let privateDateSelected = PublishRelay<Date>()
     private let privateCurrentDate = BehaviorRelay<Date>(value: Date())
-    private let privateDismissModal = PublishSubject<(Void)>()
+    private let privateDismissModal = PublishRelay<(Void)>()
     
     var dismissModal : Observable<Void> {
         return self.privateDismissModal.asObservable()
@@ -38,7 +38,7 @@ class DatePickerViewModel: MGTBaseViewModel {
                       todayBtnPressed: Driver<Void>,
                       pickDateBtnPressed: Driver<Void>,
                       closeBtnPressed: Driver<Void>){
-
+        
         selectedDate.bind(to: self.privateCurrentDate).disposed(by: disposeBag)
 
         todayBtnPressed
@@ -49,7 +49,7 @@ class DatePickerViewModel: MGTBaseViewModel {
         
         closeBtnPressed
             .drive(onNext: { [weak self] in
-                self?.privateDismissModal.onNext(Void())
+                self?.privateDismissModal.accept(Void())
             })
             .disposed(by: self.disposeBag)
         
@@ -57,7 +57,7 @@ class DatePickerViewModel: MGTBaseViewModel {
             .drive(onNext: { [weak self] in
                 if let selectedDate = self?.privateCurrentDate.value {
                     self?.privateDateSelected.accept(selectedDate)
-                    self?.privateDismissModal.onNext(Void())
+                    self?.privateDismissModal.accept(Void())
                 }
             })
             .disposed(by: self.disposeBag)

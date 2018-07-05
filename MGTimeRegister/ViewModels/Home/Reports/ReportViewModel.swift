@@ -45,6 +45,7 @@ class ReportViewModel: MGTBaseViewModel {
     private let privateTableItems = BehaviorRelay<[TableSectionData]>(value: [])
     private let privateDateFrom = BehaviorRelay<Date?>(value: nil)
     private let privateDateTo = BehaviorRelay<Date?>(value: nil)
+    private let privateSearchText = BehaviorRelay<String?>(value: nil)
     
     var tableItems : Observable<[TableSectionData]> {
         return self.privateTableItems.asObservable()
@@ -84,24 +85,26 @@ class ReportViewModel: MGTBaseViewModel {
 
     
     public func initBindings(fetchDataSource: Driver<Void>,
+                             searchText: Observable<String?>,
                              selectedRow: Driver<IndexPath>,
                              dateFromBtnPressed: Driver<Void>,
                              dateToBtnPressed: Driver<Void>) {
         
         Observable
             .combineLatest(
-                self.privateDateFrom.asObservable(),
-                self.privateDateTo.asObservable())
-            .bind { (dateFrom, dateTo) in
-                    self.fetchData()
+                fetchDataSource.asObservable(),
+                searchText
+                    .throttle(2, scheduler: MainScheduler.instance)
+                    .distinctUntilChanged()
+                    .asObservable(),
+                self.privateDateFrom
+                    .asObservable(),
+                self.privateDateTo
+                    .asObservable())
+            .bind { [weak self] (_, text, dateFrom, dateTo) in
+                    self?.fetchData(text: text, dateFrom: dateFrom, dateTo: dateTo)
             }
             .disposed(by: disposeBag)
-        
-        fetchDataSource
-            .drive(onNext: { [weak self] (_) in
-                self?.fetchData()
-            })
-            .disposed(by: self.disposeBag)
         
         dateFromBtnPressed
             .drive(onNext: { [weak self] (_) in
@@ -117,14 +120,14 @@ class ReportViewModel: MGTBaseViewModel {
 
     }
     
-    private func fetchData(){
+    private func fetchData(text: String?, dateFrom: Date?, dateTo: Date?){
         ModelController.shared.managedObjectContext.perform { [weak self] in
             var predicate : NSPredicate?
             
             let startDate : Date? = self?.privateDateFrom.value?.startOfDay()
             let endDate : Date? = self?.privateDateTo.value?.endOfDay()
             
-            print("search from \(startDate?.toStringDate()) to \(endDate?.toStringDate())")
+            print("search \(text) from \(startDate?.toStringDate()) to \(endDate?.toStringDate())")
             
             if startDate != nil && endDate != nil {
                 predicate = NSPredicate.init(format: "date >= %@ AND date <= %@ AND hours > 0", startDate! as NSDate, endDate! as NSDate)
@@ -142,7 +145,7 @@ class ReportViewModel: MGTBaseViewModel {
             
             if let times = ModelController.shared.listAllElements (
                 forEntityName: ModelController.Entity.time.rawValue,
-                whereCondition: predicate,
+                predicate: predicate,
                 descriptors: [sortDescriptor]) as? [Time], times.count > 0{
                 
                 times.forEach({ (time) in

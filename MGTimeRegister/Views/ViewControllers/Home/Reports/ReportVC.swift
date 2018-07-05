@@ -16,6 +16,7 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
     @IBOutlet weak var projectsTableView: UITableView!
     @IBOutlet weak var dateFromBtn: UIButton!
     @IBOutlet weak var dateToBtn: UIButton!
+    @IBOutlet weak var searchTF: MGTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
             .asDriver(onErrorJustReturn: ())
         
         viewModel!.initBindings(fetchDataSource: viewWillAppear,
+                                searchText: searchTF.rx.text.asObservable(),
                                 selectedRow: projectsTableView.rx.itemSelected.asDriver(),
                                 dateFromBtnPressed: dateFromBtn.rx.tap.asDriver(),
                                 dateToBtnPressed: dateToBtn.rx.tap.asDriver())

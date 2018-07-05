@@ -49,7 +49,7 @@ public class ModelController : NSObject {
     }
 
     private func removeOrphanedEntity(_ entity: Entity, whereCondition: NSPredicate) {
-        let orphanMOs = self.listAllElements(forEntityName: entity.rawValue, whereCondition: whereCondition)
+        let orphanMOs = self.listAllElements(forEntityName: entity.rawValue, predicate: whereCondition)
         for orphanMO in orphanMOs {
             orphanMO.delete()
         }
@@ -88,10 +88,10 @@ public class ModelController : NSObject {
     }
 
 
-    func listAllElements<T: NSManagedObject>(forEntityName entityName: String, whereCondition: NSPredicate? = nil, descriptors: [NSSortDescriptor]? = nil) -> [T] {
+    func listAllElements<T: NSManagedObject>(forEntityName entityName: String, predicate: NSPredicate? = nil, descriptors: [NSSortDescriptor]? = nil) -> [T] {
         let query = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        if whereCondition != nil {
-            query.predicate = whereCondition
+        if predicate != nil {
+            query.predicate = predicate
         }
         if descriptors != nil {
             query.sortDescriptors = descriptors

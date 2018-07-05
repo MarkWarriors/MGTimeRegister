@@ -73,7 +73,7 @@ class LoginViewModel: MGTBaseViewModel {
         privateIsLoading.accept(true)
         var user : User?
         
-        if let storedUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue, whereCondition: NSPredicate.init(format: "username = %@", privateUsername.value)).first as? User {
+        if let storedUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue, predicate: NSPredicate.init(format: "username = %@", privateUsername.value)).first as? User {
             user = storedUser
         }
         else {
