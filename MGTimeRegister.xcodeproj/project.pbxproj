@@ -60,6 +60,9 @@
 		90D7519620ED23A300D316C5 /* ProjectHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90D7519420ED23A300D316C5 /* ProjectHeaderCell.xib */; };
 		90D7519B20EE224E00D316C5 /* DatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7519A20EE224E00D316C5 /* DatePickerVC.swift */; };
 		90D7519D20EE225C00D316C5 /* DatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7519C20EE225C00D316C5 /* DatePickerViewModel.swift */; };
+		90D7519F20EE6E9700D316C5 /* ReportTimeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7519E20EE6E9700D316C5 /* ReportTimeListVC.swift */; };
+		90D751A120EE6EE000D316C5 /* ReportTimeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D751A020EE6EE000D316C5 /* ReportTimeListViewModel.swift */; };
+		90D751A320EE726C00D316C5 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D751A220EE726C00D316C5 /* Structs.swift */; };
 		90FF6FBA20EC160A00006143 /* Time+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FB820EC160A00006143 /* Time+CoreDataClass.swift */; };
 		90FF6FBB20EC160A00006143 /* Time+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FB920EC160A00006143 /* Time+CoreDataProperties.swift */; };
 		90FF6FBE20EC168E00006143 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FBC20EC168D00006143 /* Project+CoreDataProperties.swift */; };
@@ -139,6 +142,9 @@
 		90D7519420ED23A300D316C5 /* ProjectHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectHeaderCell.xib; sourceTree = "<group>"; };
 		90D7519A20EE224E00D316C5 /* DatePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerVC.swift; sourceTree = "<group>"; };
 		90D7519C20EE225C00D316C5 /* DatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewModel.swift; sourceTree = "<group>"; };
+		90D7519E20EE6E9700D316C5 /* ReportTimeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTimeListVC.swift; sourceTree = "<group>"; };
+		90D751A020EE6EE000D316C5 /* ReportTimeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReportTimeListViewModel.swift; path = /Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/ViewModels/Home/Reports/ReportTimeListViewModel.swift; sourceTree = "<absolute>"; };
+		90D751A220EE726C00D316C5 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		90FF6FB820EC160A00006143 /* Time+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Time+CoreDataClass.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Time+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		90FF6FB920EC160A00006143 /* Time+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Time+CoreDataProperties.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Time+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		90FF6FBC20EC168D00006143 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Project+CoreDataProperties.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Project+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
@@ -356,6 +362,7 @@
 				90358BF920E98DB400AC726B /* Globals.swift */,
 				90358C8820EA383400AC726B /* Segues.swift */,
 				906A8DE620EB82E900821BD4 /* Protocols.swift */,
+				90D751A220EE726C00D316C5 /* Structs.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -418,6 +425,7 @@
 			children = (
 				90358C7420EA28AB00AC726B /* ReportVC.swift */,
 				90D7519A20EE224E00D316C5 /* DatePickerVC.swift */,
+				90D7519E20EE6E9700D316C5 /* ReportTimeListVC.swift */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -439,6 +447,7 @@
 			children = (
 				90358C7C20EA2A2300AC726B /* ReportViewModel.swift */,
 				90D7519C20EE225C00D316C5 /* DatePickerViewModel.swift */,
+				90D751A020EE6EE000D316C5 /* ReportTimeListViewModel.swift */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -635,6 +644,7 @@
 				90CD389A20EAD47A00157DC7 /* SelectProjectVC.swift in Sources */,
 				90358C6C20E9B4B100AC726B /* Company+CoreDataClass.swift in Sources */,
 				90358C2420E98DB500AC726B /* MGTBaseVC.swift in Sources */,
+				90D751A120EE6EE000D316C5 /* ReportTimeListViewModel.swift in Sources */,
 				90FF6FBE20EC168E00006143 /* Project+CoreDataProperties.swift in Sources */,
 				90358C4320E9ACD700AC726B /* OverviewVC.swift in Sources */,
 				90FF6FBF20EC168E00006143 /* Project+CoreDataClass.swift in Sources */,
@@ -669,12 +679,14 @@
 				90AF20BE20EA7A9B0026481F /* CompanyTableViewCell.swift in Sources */,
 				90358C3120E9903100AC726B /* OverlayView.swift in Sources */,
 				90358C7720EA28C800AC726B /* SelectCompanyVC.swift in Sources */,
+				90D751A320EE726C00D316C5 /* Structs.swift in Sources */,
 				90453E3F20ECC722006B6AA2 /* MGTTabBarController.swift in Sources */,
 				90358C3520E9903100AC726B /* WaitView.swift in Sources */,
 				90358C4720E9AD1200AC726B /* LoginViewModel.swift in Sources */,
 				90358C3020E9900100AC726B /* MGTimeRegister.xcdatamodeld in Sources */,
 				90D7519520ED23A300D316C5 /* ProjectHeaderCell.swift in Sources */,
 				90FF6FBA20EC160A00006143 /* Time+CoreDataClass.swift in Sources */,
+				90D7519F20EE6E9700D316C5 /* ReportTimeListVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

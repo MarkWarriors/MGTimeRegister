@@ -11,27 +11,6 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-struct ProjectHours {
-    var project: Project
-    var hours: Int32
-}
-
-struct CompanyHours {
-    var company: Company
-    var hours: Int32
-}
-
-struct TableSectionData {
-    var header: CompanyHours
-    var items: [ProjectHours]
-}
-
-extension TableSectionData: SectionModelType {
-    init(original: TableSectionData, items: [ProjectHours]) {
-        self = original
-        self.items = items
-    }
-}
 
 enum Flags : String {
     case pickDateFrom = "dateFrom"
@@ -42,12 +21,12 @@ class ReportViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
-    private let privateTableItems = BehaviorRelay<[TableSectionData]>(value: [])
+    private let privateTableItems = BehaviorRelay<[ReportData]>(value: [])
     private let privateDateFrom = BehaviorRelay<Date?>(value: Date().changeOfWeeks(-1))
     private let privateDateTo = BehaviorRelay<Date?>(value: Date())
     private let privateSearchText = BehaviorRelay<String?>(value: nil)
     
-    var tableItems : Observable<[TableSectionData]> {
+    var tableItems : Observable<[ReportData]> {
         return self.privateTableItems.asObservable()
     }
     
@@ -72,14 +51,14 @@ class ReportViewModel: MGTBaseViewModel {
     }
     
     func projectHeaderHoursFor(section: Int) -> String {
-        return "\(self.privateTableItems.value[section].header.hours) h"
+        return "\(self.privateTableItems.value[section].header.totalHours) h"
     }
     
-    let dataSource = RxTableViewSectionedReloadDataSource<TableSectionData>(
+    let dataSource = RxTableViewSectionedReloadDataSource<ReportData>(
         configureCell: { (_, tv, indexPath, projectHours) in
             let cell = tv.dequeueReusableCell(withIdentifier: ProjectTableViewCell.identifier) as! ProjectTableViewCell
             cell.nameLbl.text = projectHours.project.name
-            cell.hoursLbl.text = "\(projectHours.hours)"
+            cell.hoursLbl.text = "\(projectHours.totalHours)"
             return cell
     })
 
@@ -188,18 +167,18 @@ class ReportViewModel: MGTBaseViewModel {
             
             let sortedSections = sectionsMap.sorted(by: { $0.key.name!.compare($1.key.name!, options: .caseInsensitive) == .orderedAscending })
             
-            let dataSource = sortedSections.map({ (company, projHours) -> TableSectionData in
-                var companyHours = CompanyHours.init(company: company, hours: 0)
+            let dataSource = sortedSections.map({ (company, projHours) -> ReportData in
+                var companyHours = CompanyHours.init(company: company, totalHours: 0)
                 var items : [ProjectHours] = []
                 
                 var sortedProjHours = projHours.sorted(by: { $0.key.name!.compare($1.key.name!, options: .caseInsensitive) == .orderedAscending })
                 
                 sortedProjHours.forEach({ (project, hours) in
-                    companyHours.hours = companyHours.hours + hours
-                    items.append(ProjectHours.init(project: project, hours: hours))
+                    companyHours.totalHours = companyHours.totalHours + hours
+                    items.append(ProjectHours.init(project: project, totalHours: hours))
                 })
                 
-                return TableSectionData.init(header: companyHours, items: items)
+                return ReportData.init(header: companyHours, items: items)
             })
 
             self?.privateTableItems.accept(dataSource)
