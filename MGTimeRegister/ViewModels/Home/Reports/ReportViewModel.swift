@@ -43,8 +43,8 @@ class ReportViewModel: MGTBaseViewModel {
     
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
     private let privateTableItems = BehaviorRelay<[TableSectionData]>(value: [])
-    private let privateDateFrom = BehaviorRelay<Date?>(value: nil)
-    private let privateDateTo = BehaviorRelay<Date?>(value: nil)
+    private let privateDateFrom = BehaviorRelay<Date?>(value: Date().changeOfWeeks(-1))
+    private let privateDateTo = BehaviorRelay<Date?>(value: Date())
     private let privateSearchText = BehaviorRelay<String?>(value: nil)
     
     var tableItems : Observable<[TableSectionData]> {
@@ -84,15 +84,36 @@ class ReportViewModel: MGTBaseViewModel {
     })
 
     
-    public func initBindings(fetchDataSource: Driver<Void>,
+    public func initBindings(viewWillAppear: Driver<Void>,
+                             todayBtnPressed: Driver<Void>,
+                             lastWeekBtnPressed: Driver<Void>,
+                             lastMonthBtnPressed: Driver<Void>,
                              searchText: Observable<String?>,
                              selectedRow: Driver<IndexPath>,
                              dateFromBtnPressed: Driver<Void>,
                              dateToBtnPressed: Driver<Void>) {
         
+        todayBtnPressed.drive(onNext: { [weak self] _ in
+            self?.privateDateFrom.accept(Date())
+            self?.privateDateTo.accept(Date())
+        })
+        .disposed(by: disposeBag)
+        
+        lastWeekBtnPressed.drive(onNext: { [weak self] _ in
+                self?.privateDateFrom.accept(Date().changeOfWeeks(-1))
+                self?.privateDateTo.accept(Date())
+            })
+            .disposed(by: disposeBag)
+        
+        lastMonthBtnPressed.drive(onNext: { [weak self] _ in
+                self?.privateDateFrom.accept(Date().changeOfMonths(-1))
+                self?.privateDateTo.accept(Date())
+            })
+            .disposed(by: disposeBag)
+        
         Observable
             .combineLatest(
-                fetchDataSource.asObservable(),
+                viewWillAppear.asObservable(),
                 searchText
                     .throttle(2, scheduler: MainScheduler.instance)
                     .distinctUntilChanged()
@@ -122,49 +143,58 @@ class ReportViewModel: MGTBaseViewModel {
     
     private func fetchData(text: String?, dateFrom: Date?, dateTo: Date?){
         ModelController.shared.managedObjectContext.perform { [weak self] in
-            var predicate : NSPredicate?
-            
             let startDate : Date? = self?.privateDateFrom.value?.startOfDay()
             let endDate : Date? = self?.privateDateTo.value?.endOfDay()
+
+            var predicateArray : [NSPredicate] = []
             
-            print("search \(text) from \(startDate?.toStringDate()) to \(endDate?.toStringDate())")
+            predicateArray.append(NSPredicate.init(format: "hours > 0"))
             
-            if startDate != nil && endDate != nil {
-                predicate = NSPredicate.init(format: "date >= %@ AND date <= %@ AND hours > 0", startDate! as NSDate, endDate! as NSDate)
-            }
-            else if startDate != nil {
-                predicate = NSPredicate.init(format: "date >= %@ AND hours > 0", startDate! as NSDate)
-            }
-            else if endDate != nil {
-                predicate = NSPredicate.init(format: "Sdate <= %@ AND hours > 0", endDate! as NSDate)
+            if text != nil && (text?.count)! > 0 {
+                predicateArray.append(NSPredicate.init(format: "SUBQUERY(project, $p, $p.name BEGINSWITH[c] %@).@count != 0 OR SUBQUERY(project, $p, SUBQUERY($p.company, $c, $c.name BEGINSWITH[c] %@).@count != 0) != NULL", text!, text!))
             }
             
-            let sortDescriptor : NSSortDescriptor = NSSortDescriptor.init(key: "project", ascending: true)
+            if startDate != nil {
+                predicateArray.append(NSPredicate.init(format: "date >= %@", startDate! as NSDate))
+            }
+            
+            if endDate != nil {
+                predicateArray.append(NSPredicate.init(format: "date <= %@", endDate! as NSDate))
+            }
+            
+            
+            let sortDescriptors : [NSSortDescriptor] = [
+                NSSortDescriptor.init(key: "project.company.name", ascending: true, selector: #selector(NSString.caseInsensitiveCompare)),
+                NSSortDescriptor.init(key: "project.name", ascending: true, selector: #selector(NSString.caseInsensitiveCompare))
+            ]
+                                                       
             
             var sectionsMap : [Company:[Project:Int32]] = [:]
             
             if let times = ModelController.shared.listAllElements (
                 forEntityName: ModelController.Entity.time.rawValue,
-                predicate: predicate,
-                descriptors: [sortDescriptor]) as? [Time], times.count > 0{
+                predicate: NSCompoundPredicate.init(andPredicateWithSubpredicates: predicateArray),
+                descriptors: sortDescriptors) as? [Time], times.count > 0{
                 
                 times.forEach({ (time) in
                     let company = time.project!.company!
                     let project = time.project!
-                    
                     // Faster code, see https://stackoverflow.com/questions/42486686/swiftier-swift-for-add-to-array-or-create-if-not-there
                     var projDict = sectionsMap.removeValue(forKey: company) ?? [:]
                     projDict[project] = (projDict[project] ?? 0) + Int32(time.hours)
                     sectionsMap[company] = projDict
                 })
-                
-                print("founded \(times.count)")
             }
             
-            let dataSource = sectionsMap.map({ (company, projHours) -> TableSectionData in
+            let sortedSections = sectionsMap.sorted(by: { $0.key.name!.compare($1.key.name!, options: .caseInsensitive) == .orderedAscending })
+            
+            let dataSource = sortedSections.map({ (company, projHours) -> TableSectionData in
                 var companyHours = CompanyHours.init(company: company, hours: 0)
                 var items : [ProjectHours] = []
-                projHours.forEach({ (project, hours) in
+                
+                var sortedProjHours = projHours.sorted(by: { $0.key.name!.compare($1.key.name!, options: .caseInsensitive) == .orderedAscending })
+                
+                sortedProjHours.forEach({ (project, hours) in
                     companyHours.hours = companyHours.hours + hours
                     items.append(ProjectHours.init(project: project, hours: hours))
                 })
