@@ -12,52 +12,53 @@ import RxCocoa
 import RxDataSources
 
 struct ProjectHours {
-    var project: String
+    var project: Project
     var hours: Int32
 }
 
 struct CompanyHours {
-    var company: String
+    var company: Company
     var hours: Int32
 }
 
-struct SectionOfTiming {
+struct TableSectionData {
     var header: CompanyHours
-    var items: [Item]
+    var items: [ProjectHours]
 }
 
-extension SectionOfTiming: SectionModelType {
-    typealias Item = ProjectHours
-    
-    init(original: SectionOfTiming, items: [Item]) {
+extension TableSectionData: SectionModelType {
+    init(original: TableSectionData, items: [ProjectHours]) {
         self = original
         self.items = items
     }
 }
 
+
 class ReportViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
-    private let privateTableItems = BehaviorRelay<[SectionOfTiming]>(value: [])
+    private let privateTableItems = BehaviorRelay<[TableSectionData]>(value: [])
+    private let privateStartDate = BehaviorRelay<Date?>(value: nil)
+    private let privateEndDate = BehaviorRelay<Date?>(value: nil)
     
-    var tableItems : Observable<[SectionOfTiming]> {
+    var tableItems : Observable<[TableSectionData]> {
         return self.privateTableItems.asObservable()
     }
     
     func projectHeaderTextFor(section: Int) -> String {
-        return self.privateTableItems.value[section].header.company
+        return self.privateTableItems.value[section].header.company.name ?? ""
     }
     
     func projectHeaderHoursFor(section: Int) -> String {
         return "total: \(self.privateTableItems.value[section].header.hours) h"
     }
     
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionOfTiming>(
-        configureCell: { (_, tv, indexPath, element) in
+    let dataSource = RxTableViewSectionedReloadDataSource<TableSectionData>(
+        configureCell: { (_, tv, indexPath, projectHours) in
             let cell = tv.dequeueReusableCell(withIdentifier: ProjectTableViewCell.identifier) as! ProjectTableViewCell
-            cell.nameLbl.text = element.project
-            cell.hoursLbl.text = "\(element.hours)"
+            cell.nameLbl.text = projectHours.project.name
+            cell.hoursLbl.text = "\(projectHours.hours)"
             return cell
     })
 
@@ -66,38 +67,7 @@ class ReportViewModel: MGTBaseViewModel {
                              selectedRow: Driver<IndexPath>) {
         fetchDataSource
             .drive(onNext: { [weak self] (_) in
-                let startDate : NSDate = Date().startOfDay() as NSDate
-                let endDate : NSDate = Date().changeOfDays(-5) as NSDate
-                
-                let predicate = NSPredicate.init(format: "SUBQUERY(projects, $p, ANY $p.times.date <= %@).@count != 0", endDate)
-                
-                let companies = ModelController.shared.listAllElements(
-                    forEntityName: ModelController.Entity.company.rawValue,
-                    whereCondition: predicate) as! [Company]
-                
-                let timeArr : [SectionOfTiming] = companies
-                    .map({ (company) -> SectionOfTiming? in
-                        let projects = company.projects?.allObjects as! [Project]
-                        var totalHours : Int32 = 0
-                        let items = projects.map({ (project) -> SectionOfTiming.Item? in
-                            let times = project.times?.filtered(using: NSPredicate.init(format: "date <= %@", endDate))
-                            let hours = times?.reduce(0, { $0 + ($1 as! Time).hours }) ?? 0
-                            if hours > 0 {
-                                totalHours += Int32(hours)
-                                return SectionOfTiming.Item.init(project: project.name!, hours: Int32(hours))
-                            }
-                            return nil
-                        }).compactMap{ $0 }
-                        
-                        if totalHours > 0 {
-                            let header = CompanyHours.init(company: company.name!, hours: totalHours)
-                            
-                            return SectionOfTiming.init(header: header, items: items)
-                        }
-                        return nil
-                    }).compactMap{ $0 }
-        
-                self?.privateTableItems.accept(timeArr)
+                self?.fetchData()
             })
             .disposed(by: self.disposeBag)
         
@@ -106,6 +76,58 @@ class ReportViewModel: MGTBaseViewModel {
 //                self?.privateSelectedCompany.accept((self?.privateDataSource.value[indexPath.row])!)
             })
             .disposed(by: self.disposeBag)
+    }
+    
+    private func fetchData(){
+        ModelController.shared.managedObjectContext.perform { [weak self] in
+            var predicate : NSPredicate?
+            
+            let startDate : Date? = self?.privateStartDate.value?.startOfDay()
+            let endDate : Date? = self?.privateEndDate.value?.endOfDay()
+            
+            if startDate != nil && endDate != nil {
+                predicate = NSPredicate.init(format: "date >= %@ AND date <= %@ AND hours > 0", startDate! as NSDate, endDate! as NSDate)
+            }
+            else if startDate != nil {
+                predicate = NSPredicate.init(format: "date >= %@ AND hours > 0", startDate! as NSDate)
+            }
+            else if endDate != nil {
+                predicate = NSPredicate.init(format: "Sdate <= %@ AND hours > 0", endDate! as NSDate)
+            }
+            
+            let sortDescriptor : NSSortDescriptor = NSSortDescriptor.init(key: "project", ascending: true)
+            
+            var sectionsMap : [Company:[Project:Int32]] = [:]
+            
+            if let times = ModelController.shared.listAllElements (
+                forEntityName: ModelController.Entity.time.rawValue,
+                whereCondition: predicate,
+                descriptors: [sortDescriptor]) as? [Time], times.count > 0{
+                
+                times.forEach({ (time) in
+                    let company = time.project!.company!
+                    let project = time.project!
+                    
+                    // Faster code, see https://stackoverflow.com/questions/42486686/swiftier-swift-for-add-to-array-or-create-if-not-there
+                    var projDict = sectionsMap.removeValue(forKey: company) ?? [:]
+                    projDict[project] = (projDict[project] ?? 0) + Int32(time.hours)
+                    sectionsMap[company] = projDict
+                })
+            }
+            
+            let dataSource = sectionsMap.map({ (company, projHours) -> TableSectionData in
+                var companyHours = CompanyHours.init(company: company, hours: 0)
+                var items : [ProjectHours] = []
+                projHours.forEach({ (project, hours) in
+                    companyHours.hours = companyHours.hours + hours
+                    items.append(ProjectHours.init(project: project, hours: hours))
+                })
+                
+                return TableSectionData.init(header: companyHours, items: items)
+            })
+
+            self?.privateTableItems.accept(dataSource)
+        }
     }
     
     public func viewModelFor(_ vc: inout UIViewController) {

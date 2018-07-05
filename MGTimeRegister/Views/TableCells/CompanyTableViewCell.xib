@@ -19,23 +19,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6HH-JE-lGo">
-                        <rect key="frame" x="8" y="8" width="73" height="53.5"/>
+                        <rect key="frame" x="8" y="8" width="73" height="49.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e12-oc-VBO" customClass="MGView" customModule="MGTimeRegister" customModuleProvider="target">
-                        <rect key="frame" x="232" y="8" width="80" height="54"/>
+                        <rect key="frame" x="246" y="8" width="66" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROJECTS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWp-BF-kfR">
-                                <rect key="frame" x="0.0" y="8" width="80" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="12"/>
+                                <rect key="frame" x="0.0" y="8" width="66" height="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgf-Ge-Y46">
-                                <rect key="frame" x="34" y="25" width="12.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <rect key="frame" x="27" y="22.5" width="13" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -43,9 +43,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QWp-BF-kfR" firstAttribute="leading" secondItem="e12-oc-VBO" secondAttribute="leading" id="5uk-cN-iaS"/>
-                            <constraint firstAttribute="height" constant="54" id="VeB-bb-Sz2"/>
+                            <constraint firstAttribute="height" constant="50" id="VeB-bb-Sz2"/>
                             <constraint firstItem="dgf-Ge-Y46" firstAttribute="top" secondItem="QWp-BF-kfR" secondAttribute="bottom" constant="2" id="YWZ-MV-DOT"/>
-                            <constraint firstAttribute="width" constant="80" id="fOU-yM-uAW"/>
+                            <constraint firstAttribute="width" constant="66" id="fOU-yM-uAW"/>
                             <constraint firstItem="dgf-Ge-Y46" firstAttribute="centerX" secondItem="e12-oc-VBO" secondAttribute="centerX" id="pJJ-cb-OFk"/>
                             <constraint firstItem="QWp-BF-kfR" firstAttribute="top" secondItem="e12-oc-VBO" secondAttribute="top" constant="8" id="w8g-P3-T0P"/>
                             <constraint firstAttribute="trailing" secondItem="QWp-BF-kfR" secondAttribute="trailing" id="wGH-FV-zNO"/>

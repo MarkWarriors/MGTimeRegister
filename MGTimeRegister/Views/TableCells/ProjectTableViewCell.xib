@@ -19,22 +19,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZK-X1-agT">
-                        <rect key="frame" x="8" y="8" width="54.5" height="53.5"/>
+                        <rect key="frame" x="8" y="8" width="54.5" height="49.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1h6-JQ-7Oj" customClass="MGView" customModule="MGTimeRegister" customModuleProvider="target">
-                        <rect key="frame" x="232" y="8" width="80" height="54"/>
+                        <rect key="frame" x="246" y="8" width="66" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOURS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OT-eV-ZnN">
-                                <rect key="frame" x="0.0" y="8" width="80" height="15"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="12"/>
+                                <rect key="frame" x="0.0" y="8" width="66" height="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="10"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJM-3Z-m5b">
-                                <rect key="frame" x="34" y="25" width="12.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <rect key="frame" x="27" y="22" width="13" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="22"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -43,9 +43,9 @@
                             <constraint firstItem="VJM-3Z-m5b" firstAttribute="centerX" secondItem="1h6-JQ-7Oj" secondAttribute="centerX" id="Gik-EO-4xQ"/>
                             <constraint firstItem="9OT-eV-ZnN" firstAttribute="leading" secondItem="1h6-JQ-7Oj" secondAttribute="leading" id="RKK-rk-lgG"/>
                             <constraint firstAttribute="trailing" secondItem="9OT-eV-ZnN" secondAttribute="trailing" id="Y0O-lF-Kf6"/>
-                            <constraint firstAttribute="width" constant="80" id="ifg-DA-XBI"/>
+                            <constraint firstAttribute="width" constant="66" id="ifg-DA-XBI"/>
                             <constraint firstItem="VJM-3Z-m5b" firstAttribute="top" secondItem="9OT-eV-ZnN" secondAttribute="bottom" constant="2" id="mTG-ne-Bn3"/>
-                            <constraint firstAttribute="height" constant="54" id="rGa-5q-hKR"/>
+                            <constraint firstAttribute="height" constant="50" id="rGa-5q-hKR"/>
                             <constraint firstItem="9OT-eV-ZnN" firstAttribute="top" secondItem="1h6-JQ-7Oj" secondAttribute="top" constant="8" id="w3J-t8-l9E"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

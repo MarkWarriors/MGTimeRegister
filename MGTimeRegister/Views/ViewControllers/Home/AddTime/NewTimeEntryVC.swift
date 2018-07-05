@@ -33,7 +33,8 @@ class NewTimeEntryVC: MGTBaseVC, ViewModelBased {
         
         viewModel!.companyText.bind(to: companyLbl.rx.text).disposed(by: disposeBag)
         viewModel!.projectText.bind(to: projectLbl.rx.text).disposed(by: disposeBag)
-
+        viewModel!.saveEnabled.bind(to: saveBtn.rx.isEnabled).disposed(by: disposeBag)
+        
         viewModel!
             .hoursDataSource
             .bind(to: hoursPicker.rx.itemTitles) { _, item in

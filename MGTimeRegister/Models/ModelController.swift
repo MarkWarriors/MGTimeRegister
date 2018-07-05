@@ -87,15 +87,15 @@ public class ModelController : NSObject {
         return NSManagedObject.init(entity: ent!, insertInto: nil) as! T
     }
 
-    func listAllElements<T: NSManagedObject>(forEntityName entityName: String) -> [T] {
-        let query = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        let elements = try? ModelController.shared.managedObjectContext.fetch(query)
-        return elements as? [T] ?? [T]()
-    }
 
-    func listAllElements<T: NSManagedObject>(forEntityName entityName: String, whereCondition: NSPredicate) -> [T] {
+    func listAllElements<T: NSManagedObject>(forEntityName entityName: String, whereCondition: NSPredicate? = nil, descriptors: [NSSortDescriptor]? = nil) -> [T] {
         let query = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        query.predicate = whereCondition
+        if whereCondition != nil {
+            query.predicate = whereCondition
+        }
+        if descriptors != nil {
+            query.sortDescriptors = descriptors
+        }
         let elements = try? ModelController.shared.managedObjectContext.fetch(query)
         return elements as? [T] ?? [T]()
     }
