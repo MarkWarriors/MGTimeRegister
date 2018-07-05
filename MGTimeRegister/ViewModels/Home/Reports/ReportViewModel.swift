@@ -25,6 +25,7 @@ class ReportViewModel: MGTBaseViewModel {
     private let privateDateFrom = BehaviorRelay<Date?>(value: Date().changeOfWeeks(-1))
     private let privateDateTo = BehaviorRelay<Date?>(value: Date())
     private let privateSearchText = BehaviorRelay<String?>(value: nil)
+    private var privateReportTimeList : (project: Project, times: [Time])?
     
     var tableItems : Observable<[ReportData]> {
         return self.privateTableItems.asObservable()
@@ -68,7 +69,7 @@ class ReportViewModel: MGTBaseViewModel {
                              lastWeekBtnPressed: Driver<Void>,
                              lastMonthBtnPressed: Driver<Void>,
                              searchText: Observable<String?>,
-                             selectedRow: Driver<IndexPath>,
+                             selectedItem: Driver<ProjectHours>,
                              dateFromBtnPressed: Driver<Void>,
                              dateToBtnPressed: Driver<Void>) {
         
@@ -102,7 +103,7 @@ class ReportViewModel: MGTBaseViewModel {
                 self.privateDateTo
                     .asObservable())
             .bind { [weak self] (_, text, dateFrom, dateTo) in
-                    self?.fetchData(text: text, dateFrom: dateFrom, dateTo: dateTo)
+                    self?.fetchData(text: text, dateFrom: dateFrom?.startOfDay(), dateTo: dateTo?.endOfDay())
             }
             .disposed(by: disposeBag)
         
@@ -117,13 +118,32 @@ class ReportViewModel: MGTBaseViewModel {
                 self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.Reports.pickDate, flag: Flags.pickDateTo.rawValue))
             })
             .disposed(by: self.disposeBag)
+        
+        selectedItem.drive(onNext: { [weak self] (projectHours) in
+            var predicateArray : [NSPredicate] = []
+            
+            predicateArray.append(NSPredicate.init(format: "hours > 0"))
+            
+            if let dateFrom = self?.privateDateFrom.value as NSDate? {
+                predicateArray.append(NSPredicate.init(format: "date >= %@", dateFrom))
+            }
+            
+            if let dateTo = self?.privateDateTo.value as NSDate? {
+                predicateArray.append(NSPredicate.init(format: "date <= %@", dateTo))
+            }
+            
+            let project = projectHours.project
+            let times = Array(projectHours.project.times?.filtered(using: NSCompoundPredicate.init(andPredicateWithSubpredicates: predicateArray)) ?? []) as! [Time]
+            
+            self?.privateReportTimeList = (project: project, times: times)
+            self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.Reports.toReportTimeList))
+        })
+        .disposed(by: disposeBag)
 
     }
     
     private func fetchData(text: String?, dateFrom: Date?, dateTo: Date?){
         ModelController.shared.managedObjectContext.perform { [weak self] in
-            let startDate : Date? = self?.privateDateFrom.value?.startOfDay()
-            let endDate : Date? = self?.privateDateTo.value?.endOfDay()
 
             var predicateArray : [NSPredicate] = []
             
@@ -133,12 +153,12 @@ class ReportViewModel: MGTBaseViewModel {
                 predicateArray.append(NSPredicate.init(format: "SUBQUERY(project, $p, $p.name BEGINSWITH[c] %@).@count != 0 OR SUBQUERY(project, $p, SUBQUERY($p.company, $c, $c.name BEGINSWITH[c] %@).@count != 0) != NULL", text!, text!))
             }
             
-            if startDate != nil {
-                predicateArray.append(NSPredicate.init(format: "date >= %@", startDate! as NSDate))
+            if dateFrom != nil {
+                predicateArray.append(NSPredicate.init(format: "date >= %@", dateFrom! as NSDate))
             }
             
-            if endDate != nil {
-                predicateArray.append(NSPredicate.init(format: "date <= %@", endDate! as NSDate))
+            if dateTo != nil {
+                predicateArray.append(NSPredicate.init(format: "date <= %@", dateTo! as NSDate))
             }
             
             
@@ -171,7 +191,7 @@ class ReportViewModel: MGTBaseViewModel {
                 var companyHours = CompanyHours.init(company: company, totalHours: 0)
                 var items : [ProjectHours] = []
                 
-                var sortedProjHours = projHours.sorted(by: { $0.key.name!.compare($1.key.name!, options: .caseInsensitive) == .orderedAscending })
+                let sortedProjHours = projHours.sorted(by: { $0.key.name!.compare($1.key.name!, options: .caseInsensitive) == .orderedAscending })
                 
                 sortedProjHours.forEach({ (project, hours) in
                     companyHours.totalHours = companyHours.totalHours + hours
@@ -186,6 +206,9 @@ class ReportViewModel: MGTBaseViewModel {
     }
     
     public func viewModelFor(_ vc: inout UIViewController, flag: String?) {
+        if let vc = vc as? ReportTimeListVC {
+            vc.viewModel = ReportTimeListViewModel(project: privateReportTimeList!.project, times: privateReportTimeList!.times)
+        }
         if let vc = vc as? DatePickerVC {
             if flag == Flags.pickDateFrom.rawValue {
                 // Date From Picker

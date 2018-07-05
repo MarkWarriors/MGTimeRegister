@@ -18,25 +18,26 @@ class ReportTimeListViewModel: MGTBaseViewModel {
     private var privateSelectedTime = BehaviorRelay<Time?>(value: nil)
     private let currentProject : Project
     
+    var dataSource : Observable<[Time]> {
+        return self.privateDataSource.asObservable()
+    }
+    
     init(project: Project, times: [Time]) {
         self.privateDataSource.accept(times)
         self.currentProject = project
     }
     
     var projectText : Observable<String> {
-        return Observable.just(currentProject.name!)
+        return Observable.just("\(currentProject.company!.name!) > \(currentProject.name!)")
     }
     
-    var dataSource : Observable<[Time]> {
-        return self.privateDataSource.asObservable()
-    }
     
     var performSegue : Observable<(MGTViewModelSegue)> {
         return self.privatePerformSegue.asObservable()
     }
     
     public func initBindings(fetchDataSource: Driver<Void>,
-                             selectedRow: Driver<IndexPath>){
+                             selectedItem: Driver<Time>){
         privateSelectedTime
             .filter{ $0 != nil }
             .bind(onNext: { [weak self] (time) in
@@ -45,8 +46,8 @@ class ReportTimeListViewModel: MGTBaseViewModel {
             .disposed(by: disposeBag)
         
         
-        selectedRow
-            .drive(onNext: { [weak self] (indexPath) in self?.privateSelectedTime.accept((self?.privateDataSource.value[indexPath.row])!)
+        selectedItem
+            .drive(onNext: { [weak self] (time) in
             })
             .disposed(by: self.disposeBag)
     }

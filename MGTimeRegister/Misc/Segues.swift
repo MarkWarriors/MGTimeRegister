@@ -17,7 +17,7 @@ public class Segues {
     struct Home {
         struct Reports {
             public static let pickDate = "toPickDate"
-            public static let toProjectTimeList = "toProjectTimeList"
+            public static let toReportTimeList = "toReportTimeList"
             public static let toTimeDetails = "toTimeDetails"
         }
         

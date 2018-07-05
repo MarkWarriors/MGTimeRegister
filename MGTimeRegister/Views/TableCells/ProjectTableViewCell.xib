@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZK-X1-agT">
-                        <rect key="frame" x="8" y="8" width="54.5" height="49.5"/>
+                        <rect key="frame" x="8" y="22.5" width="54.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -62,13 +62,11 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="HZK-X1-agT" secondAttribute="bottom" constant="8" id="1nv-bd-ijC"/>
+                    <constraint firstAttribute="bottom" secondItem="1h6-JQ-7Oj" secondAttribute="bottom" constant="8" id="74H-KD-75B"/>
                     <constraint firstItem="1h6-JQ-7Oj" firstAttribute="centerY" secondItem="HZK-X1-agT" secondAttribute="centerY" id="A7q-k9-Zvd"/>
                     <constraint firstItem="HZK-X1-agT" firstAttribute="leading" secondItem="gy1-at-aXQ" secondAttribute="leading" constant="8" id="Bda-zg-UTB"/>
-                    <constraint firstAttribute="bottom" secondItem="1h6-JQ-7Oj" secondAttribute="bottom" constant="8" id="De4-cT-1MR"/>
                     <constraint firstAttribute="trailing" secondItem="1h6-JQ-7Oj" secondAttribute="trailing" constant="8" id="HuO-ie-tG8"/>
                     <constraint firstItem="1h6-JQ-7Oj" firstAttribute="top" secondItem="gy1-at-aXQ" secondAttribute="top" constant="8" id="OF0-eV-FqI"/>
-                    <constraint firstItem="HZK-X1-agT" firstAttribute="top" secondItem="gy1-at-aXQ" secondAttribute="top" constant="8" id="unp-qi-Cka"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="DRg-Eg-dki"/>

@@ -63,6 +63,8 @@
 		90D7519F20EE6E9700D316C5 /* ReportTimeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7519E20EE6E9700D316C5 /* ReportTimeListVC.swift */; };
 		90D751A120EE6EE000D316C5 /* ReportTimeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D751A020EE6EE000D316C5 /* ReportTimeListViewModel.swift */; };
 		90D751A320EE726C00D316C5 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D751A220EE726C00D316C5 /* Structs.swift */; };
+		90D751A620EE7B9100D316C5 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D751A420EE7B9100D316C5 /* TimeTableViewCell.swift */; };
+		90D751A720EE7B9100D316C5 /* TimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90D751A520EE7B9100D316C5 /* TimeTableViewCell.xib */; };
 		90FF6FBA20EC160A00006143 /* Time+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FB820EC160A00006143 /* Time+CoreDataClass.swift */; };
 		90FF6FBB20EC160A00006143 /* Time+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FB920EC160A00006143 /* Time+CoreDataProperties.swift */; };
 		90FF6FBE20EC168E00006143 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FBC20EC168D00006143 /* Project+CoreDataProperties.swift */; };
@@ -145,6 +147,8 @@
 		90D7519E20EE6E9700D316C5 /* ReportTimeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTimeListVC.swift; sourceTree = "<group>"; };
 		90D751A020EE6EE000D316C5 /* ReportTimeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReportTimeListViewModel.swift; path = /Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/ViewModels/Home/Reports/ReportTimeListViewModel.swift; sourceTree = "<absolute>"; };
 		90D751A220EE726C00D316C5 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		90D751A420EE7B9100D316C5 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewCell.swift; sourceTree = "<group>"; };
+		90D751A520EE7B9100D316C5 /* TimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeTableViewCell.xib; sourceTree = "<group>"; };
 		90FF6FB820EC160A00006143 /* Time+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Time+CoreDataClass.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Time+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		90FF6FB920EC160A00006143 /* Time+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Time+CoreDataProperties.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Time+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		90FF6FBC20EC168D00006143 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Project+CoreDataProperties.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Project+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
@@ -326,6 +330,8 @@
 				90AF20C120EA7AAC0026481F /* ProjectTableViewCell.xib */,
 				90D7519320ED23A300D316C5 /* ProjectHeaderCell.swift */,
 				90D7519420ED23A300D316C5 /* ProjectHeaderCell.xib */,
+				90D751A420EE7B9100D316C5 /* TimeTableViewCell.swift */,
+				90D751A520EE7B9100D316C5 /* TimeTableViewCell.xib */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -566,6 +572,7 @@
 				90358C2020E98DB500AC726B /* LaunchScreen.storyboard in Resources */,
 				90358C2120E98DB500AC726B /* Login.storyboard in Resources */,
 				90AF20BF20EA7A9B0026481F /* CompanyTableViewCell.xib in Resources */,
+				90D751A720EE7B9100D316C5 /* TimeTableViewCell.xib in Resources */,
 				90D7519620ED23A300D316C5 /* ProjectHeaderCell.xib in Resources */,
 				90AF20C320EA7AAC0026481F /* ProjectTableViewCell.xib in Resources */,
 				90358C3420E9903100AC726B /* WaitView.xib in Resources */,
@@ -651,6 +658,7 @@
 				90358C8920EA383400AC726B /* Segues.swift in Sources */,
 				90358C1C20E98DB500AC726B /* Extensions.swift in Sources */,
 				90D7519D20EE225C00D316C5 /* DatePickerViewModel.swift in Sources */,
+				90D751A620EE7B9100D316C5 /* TimeTableViewCell.swift in Sources */,
 				90CD389C20EAD48F00157DC7 /* NewTimeEntryVC.swift in Sources */,
 				90358C4020E9ACA900AC726B /* LoginVC.swift in Sources */,
 				90358C6D20E9B4B100AC726B /* Company+CoreDataProperties.swift in Sources */,

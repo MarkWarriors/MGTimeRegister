@@ -44,7 +44,7 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
                                 lastWeekBtnPressed: lastWeekBtn.rx.tap.asDriver(),
                                 lastMonthBtnPressed: lastMonthBtn.rx.tap.asDriver(),
                                 searchText: searchTF.rx.text.asObservable(),
-                                selectedRow: projectsTableView.rx.itemSelected.asDriver(),
+                                selectedItem: projectsTableView.rx.modelSelected(ProjectHours.self).asDriver(),
                                 dateFromBtnPressed: dateFromBtn.rx.tap.asDriver(),
                                 dateToBtnPressed: dateToBtn.rx.tap.asDriver())
         

@@ -207,7 +207,7 @@
                         <outlet property="searchTF" destination="d4a-Sj-lSl" id="ZhP-bP-EJF"/>
                         <outlet property="todayBtn" destination="p8a-6l-iaV" id="kSl-Vn-G7L"/>
                         <segue destination="kwx-sH-9GW" kind="presentation" identifier="toPickDate" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="NI1-c1-Oqf"/>
-                        <segue destination="bOb-UN-1tL" kind="show" identifier="toProjectTimeList" id="pCK-rb-xGf"/>
+                        <segue destination="bOb-UN-1tL" kind="show" identifier="toReportTimeList" id="pCK-rb-xGf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YP7-Em-e1s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1418,7 +1418,7 @@
         <!--Select Project-->
         <scene sceneID="FUY-Fr-4wu">
             <objects>
-                <viewController title="Select Project" id="bOb-UN-1tL" sceneMemberID="viewController">
+                <viewController title="Select Project" id="bOb-UN-1tL" customClass="ReportTimeListVC" customModule="MGTimeRegister" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fVW-KA-tIu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1462,13 +1462,13 @@
                         <viewLayoutGuide key="safeArea" id="wdN-qi-qMH"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Time" id="uyE-sB-83Y"/>
-                    <navigationItem key="navigationItem" title="Select Project" id="NdL-Jp-lMh">
+                    <navigationItem key="navigationItem" title="Select Time Entry" id="NdL-Jp-lMh">
                         <barButtonItem key="backBarButtonItem" title="Project" id="v1E-P8-dXG"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="companyLbl" destination="Je6-zk-EBm" id="ve4-ei-mTh"/>
-                        <outlet property="projectsTableView" destination="ria-qn-RUJ" id="Sbb-5u-El7"/>
+                        <outlet property="projectLbl" destination="Je6-zk-EBm" id="BMq-Uh-SGx"/>
+                        <outlet property="timesTableView" destination="ria-qn-RUJ" id="JXa-ZK-prh"/>
                         <segue destination="Zkp-pd-7PG" kind="show" identifier="toTimeDetails" id="tko-G4-qMu"/>
                     </connections>
                 </viewController>

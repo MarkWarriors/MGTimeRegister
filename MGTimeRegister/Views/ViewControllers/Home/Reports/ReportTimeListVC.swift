@@ -23,7 +23,7 @@ class ReportTimeListVC: MGTBaseVC, ViewModelBased {
     
     private func configureTableView(){
         timesTableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: timesTableView.frame.width, height: 76))
-        timesTableView.register(UINib.init(nibName: ProjectTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ProjectTableViewCell.identifier)
+        timesTableView.register(UINib.init(nibName: TimeTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TimeTableViewCell.identifier)
     }
     
     func bindViewModel(){
@@ -32,7 +32,7 @@ class ReportTimeListVC: MGTBaseVC, ViewModelBased {
             .asDriver(onErrorJustReturn: ())
         
         viewModel!.initBindings(fetchDataSource: viewWillAppear,
-                                selectedRow: timesTableView.rx.itemSelected.asDriver()
+                                selectedItem: timesTableView.rx.modelSelected(Time.self).asDriver()
         )
         
         viewModel!.projectText.bind(to: projectLbl.rx.text).disposed(by: disposeBag)
@@ -43,13 +43,13 @@ class ReportTimeListVC: MGTBaseVC, ViewModelBased {
             })
             .disposed(by: self.disposeBag)
         
-//        viewModel!.dataSource
-//            .bind(to: self.timesTableView.rx
-//                .items(cellIdentifier: ProjectTableViewCell.identifier,
-//                       cellType: ProjectTableViewCell.self)) { _, project, cell in
-//                        cell.setModel(project)
-//            }
-//            .disposed(by: self.disposeBag)
+        viewModel!.dataSource
+            .bind(to: self.timesTableView.rx
+                .items(cellIdentifier: TimeTableViewCell.identifier,
+                       cellType: TimeTableViewCell.self)) { _, time, cell in
+                        cell.setModel(time)
+            }
+            .disposed(by: self.disposeBag)
         
         viewModel!.performSegue
             .bind { [weak self] (segue) in

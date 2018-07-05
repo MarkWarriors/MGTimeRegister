@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeTableViewCell" rowHeight="60" id="qZt-g1-PhG" customClass="TimeTableViewCell" customModule="MGTimeRegister" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qZt-g1-PhG" id="kDl-eK-0tn">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="63.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdb-lr-udR">
+                        <rect key="frame" x="8" y="23" width="38" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6Q-u8-jDj" customClass="MGView" customModule="MGTimeRegister" customModuleProvider="target">
+                        <rect key="frame" x="246" y="8.5" width="66" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOURS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfz-iR-jju">
+                                <rect key="frame" x="0.0" y="8" width="66" height="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="10"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kY-rV-KEH">
+                                <rect key="frame" x="27" y="22" width="13" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="22"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Kfz-iR-jju" secondAttribute="trailing" id="JcC-IZ-DVQ"/>
+                            <constraint firstItem="Kfz-iR-jju" firstAttribute="top" secondItem="R6Q-u8-jDj" secondAttribute="top" constant="8" id="PxF-9J-g97"/>
+                            <constraint firstAttribute="width" constant="66" id="Wyk-6v-y4Z"/>
+                            <constraint firstItem="5kY-rV-KEH" firstAttribute="centerX" secondItem="R6Q-u8-jDj" secondAttribute="centerX" id="ZoH-Af-pRQ"/>
+                            <constraint firstItem="5kY-rV-KEH" firstAttribute="top" secondItem="Kfz-iR-jju" secondAttribute="bottom" constant="2" id="ilb-KN-vI8"/>
+                            <constraint firstAttribute="height" constant="50" id="mXG-B7-Ad1"/>
+                            <constraint firstItem="Kfz-iR-jju" firstAttribute="leading" secondItem="R6Q-u8-jDj" secondAttribute="leading" id="vjc-XI-yD6"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Xdb-lr-udR" firstAttribute="leading" secondItem="kDl-eK-0tn" secondAttribute="leading" constant="8" id="L3G-Lg-d2Q"/>
+                    <constraint firstItem="R6Q-u8-jDj" firstAttribute="top" secondItem="kDl-eK-0tn" secondAttribute="top" constant="8" id="gPq-iv-5p9"/>
+                    <constraint firstAttribute="bottom" secondItem="R6Q-u8-jDj" secondAttribute="bottom" constant="8" id="gdG-hU-T2q"/>
+                    <constraint firstAttribute="bottom" secondItem="R6Q-u8-jDj" secondAttribute="bottom" constant="8" id="iO4-3d-ufH"/>
+                    <constraint firstAttribute="trailing" secondItem="R6Q-u8-jDj" secondAttribute="trailing" constant="8" id="nyR-Dg-F7d"/>
+                    <constraint firstItem="R6Q-u8-jDj" firstAttribute="centerY" secondItem="Xdb-lr-udR" secondAttribute="centerY" id="vrU-KT-gVp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="CS6-jK-zFn"/>
+            <connections>
+                <outlet property="hoursLbl" destination="5kY-rV-KEH" id="QsX-FZ-NMI"/>
+                <outlet property="nameLbl" destination="Xdb-lr-udR" id="xrZ-qa-9f4"/>
+            </connections>
+            <point key="canvasLocation" x="7" y="155"/>
+        </tableViewCell>
+    </objects>
+</document>
