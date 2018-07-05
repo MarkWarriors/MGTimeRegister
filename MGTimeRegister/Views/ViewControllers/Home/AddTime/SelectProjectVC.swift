@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 class SelectProjectVC: MGTBaseVC, ViewModelBased {
     typealias ViewModel = SelectProjectViewModel

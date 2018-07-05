@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 class NewCompanyVC: MGTBaseVC, ViewModelBased {
     typealias ViewModel = NewCompanyViewModel

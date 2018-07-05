@@ -14,7 +14,6 @@
 		90358C1A20E98DB500AC726B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF620E98DB400AC726B /* Strings.swift */; };
 		90358C1C20E98DB500AC726B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF820E98DB400AC726B /* Extensions.swift */; };
 		90358C1D20E98DB500AC726B /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF920E98DB400AC726B /* Globals.swift */; };
-		90358C1E20E98DB500AC726B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BFA20E98DB400AC726B /* Utils.swift */; };
 		90358C1F20E98DB500AC726B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BFB20E98DB400AC726B /* AppDelegate.swift */; };
 		90358C2020E98DB500AC726B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90358BFD20E98DB400AC726B /* LaunchScreen.storyboard */; };
 		90358C2120E98DB500AC726B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90358BFF20E98DB400AC726B /* Login.storyboard */; };
@@ -60,6 +59,8 @@
 		90CD38A820EB503200157DC7 /* NewProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD38A720EB503200157DC7 /* NewProjectVC.swift */; };
 		90D7519520ED23A300D316C5 /* ProjectHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7519320ED23A300D316C5 /* ProjectHeaderCell.swift */; };
 		90D7519620ED23A300D316C5 /* ProjectHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90D7519420ED23A300D316C5 /* ProjectHeaderCell.xib */; };
+		90D7519B20EE224E00D316C5 /* DatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7519A20EE224E00D316C5 /* DatePickerVC.swift */; };
+		90D7519D20EE225C00D316C5 /* DatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7519C20EE225C00D316C5 /* DatePickerViewModel.swift */; };
 		90FF6FBA20EC160A00006143 /* Time+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FB820EC160A00006143 /* Time+CoreDataClass.swift */; };
 		90FF6FBB20EC160A00006143 /* Time+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FB920EC160A00006143 /* Time+CoreDataProperties.swift */; };
 		90FF6FBE20EC168E00006143 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF6FBC20EC168D00006143 /* Project+CoreDataProperties.swift */; };
@@ -92,7 +93,6 @@
 		90358BF620E98DB400AC726B /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		90358BF820E98DB400AC726B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		90358BF920E98DB400AC726B /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
-		90358BFA20E98DB400AC726B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		90358BFB20E98DB400AC726B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90358BFE20E98DB400AC726B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90358C0020E98DB400AC726B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Login.storyboard; sourceTree = "<group>"; };
@@ -139,6 +139,8 @@
 		90CD38A720EB503200157DC7 /* NewProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectVC.swift; sourceTree = "<group>"; };
 		90D7519320ED23A300D316C5 /* ProjectHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderCell.swift; sourceTree = "<group>"; };
 		90D7519420ED23A300D316C5 /* ProjectHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectHeaderCell.xib; sourceTree = "<group>"; };
+		90D7519A20EE224E00D316C5 /* DatePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerVC.swift; sourceTree = "<group>"; };
+		90D7519C20EE225C00D316C5 /* DatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewModel.swift; sourceTree = "<group>"; };
 		90FF6FB820EC160A00006143 /* Time+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Time+CoreDataClass.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Time+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		90FF6FB920EC160A00006143 /* Time+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Time+CoreDataProperties.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Time+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		90FF6FBC20EC168D00006143 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Project+CoreDataProperties.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Project+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
@@ -363,7 +365,6 @@
 				90358BF620E98DB400AC726B /* Strings.swift */,
 				90358BF820E98DB400AC726B /* Extensions.swift */,
 				90358BF920E98DB400AC726B /* Globals.swift */,
-				90358BFA20E98DB400AC726B /* Utils.swift */,
 				90358C8820EA383400AC726B /* Segues.swift */,
 				906A8DE620EB82E900821BD4 /* Protocols.swift */,
 			);
@@ -427,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				90358C7420EA28AB00AC726B /* ReportVC.swift */,
+				90D7519A20EE224E00D316C5 /* DatePickerVC.swift */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -447,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				90358C7C20EA2A2300AC726B /* ReportViewModel.swift */,
+				90D7519C20EE225C00D316C5 /* DatePickerViewModel.swift */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				90FF6FBF20EC168E00006143 /* Project+CoreDataClass.swift in Sources */,
 				90358C8920EA383400AC726B /* Segues.swift in Sources */,
 				90358C1C20E98DB500AC726B /* Extensions.swift in Sources */,
+				90D7519D20EE225C00D316C5 /* DatePickerViewModel.swift in Sources */,
 				90CD389C20EAD48F00157DC7 /* NewTimeEntryVC.swift in Sources */,
 				90358C4020E9ACA900AC726B /* LoginVC.swift in Sources */,
 				90358C6D20E9B4B100AC726B /* Company+CoreDataProperties.swift in Sources */,
@@ -658,7 +662,6 @@
 				90358C8520EA36D700AC726B /* MGTError.swift in Sources */,
 				90358C1D20E98DB500AC726B /* Globals.swift in Sources */,
 				90CD38A020EAD4CB00157DC7 /* NewTimeEntryViewModel.swift in Sources */,
-				90358C1E20E98DB500AC726B /* Utils.swift in Sources */,
 				90358C1A20E98DB500AC726B /* Strings.swift in Sources */,
 				90358C7520EA28AB00AC726B /* ReportVC.swift in Sources */,
 				90358C8320EA2A2400AC726B /* OverviewViewModel.swift in Sources */,
@@ -672,6 +675,7 @@
 				90358C3320E9903100AC726B /* AlertView.swift in Sources */,
 				90358C2520E98DB500AC726B /* MGTNavigationController.swift in Sources */,
 				90FF6FBB20EC160A00006143 /* Time+CoreDataProperties.swift in Sources */,
+				90D7519B20EE224E00D316C5 /* DatePickerVC.swift in Sources */,
 				90358C3D20E9ABB800AC726B /* SharedInstance.swift in Sources */,
 				90358C8220EA2A2400AC726B /* SelectCompanyViewModel.swift in Sources */,
 				90AF20BE20EA7A9B0026481F /* CompanyTableViewCell.swift in Sources */,

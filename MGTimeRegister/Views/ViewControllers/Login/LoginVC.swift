@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 class LoginVC: MGTBaseVC, ViewModelBased {
     typealias ViewModel = LoginViewModel

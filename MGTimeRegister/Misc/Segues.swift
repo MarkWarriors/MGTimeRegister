@@ -15,6 +15,10 @@ public class Segues {
     }
     
     struct Home {
+        struct Reports {
+            public static let pickDate = "pickDate"
+        }
+        
         struct AddTimeEntry {
             public static let newCompany = "toNewCompany"
             public static let newProject = "toNewProject"

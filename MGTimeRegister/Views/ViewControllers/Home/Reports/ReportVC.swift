@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 import RxDataSources
 
 class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
@@ -16,6 +14,8 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
     var viewModel: ReportViewModel? = ReportViewModel()
     
     @IBOutlet weak var projectsTableView: UITableView!
+    @IBOutlet weak var dateFromBtn: UIButton!
+    @IBOutlet weak var dateToBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,13 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
             .asDriver(onErrorJustReturn: ())
         
         viewModel!.initBindings(fetchDataSource: viewWillAppear,
-                                selectedRow: projectsTableView.rx.itemSelected.asDriver())
+                                selectedRow: projectsTableView.rx.itemSelected.asDriver(),
+                                dateFromBtnPressed: dateFromBtn.rx.tap.asDriver(),
+                                dateToBtnPressed: dateToBtn.rx.tap.asDriver())
+        
+        viewModel!.dateFromText.bind(to: dateFromBtn.rx.title(for: .normal)).disposed(by: disposeBag)
+        viewModel!.dateToText.bind(to: dateToBtn.rx.title(for: .normal)).disposed(by: disposeBag)
+        
         viewModel!.tableItems
             .bind(to: projectsTableView.rx
                 .items(dataSource: viewModel!.dataSource))
@@ -45,9 +51,21 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
         projectsTableView.rx
             .setDelegate(self)
             .disposed(by: disposeBag)
+        
+        viewModel!.performSegue
+            .bind { [weak self] (segue) in
+                self?.performSegue(withIdentifier: segue.identifier, sender: segue.flag)
+            }
+            .disposed(by: disposeBag)
+        
+        
     }
     
-    // to prevent swipe to delete behavior
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var vc = segue.destination
+        viewModel!.viewModelFor(&vc, flag: sender as? String)
+    }
+    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return .none
     }

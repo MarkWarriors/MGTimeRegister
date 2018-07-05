@@ -23,9 +23,45 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHu-fA-FV2" customClass="MGView" customModule="MGTimeRegister" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="414" height="90"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Frr-Ju-iN7">
+                                        <rect key="frame" x="15.999999999999996" y="16" width="47.666666666666657" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7G-bK-zUf">
+                                        <rect key="frame" x="16" y="53" width="25" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kkd-sa-HV1">
+                                        <rect key="frame" x="79.666666666666671" y="9.6666666666666714" width="49.000000000000014" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Select">
+                                            <color key="titleColor" red="0.96470588239999999" green="0.1215686275" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzG-ni-gZT">
+                                        <rect key="frame" x="57" y="46.666666666666671" width="49" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Select">
+                                            <color key="titleColor" red="0.96470588239999999" green="0.1215686275" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="Frr-Ju-iN7" firstAttribute="leading" secondItem="OHu-fA-FV2" secondAttribute="leading" constant="16" id="3ll-jV-YJ6"/>
+                                    <constraint firstItem="lzG-ni-gZT" firstAttribute="leading" secondItem="r7G-bK-zUf" secondAttribute="trailing" constant="16" id="4ts-0g-a8k"/>
+                                    <constraint firstItem="Kkd-sa-HV1" firstAttribute="leading" secondItem="Frr-Ju-iN7" secondAttribute="trailing" constant="16" id="AgO-x7-DkI"/>
+                                    <constraint firstItem="r7G-bK-zUf" firstAttribute="leading" secondItem="OHu-fA-FV2" secondAttribute="leading" constant="16" id="L43-8M-X8p"/>
+                                    <constraint firstItem="Kkd-sa-HV1" firstAttribute="centerY" secondItem="Frr-Ju-iN7" secondAttribute="centerY" id="ViF-4J-rRQ"/>
+                                    <constraint firstItem="lzG-ni-gZT" firstAttribute="centerY" secondItem="r7G-bK-zUf" secondAttribute="centerY" id="Zjd-8i-zNS"/>
                                     <constraint firstAttribute="height" constant="90" id="jhI-VE-PwF"/>
+                                    <constraint firstItem="r7G-bK-zUf" firstAttribute="top" secondItem="Frr-Ju-iN7" secondAttribute="bottom" constant="16" id="sJ1-Nq-3Il"/>
+                                    <constraint firstItem="Frr-Ju-iN7" firstAttribute="top" secondItem="OHu-fA-FV2" secondAttribute="top" constant="16" id="y4e-IV-18p"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="bottomShadow" value="YES"/>
@@ -49,7 +85,10 @@
                     </tabBarItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="dateFromBtn" destination="Kkd-sa-HV1" id="KsZ-Kg-pEY"/>
+                        <outlet property="dateToBtn" destination="lzG-ni-gZT" id="L50-Ey-3Se"/>
                         <outlet property="projectsTableView" destination="hNd-Q9-4P5" id="2IO-Bm-oyF"/>
+                        <segue destination="kwx-sH-9GW" kind="presentation" identifier="pickDate" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="NI1-c1-Oqf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YP7-Em-e1s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -915,6 +954,129 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQi-y7-EU8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2214" y="1567"/>
+        </scene>
+        <!--Date PickerVC-->
+        <scene sceneID="ViE-zL-hTB">
+            <objects>
+                <viewController id="kwx-sH-9GW" customClass="DatePickerVC" customModule="MGTimeRegister" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vig-9H-rFD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFR-h4-RcZ" customClass="MGView" customModule="MGTimeRegister" customModuleProvider="target">
+                                <rect key="frame" x="0.66666666666665719" y="437" width="414" height="250"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7q-V8-uKL">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLF-Gu-SRo" customClass="MGButton" customModule="MGTimeRegister" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" priority="500" constant="60" id="b9M-7N-6Qc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="Close">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick a date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60Z-oj-vwY">
+                                                <rect key="frame" x="157.33333333333334" y="13.666666666666686" width="99.666666666666657" height="23"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKz-p4-mLF" customClass="MGButton" customModule="MGTimeRegister" customModuleProvider="target">
+                                                <rect key="frame" x="354" y="0.0" width="60" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" priority="500" constant="60" id="ZsN-Ll-uUi"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="Today">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="60Z-oj-vwY" firstAttribute="centerX" secondItem="h7q-V8-uKL" secondAttribute="centerX" id="Nwm-4c-Kwa"/>
+                                            <constraint firstAttribute="trailing" secondItem="lKz-p4-mLF" secondAttribute="trailing" id="egl-0Z-0Sc"/>
+                                            <constraint firstItem="lKz-p4-mLF" firstAttribute="top" secondItem="h7q-V8-uKL" secondAttribute="top" id="hLN-hU-s4J"/>
+                                            <constraint firstAttribute="height" constant="50" id="l4P-nB-qPA"/>
+                                            <constraint firstItem="kLF-Gu-SRo" firstAttribute="top" secondItem="h7q-V8-uKL" secondAttribute="top" id="lF9-3z-k9a"/>
+                                            <constraint firstAttribute="bottom" secondItem="kLF-Gu-SRo" secondAttribute="bottom" id="oDQ-jT-zur"/>
+                                            <constraint firstItem="60Z-oj-vwY" firstAttribute="centerY" secondItem="h7q-V8-uKL" secondAttribute="centerY" id="yOp-Ty-HnH"/>
+                                            <constraint firstItem="kLF-Gu-SRo" firstAttribute="leading" secondItem="h7q-V8-uKL" secondAttribute="leading" id="z6o-oD-94H"/>
+                                            <constraint firstAttribute="bottom" secondItem="lKz-p4-mLF" secondAttribute="bottom" id="zVu-yX-caH"/>
+                                        </constraints>
+                                    </view>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jcP-L8-Xnd">
+                                        <rect key="frame" x="8" y="58" width="398" height="140"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="552477192.67662096">
+                                            <!--2018-07-05 09:53:12 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sE-lE-lHx" customClass="MGButton" customModule="MGTimeRegister" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="206" width="414" height="44"/>
+                                        <color key="backgroundColor" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="YcN-xZ-cTx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="h7q-V8-uKL" firstAttribute="leading" secondItem="PFR-h4-RcZ" secondAttribute="leading" id="0LN-b1-SxR"/>
+                                    <constraint firstAttribute="trailing" secondItem="jcP-L8-Xnd" secondAttribute="trailing" constant="8" id="IHe-67-jzt"/>
+                                    <constraint firstItem="jcP-L8-Xnd" firstAttribute="top" secondItem="h7q-V8-uKL" secondAttribute="bottom" constant="8" id="QwF-fM-CQC"/>
+                                    <constraint firstItem="h7q-V8-uKL" firstAttribute="top" secondItem="PFR-h4-RcZ" secondAttribute="top" id="SF8-zj-ljy"/>
+                                    <constraint firstAttribute="height" constant="250" id="SH1-aQ-cFd"/>
+                                    <constraint firstAttribute="trailing" secondItem="6sE-lE-lHx" secondAttribute="trailing" id="VUJ-Mr-aKr"/>
+                                    <constraint firstItem="6sE-lE-lHx" firstAttribute="leading" secondItem="PFR-h4-RcZ" secondAttribute="leading" id="YUh-K5-Zh0"/>
+                                    <constraint firstAttribute="trailing" secondItem="h7q-V8-uKL" secondAttribute="trailing" id="bRa-I6-cYL"/>
+                                    <constraint firstItem="6sE-lE-lHx" firstAttribute="top" secondItem="jcP-L8-Xnd" secondAttribute="bottom" constant="8" id="eqG-v7-flg"/>
+                                    <constraint firstItem="jcP-L8-Xnd" firstAttribute="leading" secondItem="PFR-h4-RcZ" secondAttribute="leading" constant="8" id="lRM-lB-zDl"/>
+                                    <constraint firstAttribute="bottom" secondItem="6sE-lE-lHx" secondAttribute="bottom" id="vsa-fU-Xe4"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="0.50009024339999997" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="PFR-h4-RcZ" firstAttribute="centerX" secondItem="vig-9H-rFD" secondAttribute="centerX" id="DVX-v3-n6o"/>
+                            <constraint firstItem="PFR-h4-RcZ" firstAttribute="width" secondItem="vig-9H-rFD" secondAttribute="width" id="Gms-7W-RuQ"/>
+                            <constraint firstItem="GLL-vT-5Id" firstAttribute="bottom" secondItem="PFR-h4-RcZ" secondAttribute="bottom" id="tFL-ba-ajY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GLL-vT-5Id"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeBtn" destination="kLF-Gu-SRo" id="jvx-LY-9Uv"/>
+                        <outlet property="datePicker" destination="jcP-L8-Xnd" id="UeM-vX-cb1"/>
+                        <outlet property="pickDateBtn" destination="6sE-lE-lHx" id="0P1-Mz-rOE"/>
+                        <outlet property="todayBtn" destination="lKz-p4-mLF" id="g8q-YP-INN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NW8-I9-vRz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2211.594202898551" y="142.66304347826087"/>
         </scene>
     </scenes>
 </document>

@@ -33,17 +33,37 @@ extension TableSectionData: SectionModelType {
     }
 }
 
+enum Flags : String {
+    case pickDateFrom = "dateFrom"
+    case pickDateTo = "dateTo"
+}
 
 class ReportViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
     private let privateTableItems = BehaviorRelay<[TableSectionData]>(value: [])
-    private let privateStartDate = BehaviorRelay<Date?>(value: nil)
-    private let privateEndDate = BehaviorRelay<Date?>(value: nil)
+    private let privateDateFrom = BehaviorRelay<Date?>(value: nil)
+    private let privateDateTo = BehaviorRelay<Date?>(value: nil)
     
     var tableItems : Observable<[TableSectionData]> {
         return self.privateTableItems.asObservable()
+    }
+    
+    var dateFromText : Observable<String> {
+        return self.privateDateFrom.asObservable().map({ (date) -> String in
+            return date != nil ? date!.toStringDate() : Strings.Commons.select
+        }).asObservable()
+    }
+    
+    var dateToText : Observable<String> {
+        return self.privateDateTo.asObservable().map({ (date) -> String in
+            return date != nil ? date!.toStringDate() : Strings.Commons.select
+        }).asObservable()
+    }
+    
+    var performSegue : Observable<(MGTViewModelSegue)> {
+        return self.privatePerformSegue.asObservable()
     }
     
     func projectHeaderTextFor(section: Int) -> String {
@@ -51,7 +71,7 @@ class ReportViewModel: MGTBaseViewModel {
     }
     
     func projectHeaderHoursFor(section: Int) -> String {
-        return "total: \(self.privateTableItems.value[section].header.hours) h"
+        return "\(self.privateTableItems.value[section].header.hours) h"
     }
     
     let dataSource = RxTableViewSectionedReloadDataSource<TableSectionData>(
@@ -64,26 +84,47 @@ class ReportViewModel: MGTBaseViewModel {
 
     
     public func initBindings(fetchDataSource: Driver<Void>,
-                             selectedRow: Driver<IndexPath>) {
+                             selectedRow: Driver<IndexPath>,
+                             dateFromBtnPressed: Driver<Void>,
+                             dateToBtnPressed: Driver<Void>) {
+        
+        Observable
+            .combineLatest(
+                self.privateDateFrom.asObservable(),
+                self.privateDateTo.asObservable())
+            .bind { (dateFrom, dateTo) in
+                    self.fetchData()
+            }
+            .disposed(by: disposeBag)
+        
         fetchDataSource
             .drive(onNext: { [weak self] (_) in
                 self?.fetchData()
             })
             .disposed(by: self.disposeBag)
         
-        selectedRow
-            .drive(onNext: { [weak self] (indexPath) in
-//                self?.privateSelectedCompany.accept((self?.privateDataSource.value[indexPath.row])!)
+        dateFromBtnPressed
+            .drive(onNext: { [weak self] (_) in
+                self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.Reports.pickDate, flag: Flags.pickDateFrom.rawValue))
             })
             .disposed(by: self.disposeBag)
+        
+        dateToBtnPressed
+            .drive(onNext: { [weak self] (_) in
+                self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.Reports.pickDate, flag: Flags.pickDateTo.rawValue))
+            })
+            .disposed(by: self.disposeBag)
+
     }
     
     private func fetchData(){
         ModelController.shared.managedObjectContext.perform { [weak self] in
             var predicate : NSPredicate?
             
-            let startDate : Date? = self?.privateStartDate.value?.startOfDay()
-            let endDate : Date? = self?.privateEndDate.value?.endOfDay()
+            let startDate : Date? = self?.privateDateFrom.value?.startOfDay()
+            let endDate : Date? = self?.privateDateTo.value?.endOfDay()
+            
+            print("search from \(startDate?.toStringDate()) to \(endDate?.toStringDate())")
             
             if startDate != nil && endDate != nil {
                 predicate = NSPredicate.init(format: "date >= %@ AND date <= %@ AND hours > 0", startDate! as NSDate, endDate! as NSDate)
@@ -113,6 +154,8 @@ class ReportViewModel: MGTBaseViewModel {
                     projDict[project] = (projDict[project] ?? 0) + Int32(time.hours)
                     sectionsMap[company] = projDict
                 })
+                
+                print("founded \(times.count)")
             }
             
             let dataSource = sectionsMap.map({ (company, projHours) -> TableSectionData in
@@ -130,9 +173,25 @@ class ReportViewModel: MGTBaseViewModel {
         }
     }
     
-    public func viewModelFor(_ vc: inout UIViewController) {
-        if let vc = vc as? SelectProjectVC {
-//            vc.viewModel = SelectProjectViewModel(company: privateSelectedCompany.value!)
+    public func viewModelFor(_ vc: inout UIViewController, flag: String?) {
+        if let vc = vc as? DatePickerVC {
+            if flag == Flags.pickDateFrom.rawValue {
+                // Date From Picker
+                vc.viewModel = DatePickerViewModel(withDate: self.privateDateFrom.value,
+                                                   maxSelectableDate: self.privateDateTo.value,
+                                                   minSelectableDate: nil,
+                                                   onDateSelected: self.privateDateFrom
+                )
+            }
+            if flag == Flags.pickDateTo.rawValue {
+                // Date To Picker
+                vc.viewModel = DatePickerViewModel(withDate: self.privateDateTo.value,
+                                                   maxSelectableDate: nil,
+                                                   minSelectableDate: self.privateDateFrom.value,
+                                                   onDateSelected: self.privateDateTo
+                )
+            }
+            
         }
     }
 }

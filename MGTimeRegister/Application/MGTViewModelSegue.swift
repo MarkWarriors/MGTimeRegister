@@ -10,8 +10,10 @@ import Foundation
 
 public class MGTViewModelSegue {
     var identifier : String
+    var flag : String?
     
-    init(identifier: String) {
+    init(identifier: String, flag: String? = nil) {
         self.identifier = identifier
+        self.flag = flag
     }
 }

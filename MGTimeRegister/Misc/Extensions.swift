@@ -480,6 +480,20 @@ class MGCheckbox: UIButton {
 
 
 extension Date{
+    public func toString(format: String) -> String {
+        let df = DateFormatter()
+        df.dateFormat = format
+        return df.string(from: self)
+    }
+    
+    public func toStringDateAndHours() -> String {
+        return self.toString(format: "yyyy-MM-dd hh:mm:ss")
+    }
+    
+    public func toStringDate() -> String {
+        return self.toString(format: "yyyy-MM-dd")
+    }
+    
     public func changeOfMinutes(_ minutes: Int) -> Date{
         return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
     }
