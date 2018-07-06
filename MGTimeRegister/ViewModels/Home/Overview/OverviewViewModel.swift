@@ -14,9 +14,14 @@ import RxCocoa
 class OverviewViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
+    private let privateUsernameText = BehaviorRelay<String>(value: "")
     private let privateCompaniesText = BehaviorRelay<String>(value: "0")
     private let privateProjectsText = BehaviorRelay<String>(value: "0")
     private let privateEffortText = BehaviorRelay<String>(value: "0")
+    
+    var usernameText : Observable<String> {
+        return Observable.just((SharedInstance.shared.currentUser?.username)!)
+    }
     
     var companiesText : Observable<String> {
         return privateCompaniesText.asObservable()
@@ -30,7 +35,14 @@ class OverviewViewModel: MGTBaseViewModel {
         return privateEffortText.asObservable()
     }
 
-    public func initBindings(fetchDataSource: Driver<Void>){
+    public func initBindings(fetchDataSource: Driver<Void>,
+                             logoutBtn: Driver<Void>){
+        logoutBtn
+            .drive(onNext: { _ in
+                SharedInstance.shared.logout()
+            })
+            .disposed(by: disposeBag)
+        
         fetchDataSource
             .drive(onNext: { [weak self] (_) in
                 ModelController.shared.managedObjectContext.performAndWait {

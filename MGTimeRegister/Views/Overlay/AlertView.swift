@@ -16,7 +16,7 @@ public class AlertView : OverlayView {
     @IBOutlet weak var alertBtnCancel: MGButton!
 
     
-    private func createAlert(title: String, text:String, buttonOkText: String?, buttonCancelText: String?, callback: ((_ confirmed: Bool?)->())? = nil, onShowCompleted: (()->())? = nil){
+    private func createAlert(onViewController vc: UIViewController, title: String, text:String, buttonOkText: String?, buttonCancelText: String?, callback: ((_ confirmed: Bool?)->())? = nil, onShowCompleted: (()->())? = nil){
         alertTitle?.text = title.uppercased()
         alertText?.text = text
         alertBtnOk?.setTitle(buttonOkText?.uppercased(), for: UIControlState.normal)
@@ -29,15 +29,15 @@ public class AlertView : OverlayView {
         self.callback = callback
         self.completion = onShowCompleted
         
-        makeViewAppear()
+        makeViewAppear(viewController: vc)
     }
     
-    func showAlert(title: String, text:String, buttonOkText: String, buttonCancelText: String, callback: ((_ confirmed: Bool?)->())? = nil, onShowCompleted: (()->())? = nil){
-        createAlert(title: title, text: text, buttonOkText: buttonOkText, buttonCancelText: buttonCancelText, callback: callback, onShowCompleted: onShowCompleted)
+    func showAlert(onViewController vc: UIViewController, title: String, text:String, buttonOkText: String, buttonCancelText: String, callback: ((_ confirmed: Bool?)->())? = nil, onShowCompleted: (()->())? = nil){
+        createAlert(onViewController: vc, title: title, text: text, buttonOkText: buttonOkText, buttonCancelText: buttonCancelText, callback: callback, onShowCompleted: onShowCompleted)
     }
     
-    func showAlert(title: String, text:String, buttonText: String, callback: ((_ confirmed: Bool?)->())? = nil, onShowCompleted: (()->())? = nil){
-        createAlert(title: title, text: text, buttonOkText: buttonText, buttonCancelText: nil, callback: callback, onShowCompleted: onShowCompleted)
+    func showAlert(onViewController vc: UIViewController, title: String, text:String, buttonText: String, callback: ((_ confirmed: Bool?)->())? = nil, onShowCompleted: (()->())? = nil){
+        createAlert(onViewController: vc, title: title, text: text, buttonOkText: buttonText, buttonCancelText: nil, callback: callback, onShowCompleted: onShowCompleted)
     }
     
     

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Marco Guerrieri. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public class SharedInstance : NSObject {
     
@@ -33,6 +33,7 @@ public class SharedInstance : NSObject {
     }
     
     public func logout(){
+        UIApplication.shared.keyWindow?.rootViewController = UIStoryboard.init(name: "Login", bundle: nil).instantiateInitialViewController()
         self.currentUser = nil
         UserDefaults.standard.removeObject(forKey: Globals.PrefsKeys.loggedUsername)
         UserDefaults.standard.removeObject(forKey: Globals.PrefsKeys.loggedPassword)

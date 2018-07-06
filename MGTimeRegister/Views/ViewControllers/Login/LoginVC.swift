@@ -12,7 +12,7 @@ class LoginVC: MGTBaseVC, ViewModelBased {
     typealias ViewModel = LoginViewModel
     var viewModel: LoginViewModel? = LoginViewModel()
     
-    
+
     @IBOutlet weak var loginBtn: MGButton!
     @IBOutlet weak var usernameTF: MGTextField!
     @IBOutlet weak var passwordTF: MGTextField!
@@ -34,16 +34,16 @@ class LoginVC: MGTBaseVC, ViewModelBased {
                                passwordTF: passwordTF.rx.text.orEmpty.asObservable(),
                                saveCredentialsSwitch: saveCredentialsSwitch.rx.isOn.asObservable())
         
-//        viewModel!.isLoading
-//            .bind { [weak self] (isLoading) in
-//                if isLoading {
-//                    self?.showWaitView()
-//                }
-//                else{
-//                    self?.dismissWaitView()
-//                }
-//            }
-//            .disposed(by: self.disposeBag)
+        viewModel!.isLoading
+            .bind { [weak self] (isLoading) in
+                if isLoading {
+                    self?.showWaitView()
+                }
+                else{
+                    self?.dismissWaitView()
+                }
+            }
+            .disposed(by: self.disposeBag)
         
         viewModel!.buttonEnabled
             .bind(to: self.loginBtn.rx.isEnabled)

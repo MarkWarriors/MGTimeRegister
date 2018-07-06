@@ -14,17 +14,23 @@ class MGTBaseVC: UIViewController {
     
     internal let disposeBag = DisposeBag()
     
-    func showAlert(title: String, message: String){
-        (self.navigationController as! MGTNavigationController).showAlertView(title: title, text: message, buttonText: Strings.Commons.ok)
+    var alertView : AlertView = (Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView)!
+    var waitView : WaitView = (Bundle.main.loadNibNamed("WaitView", owner: self, options: nil)![0] as? WaitView)!
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
+    func showAlert(title: String, message: String){
+        alertView.showAlert(onViewController: self, title: title, text: message, buttonText: Strings.Commons.ok)
+    }
     
     func showWaitView(){
-        (self.navigationController as! MGTNavigationController).showWaitView()
+        waitView.showWait(onViewController: self)
     }
     
     func dismissWaitView(){
-        (self.navigationController as! MGTNavigationController).dismissWaitView()
+        waitView.dismissWait()
     }
     
     /*

@@ -10,9 +10,9 @@ import UIKit
 
 public class WaitView : OverlayView {
     
-    func showWait(onShowCompleted: (()->())? = nil){
+    func showWait(onViewController vc: UIViewController, onShowCompleted: (()->())? = nil){
         self.completion = onShowCompleted
-        self.makeViewAppear()
+        self.makeViewAppear(viewController: vc)
     }
     
     func dismissWait(onDismissCompleted: (()->())? = nil){

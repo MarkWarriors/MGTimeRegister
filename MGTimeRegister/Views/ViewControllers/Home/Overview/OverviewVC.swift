@@ -15,6 +15,8 @@ class OverviewVC: MGTBaseVC, ViewModelBased {
     @IBOutlet weak var companiesLbl: UILabel!
     @IBOutlet weak var projectsLbl: UILabel!
     @IBOutlet weak var effortLbl: UILabel!
+    @IBOutlet weak var logoutBtn: MGButton!
+    @IBOutlet weak var usernameLbl: UILabel!
     
     private var currentCalendar: Calendar?
     
@@ -25,15 +27,16 @@ class OverviewVC: MGTBaseVC, ViewModelBased {
         
         bindViewModel()
     }
-
- 
     
     func bindViewModel() {
         let viewWillAppear =  self.rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
             .map({ _ -> Void in return () })
             .asDriver(onErrorJustReturn: ())
         
-        viewModel!.initBindings(fetchDataSource: viewWillAppear)
+        viewModel!.usernameText.bind(to: usernameLbl.rx.text).disposed(by: disposeBag)
+        
+        viewModel!.initBindings(fetchDataSource: viewWillAppear,
+                                logoutBtn: logoutBtn.rx.tap.asDriver())
         
         viewModel!.companiesText.bind(to: companiesLbl.rx.text).disposed(by: disposeBag)
         viewModel!.projectsText.bind(to: projectsLbl.rx.text).disposed(by: disposeBag)

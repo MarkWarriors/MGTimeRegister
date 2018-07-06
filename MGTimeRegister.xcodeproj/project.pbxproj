@@ -17,7 +17,6 @@
 		90358C2020E98DB500AC726B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90358BFD20E98DB400AC726B /* LaunchScreen.storyboard */; };
 		90358C2120E98DB500AC726B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90358BFF20E98DB400AC726B /* Login.storyboard */; };
 		90358C2420E98DB500AC726B /* MGTBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0720E98DB400AC726B /* MGTBaseVC.swift */; };
-		90358C2520E98DB500AC726B /* MGTNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0820E98DB400AC726B /* MGTNavigationController.swift */; };
 		90358C3020E9900100AC726B /* MGTimeRegister.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90358C2E20E9900100AC726B /* MGTimeRegister.xcdatamodeld */; };
 		90358C3120E9903100AC726B /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0A20E98DB400AC726B /* OverlayView.swift */; };
 		90358C3320E9903100AC726B /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C0C20E98DB400AC726B /* AlertView.swift */; };
@@ -100,7 +99,6 @@
 		90358BFE20E98DB400AC726B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90358C0020E98DB400AC726B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Login.storyboard; sourceTree = "<group>"; };
 		90358C0720E98DB400AC726B /* MGTBaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTBaseVC.swift; sourceTree = "<group>"; };
-		90358C0820E98DB400AC726B /* MGTNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTNavigationController.swift; sourceTree = "<group>"; };
 		90358C0A20E98DB400AC726B /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		90358C0C20E98DB400AC726B /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		90358C0D20E98DB400AC726B /* WaitView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitView.xib; sourceTree = "<group>"; };
@@ -342,7 +340,6 @@
 				90358C3E20E9AC9800AC726B /* Login */,
 				90358C4120E9ACB600AC726B /* Home */,
 				90358C0720E98DB400AC726B /* MGTBaseVC.swift */,
-				90358C0820E98DB400AC726B /* MGTNavigationController.swift */,
 				90453E3E20ECC722006B6AA2 /* MGTTabBarController.swift */,
 			);
 			path = ViewControllers;
@@ -451,8 +448,8 @@
 		90358C7B20EA2A2300AC726B /* Reports */ = {
 			isa = PBXGroup;
 			children = (
-				90358C7C20EA2A2300AC726B /* ReportViewModel.swift */,
 				90D7519C20EE225C00D316C5 /* DatePickerViewModel.swift */,
+				90358C7C20EA2A2300AC726B /* ReportViewModel.swift */,
 				90D751A020EE6EE000D316C5 /* ReportTimeListViewModel.swift */,
 			);
 			path = Reports;
@@ -679,7 +676,6 @@
 				90CD38A820EB503200157DC7 /* NewProjectVC.swift in Sources */,
 				90358C4B20E9AF0900AC726B /* ModelController.swift in Sources */,
 				90358C3320E9903100AC726B /* AlertView.swift in Sources */,
-				90358C2520E98DB500AC726B /* MGTNavigationController.swift in Sources */,
 				90FF6FBB20EC160A00006143 /* Time+CoreDataProperties.swift in Sources */,
 				90D7519B20EE224E00D316C5 /* DatePickerVC.swift in Sources */,
 				90358C3D20E9ABB800AC726B /* SharedInstance.swift in Sources */,

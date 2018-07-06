@@ -1,10 +1,10 @@
 //
 //  OverlayView.swift
-//  MGTimeRegister
+//  UrmetSecure
 //
-//  Created by Marco Guerrieri on 02/07/18.
-//  Copyright © 2018 Marco Guerrieri. All rights reserved.
-//  
+//  Created by Marco Guerrieri on 20/02/18.
+//  Copyright © 2018 Urmet. All rights reserved.
+//
 
 import UIKit
 
@@ -12,41 +12,45 @@ public class OverlayView : UIView {
     
     var completion : (()->())?
     var callback : ((_ confirmed: Bool?)->())?
+    public var isShowed : Bool = false
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    required public init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
     }
-
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
     
     public override func layoutSubviews() {
-        self.frame = UIScreen.main.bounds
         super.layoutSubviews()
     }
     
-    internal func makeViewAppear(){
-        self.alpha = 0
-        UIApplication.shared.keyWindow?.subviews.last?.addSubview(self)
-        UIView.animate(withDuration: Globals.Timing.overlayAnimation, animations: {
-            self.alpha = 1
-        }) { (completed) in
-            self.completion?()
+    internal func makeViewAppear(viewController: UIViewController){
+        if !isShowed {
+            DispatchQueue.main.async {
+                self.layoutSubviews()
+                self.isShowed = true
+                self.alpha = 0
+                self.frame = viewController.view.bounds
+                viewController.view.addSubview(self)
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.alpha = 1
+                }) { (completed) in
+                    if self.completion != nil {
+                        self.completion!()
+                    }
+                }
+            }
         }
     }
     
     internal func makeViewDisappear(){
-        UIView.animate(withDuration: Globals.Timing.overlayAnimation, animations: {
-            self.alpha = 0
-        }) { (completed) in
-            self.removeFromSuperview()
+        if isShowed {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.alpha = 0
+                }) { (completed) in
+                    self.removeFromSuperview()
+                    self.isShowed = false
+                }
+            }
         }
     }
 }
-

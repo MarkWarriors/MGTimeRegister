@@ -16,7 +16,7 @@ class SelectCompanyViewModel: MGTBaseViewModel {
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
     private let privateDataSource = BehaviorRelay<[Company]>(value: [])
     private var privateSelectedCompany = BehaviorRelay<Company?>(value: nil)
-
+    
     
     var dataSource : Observable<[Company]> {
         return self.privateDataSource.asObservable()
