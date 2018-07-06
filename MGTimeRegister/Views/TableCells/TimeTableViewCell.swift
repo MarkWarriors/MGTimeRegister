@@ -12,6 +12,7 @@ class TimeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var hoursLbl: UILabel!
+    @IBOutlet weak var notesLbl: UILabel!
     
     public static let identifier = "TimeTableViewCell"
     
@@ -23,6 +24,7 @@ class TimeTableViewCell: UITableViewCell {
     public func setModel(_ time: Time){
         nameLbl.text = (time.date! as Date).toStringDate()
         hoursLbl.text = "\(time.hours)"
+        notesLbl.text = time.notes!.count > 0 ? time.notes! : "-"
     }
     
 }

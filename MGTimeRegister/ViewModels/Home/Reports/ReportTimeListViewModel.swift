@@ -31,25 +31,37 @@ class ReportTimeListViewModel: MGTBaseViewModel {
         return Observable.just("\(currentProject.company!.name!) > \(currentProject.name!)")
     }
     
+    var totalHoursText : Observable<String> {
+        return self.privateDataSource
+            .asObservable()
+            .map({ (timesArray) -> String in
+                return String(format: "%ld H", timesArray.reduce(0, { $0 + $1.hours }))
+            })
+            .asObservable()
+    }
     
     var performSegue : Observable<(MGTViewModelSegue)> {
         return self.privatePerformSegue.asObservable()
     }
     
     public func initBindings(fetchDataSource: Driver<Void>,
-                             selectedItem: Driver<Time>){
+                             itemDeleted: Driver<Time>){
         privateSelectedTime
             .filter{ $0 != nil }
             .bind(onNext: { [weak self] (time) in
                 self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.Reports.toTimeDetails))
             })
             .disposed(by: disposeBag)
-        
-        
-        selectedItem
+
+        itemDeleted
             .drive(onNext: { [weak self] (time) in
+                ModelController.shared.managedObjectContext.performAndWait { [weak self] in
+                    self?.privateDataSource.accept((self?.privateDataSource.value.filter{ $0 != time }) ?? [] )
+                    ModelController.shared.managedObjectContext.delete(time)
+                    ModelController.shared.save()
+                }
             })
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
     }
     
     

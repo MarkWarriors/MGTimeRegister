@@ -19,6 +19,7 @@ class Strings {
     struct Commons {
         public static let ok = "Ok".localized
         public static let cancel = "Cancel".localized
+        public static let delete = "Delete".localized
         public static let select = "Select".localized
     }
     

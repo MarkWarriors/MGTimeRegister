@@ -17,7 +17,7 @@ class NewTimeEntryViewModel: MGTBaseViewModel {
     private let privateHoursDataSource = BehaviorRelay<[Int16]>(value: [])
     
     private let privateDate = BehaviorRelay<Date?>(value: nil)
-    private let privateHours = BehaviorRelay<Int16>(value: 0)
+    private let privateHours = BehaviorRelay<Int16>(value: 1)
     private let privateNotes = BehaviorRelay<String>(value: "")
     private let privateCurrentProject : Project
     private let privateCurrentTime : Time?

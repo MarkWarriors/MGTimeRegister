@@ -29,9 +29,15 @@ class OverviewVC: MGTBaseVC, ViewModelBased {
  
     
     func bindViewModel() {
-        viewModel?.companiesText.bind(to: companiesLbl.rx.text).disposed(by: disposeBag)
-        viewModel?.projectsText.bind(to: projectsLbl.rx.text).disposed(by: disposeBag)
-        viewModel?.effortText.bind(to: effortLbl.rx.text).disposed(by: disposeBag)
+        let viewWillAppear =  self.rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
+            .map({ _ -> Void in return () })
+            .asDriver(onErrorJustReturn: ())
+        
+        viewModel!.initBindings(fetchDataSource: viewWillAppear)
+        
+        viewModel!.companiesText.bind(to: companiesLbl.rx.text).disposed(by: disposeBag)
+        viewModel!.projectsText.bind(to: projectsLbl.rx.text).disposed(by: disposeBag)
+        viewModel!.effortText.bind(to: effortLbl.rx.text).disposed(by: disposeBag)
     }
     
     

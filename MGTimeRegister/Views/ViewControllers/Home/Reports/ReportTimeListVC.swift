@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ReportTimeListVC: MGTBaseVC, ViewModelBased {
+class ReportTimeListVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
     typealias ViewModel = ReportTimeListViewModel
     var viewModel: ReportTimeListViewModel?
     
     @IBOutlet weak var projectLbl: UILabel!
     @IBOutlet weak var timesTableView: UITableView!
+    @IBOutlet weak var totalHoursLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,8 @@ class ReportTimeListVC: MGTBaseVC, ViewModelBased {
     private func configureTableView(){
         timesTableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: timesTableView.frame.width, height: 76))
         timesTableView.register(UINib.init(nibName: TimeTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TimeTableViewCell.identifier)
+        timesTableView.rowHeight = UITableViewAutomaticDimension;
+        timesTableView.estimatedRowHeight = 67.0;
     }
     
     func bindViewModel(){
@@ -32,9 +35,9 @@ class ReportTimeListVC: MGTBaseVC, ViewModelBased {
             .asDriver(onErrorJustReturn: ())
         
         viewModel!.initBindings(fetchDataSource: viewWillAppear,
-                                selectedItem: timesTableView.rx.modelSelected(Time.self).asDriver()
-        )
+                                itemDeleted: timesTableView.rx.modelDeleted(Time.self).asDriver())
         
+        viewModel!.totalHoursText.bind(to: totalHoursLbl.rx.text).disposed(by: disposeBag)
         viewModel!.projectText.bind(to: projectLbl.rx.text).disposed(by: disposeBag)
         
         timesTableView.rx.itemSelected
@@ -56,7 +59,18 @@ class ReportTimeListVC: MGTBaseVC, ViewModelBased {
                 self?.performSegue(withIdentifier: segue.identifier, sender: nil)
             }
             .disposed(by: disposeBag)
+        
+        timesTableView.rx
+            .setDelegate(self)
+            .disposed(by: disposeBag)
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var vc = segue.destination

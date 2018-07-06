@@ -34,7 +34,7 @@ public class OverlayView : UIView {
     internal func makeViewAppear(){
         self.alpha = 0
         UIApplication.shared.keyWindow?.subviews.last?.addSubview(self)
-        UIView.animate(withDuration: Globals.Timing.OverlayAnimation, animations: {
+        UIView.animate(withDuration: Globals.Timing.overlayAnimation, animations: {
             self.alpha = 1
         }) { (completed) in
             self.completion?()
@@ -42,7 +42,7 @@ public class OverlayView : UIView {
     }
     
     internal func makeViewDisappear(){
-        UIView.animate(withDuration: Globals.Timing.OverlayAnimation, animations: {
+        UIView.animate(withDuration: Globals.Timing.overlayAnimation, animations: {
             self.alpha = 0
         }) { (completed) in
             self.removeFromSuperview()

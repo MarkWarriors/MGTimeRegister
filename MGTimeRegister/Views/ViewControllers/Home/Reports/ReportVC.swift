@@ -20,10 +20,14 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
     @IBOutlet weak var todayBtn: MGButton!
     @IBOutlet weak var lastWeekBtn: MGButton!
     @IBOutlet weak var lastMonthBtn: MGButton!
+    @IBOutlet weak var filterViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var toggleFilterBtn: UIButton!
+    var filterViewOpenedHeight : CGFloat? = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.title = self.title
+        filterViewOpenedHeight = filterViewHeight.constant
         configureTableView()
         bindViewModel()
     }
@@ -67,6 +71,15 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
             .disposed(by: disposeBag)
         
         
+    }
+    
+    @IBAction func toggleFilterBtnPressed(_ sender: Any) {
+        self.toggleFilterBtn.setImage(self.filterViewHeight.constant == 0 ? #imageLiteral(resourceName: "caret_up") : #imageLiteral(resourceName: "caret_down"), for: .normal)
+        UIView.animate(withDuration: Globals.Timing.toggleAnimation, animations: {
+            self.filterViewHeight.constant = abs(self.filterViewHeight.constant - self.filterViewOpenedHeight!)
+            self.view.layoutSubviews()
+        }) { (completed) in
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

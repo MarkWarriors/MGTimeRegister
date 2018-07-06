@@ -120,17 +120,9 @@ class ReportViewModel: MGTBaseViewModel {
             .disposed(by: self.disposeBag)
         
         selectedItem.drive(onNext: { [weak self] (projectHours) in
-            var predicateArray : [NSPredicate] = []
-            
-            predicateArray.append(NSPredicate.init(format: "hours > 0"))
-            
-            if let dateFrom = self?.privateDateFrom.value as NSDate? {
-                predicateArray.append(NSPredicate.init(format: "date >= %@", dateFrom))
-            }
-            
-            if let dateTo = self?.privateDateTo.value as NSDate? {
-                predicateArray.append(NSPredicate.init(format: "date <= %@", dateTo))
-            }
+            let predicateArray : [NSPredicate] = self?.createFetchPredicate(text: nil,
+                                                                            dateFrom: self?.privateDateFrom.value?.startOfDay(),
+                                                                            dateTo: self?.privateDateTo.value?.startOfDay()) ?? []
             
             let project = projectHours.project
             let times = Array(projectHours.project.times?.filtered(using: NSCompoundPredicate.init(andPredicateWithSubpredicates: predicateArray)) ?? []) as! [Time]
@@ -142,24 +134,30 @@ class ReportViewModel: MGTBaseViewModel {
 
     }
     
+    private func createFetchPredicate(text: String?, dateFrom: Date?, dateTo: Date?) -> [NSPredicate] {
+        var predicateArray : [NSPredicate] = []
+        predicateArray.append(NSPredicate.init(format: "hours > 0"))
+        
+        if text != nil && (text?.count)! > 0 {
+            predicateArray.append(NSPredicate.init(format: "SUBQUERY(project, $p, $p.name BEGINSWITH[c] %@).@count != 0 OR SUBQUERY(project, $p, SUBQUERY($p.company, $c, $c.name BEGINSWITH[c] %@).@count != 0) != NULL", text!, text!))
+        }
+        
+        if dateFrom != nil {
+            predicateArray.append(NSPredicate.init(format: "date >= %@", dateFrom! as NSDate))
+        }
+        
+        if dateTo != nil {
+            predicateArray.append(NSPredicate.init(format: "date <= %@", dateTo! as NSDate))
+        }
+        return predicateArray
+    }
+    
     private func fetchData(text: String?, dateFrom: Date?, dateTo: Date?){
         ModelController.shared.managedObjectContext.perform { [weak self] in
 
-            var predicateArray : [NSPredicate] = []
-            
-            predicateArray.append(NSPredicate.init(format: "hours > 0"))
-            
-            if text != nil && (text?.count)! > 0 {
-                predicateArray.append(NSPredicate.init(format: "SUBQUERY(project, $p, $p.name BEGINSWITH[c] %@).@count != 0 OR SUBQUERY(project, $p, SUBQUERY($p.company, $c, $c.name BEGINSWITH[c] %@).@count != 0) != NULL", text!, text!))
-            }
-            
-            if dateFrom != nil {
-                predicateArray.append(NSPredicate.init(format: "date >= %@", dateFrom! as NSDate))
-            }
-            
-            if dateTo != nil {
-                predicateArray.append(NSPredicate.init(format: "date <= %@", dateTo! as NSDate))
-            }
+            var predicateArray : [NSPredicate] = self?.createFetchPredicate(text: text,
+                                                                            dateFrom: dateFrom,
+                                                                            dateTo: dateTo) ?? []
             
             
             let sortDescriptors : [NSSortDescriptor] = [
