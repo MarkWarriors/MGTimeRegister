@@ -14,9 +14,9 @@ import RxCocoa
 class OverviewViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
-    private let privateCompaniesText = BehaviorSubject<String>(value: "0")
-    private let privateProjectsText = BehaviorSubject<String>(value: "0")
-    private let privateEffortText = BehaviorSubject<String>(value: "0")
+    private let privateCompaniesText = BehaviorRelay<String>(value: "0")
+    private let privateProjectsText = BehaviorRelay<String>(value: "0")
+    private let privateEffortText = BehaviorRelay<String>(value: "0")
     
     var companiesText : Observable<String> {
         return privateCompaniesText.asObservable()
@@ -33,21 +33,16 @@ class OverviewViewModel: MGTBaseViewModel {
     public func initBindings(fetchDataSource: Driver<Void>){
         fetchDataSource
             .drive(onNext: { [weak self] (_) in
-                var companiesText : Observable<String> {
+                ModelController.shared.managedObjectContext.performAndWait {
                     let companies = ModelController.shared.countElements(forEntityName: ModelController.Entity.company.rawValue)
-                    return Observable.just(String(format: "%ld", companies))
-                }
-                
-                var projectsText : Observable<String> {
+                    self?.privateCompaniesText.accept(String(companies))
+                    
                     let projects = ModelController.shared.countElements(forEntityName: ModelController.Entity.project.rawValue)
-                    return Observable.just(String(format: "%ld", projects))
+                    self?.privateProjectsText.accept(String(projects))
+                    
+                    let effort = ModelController.shared.countElements(forEntityName: ModelController.Entity.time.rawValue)
+                    self?.privateEffortText.accept(String(effort))
                 }
-                
-                var effortText : Observable<String> {
-                    let effort = ModelController.shared.sum(forEntityName: ModelController.Entity.time.rawValue, column: "hours")
-                    return Observable.just(String(format: "%ld", effort))
-                }
-
             })
             .disposed(by: self.disposeBag)
     }
