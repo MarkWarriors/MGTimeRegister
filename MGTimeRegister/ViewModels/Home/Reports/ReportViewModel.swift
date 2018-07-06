@@ -155,7 +155,7 @@ class ReportViewModel: MGTBaseViewModel {
     private func fetchData(text: String?, dateFrom: Date?, dateTo: Date?){
         ModelController.shared.managedObjectContext.perform { [weak self] in
 
-            var predicateArray : [NSPredicate] = self?.createFetchPredicate(text: text,
+            let predicateArray : [NSPredicate] = self?.createFetchPredicate(text: text,
                                                                             dateFrom: dateFrom,
                                                                             dateTo: dateTo) ?? []
             

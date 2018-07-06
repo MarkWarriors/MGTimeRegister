@@ -140,28 +140,6 @@ class MGRoundImageView: UIImageView {
     
 }
 
-@IBDesignable
-class MGTextView: UITextView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override open func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
-    override open func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-    }
-}
 
 @IBDesignable
 class MGView: UIView {
