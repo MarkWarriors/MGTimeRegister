@@ -24,11 +24,11 @@ class LoginVC: MGTBaseVC, ViewModelBased {
     }
 
     func bindViewModel(){
-        let viewDidAppear =  self.rx.sentMessage(#selector(UIViewController.viewDidAppear(_:)))
+        let viewDidAppear = self.rx.sentMessage(#selector(UIViewController.viewDidAppear(_:)))
             .map({ _ -> Void in return () })
             .asDriver(onErrorJustReturn: ())
         
-        viewModel!.initBindings(fetchDataSource: viewDidAppear,
+        viewModel!.initBindings(viewDidAppear: viewDidAppear,
                                loginBtnPressed: loginBtn.rx.tap.asDriver(),
                                usernameTF: usernameTF.rx.text.orEmpty.asObservable(),
                                passwordTF: passwordTF.rx.text.orEmpty.asObservable(),
@@ -60,6 +60,14 @@ class LoginVC: MGTBaseVC, ViewModelBased {
                 self?.showAlert(title: error.title, message: error.description)
             }
             .disposed(by: self.disposeBag)
+        
+        viewModel!.confirmAction
+            .bind { (confirm) in
+                self.showConfirm(title: confirm.title,
+                                 message: confirm.message,
+                                 onChoice: confirm.callback)
+            }
+            .disposed(by: disposeBag)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

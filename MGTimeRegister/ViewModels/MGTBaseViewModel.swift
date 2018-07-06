@@ -13,4 +13,6 @@ public protocol MGTBaseViewModel {
     
     var disposeBag : DisposeBag { get set }
     
+    
+    
 }

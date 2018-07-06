@@ -534,20 +534,7 @@ extension Date{
 
 @IBDesignable
 class MGTextView : UITextView {
-    private var kAssociationKeyMaxLength: Int = 0
-    @IBInspectable var maxLength: Int {
-        get {
-            if let length = objc_getAssociatedObject(self, &kAssociationKeyMaxLength) as? Int {
-                return length
-            } else {
-                return Int.max
-            }
-        }
-        set {
-            objc_setAssociatedObject(self, &kAssociationKeyMaxLength, newValue, .OBJC_ASSOCIATION_RETAIN)
-        }
-    }
-    
+
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
     }
@@ -563,10 +550,7 @@ class MGTextView : UITextView {
     override open func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
     }
-    
-    override func shouldChangeText(in range: UITextRange, replacementText text: String) -> Bool {
-        return super.shouldChangeText(in: range, replacementText: text)
-    }
+
 }
 
 

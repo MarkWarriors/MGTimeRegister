@@ -31,3 +31,37 @@ extension ReportData: SectionModelType {
         self.items = items
     }
 }
+
+public class MGTViewModelSegue {
+    var identifier : String
+    var flag : String?
+    
+    init(identifier: String, flag: String? = nil) {
+        self.identifier = identifier
+        self.flag = flag
+    }
+}
+
+struct MGTError {
+    var title : String
+    var description : String
+    var code : Int
+    
+    init(title: String, description: String, code: Int = 999) {
+        self.title = title
+        self.description = description
+        self.code = code
+    }
+}
+
+struct MGTConfirm {
+    var title : String
+    var message : String
+    var callback : ((Bool)->())?
+    
+    init(title: String, message: String, callback: ((Bool)->())?) {
+        self.title = title
+        self.message = message
+        self.callback = callback
+    }
+}

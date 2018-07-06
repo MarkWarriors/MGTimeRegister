@@ -18,6 +18,8 @@ class OverviewViewModel: MGTBaseViewModel {
     private let privateCompaniesText = BehaviorRelay<String>(value: "0")
     private let privateProjectsText = BehaviorRelay<String>(value: "0")
     private let privateEffortText = BehaviorRelay<String>(value: "0")
+    private let privateConfirm = PublishSubject<(MGTConfirm)>()
+    
     
     var usernameText : Observable<String> {
         return Observable.just((SharedInstance.shared.currentUser?.username)!)
@@ -34,12 +36,23 @@ class OverviewViewModel: MGTBaseViewModel {
     var effortText : Observable<String> {
         return privateEffortText.asObservable()
     }
+    
+    var confirmAction : Observable<MGTConfirm> {
+        return self.privateConfirm.asObservable()
+    }
 
     public func initBindings(fetchDataSource: Driver<Void>,
                              logoutBtn: Driver<Void>){
         logoutBtn
-            .drive(onNext: { _ in
-                SharedInstance.shared.logout()
+            .drive(onNext: { [weak self] _ in
+                self?.privateConfirm
+                    .onNext((MGTConfirm.init(title: Strings.Logout.logoutUserTitle,
+                                             message: Strings.Logout.logoutUserText,
+                                             callback: { (confirm) in
+                                                if confirm {
+                                                    SharedInstance.shared.logout()
+                                                }
+                    })))
             })
             .disposed(by: disposeBag)
         
@@ -57,5 +70,6 @@ class OverviewViewModel: MGTBaseViewModel {
                 }
             })
             .disposed(by: self.disposeBag)
+        
     }
 }

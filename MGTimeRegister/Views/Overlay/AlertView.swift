@@ -16,7 +16,7 @@ public class AlertView : OverlayView {
     @IBOutlet weak var alertBtnCancel: MGButton!
 
     
-    private func createAlert(onViewController vc: UIViewController, title: String, text:String, buttonOkText: String?, buttonCancelText: String?, callback: ((_ confirmed: Bool?)->())? = nil, onShowCompleted: (()->())? = nil){
+    private func createAlert(onViewController vc: UIViewController, title: String, text:String, buttonOkText: String?, buttonCancelText: String?, callback: ((_ confirmed: Bool)->())? = nil, onShowCompleted: (()->())? = nil){
         alertTitle?.text = title.uppercased()
         alertText?.text = text
         alertBtnOk?.setTitle(buttonOkText?.uppercased(), for: UIControlState.normal)
@@ -32,7 +32,7 @@ public class AlertView : OverlayView {
         makeViewAppear(viewController: vc)
     }
     
-    func showAlert(onViewController vc: UIViewController, title: String, text:String, buttonOkText: String, buttonCancelText: String, callback: ((_ confirmed: Bool?)->())? = nil, onShowCompleted: (()->())? = nil){
+    func showAlert(onViewController vc: UIViewController, title: String, text:String, buttonOkText: String, buttonCancelText: String, callback: ((_ confirmed: Bool)->())? = nil, onShowCompleted: (()->())? = nil) {
         createAlert(onViewController: vc, title: title, text: text, buttonOkText: buttonOkText, buttonCancelText: buttonCancelText, callback: callback, onShowCompleted: onShowCompleted)
     }
     

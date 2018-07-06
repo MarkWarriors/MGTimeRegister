@@ -15,7 +15,8 @@ class LoginViewModel: MGTBaseViewModel {
     
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
     private let privateIsLoading = BehaviorRelay<Bool>(value: false)
-    private let privateError = PublishSubject<MGTError>()
+    private let privateError = PublishSubject<(MGTError)>()
+    private let privateConfirm = PublishSubject<(MGTConfirm)>()
     private let privateUsername = BehaviorRelay<String>(value: "")
     private let privatePassword = BehaviorRelay<String>(value: "")
     private let privateSaveCredentials = BehaviorRelay<Bool>(value: false)
@@ -33,13 +34,17 @@ class LoginViewModel: MGTBaseViewModel {
         return self.privateError.asObservable()
     }
     
+    var confirmAction : Observable<MGTConfirm> {
+        return self.privateConfirm.asObservable()
+    }
+    
     var buttonEnabled : Observable<Bool> {
         return Observable.combineLatest(self.privateUsername.asObservable(), self.privatePassword.asObservable()) { (username, password) in
             return username != "" && password != ""
         }
     }
     
-    public func initBindings(fetchDataSource: Driver<Void>,
+    public func initBindings(viewDidAppear: Driver<Void>,
                              loginBtnPressed: Driver<Void>,
                              usernameTF: Observable<String>,
                              passwordTF: Observable<String>,
@@ -49,14 +54,14 @@ class LoginViewModel: MGTBaseViewModel {
         passwordTF.bind(to: privatePassword).disposed(by: disposeBag)
         saveCredentialsSwitch.bind(to: privateSaveCredentials).disposed(by: disposeBag)
         
-        fetchDataSource.drive(onNext: { [weak self] (_) in
+        viewDidAppear.drive(onNext: { [weak self] (_) in
                 self?.checkAutologin()
             })
             .disposed(by: self.disposeBag)
         
         loginBtnPressed
             .drive(onNext: { [weak self] in
-                self?.loginUser(autologin: false)
+                self?.checkUserForLogin(autologin: false)
             })
             .disposed(by: self.disposeBag)
     }
@@ -65,38 +70,50 @@ class LoginViewModel: MGTBaseViewModel {
         if let credentials = SharedInstance.shared.getStoredCredentials() {
             self.privateUsername.accept(credentials.username)
             self.privatePassword.accept(credentials.password)
-            loginUser(autologin: true)
+            checkUserForLogin(autologin: true)
         }
     }
     
-    private func loginUser(autologin: Bool){
+    private func checkUserForLogin(autologin: Bool){
         privateIsLoading.accept(true)
         var user : User?
-        
-        if let storedUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue, predicate: NSPredicate.init(format: "username = %@", privateUsername.value)).first as? User {
-            user = storedUser
+    
+        if let storedUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue, predicate: NSPredicate.init(format: "username = %@", privateUsername.value, privatePassword.value)).first as? User {
+            if storedUser.password != privatePassword.value {
+                privateError
+                    .onNext(
+                        MGTError.init(title: Strings.Errors.error,
+                                      description: Strings.Errors.invalidCredentials)
+                    )
+            }
+            else {
+                loginUser(user: storedUser, storeCredential: privateSaveCredentials.value || autologin)
+            }
         }
         else {
-            user = ModelController.shared.new(forEntity: .user) as? User
-            user!.username = privateUsername.value
-            ModelController.shared.save()
-        }
-
-        SharedInstance.shared.loginUser(user!)
-        if privateSaveCredentials.value && !autologin {
-            SharedInstance.shared.storeCredentials(username: privateUsername.value, password: privatePassword.value)
+            privateConfirm.onNext(MGTConfirm.init(title: Strings.Login.createUserTitle,
+                                                  message: Strings.Login.createUserMessage(username: privateUsername.value),
+                                                  callback: { [weak self] (confirm) in
+                                                    if confirm {
+                                                        user = ModelController.shared.new(forEntity: .user) as? User
+                                                        user!.username = self?.privateUsername.value
+                                                        user!.password = (self?.privatePassword.value)!
+                                                        ModelController.shared.save()
+                                                        self?.loginUser(user: user!,
+                                                                        storeCredential: (self?.privateSaveCredentials.value)! || autologin)
+                                                    }
+            }))
         }
         
+        privateIsLoading.accept(false)
+    }
+    
+    func loginUser(user: User, storeCredential: Bool){
+        SharedInstance.shared.loginUser(user, storeCredential: storeCredential)
+
         self.privatePerformSegue.onNext(
             MGTViewModelSegue.init(identifier: Segues.Login.toHome)
         )
-        
-// Usefull if with Apicall
-//        self.privateError.onNext(
-//            MGTError.init(title: Strings.Errors.error,
-//                          description: Strings.Errors.invalidCredentials)
-//        )
-        privateIsLoading.accept(false)
     }
     
     public func viewModelFor(_ vc: inout UIViewController) {

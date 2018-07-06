@@ -28,12 +28,21 @@ public class SharedInstance : NSObject {
         return nil
     }
     
-    public func loginUser(_ user: User){
+    public func loginUser(_ user: User, storeCredential: Bool){
         self.currentUser = user
+        if storeCredential {
+            self.storeCredentials(username: user.username!, password: user.password)
+        }
     }
     
     public func logout(){
-        UIApplication.shared.keyWindow?.rootViewController = UIStoryboard.init(name: "Login", bundle: nil).instantiateInitialViewController()
+        let transition = CATransition()
+        transition.duration = Globals.Timing.transitionFromBottom
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = kCATransitionFromBottom
+        
+        UIApplication.shared.keyWindow?.rootViewController?.view.layer.add(transition, forKey: nil)
+        UIApplication.shared.keyWindow!.rootViewController = UIStoryboard.init(name: "Login", bundle: nil).instantiateInitialViewController()
         self.currentUser = nil
         UserDefaults.standard.removeObject(forKey: Globals.PrefsKeys.loggedUsername)
         UserDefaults.standard.removeObject(forKey: Globals.PrefsKeys.loggedPassword)

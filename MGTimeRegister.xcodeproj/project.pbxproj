@@ -31,16 +31,14 @@
 		90358C6C20E9B4B100AC726B /* Company+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6220E9B4B100AC726B /* Company+CoreDataClass.swift */; };
 		90358C6D20E9B4B100AC726B /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6320E9B4B100AC726B /* Company+CoreDataProperties.swift */; };
 		90358C6E20E9B4B100AC726B /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6420E9B4B100AC726B /* User+CoreDataClass.swift */; };
-		90358C6F20E9B4B100AC726B /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C6520E9B4B100AC726B /* User+CoreDataProperties.swift */; };
 		90358C7520EA28AB00AC726B /* ReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C7420EA28AB00AC726B /* ReportVC.swift */; };
 		90358C7720EA28C800AC726B /* SelectCompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C7620EA28C800AC726B /* SelectCompanyVC.swift */; };
 		90358C8120EA2A2400AC726B /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C7C20EA2A2300AC726B /* ReportViewModel.swift */; };
 		90358C8220EA2A2400AC726B /* SelectCompanyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C7E20EA2A2300AC726B /* SelectCompanyViewModel.swift */; };
 		90358C8320EA2A2400AC726B /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8020EA2A2400AC726B /* OverviewViewModel.swift */; };
-		90358C8520EA36D700AC726B /* MGTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8420EA36D700AC726B /* MGTError.swift */; };
-		90358C8720EA37C900AC726B /* MGTViewModelSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8620EA37C900AC726B /* MGTViewModelSegue.swift */; };
 		90358C8920EA383400AC726B /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358C8820EA383400AC726B /* Segues.swift */; };
 		90453E3F20ECC722006B6AA2 /* MGTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90453E3E20ECC722006B6AA2 /* MGTTabBarController.swift */; };
+		9060E2EA20F01C08002CEA09 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060E2E920F01C08002CEA09 /* User+CoreDataProperties.swift */; };
 		906A8DE720EB82E900821BD4 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A8DE620EB82E900821BD4 /* Protocols.swift */; };
 		90AF20B920EA4E860026481F /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AF20B820EA4E860026481F /* AlertView.xib */; };
 		90AF20BE20EA7A9B0026481F /* CompanyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF20BC20EA7A9B0026481F /* CompanyTableViewCell.swift */; };
@@ -114,16 +112,15 @@
 		90358C6220E9B4B100AC726B /* Company+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataClass.swift"; sourceTree = "<group>"; };
 		90358C6320E9B4B100AC726B /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		90358C6420E9B4B100AC726B /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		90358C6520E9B4B100AC726B /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		90358C7420EA28AB00AC726B /* ReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportVC.swift; sourceTree = "<group>"; };
 		90358C7620EA28C800AC726B /* SelectCompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCompanyVC.swift; sourceTree = "<group>"; };
 		90358C7C20EA2A2300AC726B /* ReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
 		90358C7E20EA2A2300AC726B /* SelectCompanyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCompanyViewModel.swift; sourceTree = "<group>"; };
 		90358C8020EA2A2400AC726B /* OverviewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
-		90358C8420EA36D700AC726B /* MGTError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTError.swift; sourceTree = "<group>"; };
-		90358C8620EA37C900AC726B /* MGTViewModelSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTViewModelSegue.swift; sourceTree = "<group>"; };
 		90358C8820EA383400AC726B /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		90453E3E20ECC722006B6AA2 /* MGTTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTTabBarController.swift; sourceTree = "<group>"; };
+		9060E2E820F01AFB002CEA09 /* MGTimeRegister_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MGTimeRegister_v2.xcdatamodel; sourceTree = "<group>"; };
+		9060E2E920F01C08002CEA09 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/User+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		906A8DE620EB82E900821BD4 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		90AF20B820EA4E860026481F /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		90AF20BC20EA7A9B0026481F /* CompanyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableViewCell.swift; sourceTree = "<group>"; };
@@ -277,7 +274,7 @@
 				90358C4A20E9AF0900AC726B /* ModelController.swift */,
 				90358C2E20E9900100AC726B /* MGTimeRegister.xcdatamodeld */,
 				90358C6420E9B4B100AC726B /* User+CoreDataClass.swift */,
-				90358C6520E9B4B100AC726B /* User+CoreDataProperties.swift */,
+				9060E2E920F01C08002CEA09 /* User+CoreDataProperties.swift */,
 				90358C6220E9B4B100AC726B /* Company+CoreDataClass.swift */,
 				90358C6320E9B4B100AC726B /* Company+CoreDataProperties.swift */,
 				90FF6FBD20EC168E00006143 /* Project+CoreDataClass.swift */,
@@ -293,8 +290,6 @@
 			children = (
 				90358BFB20E98DB400AC726B /* AppDelegate.swift */,
 				90358C3C20E9ABB800AC726B /* SharedInstance.swift */,
-				90358C8420EA36D700AC726B /* MGTError.swift */,
-				90358C8620EA37C900AC726B /* MGTViewModelSegue.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -642,13 +637,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				90CD389E20EAD4C000157DC7 /* SelectProjectViewModel.swift in Sources */,
-				90358C8720EA37C900AC726B /* MGTViewModelSegue.swift in Sources */,
 				90358C1F20E98DB500AC726B /* AppDelegate.swift in Sources */,
 				906A8DE720EB82E900821BD4 /* Protocols.swift in Sources */,
 				90CD389A20EAD47A00157DC7 /* SelectProjectVC.swift in Sources */,
 				90358C6C20E9B4B100AC726B /* Company+CoreDataClass.swift in Sources */,
 				90358C2420E98DB500AC726B /* MGTBaseVC.swift in Sources */,
 				90D751A120EE6EE000D316C5 /* ReportTimeListViewModel.swift in Sources */,
+				9060E2EA20F01C08002CEA09 /* User+CoreDataProperties.swift in Sources */,
 				90FF6FBE20EC168E00006143 /* Project+CoreDataProperties.swift in Sources */,
 				90358C4320E9ACD700AC726B /* OverviewVC.swift in Sources */,
 				90FF6FBF20EC168E00006143 /* Project+CoreDataClass.swift in Sources */,
@@ -662,7 +657,6 @@
 				90CD38A420EB4FFA00157DC7 /* NewProjectViewModel.swift in Sources */,
 				90358C1720E98DB500AC726B /* MGTBaseViewModel.swift in Sources */,
 				90AF20C220EA7AAC0026481F /* ProjectTableViewCell.swift in Sources */,
-				90358C8520EA36D700AC726B /* MGTError.swift in Sources */,
 				90358C1D20E98DB500AC726B /* Globals.swift in Sources */,
 				90CD38A020EAD4CB00157DC7 /* NewTimeEntryViewModel.swift in Sources */,
 				90358C1A20E98DB500AC726B /* Strings.swift in Sources */,
@@ -672,7 +666,6 @@
 				90CD38A220EB4FDA00157DC7 /* NewCompanyViewModel.swift in Sources */,
 				90CD38A620EB502600157DC7 /* NewCompanyVC.swift in Sources */,
 				90358C6E20E9B4B100AC726B /* User+CoreDataClass.swift in Sources */,
-				90358C6F20E9B4B100AC726B /* User+CoreDataProperties.swift in Sources */,
 				90CD38A820EB503200157DC7 /* NewProjectVC.swift in Sources */,
 				90358C4B20E9AF0900AC726B /* ModelController.swift in Sources */,
 				90358C3320E9903100AC726B /* AlertView.swift in Sources */,
@@ -972,9 +965,10 @@
 		90358C2E20E9900100AC726B /* MGTimeRegister.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				9060E2E820F01AFB002CEA09 /* MGTimeRegister_v2.xcdatamodel */,
 				90358C2F20E9900100AC726B /* MGTimeRegister.xcdatamodel */,
 			);
-			currentVersion = 90358C2F20E9900100AC726B /* MGTimeRegister.xcdatamodel */;
+			currentVersion = 9060E2E820F01AFB002CEA09 /* MGTimeRegister_v2.xcdatamodel */;
 			path = MGTimeRegister.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

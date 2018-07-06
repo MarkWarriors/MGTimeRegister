@@ -17,6 +17,7 @@ struct Globals {
     }
     
     struct Timing {
+        static let transitionFromBottom : Double = 0.3
         static let overlayAnimation : Double = 0.3
         static let toggleAnimation : Double = 0.3
     }

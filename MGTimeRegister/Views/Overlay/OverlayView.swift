@@ -11,8 +11,7 @@ import UIKit
 public class OverlayView : UIView {
     
     var completion : (()->())?
-    var callback : ((_ confirmed: Bool?)->())?
-    public var isShowed : Bool = false
+    var callback : ((_ confirmed: Bool)->())?
     
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -23,10 +22,9 @@ public class OverlayView : UIView {
     }
     
     internal func makeViewAppear(viewController: UIViewController){
-        if !isShowed {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
             DispatchQueue.main.async {
                 self.layoutSubviews()
-                self.isShowed = true
                 self.alpha = 0
                 self.frame = viewController.view.bounds
                 viewController.view.addSubview(self)
@@ -42,13 +40,12 @@ public class OverlayView : UIView {
     }
     
     internal func makeViewDisappear(){
-        if isShowed {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.25, animations: {
                     self.alpha = 0
                 }) { (completed) in
                     self.removeFromSuperview()
-                    self.isShowed = false
                 }
             }
         }

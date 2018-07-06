@@ -25,6 +25,16 @@ class MGTBaseVC: UIViewController {
         alertView.showAlert(onViewController: self, title: title, text: message, buttonText: Strings.Commons.ok)
     }
     
+    func showConfirm(title: String, message: String, onChoice callback: ((_ confirmed: Bool)->())?) {
+        alertView.showAlert(onViewController: self,
+                            title: title,
+                            text: message,
+                            buttonOkText: Strings.Commons.ok,
+                            buttonCancelText: Strings.Commons.cancel,
+                            callback: callback,
+                            onShowCompleted: nil)
+    }
+    
     func showWaitView(){
         waitView.showWait(onViewController: self)
     }

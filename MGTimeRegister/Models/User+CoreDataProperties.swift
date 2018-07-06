@@ -1,9 +1,8 @@
 //
 //  User+CoreDataProperties.swift
-//  MGTimeRegister
+//  
 //
-//  Created by Marco Guerrieri on 02/07/18.
-//  Copyright © 2018 Marco Guerrieri. All rights reserved.
+//  Created by Marco Guerrieri on 06/07/18.
 //
 //
 
@@ -18,6 +17,7 @@ extension User {
     }
 
     @NSManaged public var username: String?
+    @NSManaged public var password: String
     @NSManaged public var companies: NSSet?
 
 }

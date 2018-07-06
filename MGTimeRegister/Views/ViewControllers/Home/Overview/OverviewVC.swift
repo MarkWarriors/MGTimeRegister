@@ -35,6 +35,14 @@ class OverviewVC: MGTBaseVC, ViewModelBased {
         
         viewModel!.usernameText.bind(to: usernameLbl.rx.text).disposed(by: disposeBag)
         
+        viewModel!.confirmAction
+            .bind { (confirm) in
+                self.showConfirm(title: confirm.title,
+                                 message: confirm.message,
+                                 onChoice: confirm.callback)
+            }
+            .disposed(by: disposeBag)
+        
         viewModel!.initBindings(fetchDataSource: viewWillAppear,
                                 logoutBtn: logoutBtn.rx.tap.asDriver())
         
