@@ -40,7 +40,7 @@ class OverviewViewModel: MGTBaseViewModel {
                     let projects = ModelController.shared.countElements(forEntityName: ModelController.Entity.project.rawValue)
                     self?.privateProjectsText.accept(String(projects))
                     
-                    let effort = ModelController.shared.countElements(forEntityName: ModelController.Entity.time.rawValue)
+                    let effort = ModelController.shared.sum(forEntityName: ModelController.Entity.time.rawValue, column: "hours")
                     self?.privateEffortText.accept(String(effort))
                 }
             })
