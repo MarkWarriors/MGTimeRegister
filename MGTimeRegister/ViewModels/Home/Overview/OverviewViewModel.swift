@@ -27,7 +27,7 @@ class OverviewViewModel: MGTBaseViewModel {
     }
     
     var effortText : Observable<String> {
-        return privateProjectsText.asObservable()
+        return privateEffortText.asObservable()
     }
 
     public func initBindings(fetchDataSource: Driver<Void>){

@@ -28,7 +28,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="400" verticalCompressionResistancePriority="400" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7G-bK-zUf">
-                                        <rect key="frame" x="158" y="12.5" width="18.5" height="19.5"/>
+                                        <rect key="frame" x="176" y="12.5" width="18.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="400" verticalCompressionResistancePriority="400" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzG-ni-gZT">
-                                        <rect key="frame" x="184.5" y="6.5" width="90" height="32"/>
+                                        <rect key="frame" x="202.5" y="6.5" width="90" height="32"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="2018-06-05">
                                             <color key="titleColor" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -169,8 +169,8 @@
                                     <constraint firstItem="wB5-JW-oIx" firstAttribute="width" secondItem="p8a-6l-iaV" secondAttribute="width" id="la0-wd-Xhf"/>
                                     <constraint firstItem="d4a-Sj-lSl" firstAttribute="top" secondItem="p8a-6l-iaV" secondAttribute="bottom" priority="500" constant="16" id="oBB-Ed-TNT"/>
                                     <constraint firstItem="wB5-JW-oIx" firstAttribute="height" secondItem="p8a-6l-iaV" secondAttribute="height" id="p6W-nC-3c3"/>
-                                    <constraint firstItem="r7G-bK-zUf" firstAttribute="leading" secondItem="Kkd-sa-HV1" secondAttribute="trailing" constant="4" id="qVU-FK-yiu"/>
-                                    <constraint firstItem="r7G-bK-zUf" firstAttribute="leading" secondItem="OHu-fA-FV2" secondAttribute="centerX" priority="200" constant="16" id="wjj-ix-ms5"/>
+                                    <constraint firstItem="r7G-bK-zUf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Kkd-sa-HV1" secondAttribute="trailing" constant="4" id="qVU-FK-yiu"/>
+                                    <constraint firstItem="r7G-bK-zUf" firstAttribute="leading" secondItem="OHu-fA-FV2" secondAttribute="centerX" constant="16" id="wjj-ix-ms5"/>
                                     <constraint firstItem="Frr-Ju-iN7" firstAttribute="top" secondItem="OHu-fA-FV2" secondAttribute="top" priority="1" constant="16" id="y4e-IV-18p"/>
                                     <constraint firstItem="wB5-JW-oIx" firstAttribute="centerY" secondItem="p8a-6l-iaV" secondAttribute="centerY" id="yg0-tf-HdJ"/>
                                 </constraints>
@@ -762,7 +762,7 @@
                                                 <color key="textColor" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n68-x6-DBb">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n68-x6-DBb" customClass="MGTextView" customModule="MGTimeRegister" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="395" width="382" height="160"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -1325,20 +1325,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3t-jY-6tG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2306.25" y="142.5"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="chC-Ax-aCc">
-            <objects>
-                <viewController id="Icg-0B-hMT" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Doy-as-I5f">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="hIv-qE-fFc"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Inf-ee-np2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>
