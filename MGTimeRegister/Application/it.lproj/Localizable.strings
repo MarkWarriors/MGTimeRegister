@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  MGTimeRegister
+
+  Created by Marco Guerrieri on 07/07/18.
+  Copyright © 2018 Marco Guerrieri. All rights reserved.
+*/
+
+"Login.createUserTitle" = "Crea utente";
+"Login.createUserMessage(username:)" = "L'utente %@ non esiste, vorresti crearlo?";
+"Logout.logoutTitle" = "Logout";
+"Logout.logoutMessage" = "Sicuro di voler effettuare il logout?";
+"Commons.yes" = "Sì";
+"Commons.no" = "No";
+"Commons.ok" = "Ok";
+"Commons.confirm" = "Conferma";
+"Commons.cancel" = "Annulla";
+"Commons.delete" = "Elimina";
+"Commons.select" = "Seleziona";
+"Errors.error" = "Errore";
+"Errors.invalidCredentials" = "Credenziali errate";
+"Errors.errorOccurred" = "Si è verificato un errore";

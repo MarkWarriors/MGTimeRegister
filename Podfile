@@ -15,8 +15,6 @@ target 'MGTimeRegister' do
     pod 'RxSwift', '~> 4.2.0'
     pod 'RxCocoa', '~> 4.2.0'
     pod 'RxDataSources'
-    # pod 'CVCalendar', '~> 1.6.1'
-	pod 'JTAppleCalendar', '~> 7.0'
 
 end
             

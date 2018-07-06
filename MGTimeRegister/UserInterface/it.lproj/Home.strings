@@ -1,0 +1,189 @@
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "2pX-TS-zOg"; */
+"2pX-TS-zOg.normalTitle" = "Chiudi";
+
+/* Class = "UINavigationItem"; title = "Add Time Entry"; ObjectID = "34b-zM-X9N"; */
+"34b-zM-X9N.title" = "Aggiungi tempo";
+
+/* Class = "UIButton"; normalTitle = "Add Company"; ObjectID = "48Y-NV-I29"; */
+"48Y-NV-I29.normalTitle" = "Aggiungi Azienda";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "4df-sJ-XPj"; */
+"4df-sJ-XPj.text" = "0";
+
+/* Class = "UILabel"; text = "Pick a date"; ObjectID = "60Z-oj-vwY"; */
+"60Z-oj-vwY.text" = "Scegli una data";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "61N-3d-RJa"; */
+"61N-3d-RJa.normalTitle" = "Salva";
+
+/* Class = "UILabel"; text = "New Project"; ObjectID = "6Hf-XG-eH5"; */
+"6Hf-XG-eH5.text" = "Nuovo progetto";
+
+/* Class = "UIButton"; normalTitle = "Select"; ObjectID = "6sE-lE-lHx"; */
+"6sE-lE-lHx.normalTitle" = "Seleziona";
+
+/* Class = "UIBarButtonItem"; title = "Time"; ObjectID = "9t2-mm-DX7"; */
+"9t2-mm-DX7.title" = "Tempo";
+
+/* Class = "UILabel"; text = "New Company"; ObjectID = "AGX-Jg-egf"; */
+"AGX-Jg-egf.text" = "Nuova azienda";
+
+/* Class = "UILabel"; text = "Company"; ObjectID = "BCI-G5-OSG"; */
+"BCI-G5-OSG.text" = "Azienda";
+
+/* Class = "UILabel"; text = "Company Name"; ObjectID = "Br1-If-qJF"; */
+"Br1-If-qJF.text" = "Nome azienda";
+
+/* Class = "UITabBarItem"; title = "Add Time"; ObjectID = "C2X-l9-3qn"; */
+"C2X-l9-3qn.title" = "Aggiungi tempo";
+
+/* Class = "UILabel"; text = "From"; ObjectID = "Frr-Ju-iN7"; */
+"Frr-Ju-iN7.text" = "Da";
+
+/* Class = "UILabel"; text = "Company >"; ObjectID = "JXu-Ob-Gt7"; */
+"JXu-Ob-Gt7.text" = "Azienda >";
+
+/* Class = "UILabel"; text = "Project"; ObjectID = "Je6-zk-EBm"; */
+"Je6-zk-EBm.text" = "Progetto";
+
+/* Class = "UIViewController"; title = "Select Project"; ObjectID = "KBc-4N-Hc1"; */
+"KBc-4N-Hc1.title" = "Seleziona Progetto";
+
+/* Class = "UIButton"; normalTitle = "2018-06-05"; ObjectID = "Kkd-sa-HV1"; */
+"Kkd-sa-HV1.normalTitle" = "2018-06-05";
+
+/* Class = "UIViewController"; title = "Overview"; ObjectID = "LQ4-jq-ah2"; */
+"LQ4-jq-ah2.title" = "Panoramica";
+
+/* Class = "UILabel"; text = "COMPANY"; ObjectID = "LdE-zS-p1O"; */
+"LdE-zS-p1O.text" = "AZIENDA";
+
+/* Class = "UINavigationItem"; title = "Select Time Entry"; ObjectID = "NdL-Jp-lMh"; */
+"NdL-Jp-lMh.title" = "Seleziona tempo";
+
+/* Class = "UITextField"; placeholder = "Company name"; ObjectID = "OqZ-AG-Ihu"; */
+"OqZ-AG-Ihu.placeholder" = "Nome azienda";
+
+/* Class = "UITabBarItem"; title = "Reports"; ObjectID = "P2l-0O-sNU"; */
+"P2l-0O-sNU.title" = "Report";
+
+/* Class = "UILabel"; text = "PROJECTS"; ObjectID = "PlX-wg-gN0"; */
+"PlX-wg-gN0.text" = "PROGETTI";
+
+/* Class = "UILabel"; text = "NOTES"; ObjectID = "QqS-Ez-f3W"; */
+"QqS-Ez-f3W.text" = "NOTE";
+
+/* Class = "UIViewController"; title = "Reports"; ObjectID = "Sad-md-8Lv"; */
+"Sad-md-8Lv.title" = "Report";
+
+/* Class = "UIButton"; normalTitle = "Add Project"; ObjectID = "VMx-5W-2Gp"; */
+"VMx-5W-2Gp.normalTitle" = "Aggiungi progetto";
+
+/* Class = "UILabel"; text = "USER"; ObjectID = "VVA-kb-FJQ"; */
+"VVA-kb-FJQ.text" = "UTENTE";
+
+/* Class = "UIBarButtonItem"; title = "Project"; ObjectID = "W64-ya-vd3"; */
+"W64-ya-vd3.title" = "Progetto";
+
+/* Class = "UIBarButtonItem"; title = "Company"; ObjectID = "XTe-hB-amw"; */
+"XTe-hB-amw.title" = "Azienda";
+
+/* Class = "UIViewController"; title = "Select Company"; ObjectID = "aLb-PL-k7d"; */
+"aLb-PL-k7d.title" = "Seleziona Azienda";
+
+/* Class = "UILabel"; text = "TOTAL HOURS"; ObjectID = "aeU-ZJ-gAA"; */
+"aeU-ZJ-gAA.text" = "ORE TOTALI";
+
+/* Class = "UIViewController"; title = "Select Project"; ObjectID = "bOb-UN-1tL"; */
+"bOb-UN-1tL.title" = "Seleziona progetto";
+
+/* Class = "UIViewController"; title = "Insert Time"; ObjectID = "cVr-MB-ekr"; */
+"cVr-MB-ekr.title" = "Inserisci tempo";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "cdG-7o-ZtQ"; */
+"cdG-7o-ZtQ.normalTitle" = "Salva";
+
+/* Class = "UITextField"; placeholder = "Project or Company name"; ObjectID = "d4a-Sj-lSl"; */
+"d4a-Sj-lSl.placeholder" = "Nome progetto o azienda";
+
+/* Class = "UILabel"; text = "Hours"; ObjectID = "dTn-BM-W9p"; */
+"dTn-BM-W9p.text" = "Ore";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "eXz-Jg-M7H"; */
+"eXz-Jg-M7H.normalTitle" = "Chiud";
+
+/* Class = "UILabel"; text = "DATE"; ObjectID = "ecS-Y4-3By"; */
+"ecS-Y4-3By.text" = "Data";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "em4-ic-u0Q"; */
+"em4-ic-u0Q.normalTitle" = "Salva";
+
+/* Class = "UILabel"; text = "Project"; ObjectID = "exB-7l-PJa"; */
+"exB-7l-PJa.text" = "Progetto";
+
+/* Class = "UILabel"; text = "COMPANIES"; ObjectID = "fZF-A8-U2x"; */
+"fZF-A8-U2x.text" = "AZIENDE";
+
+/* Class = "UINavigationItem"; title = "Select Project"; ObjectID = "fqS-X9-A6n"; */
+"fqS-X9-A6n.title" = "Seleziona progetto";
+
+/* Class = "UILabel"; text = "100 H"; ObjectID = "gEo-TM-6jE"; */
+"gEo-TM-6jE.text" = "100 H";
+
+/* Class = "UILabel"; text = "EFFORT"; ObjectID = "hKn-cx-xhx"; */
+"hKn-cx-xhx.text" = "EFFORT";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "kLF-Gu-SRo"; */
+"kLF-Gu-SRo.normalTitle" = "Chiudi";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "kQz-gh-Xfx"; */
+"kQz-gh-Xfx.text" = "0";
+
+/* Class = "UITextField"; placeholder = "Project name"; ObjectID = "kTw-bi-sXq"; */
+"kTw-bi-sXq.placeholder" = "Nome progetto";
+
+/* Class = "UIButton"; normalTitle = "Today"; ObjectID = "lKz-p4-mLF"; */
+"lKz-p4-mLF.normalTitle" = "Oggi";
+
+/* Class = "UIButton"; normalTitle = "2018-06-05"; ObjectID = "lzG-ni-gZT"; */
+"lzG-ni-gZT.normalTitle" = "2018-06-05";
+
+/* Class = "UIButton"; normalTitle = "Last Month"; ObjectID = "mC2-fe-66c"; */
+"mC2-fe-66c.normalTitle" = "Ultimo mese";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "on8-4l-zcR"; */
+"on8-4l-zcR.text" = "Username";
+
+/* Class = "UIButton"; normalTitle = "Today"; ObjectID = "p8a-6l-iaV"; */
+"p8a-6l-iaV.normalTitle" = "Oggi";
+
+/* Class = "UITabBarItem"; title = "Add Time"; ObjectID = "ppF-Bt-fDJ"; */
+"ppF-Bt-fDJ.title" = "Aggiungi tempo";
+
+/* Class = "UIButton"; normalTitle = "Logout"; ObjectID = "r25-oF-iUu"; */
+"r25-oF-iUu.normalTitle" = "Logout";
+
+/* Class = "UILabel"; text = "To"; ObjectID = "r7G-bK-zUf"; */
+"r7G-bK-zUf.text" = "A";
+
+/* Class = "UITabBarItem"; title = "Add Time"; ObjectID = "sDj-4B-xfG"; */
+"sDj-4B-xfG.title" = "Aggiungi tempo";
+
+/* Class = "UINavigationItem"; title = "Select Company"; ObjectID = "tiW-0s-tIM"; */
+"tiW-0s-tIM.title" = "Seleziona azienda";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "uj1-Gf-SUd"; */
+"uj1-Gf-SUd.text" = "0";
+
+/* Class = "UITabBarItem"; title = "Add Time"; ObjectID = "uyE-sB-83Y"; */
+"uyE-sB-83Y.title" = "Aggiungi tempo";
+
+/* Class = "UIBarButtonItem"; title = "Project"; ObjectID = "v1E-P8-dXG"; */
+"v1E-P8-dXG.title" = "Progetto";
+
+/* Class = "UITabBarItem"; title = "Overview"; ObjectID = "vev-cM-zrO"; */
+"vev-cM-zrO.title" = "Panoramica";
+
+/* Class = "UIButton"; normalTitle = "Last Week"; ObjectID = "wB5-JW-oIx"; */
+"wB5-JW-oIx.normalTitle" = "Ultima settimana";

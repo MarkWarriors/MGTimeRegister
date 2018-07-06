@@ -1,0 +1,18 @@
+
+/* Class = "UINavigationItem"; title = "Login"; ObjectID = "2JY-Uu-NmO"; */
+"2JY-Uu-NmO.title" = "Login";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "ASw-7J-RYl"; */
+"ASw-7J-RYl.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "MGTimeRegister"; ObjectID = "R2N-ao-mc2"; */
+"R2N-ao-mc2.text" = "MGTimeRegister";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "gkR-SF-fPq"; */
+"gkR-SF-fPq.placeholder" = "Username";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "hdT-wD-S5X"; */
+"hdT-wD-S5X.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "Auto login"; ObjectID = "xis-Oc-eFT"; */
+"xis-Oc-eFT.text" = "Auto login";

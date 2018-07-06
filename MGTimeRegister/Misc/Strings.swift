@@ -17,30 +17,30 @@ class Strings {
     }
     
     struct Login {
-        public static let createUserTitle = "Create user".localized
+        public static let createUserTitle = "Login.createUserTitle".localized
         public static func createUserMessage(username: String) -> String {
-            return String(format: "The user %@ not exist, would you like to create it?", username).localized
+            return String(format: "Login.createUserMessage(username:)".localized , username)
         }
     }
     
     struct Logout {
-        public static let logoutUserTitle = "Logout".localized
-        public static let logoutUserText = "Are you sure you want to logout?".localized
+        public static let logoutUserTitle = "Logout.logoutTitle".localized
+        public static let logoutUserText = "Logout.logoutMessage".localized
     }
     
     struct Commons {
-        public static let yes = "Yes".localized
-        public static let no = "No".localized
-        public static let ok = "Ok".localized
-        public static let confirm = "Confirm".localized
-        public static let cancel = "Cancel".localized
-        public static let delete = "Delete".localized
-        public static let select = "Select".localized
+        public static let yes = "Commons.yes".localized
+        public static let no = "Commons.no".localized
+        public static let ok = "Commons.ok".localized
+        public static let confirm = "Commons.confirm".localized
+        public static let cancel = "Commons.cancel".localized
+        public static let delete = "Commons.delete".localized
+        public static let select = "Commons.select".localized
     }
     
     struct Errors {
-        public static let error = "Error".localized
-        public static let invalidCredentials = "Invalid credentials".localized
-        public static let genericErrorOccurred = "An error occurred".localized
+        public static let error = "Errors.error".localized
+        public static let invalidCredentials = "Errors.invalidCredentials".localized
+        public static let genericErrorOccurred = "Errors.errorOccurred".localized
     }
 }
