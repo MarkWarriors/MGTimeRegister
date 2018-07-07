@@ -7,29 +7,194 @@
 //
 
 import XCTest
+import RxSwift
+import RxCocoa
+
+@testable import MGTimeRegister
 
 class LoginViewModelTest: XCTestCase {
     
+    let testUsername = "NotExistentUser"
+    let testPassword = "NotExistentUserPassword"
+    
+    let disposeBag = DisposeBag()
+    var loginVM : LoginViewModel?
+    let viewDidAppear = PublishRelay<Void>()
+    let loginBtn = PublishRelay<Void>()
+    let usernameTF = PublishRelay<String>()
+    let passwordTF = PublishRelay<String>()
+    let saveCredentialsSwitch = PublishRelay<Bool>()
+    var createdUser : User?
+
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        loginVM = LoginViewModel.init()
+        
+        loginVM?.initBindings(viewDidAppear: viewDidAppear.asDriver(onErrorJustReturn: Void()),
+                              loginBtnPressed: loginBtn.asDriver(onErrorJustReturn: Void()),
+                              usernameTF: usernameTF.asObservable(),
+                              passwordTF: passwordTF.asObservable(),
+                              saveCredentialsSwitch: saveCredentialsSwitch.asObservable())
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        createdUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue,
+                                                             predicate: NSPredicate.init(format: "username = %@ AND password = %@", testUsername, testPassword)).first as? User
+        if createdUser != nil {
+            ModelController.shared.managedObjectContext.delete(createdUser!)
+            try? ModelController.shared.managedObjectContext.save()
+        }
+        
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testLoginWithoutCredentials() {
+        let loadingExpectation = self.expectation(description: "show and dismiss loading expectation")
+        loadingExpectation.expectedFulfillmentCount = 2
+        
+        let errorExpectation = self.expectation(description: "show error expectation")
+
+        loginVM?.isLoading.bind(onNext: { (loading) in
+            if loading && loadingExpectation.expectationCount == 0{
+                loadingExpectation.fulfillAndCount()
+            }
+            else if !loading && loadingExpectation.expectationCount == 1 {
+                loadingExpectation.fulfillAndCount()
+            }
+        }).disposed(by: disposeBag)
+        
+        loginVM?.error.bind(onNext: { (error) in
+            errorExpectation.fulfill()
+        }).disposed(by: disposeBag)
+        
+        loginBtn.accept(Void())
+        
+        wait(for: [loadingExpectation, errorExpectation], timeout: 3)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testLoginUserNotFound() {
+        let loadingExpectation = self.expectation(description: "show and dismiss loading expectation")
+        loadingExpectation.expectedFulfillmentCount = 2
+        
+        let errorExpectation = self.expectation(description: "show error expectation")
+        errorExpectation.isInverted = true
+        
+        let confirmExpectation = self.expectation(description: "show confirm expectation")
+        
+        loginVM?.isLoading.bind(onNext: { (loading) in
+            if loading && loadingExpectation.expectationCount == 0{
+                loadingExpectation.fulfillAndCount()
+            }
+            else if !loading && loadingExpectation.expectationCount == 1 {
+                loadingExpectation.fulfillAndCount()
+            }
+            else {
+                loadingExpectation.fulfillAndCount()
+            }
+        }).disposed(by: disposeBag)
+        
+        loginVM?.error.bind(onNext: { (error) in
+            XCTAssertNotNil(error, "nil error")
+            errorExpectation.fulfill()
+        }).disposed(by: disposeBag)
+        
+        loginVM?.confirmAction.bind(onNext: { (confirm) in
+            XCTAssertNotNil(confirm, "nil confirm")
+            confirmExpectation.fulfill()
+            confirm.callback!(false)
+        }).disposed(by: disposeBag)
+        
+        usernameTF.accept(testUsername)
+        passwordTF.accept(testPassword)
+        loginBtn.accept(Void())
+        
+        wait(for: [loadingExpectation, errorExpectation, confirmExpectation], timeout: 2)
+        
+        createdUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue,
+                                                             predicate: NSPredicate.init(format: "username = %@ AND password = %@", testUsername, testPassword)).first as? User
+        
+        XCTAssertNil(createdUser)
+    }
+    
+    func testLoginUserAndCreate() {
+        let loadingExpectation = self.expectation(description: "show and dismiss loading expectation")
+        loadingExpectation.expectedFulfillmentCount = 2
+        
+        let errorExpectation = self.expectation(description: "show error expectation")
+        errorExpectation.isInverted = true
+        
+        let confirmExpectation = self.expectation(description: "show confirm expectation")
+        
+        loginVM?.isLoading.bind(onNext: { (loading) in
+            if loading && loadingExpectation.expectationCount == 0{
+                loadingExpectation.fulfillAndCount()
+            }
+            else if !loading && loadingExpectation.expectationCount == 1 {
+                loadingExpectation.fulfillAndCount()
+            }
+            else {
+                loadingExpectation.fulfillAndCount()
+            }
+        }).disposed(by: disposeBag)
+        
+        loginVM?.error.bind(onNext: { (error) in
+            XCTAssertNotNil(error, "nil error")
+            errorExpectation.fulfill()
+        }).disposed(by: disposeBag)
+        
+        loginVM?.confirmAction.bind(onNext: { (confirm) in
+            XCTAssertNotNil(confirm, "nil confirm")
+            confirmExpectation.fulfill()
+            confirm.callback!(true)
+        }).disposed(by: disposeBag)
+        
+        createdUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue,
+                                                             predicate: NSPredicate.init(format: "username = %@ AND password = %@", testUsername, testPassword)).first as? User
+        XCTAssertNil(createdUser)
+        
+        usernameTF.accept(testUsername)
+        passwordTF.accept(testPassword)
+        loginBtn.accept(Void())
+        
+        wait(for: [loadingExpectation, errorExpectation, confirmExpectation], timeout: 2)
+        
+        createdUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue,
+                                                          predicate: NSPredicate.init(format: "username = %@ AND password = %@", testUsername, testPassword)).first as? User
+        XCTAssertNotNil(createdUser)
+    }
+    
+    func testLoginWrongCredentials() {
+        
+        if createdUser == nil {
+            createdUser = ModelController.shared.new(forEntity: ModelController.Entity.user) as? User
+            createdUser!.username = testUsername
+            createdUser!.password = testPassword
         }
+        
+        let loadingExpectation = self.expectation(description: "show and dismiss loading expectation")
+        loadingExpectation.expectedFulfillmentCount = 2
+        
+        let errorExpectation = self.expectation(description: "show error expectation")
+        
+        loginVM?.isLoading.bind(onNext: { (loading) in
+            if loading && loadingExpectation.expectationCount == 0{
+                loadingExpectation.fulfillAndCount()
+            }
+            else if !loading && loadingExpectation.expectationCount == 1 {
+                loadingExpectation.fulfillAndCount()
+            }
+        }).disposed(by: disposeBag)
+        
+        usernameTF.accept(testUsername)
+        passwordTF.accept("wrongpassword")
+        loginVM?.error.bind(onNext: { (error) in
+            errorExpectation.fulfill()
+        }).disposed(by: disposeBag)
+        
+        loginBtn.accept(Void())
+        
+        wait(for: [loadingExpectation, errorExpectation], timeout: 3)
     }
     
 }
