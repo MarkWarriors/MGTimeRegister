@@ -173,6 +173,8 @@ class LoginViewModelTest: XCTestCase {
         createdUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue,
                                                           predicate: NSPredicate.init(format: "username = %@ AND password = %@", testUsername, testPassword)).first as? User
         XCTAssertNotNil(createdUser)
+
+        XCTAssertNotNil(SharedInstance.shared.currentUser)
     }
     
     func testLoginWrongCredentials() {
@@ -254,6 +256,8 @@ class LoginViewModelTest: XCTestCase {
         loginBtn.accept(Void())
         
         wait(for: [loadingExpectation, errorExpectation, confirmExpectation, segueExpectation], timeout: 3)
+
+        XCTAssertNotNil(SharedInstance.shared.currentUser)
     }
     
 }

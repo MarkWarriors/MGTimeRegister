@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         
         ModelController.shared.setup {
-            
         }
         return true
     }
