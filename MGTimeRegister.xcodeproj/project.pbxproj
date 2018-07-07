@@ -231,13 +231,13 @@
 			isa = PBXGroup;
 			children = (
 				90358C0F20E98DB400AC726B /* Info.plist */,
-				90358C2C20E98DC500AC726B /* Misc */,
 				90358BF520E98DB400AC726B /* Application */,
 				90358BF120E98DB400AC726B /* Models */,
-				90358BE120E98DB400AC726B /* Resources */,
-				90358C2D20E98E8500AC726B /* UserInterface */,
 				90358BEF20E98DB400AC726B /* ViewModels */,
 				90358C0120E98DB400AC726B /* Views */,
+				90358C2D20E98E8500AC726B /* UserInterface */,
+				90358C2C20E98DC500AC726B /* Misc */,
+				90358BE120E98DB400AC726B /* Resources */,
 				90358B9120E98D0700AC726B /* Supporting Files */,
 			);
 			path = MGTimeRegister;
