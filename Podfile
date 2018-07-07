@@ -9,12 +9,22 @@ post_install do |installer|
     end
 end
 
-target 'MGTimeRegister' do
 
-    pod 'IQKeyboardManagerSwift', '~> 6.0.4'
+def pods 
+	# Pods for MGTimeRegister
+	pod 'IQKeyboardManagerSwift', '~> 6.0.4'
     pod 'RxSwift', '~> 4.2.0'
     pod 'RxCocoa', '~> 4.2.0'
     pod 'RxDataSources'
+end
+
+target 'MGTimeRegister' do
+    pods	
+
+	target 'MGTimeRegisterTests' do
+	    inherit! :search_paths
+	    pods
+  	end
 
 end
             

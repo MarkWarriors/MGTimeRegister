@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CFBB06A5C8DC07F5DAF6EA3 /* Pods_MGTimeRegisterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0599713E703D03CCABCF29 /* Pods_MGTimeRegisterTests.framework */; };
 		90358C1620E98DB500AC726B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90358BEE20E98DB400AC726B /* Assets.xcassets */; };
 		90358C1720E98DB500AC726B /* MGTBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF020E98DB400AC726B /* MGTBaseViewModel.swift */; };
 		90358C1A20E98DB500AC726B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF620E98DB400AC726B /* Strings.swift */; };
@@ -44,6 +45,8 @@
 		9060E2FE20F03324002CEA09 /* ProjectHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9060E30020F03324002CEA09 /* ProjectHeaderCell.xib */; };
 		9060E30320F0332B002CEA09 /* TimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9060E30520F0332B002CEA09 /* TimeTableViewCell.xib */; };
 		906A8DE720EB82E900821BD4 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A8DE620EB82E900821BD4 /* Protocols.swift */; };
+		90A7BA6B20F0C24100C6D32F /* LoginViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7BA6A20F0C24100C6D32F /* LoginViewModelTest.swift */; };
+		90A7BA6D20F0CD7E00C6D32F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7BA6C20F0CD7E00C6D32F /* Extensions.swift */; };
 		90AF20B920EA4E860026481F /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AF20B820EA4E860026481F /* AlertView.xib */; };
 		90AF20BE20EA7A9B0026481F /* CompanyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF20BC20EA7A9B0026481F /* CompanyTableViewCell.swift */; };
 		90AF20C220EA7AAC0026481F /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF20C020EA7AAC0026481F /* ProjectTableViewCell.swift */; };
@@ -81,6 +84,7 @@
 
 /* Begin PBXFileReference section */
 		25AEE441ACA4E9FBA7608358 /* Pods-MGTimeRegister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGTimeRegister.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGTimeRegister/Pods-MGTimeRegister.release.xcconfig"; sourceTree = "<group>"; };
+		3E0599713E703D03CCABCF29 /* Pods_MGTimeRegisterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MGTimeRegisterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B90F95725FA9E8ABCD699D1 /* Pods_MGTimeRegister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MGTimeRegister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90358B8420E98D0700AC726B /* MGTimeRegister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGTimeRegister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90358BC720E98D0700AC726B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 		9060E30420F0332B002CEA09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TimeTableViewCell.xib; sourceTree = "<group>"; };
 		9060E30720F0332E002CEA09 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/TimeTableViewCell.strings; sourceTree = "<group>"; };
 		906A8DE620EB82E900821BD4 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		90A7BA6A20F0C24100C6D32F /* LoginViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTest.swift; sourceTree = "<group>"; };
+		90A7BA6C20F0CD7E00C6D32F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		90AF20B820EA4E860026481F /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		90AF20BC20EA7A9B0026481F /* CompanyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableViewCell.swift; sourceTree = "<group>"; };
 		90AF20C020EA7AAC0026481F /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
@@ -157,6 +163,8 @@
 		90FF6FBC20EC168D00006143 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Project+CoreDataProperties.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Project+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		90FF6FBD20EC168E00006143 /* Project+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Project+CoreDataClass.swift"; path = "/Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/Models/Project+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		D0917ECA5CFCC0E7A4261922 /* Pods-MGTimeRegister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGTimeRegister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGTimeRegister/Pods-MGTimeRegister.debug.xcconfig"; sourceTree = "<group>"; };
+		D51F35CB547E113E885A6359 /* Pods-MGTimeRegisterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGTimeRegisterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGTimeRegisterTests/Pods-MGTimeRegisterTests.release.xcconfig"; sourceTree = "<group>"; };
+		DD5598AFCC2A8C3281515E40 /* Pods-MGTimeRegisterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGTimeRegisterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGTimeRegisterTests/Pods-MGTimeRegisterTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CFBB06A5C8DC07F5DAF6EA3 /* Pods_MGTimeRegisterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				6B90F95725FA9E8ABCD699D1 /* Pods_MGTimeRegister.framework */,
+				3E0599713E703D03CCABCF29 /* Pods_MGTimeRegisterTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -191,6 +201,8 @@
 			children = (
 				D0917ECA5CFCC0E7A4261922 /* Pods-MGTimeRegister.debug.xcconfig */,
 				25AEE441ACA4E9FBA7608358 /* Pods-MGTimeRegister.release.xcconfig */,
+				DD5598AFCC2A8C3281515E40 /* Pods-MGTimeRegisterTests.debug.xcconfig */,
+				D51F35CB547E113E885A6359 /* Pods-MGTimeRegisterTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -251,7 +263,9 @@
 		90358BD320E98D0800AC726B /* MGTimeRegisterTests */ = {
 			isa = PBXGroup;
 			children = (
+				90A7BA6920F0BF7900C6D32F /* Home */,
 				90358BD620E98D0800AC726B /* Info.plist */,
+				90A7BA6C20F0CD7E00C6D32F /* Extensions.swift */,
 			);
 			path = MGTimeRegisterTests;
 			sourceTree = "<group>";
@@ -267,7 +281,6 @@
 		90358BEF20E98DB400AC726B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				90AF20C820EA7C420026481F /* TableCell */,
 				90358C4520E9ACF100AC726B /* Login */,
 				90358C4420E9ACEA00AC726B /* Home */,
 				90358BF020E98DB400AC726B /* MGTBaseViewModel.swift */,
@@ -403,7 +416,6 @@
 		90358C4420E9ACEA00AC726B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				90358C4620E9AD1200AC726B /* LoginViewModel.swift */,
 				90358C7F20EA2A2400AC726B /* Overview */,
 				90358C7B20EA2A2300AC726B /* Reports */,
 				90358C7D20EA2A2300AC726B /* AddTime */,
@@ -414,6 +426,7 @@
 		90358C4520E9ACF100AC726B /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				90358C4620E9AD1200AC726B /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -429,8 +442,8 @@
 		90358C7920EA297D00AC726B /* Reports */ = {
 			isa = PBXGroup;
 			children = (
-				90358C7420EA28AB00AC726B /* ReportVC.swift */,
 				90D7519A20EE224E00D316C5 /* DatePickerVC.swift */,
+				90358C7420EA28AB00AC726B /* ReportVC.swift */,
 				90D7519E20EE6E9700D316C5 /* ReportTimeListVC.swift */,
 			);
 			path = Reports;
@@ -478,11 +491,12 @@
 			path = Overview;
 			sourceTree = "<group>";
 		};
-		90AF20C820EA7C420026481F /* TableCell */ = {
+		90A7BA6920F0BF7900C6D32F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				90A7BA6A20F0C24100C6D32F /* LoginViewModelTest.swift */,
 			);
-			path = TableCell;
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -511,9 +525,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90358BDC20E98D0800AC726B /* Build configuration list for PBXNativeTarget "MGTimeRegisterTests" */;
 			buildPhases = (
+				C8AFB65E592F00F03C9CDA3B /* [CP] Check Pods Manifest.lock */,
 				90358BCC20E98D0800AC726B /* Sources */,
 				90358BCD20E98D0800AC726B /* Frameworks */,
 				90358BCE20E98D0800AC726B /* Resources */,
+				08184CE8604B4AE3F0FA898F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -540,6 +556,7 @@
 					};
 					90358BCF20E98D0800AC726B = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 						TestTargetID = 90358B8320E98D0700AC726B;
 					};
 				};
@@ -593,6 +610,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		08184CE8604B4AE3F0FA898F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MGTimeRegisterTests/Pods-MGTimeRegisterTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MGTimeRegisterTests/Pods-MGTimeRegisterTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		11C00869DA18695046307397 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -620,7 +663,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MGTimeRegister/Pods-MGTimeRegister-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -629,7 +671,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -637,6 +678,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MGTimeRegister/Pods-MGTimeRegister-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8AFB65E592F00F03C9CDA3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MGTimeRegisterTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -701,6 +760,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90A7BA6B20F0C24100C6D32F /* LoginViewModelTest.swift in Sources */,
+				90A7BA6D20F0CD7E00C6D32F /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -793,6 +854,7 @@
 		90358BD720E98D0800AC726B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -854,6 +916,7 @@
 		90358BD820E98D0800AC726B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -948,9 +1011,11 @@
 		};
 		90358BDD20E98D0800AC726B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD5598AFCC2A8C3281515E40 /* Pods-MGTimeRegisterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 29R6UT4TC7;
 				INFOPLIST_FILE = MGTimeRegisterTests/Info.plist;
@@ -961,6 +1026,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.mg.MGTimeRegisterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MGTimeRegister.app/MGTimeRegister";
@@ -969,9 +1035,11 @@
 		};
 		90358BDE20E98D0800AC726B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D51F35CB547E113E885A6359 /* Pods-MGTimeRegisterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 29R6UT4TC7;
 				INFOPLIST_FILE = MGTimeRegisterTests/Info.plist;

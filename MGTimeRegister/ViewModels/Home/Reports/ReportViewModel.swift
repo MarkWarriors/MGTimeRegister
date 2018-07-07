@@ -55,7 +55,7 @@ class ReportViewModel: MGTBaseViewModel {
         return "\(self.privateTableItems.value[section].header.totalHours) h"
     }
     
-    let dataSource = RxTableViewSectionedReloadDataSource<ReportData>(
+    let itemsToCell = RxTableViewSectionedReloadDataSource<ReportData>(
         configureCell: { (_, tv, indexPath, projectHours) in
             let cell = tv.dequeueReusableCell(withIdentifier: ProjectTableViewCell.identifier) as! ProjectTableViewCell
             cell.nameLbl.text = projectHours.project.name

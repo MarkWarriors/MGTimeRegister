@@ -14,7 +14,7 @@ class LoginViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
-    private let privateIsLoading = BehaviorRelay<Bool>(value: false)
+    private let privateIsLoading = PublishRelay<Bool>()
     private let privateError = PublishSubject<(MGTError)>()
     private let privateConfirm = PublishSubject<(MGTConfirm)>()
     private let privateUsername = BehaviorRelay<String>(value: "")
@@ -76,6 +76,15 @@ class LoginViewModel: MGTBaseViewModel {
     
     private func checkUserForLogin(autologin: Bool){
         privateIsLoading.accept(true)
+        
+        if privateUsername.value == "" && privatePassword.value == "" {
+            privateError
+                .onNext(
+                    MGTError.init(title: Strings.Errors.error,
+                                  description: Strings.Errors.incompleteForm)
+            )
+        }
+        
         var user : User?
     
         if let storedUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue, predicate: NSPredicate.init(format: "username = %@", privateUsername.value, privatePassword.value)).first as? User {
@@ -95,12 +104,7 @@ class LoginViewModel: MGTBaseViewModel {
                                                   message: Strings.Login.createUserMessage(username: privateUsername.value),
                                                   callback: { [weak self] (confirm) in
                                                     if confirm {
-                                                        user = ModelController.shared.new(forEntity: .user) as? User
-                                                        user!.username = self?.privateUsername.value
-                                                        user!.password = (self?.privatePassword.value)!
-                                                        ModelController.shared.save()
-                                                        self?.loginUser(user: user!,
-                                                                        storeCredential: (self?.privateSaveCredentials.value)! || autologin)
+                                                        self?.createUser()
                                                     }
             }))
         }
@@ -108,12 +112,23 @@ class LoginViewModel: MGTBaseViewModel {
         privateIsLoading.accept(false)
     }
     
-    func loginUser(user: User, storeCredential: Bool){
+    private func loginUser(user: User, storeCredential: Bool){
         SharedInstance.shared.loginUser(user, storeCredential: storeCredential)
 
         self.privatePerformSegue.onNext(
             MGTViewModelSegue.init(identifier: Segues.Login.toHome)
         )
+    }
+    
+    private func createUser(){
+        ModelController.shared.managedObjectContext.performAndWait {
+            let user = ModelController.shared.new(forEntity: .user) as? User
+            user!.username = self.privateUsername.value
+            user!.password = self.privatePassword.value
+            ModelController.shared.save()
+            self.loginUser(user: user!,
+                           storeCredential: self.privateSaveCredentials.value)
+        }
     }
     
     public func viewModelFor(_ vc: inout UIViewController) {

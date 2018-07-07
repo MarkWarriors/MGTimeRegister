@@ -56,8 +56,10 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
         viewModel!.dateToText.bind(to: dateToBtn.rx.title(for: .normal)).disposed(by: disposeBag)
         
         viewModel!.tableItems
-            .bind(to: projectsTableView.rx
-                .items(dataSource: viewModel!.dataSource))
+            .bind(to:
+                projectsTableView
+                    .rx
+                    .items(dataSource: viewModel!.itemsToCell))
             .disposed(by: disposeBag)
         
         projectsTableView.rx

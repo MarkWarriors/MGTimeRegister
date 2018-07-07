@@ -41,6 +41,7 @@ class Strings {
     struct Errors {
         public static let error = "Errors.error".localized
         public static let invalidCredentials = "Errors.invalidCredentials".localized
+        public static let incompleteForm = "Errors.incompleteForm".localized
         public static let genericErrorOccurred = "Errors.errorOccurred".localized
     }
 }

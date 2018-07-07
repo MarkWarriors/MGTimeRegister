@@ -6,10 +6,14 @@
   Copyright © 2018 Marco Guerrieri. All rights reserved.
 */
 
+
+// MARK: Login
 "Login.createUserTitle" = "Crea utente";
 "Login.createUserMessage(username:)" = "L'utente %@ non esiste, vorresti crearlo?";
 "Logout.logoutTitle" = "Logout";
 "Logout.logoutMessage" = "Sicuro di voler effettuare il logout?";
+
+// MARK: Commons
 "Commons.yes" = "Sì";
 "Commons.no" = "No";
 "Commons.ok" = "Ok";
@@ -17,6 +21,9 @@
 "Commons.cancel" = "Annulla";
 "Commons.delete" = "Elimina";
 "Commons.select" = "Seleziona";
+
+// MARK: Errors
 "Errors.error" = "Errore";
+"Errors.incompleteForm" = "Perfavore inserire tutti i dati";
 "Errors.invalidCredentials" = "Credenziali errate";
 "Errors.errorOccurred" = "Si è verificato un errore";
