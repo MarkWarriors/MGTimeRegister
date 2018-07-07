@@ -18,6 +18,7 @@ extension Company {
     }
 
     @NSManaged public var name: String?
+    @NSManaged public var color: Data?
     @NSManaged public var users: NSSet?
     @NSManaged public var projects: NSSet?
 

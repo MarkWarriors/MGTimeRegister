@@ -446,7 +446,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXJ-qN-Znw" customClass="MGView" customModule="MGTimeRegister" customModuleProvider="target">
-                                <rect key="frame" x="10" y="134" width="300" height="212"/>
+                                <rect key="frame" x="10" y="117.5" width="300" height="245"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cfq-kv-CKZ">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
@@ -480,7 +480,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61N-3d-RJa" customClass="MGButton" customModule="MGTimeRegister" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="168" width="300" height="44"/>
+                                        <rect key="frame" x="0.0" y="201" width="300" height="44"/>
                                         <color key="backgroundColor" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="nuy-gR-Cyy"/>
@@ -496,7 +496,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OqZ-AG-Ihu" customClass="MGTextField" customModule="MGTimeRegister" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="84" width="268" height="44"/>
+                                        <rect key="frame" x="16" y="74" width="268" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="gXd-H0-bRr"/>
                                         </constraints>
@@ -528,6 +528,34 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0jn-CB-lE9">
+                                        <rect key="frame" x="16" y="142" width="268" height="35"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vk9-Zf-j4W">
+                                                <rect key="frame" x="0.0" y="0.0" width="37.5" height="35"/>
+                                                <color key="backgroundColor" red="0.1795210277" green="0.7627560028" blue="0.1975101423" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quF-GP-nTk">
+                                                <rect key="frame" x="57.5" y="0.0" width="37.5" height="35"/>
+                                                <color key="backgroundColor" red="0.21228876569999999" green="0.38512824229999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfJ-8Z-Yqb">
+                                                <rect key="frame" x="115" y="0.0" width="38" height="35"/>
+                                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLw-YY-Vcg">
+                                                <rect key="frame" x="173" y="0.0" width="37.5" height="35"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBZ-LX-Kef">
+                                                <rect key="frame" x="230.5" y="0.0" width="37.5" height="35"/>
+                                                <color key="backgroundColor" red="1" green="0.31236648457188643" blue="0.057083296856562216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="4B0-4O-L7o"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -535,13 +563,17 @@
                                     <constraint firstAttribute="trailing" secondItem="OqZ-AG-Ihu" secondAttribute="trailing" constant="16" id="2JU-0S-H2h"/>
                                     <constraint firstItem="Cfq-kv-CKZ" firstAttribute="top" secondItem="NXJ-qN-Znw" secondAttribute="top" id="3iW-3a-3KR"/>
                                     <constraint firstItem="Cfq-kv-CKZ" firstAttribute="leading" secondItem="NXJ-qN-Znw" secondAttribute="leading" id="8Qh-Cs-iss"/>
+                                    <constraint firstItem="OqZ-AG-Ihu" firstAttribute="top" secondItem="Cfq-kv-CKZ" secondAttribute="bottom" constant="24" id="MZn-eE-srI"/>
+                                    <constraint firstItem="0jn-CB-lE9" firstAttribute="leading" secondItem="OqZ-AG-Ihu" secondAttribute="leading" id="OkD-GR-C1v"/>
                                     <constraint firstAttribute="trailing" secondItem="Cfq-kv-CKZ" secondAttribute="trailing" id="OvO-sM-lgZ"/>
                                     <constraint firstAttribute="trailing" secondItem="61N-3d-RJa" secondAttribute="trailing" id="S49-BP-5Xt"/>
-                                    <constraint firstAttribute="height" constant="212" id="ULH-sF-tGT"/>
+                                    <constraint firstAttribute="height" constant="245" id="ULH-sF-tGT"/>
                                     <constraint firstAttribute="bottom" secondItem="61N-3d-RJa" secondAttribute="bottom" id="VDA-Dl-tYF"/>
-                                    <constraint firstItem="OqZ-AG-Ihu" firstAttribute="centerY" secondItem="NXJ-qN-Znw" secondAttribute="centerY" id="bJD-hH-UVo"/>
                                     <constraint firstItem="OqZ-AG-Ihu" firstAttribute="leading" secondItem="NXJ-qN-Znw" secondAttribute="leading" constant="16" id="dD8-5W-Bzj"/>
+                                    <constraint firstItem="0jn-CB-lE9" firstAttribute="trailing" secondItem="OqZ-AG-Ihu" secondAttribute="trailing" id="gwd-gf-lYW"/>
                                     <constraint firstAttribute="width" constant="300" id="kk1-Fr-TtQ"/>
+                                    <constraint firstItem="61N-3d-RJa" firstAttribute="top" secondItem="0jn-CB-lE9" secondAttribute="bottom" constant="24" id="t8l-vU-iPY"/>
+                                    <constraint firstItem="0jn-CB-lE9" firstAttribute="top" secondItem="OqZ-AG-Ihu" secondAttribute="bottom" constant="24" id="zYc-JI-oQe"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -571,7 +603,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IkM-Ds-rGm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="534" y="2116"/>
+            <point key="canvasLocation" x="532.5" y="2115"/>
         </scene>
         <!--Select Project-->
         <scene sceneID="hZt-IR-8Jg">
