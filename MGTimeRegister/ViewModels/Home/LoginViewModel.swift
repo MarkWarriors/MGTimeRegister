@@ -92,7 +92,7 @@ class LoginViewModel: MGTBaseViewModel {
         }
         else {
             privateConfirm.onNext(MGTConfirm.init(title: Strings.Login.createUserTitle,
-                                                  message: Strings.Login.createUserMessage(username:)(username: privateUsername.value),
+                                                  message: Strings.Login.createUserMessage(username: privateUsername.value),
                                                   callback: { [weak self] (confirm) in
                                                     if confirm {
                                                         user = ModelController.shared.new(forEntity: .user) as? User

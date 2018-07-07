@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		90358BD520E98D0800AC726B /* MGTimeRegisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BD420E98D0800AC726B /* MGTimeRegisterTests.swift */; };
 		90358C1620E98DB500AC726B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90358BEE20E98DB400AC726B /* Assets.xcassets */; };
 		90358C1720E98DB500AC726B /* MGTBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF020E98DB400AC726B /* MGTBaseViewModel.swift */; };
 		90358C1A20E98DB500AC726B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90358BF620E98DB400AC726B /* Strings.swift */; };
@@ -87,7 +86,6 @@
 		90358BC720E98D0700AC726B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		90358BC820E98D0700AC726B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
 		90358BD020E98D0800AC726B /* MGTimeRegisterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGTimeRegisterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		90358BD420E98D0800AC726B /* MGTimeRegisterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTimeRegisterTests.swift; sourceTree = "<group>"; };
 		90358BD620E98D0800AC726B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90358BEE20E98DB400AC726B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90358BF020E98DB400AC726B /* MGTBaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTBaseViewModel.swift; sourceTree = "<group>"; };
@@ -253,7 +251,6 @@
 		90358BD320E98D0800AC726B /* MGTimeRegisterTests */ = {
 			isa = PBXGroup;
 			children = (
-				90358BD420E98D0800AC726B /* MGTimeRegisterTests.swift */,
 				90358BD620E98D0800AC726B /* Info.plist */,
 			);
 			path = MGTimeRegisterTests;
@@ -704,7 +701,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90358BD520E98D0800AC726B /* MGTimeRegisterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

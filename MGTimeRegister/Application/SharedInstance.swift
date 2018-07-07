@@ -36,16 +36,20 @@ public class SharedInstance : NSObject {
     }
     
     public func logout(){
-        let transition = CATransition()
-        transition.duration = Globals.Timing.transitionFromBottom
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        transition.type = kCATransitionFromBottom
+        let loginVC = UIStoryboard.init(name: "Login", bundle: nil).instantiateInitialViewController()
+        loginVC?.view.frame = CGRect.init(x: 0, y: -UIScreen.main.bounds.height, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+        UIView.transition(with: UIApplication.shared.keyWindow!,
+                          duration: 0.5, options: UIViewAnimationOptions.curveEaseInOut,
+                          animations: {
+                            UIApplication.shared.keyWindow!.rootViewController = loginVC
+                            loginVC?.view.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+        }) { (complete) in
+            self.currentUser = nil
+            UserDefaults.standard.removeObject(forKey: Globals.PrefsKeys.loggedUsername)
+            UserDefaults.standard.removeObject(forKey: Globals.PrefsKeys.loggedPassword)
+        }
         
-        UIApplication.shared.keyWindow?.rootViewController?.view.layer.add(transition, forKey: nil)
-        UIApplication.shared.keyWindow!.rootViewController = UIStoryboard.init(name: "Login", bundle: nil).instantiateInitialViewController()
-        self.currentUser = nil
-        UserDefaults.standard.removeObject(forKey: Globals.PrefsKeys.loggedUsername)
-        UserDefaults.standard.removeObject(forKey: Globals.PrefsKeys.loggedPassword)
+        
     }
     
 }
