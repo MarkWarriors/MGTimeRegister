@@ -82,6 +82,9 @@ class LoginViewModelTest: XCTestCase {
         
         let confirmExpectation = self.expectation(description: "show confirm expectation")
         
+        let segueExpectation = self.expectation(description: "segue expectation")
+        segueExpectation.isInverted = true
+        
         loginVM?.isLoading.bind(onNext: { (loading) in
             if loading && loadingExpectation.expectationCount == 0{
                 loadingExpectation.fulfillAndCount()
@@ -105,11 +108,15 @@ class LoginViewModelTest: XCTestCase {
             confirm.callback!(false)
         }).disposed(by: disposeBag)
         
+        loginVM?.performSegue.bind(onNext: { (segue) in
+            segueExpectation.fulfill()
+        }).disposed(by: disposeBag)
+        
         usernameTF.accept(testUsername)
         passwordTF.accept(testPassword)
         loginBtn.accept(Void())
         
-        wait(for: [loadingExpectation, errorExpectation, confirmExpectation], timeout: 2)
+        wait(for: [loadingExpectation, errorExpectation, confirmExpectation, segueExpectation], timeout: 2)
         
         createdUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue,
                                                              predicate: NSPredicate.init(format: "username = %@ AND password = %@", testUsername, testPassword)).first as? User
@@ -117,7 +124,7 @@ class LoginViewModelTest: XCTestCase {
         XCTAssertNil(createdUser)
     }
     
-    func testLoginUserAndCreate() {
+    func testCreateUserAndLogin() {
         let loadingExpectation = self.expectation(description: "show and dismiss loading expectation")
         loadingExpectation.expectedFulfillmentCount = 2
         
@@ -125,6 +132,7 @@ class LoginViewModelTest: XCTestCase {
         errorExpectation.isInverted = true
         
         let confirmExpectation = self.expectation(description: "show confirm expectation")
+        let segueExpectation = self.expectation(description: "segue expectation")
         
         loginVM?.isLoading.bind(onNext: { (loading) in
             if loading && loadingExpectation.expectationCount == 0{
@@ -149,6 +157,11 @@ class LoginViewModelTest: XCTestCase {
             confirm.callback!(true)
         }).disposed(by: disposeBag)
         
+        loginVM?.performSegue.bind(onNext: { (segue) in
+            XCTAssertNotNil(segue, "nil segue")
+            segueExpectation.fulfill()
+        }).disposed(by: disposeBag)
+        
         createdUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue,
                                                              predicate: NSPredicate.init(format: "username = %@ AND password = %@", testUsername, testPassword)).first as? User
         XCTAssertNil(createdUser)
@@ -157,7 +170,7 @@ class LoginViewModelTest: XCTestCase {
         passwordTF.accept(testPassword)
         loginBtn.accept(Void())
         
-        wait(for: [loadingExpectation, errorExpectation, confirmExpectation], timeout: 2)
+        wait(for: [loadingExpectation, errorExpectation, confirmExpectation, segueExpectation], timeout: 2)
         
         createdUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue,
                                                           predicate: NSPredicate.init(format: "username = %@ AND password = %@", testUsername, testPassword)).first as? User
@@ -186,15 +199,63 @@ class LoginViewModelTest: XCTestCase {
             }
         }).disposed(by: disposeBag)
         
-        usernameTF.accept(testUsername)
-        passwordTF.accept("wrongpassword")
         loginVM?.error.bind(onNext: { (error) in
             errorExpectation.fulfill()
         }).disposed(by: disposeBag)
         
+        usernameTF.accept(testUsername)
+        passwordTF.accept("wrongpassword")
         loginBtn.accept(Void())
         
         wait(for: [loadingExpectation, errorExpectation], timeout: 3)
+    }
+    
+    func testLoginSucceed() {
+        
+        if createdUser == nil {
+            createdUser = ModelController.shared.new(forEntity: ModelController.Entity.user) as? User
+            createdUser!.username = testUsername
+            createdUser!.password = testPassword
+        }
+        
+        let loadingExpectation = self.expectation(description: "show and dismiss loading expectation")
+        loadingExpectation.expectedFulfillmentCount = 2
+        
+        let errorExpectation = self.expectation(description: "show error expectation")
+        errorExpectation.isInverted = true
+        
+        let confirmExpectation = self.expectation(description: "show confirm expectation")
+        confirmExpectation.isInverted = true
+        
+        let segueExpectation = self.expectation(description: "segue expectation")
+        
+        loginVM?.isLoading.bind(onNext: { (loading) in
+            if loading && loadingExpectation.expectationCount == 0{
+                loadingExpectation.fulfillAndCount()
+            }
+            else if !loading && loadingExpectation.expectationCount == 1 {
+                loadingExpectation.fulfillAndCount()
+            }
+        }).disposed(by: disposeBag)
+        
+        loginVM?.error.bind(onNext: { (error) in
+            errorExpectation.fulfill()
+        }).disposed(by: disposeBag)
+        
+        loginVM?.confirmAction.bind(onNext: { (error) in
+            confirmExpectation.fulfill()
+        }).disposed(by: disposeBag)
+        
+        loginVM?.performSegue.bind(onNext: { (segue) in
+            XCTAssertNotNil(segue, "nil segue")
+            segueExpectation.fulfill()
+        }).disposed(by: disposeBag)
+        
+        usernameTF.accept(testUsername)
+        passwordTF.accept(testPassword)
+        loginBtn.accept(Void())
+        
+        wait(for: [loadingExpectation, errorExpectation, confirmExpectation, segueExpectation], timeout: 3)
     }
     
 }
