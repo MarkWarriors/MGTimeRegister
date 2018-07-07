@@ -70,9 +70,4 @@ class LoginVC: MGTBaseVC, ViewModelBased {
             .disposed(by: disposeBag)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var vc = segue.destination
-        viewModel?.viewModelFor(&vc)
-    }
-    
 }

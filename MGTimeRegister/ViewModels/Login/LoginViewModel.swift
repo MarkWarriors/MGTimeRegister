@@ -84,8 +84,6 @@ class LoginViewModel: MGTBaseViewModel {
                                   description: Strings.Errors.incompleteForm)
             )
         }
-        
-        var user : User?
     
         if let storedUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue, predicate: NSPredicate.init(format: "username = %@", privateUsername.value, privatePassword.value)).first as? User {
             if storedUser.password != privatePassword.value {
@@ -131,9 +129,4 @@ class LoginViewModel: MGTBaseViewModel {
         }
     }
     
-    public func viewModelFor(_ vc: inout UIViewController) {
-        if let vc = vc as? OverviewVC {
-            vc.viewModel = OverviewViewModel()
-        }
-    }
 }

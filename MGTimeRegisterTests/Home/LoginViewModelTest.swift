@@ -98,7 +98,6 @@ class LoginViewModelTest: XCTestCase {
         }).disposed(by: disposeBag)
         
         loginVM?.error.bind(onNext: { (error) in
-            XCTAssertNotNil(error, "nil error")
             errorExpectation.fulfill()
         }).disposed(by: disposeBag)
         
@@ -147,7 +146,6 @@ class LoginViewModelTest: XCTestCase {
         }).disposed(by: disposeBag)
         
         loginVM?.error.bind(onNext: { (error) in
-            XCTAssertNotNil(error, "nil error")
             errorExpectation.fulfill()
         }).disposed(by: disposeBag)
         
