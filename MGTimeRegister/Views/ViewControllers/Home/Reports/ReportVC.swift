@@ -22,12 +22,14 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
     @IBOutlet weak var lastMonthBtn: MGButton!
     @IBOutlet weak var filterViewHeight: NSLayoutConstraint!
     @IBOutlet weak var toggleFilterBtn: UIButton!
-    var filterViewOpenedHeight : CGFloat? = 0
+    var filterViewOpenedHeight : CGFloat = 0
+    var filterViewClosedHeight : CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.title = self.title
         filterViewOpenedHeight = filterViewHeight.constant
+        filterViewClosedHeight = todayBtn.frame.origin.y - 4
         configureTableView()
         bindViewModel()
     }
@@ -79,9 +81,18 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
     }
     
     @IBAction func toggleFilterBtnPressed(_ sender: Any) {
-        self.toggleFilterBtn.setImage(self.filterViewHeight.constant == 0 ? #imageLiteral(resourceName: "caret_up") : #imageLiteral(resourceName: "caret_down"), for: .normal)
+        if self.filterViewHeight.constant == filterViewClosedHeight {
+            // closed
+            self.toggleFilterBtn.setImage(#imageLiteral(resourceName: "caret_up"), for: .normal)
+            self.filterViewHeight.constant = filterViewOpenedHeight
+        }
+        else {
+            //open
+            self.toggleFilterBtn.setImage(#imageLiteral(resourceName: "caret_down"), for: .normal)
+            self.filterViewHeight.constant = filterViewClosedHeight
+        }
+        
         UIView.animate(withDuration: Globals.Timing.toggleAnimation, animations: {
-            self.filterViewHeight.constant = abs(self.filterViewHeight.constant - self.filterViewOpenedHeight!)
             self.view.layoutSubviews()
         }) { (completed) in
         }
