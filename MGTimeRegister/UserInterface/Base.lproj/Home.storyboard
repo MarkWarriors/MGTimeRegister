@@ -844,6 +844,7 @@
                                             <constraint firstItem="QqS-Ez-f3W" firstAttribute="leading" secondItem="TMQ-9F-VG3" secondAttribute="leading" constant="16" id="kV6-Qk-IOQ"/>
                                             <constraint firstItem="hKn-cx-xhx" firstAttribute="leading" secondItem="TMQ-9F-VG3" secondAttribute="leading" constant="16" id="lh8-Rh-0Vz"/>
                                             <constraint firstItem="dTn-BM-W9p" firstAttribute="centerY" secondItem="0An-DM-ALz" secondAttribute="centerY" id="mDi-NJ-t2u"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dTn-BM-W9p" secondAttribute="trailing" constant="8" id="vHI-yg-rfB"/>
                                         </constraints>
                                     </view>
                                 </subviews>
