@@ -53,12 +53,6 @@ class ReportTimeListVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
             )
             .disposed(by: disposeBag)
         
-        viewModel!.performSegue
-            .bind { [weak self] (segue) in
-                self?.performSegue(withIdentifier: segue.identifier, sender: nil)
-            }
-            .disposed(by: disposeBag)
-        
         timesTableView.rx
             .setDelegate(self)
             .disposed(by: disposeBag)
@@ -79,10 +73,5 @@ class ReportTimeListVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
         headerCell.nameLbl.text = viewModel?.projectHeaderTextFor(section: section)
         headerCell.hoursLbl.text = viewModel?.projectHeaderHoursFor(section: section)
         return headerCell
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var vc = segue.destination
-        viewModel!.viewModelFor(&vc)
     }
 }
