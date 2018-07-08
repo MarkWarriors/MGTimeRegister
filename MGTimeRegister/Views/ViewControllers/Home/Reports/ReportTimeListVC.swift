@@ -27,7 +27,7 @@ class ReportTimeListVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
         timesTableView.register(UINib.init(nibName: TimeTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TimeTableViewCell.identifier)
         timesTableView.register(UINib.init(nibName: TableHeaderTimeCell.identifier, bundle: nil), forCellReuseIdentifier: TableHeaderTimeCell.identifier)
         timesTableView.rowHeight = UITableViewAutomaticDimension;
-        timesTableView.estimatedRowHeight = 250;
+        timesTableView.estimatedRowHeight = 67;
     }
     
     func bindViewModel(){

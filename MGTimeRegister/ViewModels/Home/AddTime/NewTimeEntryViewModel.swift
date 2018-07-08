@@ -78,7 +78,7 @@ class NewTimeEntryViewModel: MGTBaseViewModel {
     private func saveTimeEntry(){
         ModelController.shared.managedObjectContext.performAndWait {
             let timeEntry = privateCurrentTime ?? ModelController.shared.new(forEntity: ModelController.Entity.time) as! Time
-            timeEntry.date = self.privateDate.value!.startOfDay() as NSDate
+            timeEntry.date = self.privateDate.value!.midDay() as NSDate
             timeEntry.hours = self.privateHours.value
             timeEntry.notes = self.privateNotes.value
             self.privateCurrentProject.addToTimes(timeEntry)

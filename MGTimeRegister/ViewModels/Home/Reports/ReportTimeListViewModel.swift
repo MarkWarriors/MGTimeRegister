@@ -78,9 +78,11 @@ class ReportTimeListViewModel: MGTBaseViewModel {
                     timeReportDict[date] = entry
                 }
                 let items = timeReportDict.map { (date, times) -> TimeReportData in
-                    let dateHours = DateHours.init(date: date, totalHours: Int32(times.reduce(0, { $0 + $1.hours })))
-                    return TimeReportData.init(header: dateHours, items: times)
-                }
+                        let dateHours = DateHours.init(date: date, totalHours: Int32(times.reduce(0, { $0 + $1.hours })))
+                        return TimeReportData.init(header: dateHours, items: times)
+                    }.sorted(by: { (timeReport, timeReport2) -> Bool in
+                        return (timeReport.items[0].date! as Date) < (timeReport2.items[0].date! as Date)
+                    })
                 self.privateTableItems.accept(items)
             }.disposed(by: disposeBag)
         

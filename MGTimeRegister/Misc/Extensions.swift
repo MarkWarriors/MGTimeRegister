@@ -523,6 +523,13 @@ extension Date{
         return Calendar.current.startOfDay(for: self)
     }
     
+    public func midDay() -> Date{
+        let dateStart = Calendar.current.startOfDay(for: self)
+        var components = DateComponents()
+        components.hour = 12
+        return Calendar.current.date(byAdding: components, to: dateStart)!
+    }
+    
     public func endOfDay() -> Date{
         let dateStart = Calendar.current.startOfDay(for: self)
         var components = DateComponents()
