@@ -42,7 +42,7 @@
 		9060E2F020F02F04002CEA09 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9060E2F220F02F04002CEA09 /* Localizable.strings */; };
 		9060E2F420F0330D002CEA09 /* CompanyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9060E2F620F0330D002CEA09 /* CompanyTableViewCell.xib */; };
 		9060E2F720F0331A002CEA09 /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9060E2F920F0331A002CEA09 /* ProjectTableViewCell.xib */; };
-		9060E2FE20F03324002CEA09 /* ProjectHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9060E30020F03324002CEA09 /* ProjectHeaderCell.xib */; };
+		9060E2FE20F03324002CEA09 /* TableHeaderTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9060E30020F03324002CEA09 /* TableHeaderTimeCell.xib */; };
 		9060E30320F0332B002CEA09 /* TimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9060E30520F0332B002CEA09 /* TimeTableViewCell.xib */; };
 		906A8DE720EB82E900821BD4 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A8DE620EB82E900821BD4 /* Protocols.swift */; };
 		90A7BA6B20F0C24100C6D32F /* LoginViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7BA6A20F0C24100C6D32F /* LoginViewModelTest.swift */; };
@@ -59,7 +59,7 @@
 		90CD38A420EB4FFA00157DC7 /* NewProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD38A320EB4FFA00157DC7 /* NewProjectViewModel.swift */; };
 		90CD38A620EB502600157DC7 /* NewCompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD38A520EB502600157DC7 /* NewCompanyVC.swift */; };
 		90CD38A820EB503200157DC7 /* NewProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD38A720EB503200157DC7 /* NewProjectVC.swift */; };
-		90D7519520ED23A300D316C5 /* ProjectHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7519320ED23A300D316C5 /* ProjectHeaderCell.swift */; };
+		90D7519520ED23A300D316C5 /* TableHeaderTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7519320ED23A300D316C5 /* TableHeaderTimeCell.swift */; };
 		90D7519B20EE224E00D316C5 /* DatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7519A20EE224E00D316C5 /* DatePickerVC.swift */; };
 		90D7519D20EE225C00D316C5 /* DatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7519C20EE225C00D316C5 /* DatePickerViewModel.swift */; };
 		90D7519F20EE6E9700D316C5 /* ReportTimeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7519E20EE6E9700D316C5 /* ReportTimeListVC.swift */; };
@@ -134,8 +134,8 @@
 		9060E2F820F0331A002CEA09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProjectTableViewCell.xib; sourceTree = "<group>"; };
 		9060E2FB20F0331D002CEA09 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/ProjectTableViewCell.strings; sourceTree = "<group>"; };
 		9060E2FD20F03320002CEA09 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/CompanyTableViewCell.strings; sourceTree = "<group>"; };
-		9060E2FF20F03324002CEA09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProjectHeaderCell.xib; sourceTree = "<group>"; };
-		9060E30220F03326002CEA09 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/ProjectHeaderCell.strings; sourceTree = "<group>"; };
+		9060E2FF20F03324002CEA09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TableHeaderTimeCell.xib; sourceTree = "<group>"; };
+		9060E30220F03326002CEA09 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/TableHeaderTimeCell.strings; sourceTree = "<group>"; };
 		9060E30420F0332B002CEA09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TimeTableViewCell.xib; sourceTree = "<group>"; };
 		9060E30720F0332E002CEA09 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/TimeTableViewCell.strings; sourceTree = "<group>"; };
 		906A8DE620EB82E900821BD4 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 		90CD38A320EB4FFA00157DC7 /* NewProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewProjectViewModel.swift; path = /Users/marcoguerrieri/iOSProject/personal/MGTimeRegister/MGTimeRegister/ViewModels/Home/AddTime/NewProjectViewModel.swift; sourceTree = "<absolute>"; };
 		90CD38A520EB502600157DC7 /* NewCompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCompanyVC.swift; sourceTree = "<group>"; };
 		90CD38A720EB503200157DC7 /* NewProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectVC.swift; sourceTree = "<group>"; };
-		90D7519320ED23A300D316C5 /* ProjectHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderCell.swift; sourceTree = "<group>"; };
+		90D7519320ED23A300D316C5 /* TableHeaderTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderTimeCell.swift; sourceTree = "<group>"; };
 		90D7519A20EE224E00D316C5 /* DatePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerVC.swift; sourceTree = "<group>"; };
 		90D7519C20EE225C00D316C5 /* DatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewModel.swift; sourceTree = "<group>"; };
 		90D7519E20EE6E9700D316C5 /* ReportTimeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTimeListVC.swift; sourceTree = "<group>"; };
@@ -345,8 +345,8 @@
 				9060E2F620F0330D002CEA09 /* CompanyTableViewCell.xib */,
 				90AF20C020EA7AAC0026481F /* ProjectTableViewCell.swift */,
 				9060E2F920F0331A002CEA09 /* ProjectTableViewCell.xib */,
-				90D7519320ED23A300D316C5 /* ProjectHeaderCell.swift */,
-				9060E30020F03324002CEA09 /* ProjectHeaderCell.xib */,
+				90D7519320ED23A300D316C5 /* TableHeaderTimeCell.swift */,
+				9060E30020F03324002CEA09 /* TableHeaderTimeCell.xib */,
 				90D751A420EE7B9100D316C5 /* TimeTableViewCell.swift */,
 				9060E30520F0332B002CEA09 /* TimeTableViewCell.xib */,
 			);
@@ -603,7 +603,7 @@
 				90358C2120E98DB500AC726B /* Login.storyboard in Resources */,
 				9060E2F420F0330D002CEA09 /* CompanyTableViewCell.xib in Resources */,
 				9060E30320F0332B002CEA09 /* TimeTableViewCell.xib in Resources */,
-				9060E2FE20F03324002CEA09 /* ProjectHeaderCell.xib in Resources */,
+				9060E2FE20F03324002CEA09 /* TableHeaderTimeCell.xib in Resources */,
 				9060E2F720F0331A002CEA09 /* ProjectTableViewCell.xib in Resources */,
 				90358C3420E9903100AC726B /* WaitView.xib in Resources */,
 				90358C1620E98DB500AC726B /* Assets.xcassets in Resources */,
@@ -761,7 +761,7 @@
 				90358C3520E9903100AC726B /* WaitView.swift in Sources */,
 				90358C4720E9AD1200AC726B /* LoginViewModel.swift in Sources */,
 				90358C3020E9900100AC726B /* MGTimeRegister.xcdatamodeld in Sources */,
-				90D7519520ED23A300D316C5 /* ProjectHeaderCell.swift in Sources */,
+				90D7519520ED23A300D316C5 /* TableHeaderTimeCell.swift in Sources */,
 				90FF6FBA20EC160A00006143 /* Time+CoreDataClass.swift in Sources */,
 				90D7519F20EE6E9700D316C5 /* ReportTimeListVC.swift in Sources */,
 			);
@@ -842,13 +842,13 @@
 			name = ProjectTableViewCell.xib;
 			sourceTree = "<group>";
 		};
-		9060E30020F03324002CEA09 /* ProjectHeaderCell.xib */ = {
+		9060E30020F03324002CEA09 /* TableHeaderTimeCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9060E2FF20F03324002CEA09 /* Base */,
 				9060E30220F03326002CEA09 /* it */,
 			);
-			name = ProjectHeaderCell.xib;
+			name = TableHeaderTimeCell.xib;
 			sourceTree = "<group>";
 		};
 		9060E30520F0332B002CEA09 /* TimeTableViewCell.xib */ = {

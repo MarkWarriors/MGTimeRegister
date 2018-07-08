@@ -20,13 +20,31 @@ struct CompanyHours {
     var totalHours: Int32
 }
 
-struct ReportData {
+struct DateHours {
+    var date: String
+    var totalHours: Int32
+}
+
+
+struct MainReportData {
     var header: CompanyHours
     var items: [ProjectHours]
 }
 
-extension ReportData: SectionModelType {
-    init(original: ReportData, items: [ProjectHours]) {
+extension MainReportData: SectionModelType {
+    init(original: MainReportData, items: [ProjectHours]) {
+        self = original
+        self.items = items
+    }
+}
+
+struct TimeReportData {
+    var header: DateHours
+    var items: [Time]
+}
+
+extension TimeReportData: SectionModelType {
+    init(original: TimeReportData, items: [Time]) {
         self = original
         self.items = items
     }

@@ -35,7 +35,7 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
     func configureTableView(){
         projectsTableView.tableFooterView = UIView()
         projectsTableView.register(UINib.init(nibName: ProjectTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ProjectTableViewCell.identifier)
-        projectsTableView.register(UINib.init(nibName: ProjectHeaderCell.identifier, bundle: nil), forCellReuseIdentifier: ProjectHeaderCell.identifier)
+        projectsTableView.register(UINib.init(nibName: TableHeaderTimeCell.identifier, bundle: nil), forCellReuseIdentifier: TableHeaderTimeCell.identifier)
     }
     
     func bindViewModel() {
@@ -56,10 +56,9 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
         viewModel!.dateToText.bind(to: dateToBtn.rx.title(for: .normal)).disposed(by: disposeBag)
         
         viewModel!.tableItems
-            .bind(to:
-                projectsTableView
-                    .rx
-                    .items(dataSource: viewModel!.itemsToCell))
+            .bind(to: projectsTableView.rx
+                .items(dataSource: viewModel!.itemsToCell)
+            )
             .disposed(by: disposeBag)
         
         projectsTableView.rx
@@ -98,8 +97,8 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerCell = tableView.dequeueReusableCell(withIdentifier: ProjectHeaderCell.identifier) as! ProjectHeaderCell
-        headerCell.projectLbl.text = viewModel?.projectHeaderTextFor(section: section)
+        let headerCell = tableView.dequeueReusableCell(withIdentifier: TableHeaderTimeCell.identifier) as! TableHeaderTimeCell
+        headerCell.nameLbl.text = viewModel?.projectHeaderTextFor(section: section)
         headerCell.hoursLbl.text = viewModel?.projectHeaderHoursFor(section: section)
         return headerCell
     }

@@ -16,6 +16,7 @@
 // MARK: Commons
 "Commons.yes" = "Sì";
 "Commons.no" = "No";
+"Commons.noNotes" = "Nessuna nota";
 "Commons.ok" = "Ok";
 "Commons.confirm" = "Conferma";
 "Commons.cancel" = "Annulla";

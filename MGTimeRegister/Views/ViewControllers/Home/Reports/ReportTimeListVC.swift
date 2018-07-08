@@ -25,6 +25,7 @@ class ReportTimeListVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
     private func configureTableView(){
         timesTableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: timesTableView.frame.width, height: 76))
         timesTableView.register(UINib.init(nibName: TimeTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TimeTableViewCell.identifier)
+        timesTableView.register(UINib.init(nibName: TableHeaderTimeCell.identifier, bundle: nil), forCellReuseIdentifier: TableHeaderTimeCell.identifier)
         timesTableView.rowHeight = UITableViewAutomaticDimension;
         timesTableView.estimatedRowHeight = 67.0;
     }
@@ -46,13 +47,11 @@ class ReportTimeListVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
             })
             .disposed(by: self.disposeBag)
         
-        viewModel!.dataSource
-            .bind(to: self.timesTableView.rx
-                .items(cellIdentifier: TimeTableViewCell.identifier,
-                       cellType: TimeTableViewCell.self)) { _, time, cell in
-                        cell.setModel(time)
-            }
-            .disposed(by: self.disposeBag)
+        viewModel!.tableItems
+            .bind(to: timesTableView.rx
+                .items(dataSource: viewModel!.itemsToCell)
+            )
+            .disposed(by: disposeBag)
         
         viewModel!.performSegue
             .bind { [weak self] (segue) in
@@ -71,6 +70,16 @@ class ReportTimeListVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = tableView.dequeueReusableCell(withIdentifier: TableHeaderTimeCell.identifier) as! TableHeaderTimeCell
+        headerCell.nameLbl.text = viewModel?.projectHeaderTextFor(section: section)
+        headerCell.hoursLbl.text = viewModel?.projectHeaderHoursFor(section: section)
+        return headerCell
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var vc = segue.destination

@@ -21,13 +21,13 @@ class ReportViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
-    private let privateTableItems = BehaviorRelay<[ReportData]>(value: [])
+    private let privateTableItems = BehaviorRelay<[MainReportData]>(value: [])
     private let privateDateFrom = BehaviorRelay<Date?>(value: Date().changeOfWeeks(-1))
     private let privateDateTo = BehaviorRelay<Date?>(value: Date())
     private let privateSearchText = BehaviorRelay<String?>(value: nil)
-    private var privateReportTimeList : (project: Project, times: [Time])?
+    private var privateReportTimeListData : (project: Project, times: [Time])?
     
-    var tableItems : Observable<[ReportData]> {
+    var tableItems : Observable<[MainReportData]> {
         return self.privateTableItems.asObservable()
     }
     
@@ -55,7 +55,7 @@ class ReportViewModel: MGTBaseViewModel {
         return "\(self.privateTableItems.value[section].header.totalHours) h"
     }
     
-    let itemsToCell = RxTableViewSectionedReloadDataSource<ReportData>(
+    let itemsToCell = RxTableViewSectionedReloadDataSource<MainReportData>(
         configureCell: { (_, tv, indexPath, projectHours) in
             let cell = tv.dequeueReusableCell(withIdentifier: ProjectTableViewCell.identifier) as! ProjectTableViewCell
             cell.nameLbl.text = projectHours.project.name
@@ -127,7 +127,7 @@ class ReportViewModel: MGTBaseViewModel {
             let project = projectHours.project
             let times = (Array(projectHours.project.times?.filtered(using: NSCompoundPredicate.init(andPredicateWithSubpredicates: predicateArray)) ?? []) as! [Time]).sorted(by: { ($0.date! as Date) < ($1.date! as Date) })
             
-            self?.privateReportTimeList = (project: project, times: times)
+            self?.privateReportTimeListData = (project: project, times: times)
             self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.Reports.toReportTimeList))
         })
         .disposed(by: disposeBag)
@@ -186,7 +186,7 @@ class ReportViewModel: MGTBaseViewModel {
             
             let sortedSections = sectionsMap.sorted(by: { $0.key.name!.compare($1.key.name!, options: .caseInsensitive) == .orderedAscending })
             
-            let dataSource = sortedSections.map({ (company, projHours) -> ReportData in
+            let dataSource = sortedSections.map({ (company, projHours) -> MainReportData in
                 var companyHours = CompanyHours.init(company: company, totalHours: 0)
                 var items : [ProjectHours] = []
                 
@@ -197,7 +197,7 @@ class ReportViewModel: MGTBaseViewModel {
                     items.append(ProjectHours.init(project: project, totalHours: hours))
                 })
                 
-                return ReportData.init(header: companyHours, items: items)
+                return MainReportData.init(header: companyHours, items: items)
             })
 
             self?.privateTableItems.accept(dataSource)
@@ -206,7 +206,7 @@ class ReportViewModel: MGTBaseViewModel {
     
     public func viewModelFor(_ vc: inout UIViewController, flag: String?) {
         if let vc = vc as? ReportTimeListVC {
-            vc.viewModel = ReportTimeListViewModel(project: privateReportTimeList!.project, times: privateReportTimeList!.times)
+            vc.viewModel = ReportTimeListViewModel(project: privateReportTimeListData!.project, times: privateReportTimeListData!.times)
         }
         if let vc = vc as? DatePickerVC {
             if flag == Flags.pickDateFrom.rawValue {

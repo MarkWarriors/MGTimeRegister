@@ -1,5 +1,5 @@
 //
-//  ProjectHeaderCell.swift
+//  TableHeaderTimeCell.swift
 //  MGTimeRegister
 //
 //  Created by Marco Guerrieri on 04/07/18.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ProjectHeaderCell: UITableViewCell {
+class TableHeaderTimeCell: UITableViewCell {
     
-    @IBOutlet weak var projectLbl: UILabel!
+    @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var hoursLbl: UILabel!
     
-    public static let identifier = "ProjectHeaderCell"
+    public static let identifier = "TableHeaderTimeCell"
     
 }

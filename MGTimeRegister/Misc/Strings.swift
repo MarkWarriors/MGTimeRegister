@@ -31,6 +31,7 @@ class Strings {
     struct Commons {
         public static let yes = "Commons.yes".localized
         public static let no = "Commons.no".localized
+        public static let noNotes = "Commons.noNotes".localized
         public static let ok = "Commons.ok".localized
         public static let confirm = "Commons.confirm".localized
         public static let cancel = "Commons.cancel".localized

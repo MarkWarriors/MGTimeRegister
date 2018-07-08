@@ -8,22 +8,23 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class ReportTimeListViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
     private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
-    private let privateDataSource = BehaviorRelay<[Time]>(value: [])
-    
+    private let privateTableItems = BehaviorRelay<[TimeReportData]>(value: [])
     private var privateSelectedTime = BehaviorRelay<Time?>(value: nil)
     private let currentProject : Project
+    private var privateTimes = BehaviorRelay<[Time]>(value: [])
     
-    var dataSource : Observable<[Time]> {
-        return self.privateDataSource.asObservable()
+    var tableItems : Observable<[TimeReportData]> {
+        return self.privateTableItems.asObservable()
     }
     
     init(project: Project, times: [Time]) {
-        self.privateDataSource.accept(times)
+        self.privateTimes.accept(times)
         self.currentProject = project
     }
     
@@ -32,10 +33,10 @@ class ReportTimeListViewModel: MGTBaseViewModel {
     }
     
     var totalHoursText : Observable<String> {
-        return self.privateDataSource
+        return privateTimes
             .asObservable()
-            .map({ (timesArray) -> String in
-                return String(format: "%ld H", timesArray.reduce(0, { $0 + $1.hours }))
+            .map({ (timeArray) -> String in
+                return String(format: "%ld H", timeArray.reduce(0, { $0 + $1.hours }))
             })
             .asObservable()
     }
@@ -44,8 +45,43 @@ class ReportTimeListViewModel: MGTBaseViewModel {
         return self.privatePerformSegue.asObservable()
     }
     
+    func projectHeaderTextFor(section: Int) -> String {
+        return self.privateTableItems.value[section].header.date
+    }
+    
+    func projectHeaderHoursFor(section: Int) -> String {
+        return "\(self.privateTableItems.value[section].header.totalHours) h"
+    }
+    
+    let itemsToCell = RxTableViewSectionedReloadDataSource<TimeReportData>(
+        configureCell: { (_, tv, indexPath, time) in
+            let cell = tv.dequeueReusableCell(withIdentifier: TimeTableViewCell.identifier) as! TimeTableViewCell
+            cell.notesLbl.text = time.notes
+            cell.hoursLbl.text = "\(time.hours)"
+            return cell
+    })
+
+    
     public func initBindings(fetchDataSource: Driver<Void>,
                              itemDeleted: Driver<Time>){
+        
+        privateTimes
+            .asObservable()
+            .bind { (times) in
+                var timeReportDict : [String:[Time]] = [:]
+                times.forEach { (time) in
+                    let date = (time.date! as Date).toStringDate()
+                    var entry = timeReportDict.removeValue(forKey: date) ?? []
+                    entry.append(time)
+                    timeReportDict[date] = entry
+                }
+                let items = timeReportDict.map { (date, times) -> TimeReportData in
+                    let dateHours = DateHours.init(date: date, totalHours: Int32(times.reduce(0, { $0 + $1.hours })))
+                    return TimeReportData.init(header: dateHours, items: times)
+                }
+                self.privateTableItems.accept(items)
+            }.disposed(by: disposeBag)
+        
         privateSelectedTime
             .filter{ $0 != nil }
             .bind(onNext: { [weak self] (time) in
@@ -56,7 +92,7 @@ class ReportTimeListViewModel: MGTBaseViewModel {
         itemDeleted
             .drive(onNext: { [weak self] (time) in
                 ModelController.shared.managedObjectContext.performAndWait { [weak self] in
-                    self?.privateDataSource.accept((self?.privateDataSource.value.filter{ $0 != time }) ?? [] )
+                    self?.privateTimes.accept((self?.privateTimes.value.filter { $0 != time })!)
                     ModelController.shared.managedObjectContext.delete(time)
                     ModelController.shared.save()
                 }
@@ -64,13 +100,4 @@ class ReportTimeListViewModel: MGTBaseViewModel {
             .disposed(by: disposeBag)
     }
     
-    
-    public func viewModelFor(_ vc: inout UIViewController) {
-//        if let vc = vc as? NewTimeEntryVC {
-//            vc.viewModel = NewTimeEntryViewModel(project: privateSelectedProject.value!)
-//        }
-//        else if let vc = vc as? NewProjectVC {
-//            vc.viewModel = NewProjectViewModel(èroject: privateCurrentProject, onProjectSelected: privateSelectedProject)
-//        }
-    }
 }
