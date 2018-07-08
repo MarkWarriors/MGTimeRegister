@@ -260,4 +260,53 @@ class LoginViewModelTest: XCTestCase {
         XCTAssertNotNil(SharedInstance.shared.currentUser)
     }
     
+    func testAutologin() {
+        
+        if createdUser == nil {
+            createdUser = ModelController.shared.new(forEntity: ModelController.Entity.user) as? User
+            createdUser!.username = testUsername
+            createdUser!.password = testPassword
+        }
+        SharedInstance.shared.loginUser(createdUser!, storeCredential: true)
+        
+        let loadingExpectation = self.expectation(description: "show and dismiss loading expectation")
+        loadingExpectation.expectedFulfillmentCount = 2
+        
+        let errorExpectation = self.expectation(description: "show error expectation")
+        errorExpectation.isInverted = true
+        
+        let confirmExpectation = self.expectation(description: "show confirm expectation")
+        confirmExpectation.isInverted = true
+        
+        let segueExpectation = self.expectation(description: "segue expectation")
+        
+        loginVM?.isLoading.bind(onNext: { (loading) in
+            if loading && loadingExpectation.expectationCount == 0{
+                loadingExpectation.fulfillAndCount()
+            }
+            else if !loading && loadingExpectation.expectationCount == 1 {
+                loadingExpectation.fulfillAndCount()
+            }
+        }).disposed(by: disposeBag)
+        
+        loginVM?.error.bind(onNext: { (error) in
+            errorExpectation.fulfill()
+        }).disposed(by: disposeBag)
+        
+        loginVM?.confirmAction.bind(onNext: { (error) in
+            confirmExpectation.fulfill()
+        }).disposed(by: disposeBag)
+        
+        loginVM?.performSegue.bind(onNext: { (segue) in
+            XCTAssertNotNil(segue, "nil segue")
+            segueExpectation.fulfill()
+        }).disposed(by: disposeBag)
+        
+        viewDidAppear.accept(Void())
+        
+        wait(for: [loadingExpectation, errorExpectation, confirmExpectation, segueExpectation], timeout: 3)
+        
+        XCTAssertNotNil(SharedInstance.shared.currentUser)
+    }
+    
 }
