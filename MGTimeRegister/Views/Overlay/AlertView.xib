@@ -16,16 +16,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfG-Ry-5BS">
-                    <rect key="frame" x="16" y="160" width="288" height="160"/>
+                    <rect key="frame" x="16" y="164" width="288" height="152"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="asH-ZH-pvt">
-                            <rect key="frame" x="16" y="100" width="256" height="44"/>
+                            <rect key="frame" x="16" y="100" width="256" height="36"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxq-rz-15x" customClass="MGButton" customModule="MGTimeRegister" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="120" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="36"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <state key="normal" title="ANNULLA">
-                                        <color key="titleColor" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleColor" red="1" green="0.0" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -35,7 +35,7 @@
                                             <real key="value" value="1"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                            <color key="value" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="value" red="1" green="0.0" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
@@ -43,8 +43,8 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wx-ZR-EYa" customClass="MGButton" customModule="MGTimeRegister" customModuleProvider="target">
-                                    <rect key="frame" x="136" y="0.0" width="120" height="44"/>
-                                    <color key="backgroundColor" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <rect key="frame" x="136" y="0.0" width="120" height="36"/>
+                                    <color key="backgroundColor" red="1" green="0.0" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <state key="normal" title="INVIA">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
@@ -59,7 +59,7 @@
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="44" id="HJn-hB-lYM"/>
+                                <constraint firstAttribute="height" constant="36" id="HJn-hB-lYM"/>
                             </constraints>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFE-Kd-pom">

@@ -13,7 +13,7 @@ import RxCocoa
 class NewCompanyViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
-    private let privateDismissModal = PublishSubject<(Void)>()
+    private let privateDismissModal = PublishRelay<(Void)>()
     private let privateCompanyName = BehaviorRelay<String>(value: "")
     private let privateCompanySelected = PublishRelay<Company>()
     
@@ -41,13 +41,13 @@ class NewCompanyViewModel: MGTBaseViewModel {
         
         closeBtnPressed
             .drive(onNext: { [weak self] in
-                self?.privateDismissModal.onNext(Void())
+                self?.privateDismissModal.accept(Void())
             })
             .disposed(by: self.disposeBag)
         
         saveBtnPressed
             .drive(onNext: { [weak self] in
-                self?.privateDismissModal.onNext(Void())
+                self?.privateDismissModal.accept(Void())
                 self?.createCompany()
             })
             .disposed(by: self.disposeBag)
@@ -59,7 +59,7 @@ class NewCompanyViewModel: MGTBaseViewModel {
             company.name = privateCompanyName.value
             SharedInstance.shared.currentUser?.addToCompanies(company)
             ModelController.shared.save()
-            self.privateDismissModal.onNext(Void())
+            self.privateDismissModal.accept(Void())
             self.privateCompanySelected.accept(company)
         }
     }

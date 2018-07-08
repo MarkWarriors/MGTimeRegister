@@ -13,7 +13,7 @@ import RxCocoa
 class NewTimeEntryViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
-    private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
+    private let privatePerformSegue = PublishRelay<(MGTViewModelSegue)>()
     private let privateHoursDataSource = BehaviorRelay<[Int16]>(value: [])
     
     private let privateDate = BehaviorRelay<Date?>(value: nil)
@@ -69,7 +69,7 @@ class NewTimeEntryViewModel: MGTBaseViewModel {
         
         saveTimeEntry.drive(onNext: { [weak self] in
             self?.saveTimeEntry()
-            self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.AddTimeEntry.unwindToTabBar))
+            self?.privatePerformSegue.accept(MGTViewModelSegue.init(identifier: Segues.Home.AddTimeEntry.unwindToTabBar))
         })
         .disposed(by: disposeBag)
         

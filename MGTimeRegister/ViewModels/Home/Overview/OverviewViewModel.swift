@@ -18,7 +18,7 @@ class OverviewViewModel: MGTBaseViewModel {
     private let privateCompaniesText = BehaviorRelay<String>(value: "0")
     private let privateProjectsText = BehaviorRelay<String>(value: "0")
     private let privateEffortText = BehaviorRelay<String>(value: "0")
-    private let privateConfirm = PublishSubject<(MGTConfirm)>()
+    private let privateConfirm = PublishRelay<(MGTConfirm)>()
     
     
     var usernameText : Observable<String> {
@@ -45,14 +45,13 @@ class OverviewViewModel: MGTBaseViewModel {
                              logoutBtn: Driver<Void>){
         logoutBtn
             .drive(onNext: { [weak self] _ in
-                self?.privateConfirm
-                    .onNext((MGTConfirm.init(title: Strings.Logout.logoutUserTitle,
-                                             message: Strings.Logout.logoutUserText,
-                                             callback: { (confirm) in
-                                                if confirm {
-                                                    SharedInstance.shared.logout()
-                                                }
-                    })))
+                self?.privateConfirm.accept(MGTConfirm.init(title: Strings.Logout.logoutUserTitle,
+                                                            message: Strings.Logout.logoutUserText,
+                                                            callback: { (confirm) in
+                                                                if confirm {
+                                                                    SharedInstance.shared.logout()
+                                                                }
+                }))
             })
             .disposed(by: disposeBag)
         

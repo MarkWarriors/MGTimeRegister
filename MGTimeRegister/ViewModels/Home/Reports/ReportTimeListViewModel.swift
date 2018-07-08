@@ -13,7 +13,7 @@ import RxDataSources
 class ReportTimeListViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
-    private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
+    private let privatePerformSegue = PublishRelay<(MGTViewModelSegue)>()
     private let privateTableItems = BehaviorRelay<[TimeReportData]>(value: [])
     private var privateSelectedTime = BehaviorRelay<Time?>(value: nil)
     private let currentProject : Project
@@ -89,7 +89,7 @@ class ReportTimeListViewModel: MGTBaseViewModel {
         privateSelectedTime
             .filter{ $0 != nil }
             .bind(onNext: { [weak self] (time) in
-                self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.Reports.toTimeDetails))
+                self?.privatePerformSegue.accept(MGTViewModelSegue.init(identifier: Segues.Home.Reports.toTimeDetails))
             })
             .disposed(by: disposeBag)
 

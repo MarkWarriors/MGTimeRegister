@@ -13,10 +13,10 @@ import RxCocoa
 class LoginViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
-    private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
+    private let privatePerformSegue = PublishRelay<(MGTViewModelSegue)>()
     private let privateIsLoading = PublishRelay<Bool>()
-    private let privateError = PublishSubject<(MGTError)>()
-    private let privateConfirm = PublishSubject<(MGTConfirm)>()
+    private let privateError = PublishRelay<(MGTError)>()
+    private let privateConfirm = PublishRelay<(MGTConfirm)>()
     private let privateUsername = BehaviorRelay<String>(value: "")
     private let privatePassword = BehaviorRelay<String>(value: "")
     private let privateSaveCredentials = BehaviorRelay<Bool>(value: false)
@@ -78,27 +78,21 @@ class LoginViewModel: MGTBaseViewModel {
         privateIsLoading.accept(true)
         
         if privateUsername.value == "" && privatePassword.value == "" {
-            privateError
-                .onNext(
-                    MGTError.init(title: Strings.Errors.error,
-                                  description: Strings.Errors.incompleteForm)
-            )
+            privateError.accept(MGTError.init(title: Strings.Errors.error,
+                                  description: Strings.Errors.incompleteForm))
         }
     
         if let storedUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue, predicate: NSPredicate.init(format: "username = %@", privateUsername.value, privatePassword.value)).first as? User {
             if storedUser.password != privatePassword.value {
-                privateError
-                    .onNext(
-                        MGTError.init(title: Strings.Errors.error,
-                                      description: Strings.Errors.invalidCredentials)
-                    )
+                privateError.accept(MGTError.init(title: Strings.Errors.error,
+                                      description: Strings.Errors.invalidCredentials))
             }
             else {
                 loginUser(user: storedUser, storeCredential: privateSaveCredentials.value || autologin)
             }
         }
         else {
-            privateConfirm.onNext(MGTConfirm.init(title: Strings.Login.createUserTitle,
+            privateConfirm.accept(MGTConfirm.init(title: Strings.Login.createUserTitle,
                                                   message: Strings.Login.createUserMessage(username: privateUsername.value),
                                                   callback: { [weak self] (confirm) in
                                                     if confirm {
@@ -113,9 +107,7 @@ class LoginViewModel: MGTBaseViewModel {
     private func loginUser(user: User, storeCredential: Bool){
         SharedInstance.shared.loginUser(user, storeCredential: storeCredential)
 
-        self.privatePerformSegue.onNext(
-            MGTViewModelSegue.init(identifier: Segues.Login.toHome)
-        )
+        self.privatePerformSegue.accept(MGTViewModelSegue.init(identifier: Segues.Login.toHome))
     }
     
     private func createUser(){

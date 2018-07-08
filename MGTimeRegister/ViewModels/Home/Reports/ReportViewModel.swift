@@ -20,7 +20,7 @@ enum Flags : String {
 class ReportViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
-    private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
+    private let privatePerformSegue = PublishRelay<(MGTViewModelSegue)>()
     private let privateTableItems = BehaviorRelay<[MainReportData]>(value: [])
     private let privateDateFrom = BehaviorRelay<Date?>(value: Date().changeOfWeeks(-1))
     private let privateDateTo = BehaviorRelay<Date?>(value: Date())
@@ -109,13 +109,13 @@ class ReportViewModel: MGTBaseViewModel {
         
         dateFromBtnPressed
             .drive(onNext: { [weak self] (_) in
-                self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.Reports.pickDate, flag: Flags.pickDateFrom.rawValue))
+                self?.privatePerformSegue.accept(MGTViewModelSegue.init(identifier: Segues.Home.Reports.pickDate, flag: Flags.pickDateFrom.rawValue))
             })
             .disposed(by: self.disposeBag)
         
         dateToBtnPressed
             .drive(onNext: { [weak self] (_) in
-                self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.Reports.pickDate, flag: Flags.pickDateTo.rawValue))
+                self?.privatePerformSegue.accept(MGTViewModelSegue.init(identifier: Segues.Home.Reports.pickDate, flag: Flags.pickDateTo.rawValue))
             })
             .disposed(by: self.disposeBag)
         
@@ -128,7 +128,7 @@ class ReportViewModel: MGTBaseViewModel {
             let times = (Array(projectHours.project.times?.filtered(using: NSCompoundPredicate.init(andPredicateWithSubpredicates: predicateArray)) ?? []) as! [Time]).sorted(by: { ($0.date! as Date) < ($1.date! as Date) })
             
             self?.privateReportTimeListData = (project: project, times: times)
-            self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.Reports.toReportTimeList))
+            self?.privatePerformSegue.accept(MGTViewModelSegue.init(identifier: Segues.Home.Reports.toReportTimeList))
         })
         .disposed(by: disposeBag)
 

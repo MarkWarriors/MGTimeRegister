@@ -13,7 +13,7 @@ import RxCocoa
 class SelectProjectViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
-    private let privatePerformSegue = PublishSubject<(MGTViewModelSegue)>()
+    private let privatePerformSegue = PublishRelay<(MGTViewModelSegue)>()
     private let privateDataSource = BehaviorRelay<[Project]>(value: [])
     
     private var privateSelectedProject = BehaviorRelay<Project?>(value: nil)
@@ -42,7 +42,7 @@ class SelectProjectViewModel: MGTBaseViewModel {
         privateSelectedProject
             .filter{ $0 != nil }
             .bind(onNext: { [weak self] (project) in
-                self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.AddTimeEntry.newTimeEntry))
+                self?.privatePerformSegue.accept(MGTViewModelSegue.init(identifier: Segues.Home.AddTimeEntry.newTimeEntry))
         })
         .disposed(by: disposeBag)
         
@@ -59,7 +59,7 @@ class SelectProjectViewModel: MGTBaseViewModel {
         
         newProjectBtnPressed
             .drive(onNext: { [weak self] in
-                self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.AddTimeEntry.newProject))
+                self?.privatePerformSegue.accept(MGTViewModelSegue.init(identifier: Segues.Home.AddTimeEntry.newProject))
             })
             .disposed(by: self.disposeBag)
     }

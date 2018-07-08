@@ -12,7 +12,7 @@ import RxCocoa
 class NewProjectViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
-    private let privateDismissModal = PublishSubject<(Void)>()
+    private let privateDismissModal = PublishRelay<(Void)>()
     private let privateCurrentCompany = BehaviorRelay<Company?>(value: nil)
     
     private let privateProjectName = BehaviorRelay<String>(value: "")
@@ -48,13 +48,13 @@ class NewProjectViewModel: MGTBaseViewModel {
         
         closeBtnPressed
             .drive(onNext: { [weak self] in
-                self?.privateDismissModal.onNext(Void())
+                self?.privateDismissModal.accept(Void())
             })
             .disposed(by: self.disposeBag)
         
         saveBtnPressed
             .drive(onNext: { [weak self] in
-                self?.privateDismissModal.onNext(Void())
+                self?.privateDismissModal.accept(Void())
                 self?.createProject()
             })
             .disposed(by: self.disposeBag)
