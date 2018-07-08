@@ -125,7 +125,7 @@ class ReportViewModel: MGTBaseViewModel {
                                                                             dateTo: self?.privateDateTo.value?.startOfDay()) ?? []
             
             let project = projectHours.project
-            let times = Array(projectHours.project.times?.filtered(using: NSCompoundPredicate.init(andPredicateWithSubpredicates: predicateArray)) ?? []) as! [Time]
+            let times = (Array(projectHours.project.times?.filtered(using: NSCompoundPredicate.init(andPredicateWithSubpredicates: predicateArray)) ?? []) as! [Time]).sorted(by: { ($0.date! as Date) < ($1.date! as Date) })
             
             self?.privateReportTimeList = (project: project, times: times)
             self?.privatePerformSegue.onNext(MGTViewModelSegue.init(identifier: Segues.Home.Reports.toReportTimeList))
@@ -141,7 +141,6 @@ class ReportViewModel: MGTBaseViewModel {
         if text != nil && (text?.count)! > 0 {
             predicateArray.append(NSPredicate.init(format: "SUBQUERY(project, $p, $p.name BEGINSWITH[c] %@).@count != 0 OR SUBQUERY(project, $p, SUBQUERY($p.company, $c, $c.name BEGINSWITH[c] %@).@count != 0) != NULL", text!, text!))
         }
-        
         if dateFrom != nil {
             predicateArray.append(NSPredicate.init(format: "date >= %@", dateFrom! as NSDate))
         }
@@ -149,6 +148,7 @@ class ReportViewModel: MGTBaseViewModel {
         if dateTo != nil {
             predicateArray.append(NSPredicate.init(format: "date <= %@", dateTo! as NSDate))
         }
+        
         return predicateArray
     }
     
@@ -162,7 +162,8 @@ class ReportViewModel: MGTBaseViewModel {
             
             let sortDescriptors : [NSSortDescriptor] = [
                 NSSortDescriptor.init(key: "project.company.name", ascending: true, selector: #selector(NSString.caseInsensitiveCompare)),
-                NSSortDescriptor.init(key: "project.name", ascending: true, selector: #selector(NSString.caseInsensitiveCompare))
+                NSSortDescriptor.init(key: "project.name", ascending: true, selector: #selector(NSString.caseInsensitiveCompare)),
+                NSSortDescriptor.init(key: "date", ascending: true)
             ]
                                                        
             

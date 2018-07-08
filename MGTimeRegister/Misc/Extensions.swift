@@ -488,11 +488,11 @@ extension Date{
     }
     
     public func toStringDateAndHours() -> String {
-        return self.toString(format: "yyyy-MM-dd hh:mm:ss")
+        return self.toString(format: "dd/MM/yyyy hh:mm:ss")
     }
     
     public func toStringDate() -> String {
-        return self.toString(format: "yyyy-MM-dd")
+        return self.toString(format: "dd/MM/yyyy")
     }
     
     public func changeOfMinutes(_ minutes: Int) -> Date{
