@@ -32,6 +32,10 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
         bindViewModel()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     func configureTableView(){
         projectsTableView.tableFooterView = UIView()
         projectsTableView.register(UINib.init(nibName: ProjectTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ProjectTableViewCell.identifier)

@@ -56,9 +56,11 @@ class ReportTimeListViewModel: MGTBaseViewModel {
     let itemsToCell = RxTableViewSectionedReloadDataSource<TimeReportData>(
         configureCell: { (_, tv, indexPath, time) in
             let cell = tv.dequeueReusableCell(withIdentifier: TimeTableViewCell.identifier) as! TimeTableViewCell
-            cell.notesLbl.text = time.notes
-            cell.hoursLbl.text = "\(time.hours)"
+            cell.setModel(time)
             return cell
+    },
+        canEditRowAtIndexPath: { _,_  in
+            return true
     })
 
     

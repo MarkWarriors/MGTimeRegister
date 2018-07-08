@@ -27,7 +27,7 @@ class TimeTableViewCell: UITableViewCell {
             notesLbl.textColor = UIColor.black
         }
         else {
-            notesLbl.text =  Strings.Commons.no
+            notesLbl.text =  Strings.Commons.noNotes
             notesLbl.textColor = UIColor.gray
         }
     }

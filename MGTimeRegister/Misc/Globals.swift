@@ -27,7 +27,7 @@ struct Globals {
     }
     
     struct Colors {
-        static let red : UIColor = UIColor.init(red: 255.0/255.0, green: 44.0/255.0, blue: 89.0/255.0, alpha: 1)
+        static let red : UIColor = UIColor.init(red: 255.0/255.0, green: 0.0/255.0, blue: 39.0/255.0, alpha: 1)
     }    
     
 }

@@ -34,7 +34,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.154" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Dxe-WR-GOb" secondAttribute="trailing" constant="8" id="1eq-dY-vVZ"/>
                             <constraint firstItem="Dxe-WR-GOb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Efd-Dj-Wfe" secondAttribute="trailing" constant="16" id="81D-Uz-UI9"/>
@@ -51,7 +51,7 @@
                     <constraint firstItem="cmE-Pc-pZF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="siK-9c-Vc3"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="1" green="0.1714083025" blue="0.34742053340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="0.0" blue="0.154" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="hoursLbl" destination="Dxe-WR-GOb" id="7YK-1G-eXc"/>
