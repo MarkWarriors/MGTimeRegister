@@ -99,7 +99,7 @@
                                     <constraint firstAttribute="height" constant="44" id="pPB-wq-Htg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Login">
+                                <state key="normal" title="Login / Create">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
