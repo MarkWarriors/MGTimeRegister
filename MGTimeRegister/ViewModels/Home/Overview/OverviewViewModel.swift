@@ -14,10 +14,10 @@ import RxCocoa
 class OverviewViewModel: MGTBaseViewModel {
     var disposeBag: DisposeBag = DisposeBag()
     
-    private let privateUsernameText = BehaviorRelay<String>(value: "")
-    private let privateCompaniesText = BehaviorRelay<String>(value: "0")
-    private let privateProjectsText = BehaviorRelay<String>(value: "0")
-    private let privateEffortText = BehaviorRelay<String>(value: "0")
+    private let privateUsernameText = PublishRelay<String>()
+    private let privateCompaniesText = PublishRelay<String>()
+    private let privateProjectsText = PublishRelay<String>()
+    private let privateEffortText = PublishRelay<String>()
     private let privateConfirm = PublishRelay<(MGTConfirm)>()
     
     

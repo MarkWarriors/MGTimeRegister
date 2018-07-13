@@ -168,7 +168,6 @@ class ReportViewModel: MGTBaseViewModel {
                                                        
             
             var sectionsMap : [Company:[Project:Int32]] = [:]
-            
             if let times = ModelController.shared.listAllElements (
                 forEntityName: ModelController.Entity.time.rawValue,
                 predicate: NSCompoundPredicate.init(andPredicateWithSubpredicates: predicateArray),

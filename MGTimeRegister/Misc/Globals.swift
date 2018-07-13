@@ -9,24 +9,24 @@
 import Foundation
 import UIKit
 
-struct Globals {
+class Globals {
 
-    struct PrefsKeys {
+    class PrefsKeys {
         static let loggedUsername : String = "loggedUsername"
         static let loggedPassword : String = "loggedPassword"
     }
     
-    struct Timing {
+    class Timing {
         static let transitionFromBottom : Double = 0.3
         static let overlayAnimation : Double = 0.3
         static let toggleAnimation : Double = 0.3
     }
     
-    struct Database {
+    class Database {
         static let dbVersion : UInt64 = 1
     }
     
-    struct Colors {
+    class Colors {
         static let red : UIColor = UIColor.init(red: 255.0/255.0, green: 0.0/255.0, blue: 39.0/255.0, alpha: 1)
     }    
     
