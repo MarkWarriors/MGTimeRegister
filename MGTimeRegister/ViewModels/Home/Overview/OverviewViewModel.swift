@@ -58,13 +58,17 @@ class OverviewViewModel: MGTBaseViewModel {
         fetchDataSource
             .drive(onNext: { [weak self] (_) in
                 ModelController.shared.managedObjectContext.performAndWait {
-                    let companies = ModelController.shared.countElements(forEntityName: ModelController.Entity.company.rawValue)
+                    let predicateCompanies = NSPredicate.init(format: "SUBQUERY(user, $u, $u.username == %@).@count != 0", (SharedInstance.shared.currentUser?.username)!)
+                    let predicateProjects = NSPredicate.init(format: "SUBQUERY(company, $c, SUBQUERY($c.user, $u, $u.username == %@).@count != 0) != NULL", (SharedInstance.shared.currentUser?.username)!)
+                    let predicateEffort =  NSPredicate.init(format: "SUBQUERY(project, $p, SUBQUERY($p.company, $c, SUBQUERY($c.user, $u, $u.username == %@).@count != 0) != NULL) != NULL", (SharedInstance.shared.currentUser?.username)!)
+                    
+                    let companies = ModelController.shared.countElements(forEntityName: ModelController.Entity.company.rawValue, predicate: predicateCompanies)
                     self?.privateCompaniesText.accept(String(companies))
                     
-                    let projects = ModelController.shared.countElements(forEntityName: ModelController.Entity.project.rawValue)
+                    let projects = ModelController.shared.countElements(forEntityName: ModelController.Entity.project.rawValue, predicate: predicateProjects)
                     self?.privateProjectsText.accept(String(projects))
                     
-                    let effort = ModelController.shared.sum(forEntityName: ModelController.Entity.time.rawValue, column: "hours")
+                    let effort = ModelController.shared.sum(forEntityName: ModelController.Entity.time.rawValue, column: "hours", predicate: predicateEffort)
                     self?.privateEffortText.accept(String(effort))
                 }
             })

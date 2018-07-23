@@ -100,8 +100,12 @@ public class ModelController : NSObject {
         return elements as? [T] ?? [T]()
     }
 
-    func countElements(forEntityName entityName: String) -> Int{
-        let count = try? self.managedObjectContext.count(for:  NSFetchRequest(entityName: entityName))
+    func countElements(forEntityName entityName: String, predicate: NSPredicate? = nil) -> Int{
+        let query = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        if predicate != nil {
+            query.predicate = predicate
+        }
+        let count = try? self.managedObjectContext.count(for:  query)
         return count ?? 0
     }
     

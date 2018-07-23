@@ -122,7 +122,8 @@ class ReportViewModel: MGTBaseViewModel {
         selectedItem.drive(onNext: { [weak self] (projectHours) in
             let predicateArray : [NSPredicate] = self?.createFetchPredicate(text: nil,
                                                                             dateFrom: self?.privateDateFrom.value?.startOfDay(),
-                                                                            dateTo: self?.privateDateTo.value?.startOfDay()) ?? []
+                                                                            dateTo: self?.privateDateTo.value?.endOfDay(),
+                                                                            forUser: nil) ?? []
             
             let project = projectHours.project
             let times = (Array(projectHours.project.times?.filtered(using: NSCompoundPredicate.init(andPredicateWithSubpredicates: predicateArray)) ?? []) as! [Time]).sorted(by: { ($0.date! as Date) < ($1.date! as Date) })
@@ -134,9 +135,14 @@ class ReportViewModel: MGTBaseViewModel {
 
     }
     
-    private func createFetchPredicate(text: String?, dateFrom: Date?, dateTo: Date?) -> [NSPredicate] {
+    private func createFetchPredicate(text: String?, dateFrom: Date?, dateTo: Date?, forUser user: User?) -> [NSPredicate] {
         var predicateArray : [NSPredicate] = []
+        
         predicateArray.append(NSPredicate.init(format: "hours > 0"))
+        
+        if user != nil {
+            predicateArray.append(NSPredicate.init(format: "SUBQUERY(project, $p, SUBQUERY($p.company, $c, SUBQUERY($c.user, $u, $u.username == %@).@count != 0) != NULL) != NULL", user!.username!))
+        }
         
         if text != nil && (text?.count)! > 0 {
             predicateArray.append(NSPredicate.init(format: "SUBQUERY(project, $p, $p.name BEGINSWITH[c] %@).@count != 0 OR SUBQUERY(project, $p, SUBQUERY($p.company, $c, $c.name BEGINSWITH[c] %@).@count != 0) != NULL", text!, text!))
@@ -157,7 +163,8 @@ class ReportViewModel: MGTBaseViewModel {
 
             let predicateArray : [NSPredicate] = self?.createFetchPredicate(text: text,
                                                                             dateFrom: dateFrom,
-                                                                            dateTo: dateTo) ?? []
+                                                                            dateTo: dateTo,
+                                                                            forUser: SharedInstance.shared.currentUser) ?? []
             
             
             let sortDescriptors : [NSSortDescriptor] = [

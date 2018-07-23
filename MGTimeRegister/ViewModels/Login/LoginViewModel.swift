@@ -81,7 +81,7 @@ class LoginViewModel: MGTBaseViewModel {
             privateError.accept(MGTError.init(title: Strings.Errors.error,
                                   description: Strings.Errors.incompleteForm))
         }
-    
+        
         if let storedUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue, predicate: NSPredicate.init(format: "username = %@", privateUsername.value, privatePassword.value)).first as? User {
             if storedUser.password != privatePassword.value {
                 privateError.accept(MGTError.init(title: Strings.Errors.error,
