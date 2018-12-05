@@ -80,6 +80,7 @@ class ReportVC: MGTBaseVC, ViewModelBased, UITableViewDelegate {
         
     }
     
+    
     @IBAction func toggleFilterBtnPressed(_ sender: Any) {
         if self.filterViewHeight.constant == filterViewClosedHeight {
             // closed

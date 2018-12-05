@@ -6,6 +6,7 @@
 //  Copyright © 2018 Marco Guerrieri. All rights reserved.
 //
 
+
 import UIKit
 
 public class OverlayView : UIView {
@@ -18,10 +19,7 @@ public class OverlayView : UIView {
         super.init(coder: aDecoder)!
     }
     
-    
 
-    
-    
     internal func makeViewDisappear(){
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
             DispatchQueue.main.async {

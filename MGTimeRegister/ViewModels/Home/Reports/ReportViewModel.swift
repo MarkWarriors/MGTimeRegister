@@ -181,7 +181,7 @@ class ReportViewModel: MGTBaseViewModel {
                 descriptors: sortDescriptors) as? [Time], times.count > 0{
                 
                 times.forEach({ (time) in
-                    let company = time.project!.company!
+                    let company = time.project?.company
                     let project = time.project!
                     // Faster code, see https://stackoverflow.com/questions/42486686/swiftier-swift-for-add-to-array-or-create-if-not-there
                     var projDict = sectionsMap.removeValue(forKey: company) ?? [:]

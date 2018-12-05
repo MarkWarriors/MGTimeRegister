@@ -89,7 +89,7 @@
 		6B90F95725FA9E8ABCD699D1 /* Pods_MGTimeRegister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MGTimeRegister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90358B8420E98D0700AC726B /* MGTimeRegister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGTimeRegister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90358BC720E98D0700AC726B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		90358BC820E98D0700AC726B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
+		90358BC820E98D0700AC726B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		90358BD020E98D0800AC726B /* MGTimeRegisterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGTimeRegisterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90358BD620E98D0800AC726B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90358BEE20E98DB400AC726B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };

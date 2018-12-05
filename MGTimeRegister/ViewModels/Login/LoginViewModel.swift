@@ -80,6 +80,7 @@ class LoginViewModel: MGTBaseViewModel {
         if privateUsername.value == "" && privatePassword.value == "" {
             privateError.accept(MGTError.init(title: Strings.Errors.error,
                                   description: Strings.Errors.incompleteForm))
+            return
         }
         
         if let storedUser = ModelController.shared.listAllElements(forEntityName: ModelController.Entity.user.rawValue, predicate: NSPredicate.init(format: "username = %@", privateUsername.value, privatePassword.value)).first as? User {

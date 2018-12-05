@@ -20,7 +20,7 @@ class OverviewViewModel: MGTBaseViewModel {
     private let privateEffortText = PublishRelay<String>()
     private let privateConfirm = PublishRelay<(MGTConfirm)>()
     
-    
+    @available(iOS 3.0, *)
     var usernameText : Observable<String> {
         return Observable.just((SharedInstance.shared.currentUser?.username)!)
     }

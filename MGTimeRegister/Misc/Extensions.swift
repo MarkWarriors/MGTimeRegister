@@ -140,6 +140,37 @@ class MGRoundImageView: UIImageView {
     
 }
 
+
+@IBDesignable
+class MGView: UIView {
+
+}
+
+@IBDesignable
+class MGButton: UIButton {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
+    override open func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+    }
+    
+}
+
 @IBDesignable
 class MGRoundButton: UIButton {
     
@@ -169,10 +200,6 @@ class MGRoundButton: UIButton {
 
 @IBDesignable
 class MGView: UIView {
-}
-
-@IBDesignable
-class MGButton: UIButton {
 }
 
 @IBDesignable
